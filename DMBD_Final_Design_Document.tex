@@ -1,114 +1,181 @@
 \documentclass[12pt,a4paper]{report}
-\usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\parindent 0pt
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{indentfirst}
+\usepackage{courier}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\parindent 15pt
 \parskip 2ex
+
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+
 \author{Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
 \title{Dungeon Master Battle Duels}
 \begin{document}
 	
-	\maketitle
+\maketitle
+
+\tableofcontents
 	
-	\tableofcontents
+\newpage
+\chapter*{Introduction}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Role-playing games are games where players act as their characters. Usually in person, around a table, and controlled by the players speaking their actions in turn. This might not always be done by speaking in-character, but rather by following this basic structure:
+
+\begin{enumerate}
+	\item The GM describes the environment.
+	\item The players describe what they want to do.
+	\item The GM narrates the results of the characters? actions.
+\end{enumerate}
+
+There are millions of possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character?s path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game. 
+This project presents a service that can be used by both GMs and PCs alike to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation meets the requirements they have set for themselves. The initial scope of this project will seek to develop a service that takes the rules and gameplay of the Dungeon and Dragons 5th Edition D20 System, and allows PC or GM to import their character's/monsters' statistics and equipment, then play against an automated opponent. To further enhance a user?s ability to test and refine encounters and PCs, users will be able to upload and share their encounters for others to try.
+
+\newpage
+\chapter*{Proposed Solution}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Proposed Solution}
 	
-	\newpage
-	\section{Introduction}
-	Throughout history, man has always desired to be, like, a weird lizard/dragon hybrid thing.
+\newpage
+\chapter*{Broader Impact}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Broader Impact}
+
+Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
 	
-	\newpage
-	\section{Proposed Solution}
+\newpage
+\chapter*{Personal Interests}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Personal Interests}
+	\section{Jacob Spigle}
+	\begin{wrapfigure}{r}{0\textwidth}
+		\includegraphics[scale=0.25]{Jacob_Spigle}
+	\end{wrapfigure}
+	I discovered role-playing games like Dungeons \& Dragons early this year. After playing video games since childhood, D\&D was a breath of fresh air; a way to mix the excitement of creating a character, leveling up, deciding your actions, along with an openness that allows nearly infinite stories, infinite worlds, and the tools to create those stories and worlds yourself. Those infinite possibilities can spur creations that might not work as well in-game as you thought. I have written campaigns and characters that on paper seemed great, but when brought to the table were found lacking. When I searched through the many different forums and groups I had joined after I started playing D\&D, and scouring the internet for a way to playtest my creations, I was surprised to found that no such tool existed. This service is something I can actually use and wish that I had during the creation of campaigns I have written, and that is why I believe others will find use in it as well.
 	
-	\newpage
-	\section{Broader Impact}
+	\section{Zachary Painter}
+	\begin{wrapfigure}{l}{0\textwidth}
+		\includegraphics[scale=0.25]{Zachary_Painter}
+	\end{wrapfigure}
+
 	
-	\newpage
-	\section{Personal Interests}
-		\subsection{Jacob Spigle}
-		\subsection{Zachary Painter}
-		\subsection{David Akridge}
-		\subsection{Hunter Figueroa}
+	\section{David Akridge}
+	\begin{wrapfigure}{r}{0\textwidth}
+		\includegraphics[scale=0.25]{David_Akridge}
+	\end{wrapfigure}
+
+	\section{Hunter Figueroa}
+	\begin{wrapfigure}{l}{0\textwidth}
+		\includegraphics[scale=0.25]{Hunter_Figueroa}
+	\end{wrapfigure}
 	
-	\newpage
-	\section{User Interface}
-		\subsection{Colors}
-		\subsection{Icons}
-		\subsection{Login}
-		\subsection{Register}
-		\subsection{Homepage}
-		\subsection{Search Page}
-		\subsection{Arena Page}
-		\subsection{Battlefield}
-		\subsection{Encounter Profile}
-		\subsection{User Profile Page}
+\newpage
+\chapter*{User Interface}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{User Interface}
+	\section{Colors}
+	\section{Icons}
+	\section{Login}
+	\section{Register}
+	\section{Homepage}
+	\section{Search Page}
+	\section{Arena Page}
+	\section{Battlefield}
+	\section{Encounter Profile}
+	\section{User Profile Page}
 	
-	\newpage
-	\section{Technical Goals}
-		\subsection{Overall Goals (Requirements???)}
-		\subsection{Project Timelines (Milestones???)}
-		\subsection{Communication}
-		\subsection{Research}
-		\subsection{Budget}
-	
-	\newpage
-	\section{Server Design}
-		\subsection{User Roles}
-		\subsection{Node.js}
-		\subsection{Express.js}
-		\subsection{Multer}
-		\subsection{Mongoose}
-		\subsection{Server Sequence Diagrams}
-	
-	\newpage
-	\section{Database Design}
-		\subsection{Schemas}
-			\subsubsection{User Schema}
-			\subsubsection{Arena Schema (HAHA THAT RHYMES)}
-			\subsubsection{Encounter Schema}
-			\subsubsection{Combatant Schema}
-			\subsubsection{Obstacle Schema}
-	
-	\newpage
-	\section{Application Design}
-		\subsection{Design Patterns}
-		\subsection{Accessibility}
-		\subsection{Types of Views and Controllers}
-		\subsection{In-Game Roles}
-		\subsection{Map / Environments}
-		\subsection{Turn Structure / Order}
-		\subsection{Computer Opponent (A.I.)}
-		\subsection{Encounter Diagnostics (Stress-Tester)}
-		\subsection{Encounter Browser}
-		\subsection{Encounter Creator Tools}
-		\subsection{Storyboards}
-		\subsection{Version Control}
-		\subsection{Data Processing from API (WHAT DOES THIS MEAN???)}
-	
-	\newpage
+\newpage
+\chapter*{Technical Goals}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Technical Goals}
+	\section{Overall Goals (Requirements???)}
+	\section{Project Timelines (Milestones???)}
+	\section{Communication}
 	\section{Research}
-			\subsection{Node.js}
-			\subsection{Express.js}
-			\subsection{Angular 4}
-			\subsection{Bootstrap 4}
-			\subsection{MongoDB}
-			\subsection{RESTful}
-			\subsection{Game A.I.}
-				\subsubsection{Pathfinding}
-				\subsubsection{Basic Rule Following (Non-A.I. Computer Opponent)}
-				\subsubsection{Decision Trees}
+	\section{Budget}
+
+\newpage
+\chapter*{Server Design}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Server Design}
+	\section{User Roles}
+	\section{Node.js}
+	\section{Express.js}
+	\section{Multer}
+	\section{Mongoose}
+	\section{Server Sequence Diagrams}
+
+\newpage
+\chapter*{Database Design}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Database Design}
+	\section{Schemas}
+		\subsection{User Schema}
+		\subsection{Arena Schema (HAHA THAT RHYMES)}
+		\subsection{Encounter Schema}
+		\subsection{Combatant Schema}
+		\subsection{Obstacle Schema}
+
+\newpage
+\chapter*{Application Design}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Application Design}
+	\section{Design Patterns}
+	\section{Accessibility}
+	\section{Types of Views and Controllers}
+	\section{In-Game Roles}
+	\section{Map / Environments}
+	\section{Turn Structure / Order}
+	\section{Computer Opponent (A.I.)}
+	\section{Encounter Diagnostics (Stress-Tester)}
+	\section{Encounter Browser}
+	\section{Encounter Creator Tools}
+	\section{Storyboards}
+	\section{Version Control}
+	\section{Data Processing from API (WHAT DOES THIS MEAN???)}
+
+\newpage
+\chapter*{Research}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Research}
+		\section{Node.js}
+		\section{Express.js}
+		\section{Angular 4}
+		\section{Bootstrap 4}
+		\section{MongoDB}
+		\section{RESTful}
+		\section{Game A.I.}
+			\subsection{Pathfinding}
+			\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
+			\subsection{Decision Trees}
+
+\newpage
+\chapter*{Appendix}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\newpage
+\chapter*{Figures}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Figures}
+
+\newpage
+\chapter*{Tables}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Tables}
+
+\newpage
+\chapter*{References}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{References}
 	
-	\newpage
-	\section{Appendix}
-	
-	\newpage
-	\section{Figures}
-	
-	\newpage
-	\section{Tables}
-	
-	\newpage
-	\section{References}
-		
 \end{document}
