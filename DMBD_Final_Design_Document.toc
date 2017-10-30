@@ -1,69 +1,69 @@
-\contentsline {chapter}{Introduction}{3}
-\contentsline {chapter}{Proposed Solution}{4}
-\contentsline {chapter}{Broader Impact}{5}
-\contentsline {chapter}{Personal Interests}{6}
-\contentsline {section}{\numberline {4.1}Jacob Spigle}{6}
-\contentsline {section}{\numberline {4.2}Zachary Painter}{7}
-\contentsline {section}{\numberline {4.3}David Akridge}{8}
-\contentsline {section}{\numberline {4.4}Hunter Figueroa}{9}
-\contentsline {chapter}{User Interface}{10}
-\contentsline {section}{\numberline {5.1}Colors}{10}
-\contentsline {section}{\numberline {5.2}Icons}{10}
-\contentsline {section}{\numberline {5.3}Login}{10}
-\contentsline {section}{\numberline {5.4}Register}{10}
-\contentsline {section}{\numberline {5.5}Homepage}{10}
-\contentsline {section}{\numberline {5.6}Search Page}{10}
-\contentsline {section}{\numberline {5.7}Arena Page}{10}
-\contentsline {section}{\numberline {5.8}Battlefield}{10}
-\contentsline {section}{\numberline {5.9}Encounter Profile}{10}
-\contentsline {section}{\numberline {5.10}User Profile Page}{10}
-\contentsline {chapter}{Technical Goals}{11}
-\contentsline {section}{\numberline {6.1}Overall Goals (Requirements???)}{11}
-\contentsline {section}{\numberline {6.2}Project Timelines (Milestones???)}{11}
-\contentsline {section}{\numberline {6.3}Communication}{11}
-\contentsline {section}{\numberline {6.4}Research}{11}
-\contentsline {section}{\numberline {6.5}Budget}{11}
-\contentsline {chapter}{Server Design}{12}
-\contentsline {section}{\numberline {7.1}User Roles}{12}
-\contentsline {section}{\numberline {7.2}Node.js}{12}
-\contentsline {section}{\numberline {7.3}Express.js}{12}
-\contentsline {section}{\numberline {7.4}Multer}{12}
-\contentsline {section}{\numberline {7.5}Mongoose}{12}
-\contentsline {section}{\numberline {7.6}Server Sequence Diagrams}{12}
-\contentsline {chapter}{Database Design}{13}
-\contentsline {section}{\numberline {8.1}Schemas}{13}
-\contentsline {subsection}{\numberline {8.1.1}User Schema}{13}
-\contentsline {subsection}{\numberline {8.1.2}Arena Schema (HAHA THAT RHYMES)}{13}
-\contentsline {subsection}{\numberline {8.1.3}Encounter Schema}{13}
-\contentsline {subsection}{\numberline {8.1.4}Combatant Schema}{13}
-\contentsline {subsection}{\numberline {8.1.5}Obstacle Schema}{13}
-\contentsline {chapter}{Application Design}{15}
-\contentsline {section}{\numberline {9.1}Design Patterns}{15}
-\contentsline {section}{\numberline {9.2}Accessibility}{15}
-\contentsline {section}{\numberline {9.3}Types of Views and Controllers}{15}
-\contentsline {section}{\numberline {9.4}In-Game Roles}{15}
-\contentsline {section}{\numberline {9.5}Map / Environments}{15}
-\contentsline {section}{\numberline {9.6}Turn Structure / Order}{15}
-\contentsline {section}{\numberline {9.7}Computer Opponent (A.I.)}{15}
-\contentsline {section}{\numberline {9.8}Encounter Diagnostics (Stress-Tester)}{15}
-\contentsline {section}{\numberline {9.9}Encounter Browser}{15}
-\contentsline {section}{\numberline {9.10}Encounter Creator Tools}{15}
-\contentsline {section}{\numberline {9.11}Storyboards}{15}
-\contentsline {section}{\numberline {9.12}Version Control}{15}
-\contentsline {section}{\numberline {9.13}Data Processing from API (WHAT DOES THIS MEAN???)}{15}
-\contentsline {chapter}{Research}{16}
-\contentsline {section}{\numberline {10.1}MEAN Stack}{16}
-\contentsline {subsection}{\numberline {10.1.1}MongoDB}{16}
-\contentsline {subsection}{\numberline {10.1.2}Express.js}{16}
-\contentsline {subsection}{\numberline {10.1.3}Angular 4}{16}
-\contentsline {subsection}{\numberline {10.1.4}Node.js}{16}
-\contentsline {section}{\numberline {10.2}Bootstrap 4}{17}
-\contentsline {section}{\numberline {10.3}RESTful}{17}
-\contentsline {section}{\numberline {10.4}Game A.I.}{17}
-\contentsline {subsection}{\numberline {10.4.1}Pathfinding}{17}
-\contentsline {subsection}{\numberline {10.4.2}Basic Rule Following (Non-A.I. Computer Opponent)}{17}
-\contentsline {subsection}{\numberline {10.4.3}Decision Trees}{17}
-\contentsline {chapter}{Appendix}{18}
-\contentsline {chapter}{Figures}{19}
-\contentsline {chapter}{Tables}{20}
-\contentsline {chapter}{References}{21}
+\contentsline {chapter}{Introduction}{4}
+\contentsline {chapter}{Proposed Solution}{5}
+\contentsline {chapter}{Broader Impact}{6}
+\contentsline {chapter}{Personal Interests}{7}
+\contentsline {section}{\numberline {4.1}Jacob Spigle}{7}
+\contentsline {section}{\numberline {4.2}Zachary Painter}{8}
+\contentsline {section}{\numberline {4.3}David Akridge}{9}
+\contentsline {section}{\numberline {4.4}Hunter Figueroa}{10}
+\contentsline {chapter}{User Interface}{11}
+\contentsline {section}{\numberline {5.1}Colors}{11}
+\contentsline {section}{\numberline {5.2}Icons}{11}
+\contentsline {section}{\numberline {5.3}Login}{11}
+\contentsline {section}{\numberline {5.4}Register}{11}
+\contentsline {section}{\numberline {5.5}Homepage}{11}
+\contentsline {section}{\numberline {5.6}Search Page}{11}
+\contentsline {section}{\numberline {5.7}Arena Page}{11}
+\contentsline {section}{\numberline {5.8}Battlefield}{11}
+\contentsline {section}{\numberline {5.9}Encounter Profile}{11}
+\contentsline {section}{\numberline {5.10}User Profile Page}{11}
+\contentsline {chapter}{Technical Goals}{12}
+\contentsline {section}{\numberline {6.1}Overall Goals (Requirements???)}{12}
+\contentsline {section}{\numberline {6.2}Project Timelines (Milestones???)}{12}
+\contentsline {section}{\numberline {6.3}Communication}{12}
+\contentsline {section}{\numberline {6.4}Research}{12}
+\contentsline {section}{\numberline {6.5}Budget}{12}
+\contentsline {chapter}{Server Design}{13}
+\contentsline {section}{\numberline {7.1}User Roles}{13}
+\contentsline {section}{\numberline {7.2}Node.js}{13}
+\contentsline {section}{\numberline {7.3}Express.js}{13}
+\contentsline {section}{\numberline {7.4}Multer}{13}
+\contentsline {section}{\numberline {7.5}Mongoose}{13}
+\contentsline {section}{\numberline {7.6}Server Sequence Diagrams}{13}
+\contentsline {chapter}{Database Design}{14}
+\contentsline {section}{\numberline {8.1}Schemas}{14}
+\contentsline {subsection}{\numberline {8.1.1}User Schema}{14}
+\contentsline {subsection}{\numberline {8.1.2}Arena Schema (HAHA THAT RHYMES)}{14}
+\contentsline {subsection}{\numberline {8.1.3}Encounter Schema}{14}
+\contentsline {subsection}{\numberline {8.1.4}Combatant Schema}{14}
+\contentsline {subsection}{\numberline {8.1.5}Obstacle Schema}{14}
+\contentsline {chapter}{Application Design}{16}
+\contentsline {section}{\numberline {9.1}Design Patterns}{16}
+\contentsline {section}{\numberline {9.2}Accessibility}{16}
+\contentsline {section}{\numberline {9.3}Types of Views and Controllers}{16}
+\contentsline {section}{\numberline {9.4}In-Game Roles}{16}
+\contentsline {section}{\numberline {9.5}Map / Environments}{16}
+\contentsline {section}{\numberline {9.6}Turn Structure / Order}{16}
+\contentsline {section}{\numberline {9.7}Computer Opponent (A.I.)}{16}
+\contentsline {section}{\numberline {9.8}Encounter Diagnostics (Stress-Tester)}{16}
+\contentsline {section}{\numberline {9.9}Encounter Browser}{16}
+\contentsline {section}{\numberline {9.10}Encounter Creator Tools}{16}
+\contentsline {section}{\numberline {9.11}Storyboards}{16}
+\contentsline {section}{\numberline {9.12}Version Control}{16}
+\contentsline {section}{\numberline {9.13}Data Processing from API (WHAT DOES THIS MEAN???)}{16}
+\contentsline {chapter}{Research}{17}
+\contentsline {section}{\numberline {10.1}MEAN Stack}{17}
+\contentsline {subsection}{\numberline {10.1.1}MongoDB}{17}
+\contentsline {subsection}{\numberline {10.1.2}Express.js}{17}
+\contentsline {subsection}{\numberline {10.1.3}Angular 4}{17}
+\contentsline {subsection}{\numberline {10.1.4}Node.js}{17}
+\contentsline {section}{\numberline {10.2}Bootstrap 4}{18}
+\contentsline {section}{\numberline {10.3}RESTful}{18}
+\contentsline {section}{\numberline {10.4}Game A.I.}{18}
+\contentsline {subsection}{\numberline {10.4.1}Pathfinding}{18}
+\contentsline {subsection}{\numberline {10.4.2}Basic Rule Following (Non-A.I. Computer Opponent)}{18}
+\contentsline {subsection}{\numberline {10.4.3}Decision Trees}{18}
+\contentsline {chapter}{Appendix}{19}
+\contentsline {chapter}{Figures}{20}
+\contentsline {chapter}{Tables}{21}
+\contentsline {chapter}{References}{22}
