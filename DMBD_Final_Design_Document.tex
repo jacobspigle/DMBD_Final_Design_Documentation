@@ -91,17 +91,28 @@ Tabletop games bring people together in a world where physical interaction is of
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{User Interface}
 	\section{Colors}
+	\includegraphics[scale=.5]{colors}
 	\section{Icons}
+	Most icons will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be aquired through Game-Icons.net.
+	\subsection {Logo}
+	\begin{wrapfigure}{l}{0\textwidth}
+		\includegraphics[scale=.5]{logo-large}
+	\end{wrapfigure}
+	We wanted the logo design to be simple, easy to draw, and represent the RPG aspect of Dungeon Master Battle Duels. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate. We chose the green color so the logo will "pop" with most backgrounds.This logo can also be easily scaled to fit most container sizes.
 	\section{Login}
+	\includegraphics[scale=.20]{login}
 	\section{Register}
+	\includegraphics[scale=.20]{register}
 	\section{Homepage}
+	\includegraphics[scale=.20]{home}
 	\section{Search Page}
+	\includegraphics[scale=.20]{search}
 	\section{Arena Page}
+	\includegraphics[scale=.20]{arena}
 	\section{Battlefield}
 	\section{Encounter Profile}
-	
-\section{User Profile Page}
-	
+	\includegraphics[scale=.20]{encounter}
+	\section{User Profile Page}
 \newpage
 \chapter*{Technical Goals}
 \stepcounter{chapter}
@@ -161,36 +172,35 @@ Tabletop games bring people together in a world where physical interaction is of
 	
 		\subsection{Altered MEAN Stack}
 		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extention of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
-		
-		\subsubsection{MongoDB}
-		\begin{wrapfigure}{r}{0\textwidth}
-			\includegraphics[scale=0.05]{mongoDB}
-		\end{wrapfigure}
-		We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System.
-		
-		\subsubsection{Meteor.js}
-		\begin{wrapfigure}{l}{0\textwidth}
-			\includegraphics[scale=.2]{meteorJS}
-		\end{wrapfigure}
-		Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
-		
-		\subsubsection{Node.js}
-		\begin{wrapfigure}{r}{0\textwidth}
-			\includegraphics[scale=0.05]{nodeJS}
-		\end{wrapfigure}
-		Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. There are a few reasons why it is the first choice when building a web application like this project. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
-		
-		\subsubsection{Angular 4}
-		\begin{wrapfigure}{l}{0\textwidth}
-			\includegraphics[scale=.25]{angularJS}
-		\end{wrapfigure}
-		Angular 4 is
-		
-		
-		\subsubsection{Bootstrap 4}
-		\begin{wrapfigure}{r}{0\textwidth}
-			\includegraphics[scale=0.05]{bootstrap4}
-		\end{wrapfigure}
+	
+			\subsubsection{MongoDB}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.05]{mongoDB}
+			\end{wrapfigure}
+			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System.
+	
+			\subsubsection{Meteor.js}
+			\begin{wrapfigure}{l}{0\textwidth}
+				\includegraphics[scale=.2]{meteorJS}
+			\end{wrapfigure}
+			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
+	
+			\subsubsection{Node.js}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.05]{nodeJS}
+			\end{wrapfigure}
+			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. There are a few reasons why it is the first choice when building a web application like this project. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
+	
+			\subsubsection{Angular 4}
+			\begin{wrapfigure}{l}{0\textwidth}
+				\includegraphics[scale=.25]{angularJS}
+			\end{wrapfigure}
+	
+			\subsubsection{Bootstrap 4}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.05]{bootstrap4}
+			\end{wrapfigure}
+			
 	\section{RESTful}
 	\section{Game A.I.}
 		\subsection{Pathfinding}
