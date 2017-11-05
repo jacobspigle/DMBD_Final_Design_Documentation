@@ -9,67 +9,7 @@
 \contentsline {chapter}{User Interface}{11}
 \contentsline {section}{\numberline {5.1}Colors}{11}
 \contentsline {section}{\numberline {5.2}Icons}{11}
-<<<<<<< HEAD
-\contentsline {section}{\numberline {5.3}Login}{11}
-\contentsline {section}{\numberline {5.4}Register}{11}
-\contentsline {section}{\numberline {5.5}Homepage}{11}
-\contentsline {section}{\numberline {5.6}Search Page}{11}
-\contentsline {section}{\numberline {5.7}Arena Page}{11}
-\contentsline {section}{\numberline {5.8}Battlefield}{11}
-\contentsline {section}{\numberline {5.9}Encounter Profile}{11}
-\contentsline {section}{\numberline {5.10}User Profile Page}{11}
-\contentsline {chapter}{Technical Goals}{12}
-\contentsline {section}{\numberline {6.1}Overall Goals (Requirements???)}{12}
-\contentsline {section}{\numberline {6.2}Project Timelines (Milestones???)}{12}
-\contentsline {section}{\numberline {6.3}Communication}{12}
-\contentsline {section}{\numberline {6.4}Research}{12}
-\contentsline {section}{\numberline {6.5}Budget}{12}
-\contentsline {chapter}{Server Design}{13}
-\contentsline {section}{\numberline {7.1}User Roles}{13}
-\contentsline {section}{\numberline {7.2}Node.js}{13}
-\contentsline {section}{\numberline {7.3}Express.js}{13}
-\contentsline {section}{\numberline {7.4}Multer}{13}
-\contentsline {section}{\numberline {7.5}Mongoose}{13}
-\contentsline {section}{\numberline {7.6}Server Sequence Diagrams}{13}
-\contentsline {chapter}{Database Design}{14}
-\contentsline {section}{\numberline {8.1}Schemas}{14}
-\contentsline {subsection}{\numberline {8.1.1}User Schema}{14}
-\contentsline {subsection}{\numberline {8.1.2}Arena Schema (HAHA THAT RHYMES)}{14}
-\contentsline {subsection}{\numberline {8.1.3}Encounter Schema}{14}
-\contentsline {subsection}{\numberline {8.1.4}Combatant Schema}{14}
-\contentsline {subsection}{\numberline {8.1.5}Obstacle Schema}{14}
-\contentsline {chapter}{Application Design}{16}
-\contentsline {section}{\numberline {9.1}Design Patterns}{16}
-\contentsline {section}{\numberline {9.2}Accessibility}{16}
-\contentsline {section}{\numberline {9.3}Types of Views and Controllers}{16}
-\contentsline {section}{\numberline {9.4}In-Game Roles}{16}
-\contentsline {section}{\numberline {9.5}Map / Environments}{16}
-\contentsline {section}{\numberline {9.6}Turn Structure / Order}{16}
-\contentsline {section}{\numberline {9.7}Computer Opponent (A.I.)}{16}
-\contentsline {section}{\numberline {9.8}Encounter Diagnostics (Stress-Tester)}{16}
-\contentsline {section}{\numberline {9.9}Encounter Browser}{16}
-\contentsline {section}{\numberline {9.10}Encounter Creator Tools}{16}
-\contentsline {section}{\numberline {9.11}Storyboards}{16}
-\contentsline {section}{\numberline {9.12}Version Control}{16}
-\contentsline {section}{\numberline {9.13}Data Processing from API (WHAT DOES THIS MEAN???)}{16}
-\contentsline {chapter}{Research}{17}
-\contentsline {section}{\numberline {10.1}MEAN Stack}{17}
-\contentsline {subsection}{\numberline {10.1.1}Altered MEAN Stack}{17}
-\contentsline {subsection}{\numberline {10.1.2}MongoDB}{17}
-\contentsline {subsection}{\numberline {10.1.3}Meteor.js}{17}
-\contentsline {subsection}{\numberline {10.1.4}Angular 4}{18}
-\contentsline {subsection}{\numberline {10.1.5}Node.js}{18}
-\contentsline {section}{\numberline {10.2}Bootstrap 4}{18}
-\contentsline {section}{\numberline {10.3}RESTful}{18}
-\contentsline {section}{\numberline {10.4}Game A.I.}{18}
-\contentsline {subsection}{\numberline {10.4.1}Pathfinding}{18}
-\contentsline {subsection}{\numberline {10.4.2}Basic Rule Following (Non-A.I. Computer Opponent)}{18}
-\contentsline {subsection}{\numberline {10.4.3}Decision Trees}{18}
-\contentsline {chapter}{Appendix}{19}
-\contentsline {chapter}{Figures}{20}
-\contentsline {chapter}{Tables}{21}
-\contentsline {chapter}{References}{22}
-=======
+\contentsline {subsection}{\numberline {5.2.1}Logo}{11}
 \contentsline {section}{\numberline {5.3}Login}{12}
 \contentsline {section}{\numberline {5.4}Register}{12}
 \contentsline {section}{\numberline {5.5}Homepage}{13}
@@ -114,10 +54,11 @@
 \contentsline {section}{\numberline {9.13}Data Processing from API (WHAT DOES THIS MEAN???)}{20}
 \contentsline {chapter}{Research}{21}
 \contentsline {section}{\numberline {10.1}MEAN Stack}{21}
-\contentsline {subsection}{\numberline {10.1.1}MongoDB}{21}
-\contentsline {subsection}{\numberline {10.1.2}Express.js}{21}
-\contentsline {subsection}{\numberline {10.1.3}Angular 4}{21}
-\contentsline {subsection}{\numberline {10.1.4}Node.js}{21}
+\contentsline {subsection}{\numberline {10.1.1}Altered MEAN Stack}{21}
+\contentsline {subsection}{\numberline {10.1.2}MongoDB}{21}
+\contentsline {subsection}{\numberline {10.1.3}Meteor.js}{21}
+\contentsline {subsection}{\numberline {10.1.4}Angular 4}{22}
+\contentsline {subsection}{\numberline {10.1.5}Node.js}{22}
 \contentsline {section}{\numberline {10.2}Bootstrap 4}{22}
 \contentsline {section}{\numberline {10.3}RESTful}{22}
 \contentsline {section}{\numberline {10.4}Game A.I.}{22}
@@ -128,4 +69,3 @@
 \contentsline {chapter}{Figures}{24}
 \contentsline {chapter}{Tables}{25}
 \contentsline {chapter}{References}{26}
->>>>>>> d59d3345f763c83ce0164a24123f7ca2b2936f66
