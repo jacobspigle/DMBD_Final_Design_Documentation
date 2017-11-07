@@ -230,6 +230,36 @@ Tabletop games bring people together in a world where physical interaction is of
 	\section{Turn Structure / Order}
 	\section{Computer Opponent (A.I.)}
 	\section{Encounter Diagnostics (Stress-Tester)}
+	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
+	
+		\subsection{Restrictions}
+		The encounter diagnostic tool will require as input a valid encounter that has passed verification. A valid encounter is one that has at least the minimum amount of components necessary for an encounter between the player characters and game master to be simulated. For an encounter to be verified, the creator of the encounter must succeed against a computer controlled game master at least once while controlling a party of player characters that meet the designated restrictions set by the encounter creator.  
+		
+		This requirement is imposed as the diagnostic tool is not meant to be used during the design process to help a creator shape their encounter. It would require additional functionality to enable the encounter diagnostic tool to work correctly on partially finished encounters and additional functionality to process the resulting data such that it is useful to the encounter creator in designing the remainder of the encounter. 
+		
+		Additionally, the encounter must have passed verification in order to strengthen the notion that all final encounters must have at least one solution found explicitly by a human user. This is to prevent encounter creators from using the diagnostic tool to figure out if their encounter is possible without having to test or verify it themselves. 
+		\subsection{Interface}
+		The user will be able to access the interface for the encounter diagnostic tool from within the encounter creator. The encounter diagnostics option will only be available on encounters that the user has created. Once the user has selected an encounter to perform encounter diagnostics, they will be prompted to enter details necessary to configure the tests. 
+		
+		\subsection{Diagnostic Measurement}
+		When activated, the encounter diagnostic tool will generate a set of valid party member compositions that meet both the restrictions of the encounter as well as the additional restrictions provided by the user during configuration. A party composition is a collection of player characters that will be placed on the field of play at the start of the encounter. The diagnostic tool will generate one party composition per iteration of the test. Once all party compositions are generated, the diagnostic tool will simulate the encounter one time for each party composition. 
+		
+		The simulation will consist of each member of the party being placed in the user designated spawn positions for the encounter. Once all player characters are placed, both PC and GM turns will be taken by the A.I. until either side meets their win condition, at which point the board is reset and the next party composition is tested. Once all party compositions have been tested, the diagnostic tool serves the results of the tests to the user.
+		
+		 During each test , statistics relating to the performance of each entity in the encounter will be tracked in order to provide metrics by which the user can evaluate their encounter. Statistics that will be tracked include the following:
+		 
+		\begin{itemize}
+			\item Number of kills/deaths for each non-PC entity in the encounter
+			\item Number of kills/deaths by each "class" of PC
+			\item Overall win rate of PC vs GM
+			\item Damage per ability used
+			\item Location of each kill made on the map
+			\item Turn count
+		\end{itemize}
+		
+		\subsection{Results and Presentation}
+		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
+		
 	\section{Encounter Browser}
 	\section{Encounter Creator Tools}
 	\section{Storyboards}
