@@ -3,21 +3,29 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{lipsum}
 \graphicspath{{images/}}
 \usepackage{parskip}
 \usepackage{indentfirst}
 \usepackage{courier}
 \usepackage{titlesec}
 \usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{geometry}
+\geometry{headheight = 12pt}
 \parindent 15pt
 \parskip 2ex
+
+\renewcommand{\listfigurename}{Figures}
 
 \titleformat{\chapter}[display]   
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
 \author{Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
-\title{Dungeon Master Battle Duels}
+\title{Critical Encounters}
 \begin{document}
 	
 \maketitle
@@ -37,8 +45,7 @@ Role-playing games are games where players act as their characters. Usually in p
 	\item The GM narrates the results of the characters? actions.
 \end{enumerate}
 
-There are millions of possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character?s path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
-
+There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character?s path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
 \newpage
 \chapter*{Proposed Solution}
 \stepcounter{chapter}
@@ -68,7 +75,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	\begin{wrapfigure}{l}{0\textwidth}
 		\includegraphics[scale=0.05]{Zachary_Painter}
 	\end{wrapfigure}
-	Some of my primary interests in Computer Science are data structures and algorithms. In my area of research, concurrent programming, these two topics are frequently discussed. Often times in this field, I have had the opportunity to explore many complicated and fascinating algorithms. When tackling these kinds of problems, you often find yourself spending considerably more time thinking and reasoning than implementing/coding. After understanding a problem, you move on to another without getting the chance to apply what you learned in a practical/useable way. This constant cycle of struggle/learn/get-new-problem is something that many students experience throughout college as they rarely have time to stop and demonstrate their rapidly growing skillset in a meaningful way. \par
+	Some of my primary interests in Computer Science are data structures and algorithms. In my area of research, concurrent programming, these two topics are frequently discussed. Often times in this field, I have had the opportunity to explore many complicated and fascinating algorithms. When tackling these kinds of problems, you often find yourself spending considerably more time thinking and reasoning than implementing/coding. After understanding a problem, you move on to another without getting the chance to apply what you learned in a practical/usable way. This constant cycle of struggle/learn/get-new-problem is something that many students experience throughout college as they rarely have time to stop and demonstrate their rapidly growing skillset in a meaningful way. \par
 	My motivation for being part of this project is that I want a chance to slow down and use the skills and algorithms I have picked up in my years at UCF in a useful and creative application instead of an abstract, un-impactful thought exercise. Instead of expecting this project to challenge me with highly complicated algorithms and difficult proofs, I expect this project to challenge me in project management skills, team coding, and the application of numerous techniques that I have learned but never had to implement in a meaningful way. There is an important difference between \textit{knowing} and \textit{doing}; and so I am taking this chance to remind myself what all my learning has amounted to. 
 	
 	\newpage
@@ -77,7 +84,7 @@ Tabletop games bring people together in a world where physical interaction is of
 		\includegraphics[scale=0.05]{David_Akridge}
 	\end{wrapfigure}
 	This project caught my interest due to the combination of the creative nature of Dungeons \& Dragons mixed with the real world applications that can be gained by accomplishing the project’s end goal. In my time at UCF, we have learned tons of information primarily focusing on theories and concepts of computer science. While plenty of classes have had us working hands on, there is still much to learn before being able to stand out in the real world. This project is going to have us utilize the various algorithm implementations we’ve learned as well as diving into web development. As we haven’t covered web development in too far detail in the UCF curriculum, this project easily provides an opportunity for me to grasp the understanding of HTML, Javascript, Angular.js, etc. These are all languages and formats that I have had the desire the learn but lacked the drive to do on my own. \par
-	Along with being able to learn practical CS skills, DMBD will allow us to find creative workarounds be it code, web-page design, or even artwork. This is a really important aspect of the project to me, because many of the projects we’ve had to do prior have been numerically heavy and honestly not all that interesting. An engaging idea could help propel our ability to learn these new concepts, especially if we are interested in them on our own. Now that there is a great project motivating me and a great team to work alongside with, there is no doubt we will learn all the in’s and out’s of the subject. 
+	Along with being able to learn practical CS skills, Critical Encounters will allow us to find creative workarounds be it code, web-page design, or even artwork. This is a really important aspect of the project to me, because many of the projects we’ve had to do prior have been numerically heavy and honestly not all that interesting. An engaging idea could help propel our ability to learn these new concepts, especially if we are interested in them on our own. Now that there is a great project motivating me and a great team to work alongside with, there is no doubt we will learn all the in’s and out’s of the subject. 
 	
 	\newpage
 	\section{Hunter Figueroa}
@@ -90,29 +97,95 @@ Tabletop games bring people together in a world where physical interaction is of
 \chapter*{User Interface}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{User Interface}
-	\section{Colors}
-	\includegraphics[scale=.5]{colors}
+	\section{Overall Design and Navigation Bar}
+	The approach we took to user interface (UI) design was focused on a simplistic and familiar look and feel to allow for easy accessibility to new users while the website itself still retaining focus on the encounter tester. The template that website utilizes is reminiscent of the design that many social media sites take, for instance, sites like Twitter, Facebook, and YouTube.\par
+	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a searchbar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
+	\begin{figure}[!h]
+		\centering
+		\centerline{\includegraphics[scale=.35]{NavBar}}
+		\caption{NavBar}
+		\label{fig: NavBar}
+	\end{figure}
+	\section{Registration Page}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=.20]{register}
+		\caption{Registration Page}
+		\label{fig: Registration Page}
+	\end{figure}
+	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password.
+	\section{Login Page}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=.20]{login}
+		\caption{Login Page}
+		\label{fig: Login Page}
+	\end{figure}
+	The login page (Figure \ref{fig: Login Page}) for Critical Encounters requires the user to enter either their username or email address along with the password tied to that account.
+	\newpage
+	\section{Dashboard}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.20]{home}
+		\caption{Dashboard}
+		\label{fig: Dashboard}
+	\end{figure}
+	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.
+	\newpage
+	\section{Encounter Browser}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.20]{search}
+		\caption{Encounter Browser}
+		\label{fig: Encounter Browser}
+	\end{figure}
+	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button (Figure \ref{fig: Encounter Browser with Filter Options}).
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.27]{search_filtered}
+		\caption{Encounter Browser with Filter Options}
+		\label{fig: Encounter Browser with Filter Options}	
+	\end{figure}
+	\newpage
+	\section{Arena}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.20]{arena}
+		\caption{Arena}
+		\label{fig: Arena}
+	\end{figure}
+	\lipsum[1]
+	\newpage
+	\section{Encounter Page}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.20]{encounter}
+		\caption{Encounter Page}
+		\label{fig: Encounter Page}
+	\end{figure}
+	\lipsum[2]
+	\newpage
+	\section{Battlefield}
+	\lipsum[3]
+	\newpage
+	\section{Color Scheme}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.5]{colors}
+		\caption{Color Scheme}
+		\label{fig: Color Scheme}
+	\end{figure}
+	\lipsum[4]
+	\newpage
 	\section{Icons}
-	Most icons will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be aquired through Game-Icons.net.
+	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
 	\subsection {Logo}
 	\begin{wrapfigure}{l}{0\textwidth}
 		\includegraphics[scale=.5]{logo-large}
+		\caption{Critical Encounters' Logo}
+		\label{fig: Critical Encounters' Logo}
 	\end{wrapfigure}
-	We wanted the logo design to be simple, easy to draw, and represent the RPG aspect of Dungeon Master Battle Duels. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate. We chose the green color so the logo will "pop" with most backgrounds.This logo can also be easily scaled to fit most container sizes.
-	\section{Login}
-	\includegraphics[scale=.20]{login}
-	\section{Register}
-	\includegraphics[scale=.20]{register}
-	\section{Homepage}
-	\includegraphics[scale=.20]{home}
-	\section{Search Page}
-	\includegraphics[scale=.20]{search}
-	\section{Arena Page}
-	\includegraphics[scale=.20]{arena}
-	\section{Battlefield}
-	\section{Encounter Profile}
-	\includegraphics[scale=.20]{encounter}
-	\section{User Profile Page}
+	We wanted the logo design to accompany the overall UI of the website with a simplistic design, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate. We chose the green color so the logo will "pop" with most backgrounds.This logo can also be easily scaled to fit most container sizes.
 \newpage
 \chapter*{Technical Goals}
 \stepcounter{chapter}
@@ -168,38 +241,56 @@ Tabletop games bring people together in a world where physical interaction is of
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Research}
 	\section{MEAN Stack}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=.2]{meanStack}
+		\caption{Mean Stack Logo}
+		\label{fig: Mean Stack Logo}
+	\end{figure}
 	The creation of developer tools like MongoDB, Express.js, Angular.js, and Node.js (otherwise known as the MEAN stack) forge a collection of technologies that allow for JavaScript utilization when developing a web application. The culmination of these technologies build off each other while staying modular. This can allow for a head start in the initial stages of development with scaffolding for all of the main tools in the MEAN Stack.
 	
 		\subsection{Altered MEAN Stack}
 		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extention of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
-	
+			\newpage
 			\subsubsection{MongoDB}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.05]{mongoDB}
+				\caption{MongoDB}
+				\label{fig: MongoDB}
 			\end{wrapfigure}
 			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System.
-	
+			\newpage
 			\subsubsection{Meteor.js}
 			\begin{wrapfigure}{l}{0\textwidth}
 				\includegraphics[scale=.2]{meteorJS}
+				\caption{Meteor.js}
+				\label{fig: Meteor.js}
 			\end{wrapfigure}
 			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
 	
 			\subsubsection{Node.js}
 			\begin{wrapfigure}{r}{0\textwidth}
-				\includegraphics[scale=0.05]{nodeJS}
+				\includegraphics[scale=0.06]{nodeJS}
+				\caption{Node.js}
+				\label{fig: Node.js}
 			\end{wrapfigure}
 			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. There are a few reasons why it is the first choice when building a web application like this project. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
 	
 			\subsubsection{Angular 4}
 			\begin{wrapfigure}{l}{0\textwidth}
-				\includegraphics[scale=.25]{angularJS}
+				\includegraphics[scale=.25]{angular_js}
+				\caption{Angular 4}
+				\label{fig: Angular 4}
 			\end{wrapfigure}
+			\lipsum[1]
 	
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
-				\includegraphics[scale=0.05]{bootstrap4}
+				\includegraphics[scale=0.1]{bootstrap4}
+				\caption{Bootstrap4}
+				\label{Bootstrap 4}
 			\end{wrapfigure}
+			\lipsum[2]
 			
 	\section{RESTful}
 	\section{Game A.I.}
@@ -213,9 +304,9 @@ Tabletop games bring people together in a world where physical interaction is of
 \addcontentsline{toc}{chapter}{Appendix}
 
 \newpage
-\chapter*{Figures}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Figures}
+\listoffigures
 
 \newpage
 \chapter*{Tables}
