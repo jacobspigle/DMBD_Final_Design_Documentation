@@ -229,6 +229,17 @@ Tabletop games bring people together in a world where physical interaction is of
 	\section{Map / Environments}
 	\section{Turn Structure / Order}
 	\section{Computer Opponent (A.I.)}
+	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
+	
+		\subsection{A.I. Responsibilities}
+		If the user is controlling the PCs, the A.I. will control all other allied, neutral and hostile units on the board that are not one of the PCs. If the user is controlling the GM, the A.I. will control the PCs only. This follows the traditional design of the DnD 5e combat rules. In the case that the A.I. must control two units, one that is hostile to the PCs and one that is in alliance with them, the A.I. will take the actions that are in the best interest of the unit it is controlling for that action, regardless of whether or not that action is in the interest of the side that the A.I. is playing for. 
+		
+		\subsection{Decision Making}
+		
+		\subsection{Unit Personalities}
+		
+		\subsection{Role-Playing}
+	
 	\section{Encounter Diagnostics (Stress-Tester)}
 	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
 	
