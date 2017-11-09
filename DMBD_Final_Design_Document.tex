@@ -3,6 +3,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage[utf8]{inputenc}
 \usepackage{array}
 \usepackage{lipsum}
@@ -100,9 +101,11 @@ Tabletop games bring people together in a world where physical interaction is of
 	\section{Overall Design and Navigation Bar}
 	The approach we took to user interface (UI) design was focused on a simplistic and familiar look and feel to allow for easy accessibility to new users while the website itself still retaining focus on the encounter tester. The template that website utilizes is reminiscent of the design that many social media sites take, for instance, sites like Twitter, Facebook, and YouTube.\par
 	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a searchbar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
+	\bigskip
+	\bigskip
 	\begin{figure}[!h]
 		\centering
-		\centerline{\includegraphics[scale=.35]{NavBar}}
+		\centerline{\includegraphics[scale=.30]{NavBar}}
 		\caption{NavBar}
 		\label{fig: NavBar}
 	\end{figure}
@@ -131,7 +134,6 @@ Tabletop games bring people together in a world where physical interaction is of
 		\label{fig: Dashboard}
 	\end{figure}
 	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.
-	\newpage
 	\section{Encounter Browser}
 	\begin{figure}[!h]
 		\centering
@@ -139,7 +141,7 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Encounter Browser}
 		\label{fig: Encounter Browser}
 	\end{figure}
-	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button (Figure \ref{fig: Encounter Browser with Filter Options}).
+	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or simply encounters that help spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[scale=.27]{search_filtered}
@@ -154,7 +156,16 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Arena}
 		\label{fig: Arena}
 	\end{figure}
-	\lipsum[1]
+	Each Critical Encounters user is provided a page to host their published encounters for the rest of the community to access, their Arena. From the Arena page (Figure \ref{fig: Arena}) is where users are redirected to encounter creation within the Battlefield by clicking the ``Create Encounter'' button on their own Arena. Users also have the ability to edit their Arena, listing their created encounters in whatever order they wish, whether done manually or by analytics (Plays, Win Rate, Rating). At the top of the Arena page is the username and profile picture of the user tied to the Arena. The Arena presents the user's creations in a list format, with pertinent information listed alongside each encounter. Number of plays, PC win rate, overall rating, and the number of comments are shown under the encounter's title and description, and to the right of a screenshot or preset image of the encounter board itself. To the right of the encounter list, additional data on the user's arena is supplied: 
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Number of Encounters
+			\item Number of Subscribers
+			\item Number of Plays
+			\item Average Encounter Rating
+		\end{itemize}
+	\end{multicols}
+	Below that, a Heat Map figure illustrates how well each class performs (Wins/Losses) in the encounters in the Arena.
 	\newpage
 	\section{Encounter Page}
 	\begin{figure}[!h]
@@ -163,7 +174,19 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Encounter Page}
 		\label{fig: Encounter Page}
 	\end{figure}
-	\lipsum[2]
+	Each encounter created in Critical Encounter is given an encounter page, from which user's navigate to in order to start playing the encounter. At the top of the encounter page is the encounter's name, followed by the username of its' creator. Below is a screenshot or preset image of the encounter board, and the creator's description of the encounter hangs to the left of the image. The encounter page also presents the user with statistics related to the encounter:
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Number of Plays
+			\item Win Rate
+			\item Number of PC Deaths
+			\item Number of NPC Deaths
+			\item Most Popular Class
+			\item Most Popular Race
+			\item Average Number of Rounds
+			\item Average Rating
+		\end{itemize}
+	\end{multicols}
 	\newpage
 	\section{Battlefield}
 	\lipsum[3]
