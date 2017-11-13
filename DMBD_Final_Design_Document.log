@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  13 NOV 2017 13:34
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.18)  13 NOV 2017 11:39
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -124,8 +128,13 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 \c@tracingmulticols=\count101
 \mult@box=\box28
 \multicol@leftmargin=\dimen114
@@ -173,20 +182,34 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \colbreak@box=\box53
 \mc@col@check@num=\count109
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks20
 \inpenc@posthook=\toks21
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -398,6 +421,7 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
+<<<<<<< HEAD
    defining Unicode char U+0232 (decimal 562)
    defining Unicode char U+0233 (decimal 563)
    defining Unicode char U+1E02 (decimal 7682)
@@ -409,6 +433,13 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2015 (decimal 8213)
+=======
+   defining Unicode char U+01E02 (decimal 7682)
+   defining Unicode char U+01E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
    defining Unicode char U+2018 (decimal 8216)
    defining Unicode char U+2019 (decimal 8217)
    defining Unicode char U+201A (decimal 8218)
@@ -420,14 +451,22 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
+<<<<<<< HEAD
    defining Unicode char U+1E20 (decimal 7712)
    defining Unicode char U+1E21 (decimal 7713)
+=======
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -467,8 +506,13 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -491,19 +535,32 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 \col@sep=\dimen123
 \extrarowheight=\dimen124
 \NC@list=\toks22
 \extratabsurround=\skip48
 \backup@length=\skip49
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count110
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/parskip/parskip.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count110
+)
+(/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/indentfirst.sty
@@ -512,8 +569,13 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 \ttl@box=\box54
 \beforetitleunit=\skip50
 \aftertitleunit=\skip51
@@ -524,7 +586,11 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen128
 \titlewidthfirst=\dimen129
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 \wrapoverhang=\dimen130
 \WF@size=\dimen131
 \c@WF@wrappedlines=\count111
@@ -532,11 +598,19 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \WF@everypar=\toks24
 Package: wrapfig 2003/01/31  v 3.6
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen132
 \captionmargin@=\dimen133
@@ -549,6 +623,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@ContinuedFloat=\count112
 Package caption Info: wrapfig package is loaded.
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -560,6 +635,20 @@ Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count113
@@ -591,7 +680,11 @@ LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+=======
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count116
 \scratchdimen=\dimen147
@@ -604,6 +697,7 @@ LaTeX Font Info:    ... okay on input line 30.
 \MPnumerator=\count120
 \makeMPintoPDFobject=\count121
 \everyMPtoPDFconversion=\toks27
+<<<<<<< HEAD
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -612,6 +706,16 @@ Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
+=======
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -688,7 +792,11 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 32.
@@ -696,11 +804,20 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
+<<<<<<< HEAD
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./DMBD_Final_Design_Document.toc [1
 
 ] [2])
+=======
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./DMBD_Final_Design_Docum
+ent.toc [1
+
+]
+[2])
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 \tf@toc=\write3
 \openout3 = `DMBD_Final_Design_Document.toc'.
 
@@ -710,8 +827,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [6
 
-]
-<images/Jacob_Spigle.png, id=28, 3035.34pt x 3035.34pt>
+] <images/Jacob_Spigle.png, id=28, 3035.34pt x 3035.34pt>
 File: images/Jacob_Spigle.png Graphic file (type png)
 
 <use images/Jacob_Spigle.png>
@@ -741,6 +857,7 @@ File: images/Hunter_Figueroa.png Graphic file (type png)
 Package pdftex.def Info: images/Hunter_Figueroa.png used on input line 93.
 (pdftex.def)             Requested size: 151.7759pt x 151.7759pt.
  [10 <./images/Hunter_Figueroa.png>]
+<<<<<<< HEAD
 <images/NavBar.png, id=45, 1430.34375pt x 55.20625pt>
 File: images/NavBar.png Graphic file (type png)
  <use images/NavBar.png>
@@ -772,13 +889,57 @@ Package pdftex.def Info: images/home.png used on input line 132.
 File: images/search.png Graphic file (type png)
 
 <use images/search.png>
+=======
+
+! LaTeX Error: File `NavBar' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.108 ...line{\includegraphics[scale=.30]{NavBar}}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<images/register.png, id=45, 1927.2pt x 952.55875pt>
+File: images/register.png Graphic file (type png)
+ <use images/register.png>
+Package pdftex.def Info: images/register.png used on input line 115.
+(pdftex.def)             Requested size: 385.43318pt x 190.50838pt.
+
+<images/login.png, id=46, 1927.2pt x 966.61125pt>
+File: images/login.png Graphic file (type png)
+ <use images/login.png>
+Package pdftex.def Info: images/login.png used on input line 123.
+(pdftex.def)             Requested size: 385.43318pt x 193.31882pt.
+
+[11
+
+] [12 <./images/register.png (PNG copy)> <./images/login.png (PNG copy)>]
+<images/home.png, id=54, 1927.2pt x 954.56625pt>
+File: images/home.png Graphic file (type png)
+ <use images/home.png>
+Package pdftex.def Info: images/home.png used on input line 132.
+(pdftex.def)             Requested size: 385.43318pt x 190.90987pt.
+
+<images/search.png, id=55, 1927.2pt x 956.57375pt>
+File: images/search.png Graphic file (type png)
+ <use images/search.png>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 Package pdftex.def Info: images/search.png used on input line 140.
 (pdftex.def)             Requested size: 385.43318pt x 191.31136pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<<<<<<< HEAD
 <images/search_filtered.png, id=59, 1444.39626pt x 726.715pt>
+=======
+<images/search_filtered.png, id=56, 1444.39626pt x 726.715pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/search_filtered.png Graphic file (type png)
 
 <use images/search_filtered.png>
@@ -789,7 +950,11 @@ Package pdftex.def Info: images/search_filtered.png used on input line 147.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [13 <./images/home.png (PNG copy)>]
+<<<<<<< HEAD
 <images/arena.png, id=63, 1927.2pt x 1084.05pt>
+=======
+<images/arena.png, id=61, 1927.2pt x 1084.05pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/arena.png Graphic file (type png)
  <use images/arena.png>
 Package pdftex.def Info: images/arena.png used on input line 155.
@@ -802,7 +967,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 162.
 
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
@@ -814,22 +983,37 @@ ass per-forms (Wins/Losses)
  []
 
 [15 <./images/arena.png (PNG copy)>]
+<<<<<<< HEAD
 <images/encounter.png, id=72, 1927.2pt x 963.6pt>
+=======
+<images/encounter.png, id=70, 1927.2pt x 963.6pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/encounter.png Graphic file (type png)
  <use images/encounter.png>
 Package pdftex.def Info: images/encounter.png used on input line 173.
 (pdftex.def)             Requested size: 385.43318pt x 192.71658pt.
 
 [16 <./images/encounter.png (PNG copy)>] [17]
+<<<<<<< HEAD
 <images/colors.png, id=79, 277.035pt x 426.59375pt>
+=======
+<images/colors.png, id=77, 277.035pt x 426.59375pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/colors.png Graphic file (type png)
  <use images/colors.png>
 Package pdftex.def Info: images/colors.png used on input line 197.
 (pdftex.def)             Requested size: 138.51715pt x 213.29634pt.
+<<<<<<< HEAD
 
 [18 <./images/colors.png>] <images/logo-large.png, id=85, 128.48pt x 128.48pt>
 File: images/logo-large.png Graphic file (type png)
 
+=======
+
+[18 <./images/colors.png>] <images/logo-large.png, id=83, 128.48pt x 128.48pt>
+File: images/logo-large.png Graphic file (type png)
+
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 <use images/logo-large.png>
 Package pdftex.def Info: images/logo-large.png used on input line 207.
 (pdftex.def)             Requested size: 64.23984pt x 64.23984pt.
@@ -848,6 +1032,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--208
 ] [21
 
 ] [22
+<<<<<<< HEAD
 
 ] [23
 
@@ -878,18 +1063,58 @@ Package pdftex.def Info: images/meteorJS.png used on input line 329.
 <images/nodeJS.png, id=125, 1849.91125pt x 1133.23375pt>
 File: images/nodeJS.png Graphic file (type png)
 
+=======
+
+] [23
+
+] [24] [25] [26] [27]
+<images/meanStack.png, id=113, 1284.8pt x 722.7pt>
+File: images/meanStack.png Graphic file (type png)
+ <use images/meanStack.png>
+Package pdftex.def Info: images/meanStack.png used on input line 310.
+(pdftex.def)             Requested size: 256.95544pt x 144.53743pt.
+
+[28
+
+ <./images/meanStack.png>]
+<images/mongoDB.png, id=117, 2526.43875pt x 743.77875pt>
+File: images/mongoDB.png Graphic file (type png)
+
+<use images/mongoDB.png>
+Package pdftex.def Info: images/mongoDB.png used on input line 321.
+(pdftex.def)             Requested size: 126.32933pt x 37.19112pt.
+ [29 <./images/mongoDB.png>]
+<images/meteorJS.png, id=122, 663.47874pt x 187.70125pt>
+File: images/meteorJS.png Graphic file (type png)
+
+<use images/meteorJS.png>
+Package pdftex.def Info: images/meteorJS.png used on input line 329.
+(pdftex.def)             Requested size: 132.69339pt x 37.53958pt.
+
+<images/nodeJS.png, id=123, 1849.91125pt x 1133.23375pt>
+File: images/nodeJS.png Graphic file (type png)
+
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 <use images/nodeJS.png>
 Package pdftex.def Info: images/nodeJS.png used on input line 337.
 (pdftex.def)             Requested size: 110.98988pt x 67.99109pt.
 
+<<<<<<< HEAD
 <images/angular_js.png, id=126, 697.60625pt x 185.69376pt>
+=======
+<images/angular_js.png, id=124, 697.60625pt x 185.69376pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/angular_js.png Graphic file (type png)
 
 <use images/angular_js.png>
 Package pdftex.def Info: images/angular_js.png used on input line 345.
 (pdftex.def)             Requested size: 174.40112pt x 46.42332pt.
  [30 <./images/meteorJS.png> <./images/nodeJS.png>]
+<<<<<<< HEAD
 <images/bootstrap4.png, id=133, 1027.84pt x 863.225pt>
+=======
+<images/bootstrap4.png, id=131, 1027.84pt x 863.225pt>
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 File: images/bootstrap4.png Graphic file (type png)
 
 <use images/bootstrap4.png>
@@ -910,6 +1135,7 @@ Package pdftex.def Info: images/bootstrap4.png used on input line 353.
 ]
 (./DMBD_Final_Design_Document.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  5105 strings out of 492995
  73738 string characters out of 6132704
  244776 words of memory out of 5000000
@@ -929,4 +1155,25 @@ PDF statistics:
  101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ 5092 strings out of 493029
+ 72766 string characters out of 6136233
+ 243843 words of memory out of 5000000
+ 8503 multiletter control sequences out of 15000+600000
+ 13356 words of font info for 51 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,7n,39p,1388b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb>
+Output written on DMBD_Final_Design_Document.pdf (37 pages, 22719668 bytes).
+PDF statistics:
+ 174 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> c0b351689e2a3e12e94ba5308957c1c1bb6b1769
 
