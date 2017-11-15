@@ -105,7 +105,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	\bigskip
 	\begin{figure}[!h]
 		\centering
-		\centerline{\includegraphics[scale=.30]{NavBar}}
+		\centerline{\includegraphics[scale=.30]{navbar}}
 		\caption{NavBar}
 		\label{fig: NavBar}
 	\end{figure}
@@ -268,9 +268,34 @@ Tabletop games bring people together in a world where physical interaction is of
 	\section{Design Patterns}
 	\section{Accessibility}
 	\section{Types of Views and Controllers}
-	\section{In-Game Roles}
+	\section{In Game Roles}
+	There are three 
 	\section{Map / Environments}
 	\section{Turn Structure / Order}
+	Combat using the d20 System is composed of rounds in which each combatant in the encounter has one turn.  A round lasts 6 seconds in game time, during which all combatants act on their respective turns. Where a combatant's turn resides chronologically in a round is determined by the combatant's initiative roll (a combination of a dice roll and applicative bonuses). A turn it self is composed of 6 parts: Action(s), Bonus Action, Movement, Free Action, and Bonus Action, Reaction.
+	\begin{itemize}
+		\item Action
+			\begin{itemize}
+				\item The main action of a turn, every combatant has one or more per turn
+				\item Ex. Attack, Cast a Spell, Dash, Disengage, Hide
+			\end{itemize}
+		\item Bonus Action
+			\begin{itemize}
+				\item 
+			\end{itemize}
+		\item Movement
+			\begin{itemize}
+				\item Combatant can move the number of spaces equal to its speed (with applicaple bonuses) divided by five
+				\item Some combatants also have swim and flight speeds that they can use as their movement action
+				\item Multiple environmental restraints on this: Difficult terrain, attacks of opportunity
+			\end{itemize}
+		\item Reaction
+			\begin{itemize}
+				\item Combatant has one of reaction in every round of combat
+				\item Can happen anytime during the round, doesn't have to be combatant's turn
+				\item Ex. Cast reaction spell, attack of opportunity
+			\end{itemize}
+	\end{itemize}
 	\section{Computer Opponent (A.I.)}
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
