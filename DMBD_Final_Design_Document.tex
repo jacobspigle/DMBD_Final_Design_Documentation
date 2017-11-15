@@ -15,6 +15,7 @@
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{geometry}
+\usepackage{float}
 \geometry{headheight = 12pt}
 \parindent 15pt
 \parskip 2ex
@@ -234,7 +235,43 @@ Tabletop games bring people together in a world where physical interaction is of
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Technical Goals}
 	\section{Overall Goals (Requirements???)}
-	\section{Project Timelines (Milestones???)}
+	\section{Project Timelines}
+	Our project takes place over two full semesters as part of the courses Senior Design I and Senior Design II. There are two major milestones that correspond to the end of each semester. The primary deliverable for semester one will be the final design document. Although the final design document will be the primary focus of semester one, we will also be focused on making small but meaningful progress in our implementation in order to have a solid head start for the second semester. The final deliverable for semester two will be the completed system as described in the design document. 
+	
+	There will be a period of time between the two semesters in which no milestones are listed. However, this time will be used to make small foundational progress towards the implementation of the final system in order allow for the smoothest transition into the implementation phase as possible. 
+	
+	Each semester will be broken down into a smaller organized list of milestones. Each of these milestones will have a deadline which should be met. The list of these milestones is show in Table \ref{milestones}
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ |c|c| } 
+				\hline
+				Milestone: & Completion Date: \\
+				\hline
+				Define Requirements/Initial Project Proposal & 10/9/2017 \\
+				Verify Requirements & 10/16/2017 \\
+				Decide Development Model & 10/23/2017 \\
+				Define Sections & 10/30/2017 \\
+				First Project Presentation Draft & 11/13/2017 \\
+				Assign Design Document Sections & 11/20/2017 \\
+				Senior Design Final Document & 11/29/2017 \\
+				Web App Board And Gameplay & 1/9/2018 \\
+				AI Prototype For DM and PC & 1/18/2018 \\ 
+				PC Save/Load & 1/25/2018 \\
+				Encounter Save/Load & 2/1/2018 \\
+				Save/Load To Server & 2/12/2018 \\
+				Browser Search And Play & 2/28/2018 \\
+				Browser Ratings/Follows & 3/5/2018 \\
+				Encounter Tester Implementation & 3/12/2018 \\
+				Encounter Tester Statistics/Feedback & 3/19/2018 \\
+				Advanced AI (Additional Settings, Counters) & 3/30/2018 \\
+				Encounter Tester Advanced Features & 4/9/2018 \\	
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{Milestones} \label{milestones}
+	\end{table}
+	
 	\section{Communication}
 	\section{Research}
 	\section{Budget}
@@ -313,13 +350,29 @@ Tabletop games bring people together in a world where physical interaction is of
 		
 		It is the duty of the GM to make sure that none of these actions are too ambitious. For example, a GM would most likely decline a player's request to "instantly defeat all enemies on the field by picking up and throwing a mountain at them." Such an action would be nonsensical, and would far exceed the player characters capabilities. Inexperienced players will generally tend to use less of these improvisational actions, opting instead to stick to the basic actions defined in the rulebook, but highly experienced players will often come up with highly creative and interesting actions. It is important to remember that these custom actions are not inherently more powerful than any of the basic actions defined in the rulebook. They merely exist to add a level of 'flair' to the actions that unfold during play. It is more engaging for a player to stretch their imagination and come up with exciting or hilarious actions as they get into the role of their character. 
 		
-		 This level of role-play is effectively impossible to implement in an A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
+		 This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
+
+		Additionally, to address the challenge of character 'personalities,' we choose to allow encounter creators to assign a personality preset to any unit on the battlefield. This personality preset will adjust the weighting of the decision making process, causing the unit to \textit{appear} to prefer certain actions. For example, a 'brute' personality will frequently choose to attack with melee even if it is not the most optimal decision, as this is the nature of role-play. Whether or not to make use of these personalities is entirely up to the user, and how they believe their encounters should feel. 
 		
 		\subsection{Decision Making}
 		
 		\subsection{Unit Personalities}
+		In order to capture the spirit of the game being simulated, we allow for users to assign preset personalities to units during encounter creation in order to further customize the way those units will behave in combat. This is necessary to simulate the way in which a GM will often manipulate units in combat to act appropriately given their level of intelligence and tactical ability, as well as to increase the tension and excitement of the players taking part in the encounter. 
 		
-		\subsection{Role-Playing}
+		Players creating an encounter will be able to select the personality of \textit{any} unit that they themselves have placed in the encounter. This includes all GM controlled units as well as any PC's the encounter creator places, if any. It is necessary to select a personality for any player characters in the encounter since users are able to play as the either the PCs or the GM side. In the case a user is currently controlling the GM, the A.I. will need a personality with which to base the PC's behavior. If the user is controlling the PCs and the encounter creator has defined a personality for one of the PCs the user is controlling, the personality will not take effect. It is up to the user to decide if they want to play along with the PC's given personality, or play their own way. 
+		
+		If a personality is selected that alters the decision making process for an A.I. controlled unit, we will apply a weighting scheme to each calculation during the decision making process in order to reflect the unit's preference for certain options. These weights will generally manifest as a multiplier to the final outcome of each of the damage, support, and crowd control calculations. If we want a personality to be, for example, barbaric, we may choose to apply a 1.5 multiplier to the potential damage calculation, and a .5 multiplier to potential support calculations. This will result in the algorithm selecting support actions far less frequently than damaging actions. 
+		
+		\subsection{(Future Work?) Intelligence Based Decision Making and Personalities}
+		As proposed, the unit personalities system will be capable of modifying the types of actions the A.I. chooses for each unit on the battlefield. This allows of to create personalities that have preferences for which \textit{types} of abilities to choose, however, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. 
+		
+		Experienced GMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
+		
+		%Challenges ... 
+		
+		%Possible Solutions ...
+		
+		\subsection{(Future Work?) Custom 'Role-Play' Actions}
 	
 	\section{Encounter Diagnostics (Stress-Tester)}
 	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
