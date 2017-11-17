@@ -21,6 +21,7 @@
 \parskip 2ex
 
 \renewcommand{\listfigurename}{Figures}
+\renewcommand{\listtablename}{Tables}
 
 \titleformat{\chapter}[display]   
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
@@ -104,9 +105,9 @@ Tabletop games bring people together in a world where physical interaction is of
 	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a searchbar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
 	\bigskip
 	\bigskip
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
-		\centerline{\includegraphics[scale=.30]{NavBar}}
+		\centerline{\includegraphics[scale=.30]{navbar}}
 		\caption{NavBar}
 		\label{fig: NavBar}
 	\end{figure}
@@ -128,7 +129,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	The login page (Figure \ref{fig: Login Page}) for Critical Encounters requires the user to enter either their username or email address along with the password tied to that account.
 	\newpage
 	\section{Dashboard}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{home}
 		\caption{Dashboard}
@@ -136,14 +137,14 @@ Tabletop games bring people together in a world where physical interaction is of
 	\end{figure}
 	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.
 	\section{Encounter Browser}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{search}
 		\caption{Encounter Browser}
 		\label{fig: Encounter Browser}
 	\end{figure}
 	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or simply encounters that help spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.27]{search_filtered}
 		\caption{Encounter Browser with Filter Options}
@@ -151,7 +152,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	\end{figure}
 	\newpage
 	\section{Arena}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{arena}
 		\caption{Arena}
@@ -169,7 +170,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	Below that, a Heat Map figure illustrates how well each class performs (Wins/Losses) in the encounters in the Arena.
 	\newpage
 	\section{Encounter Page}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{encounter}
 		\caption{Encounter Page}
@@ -193,7 +194,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	\lipsum[3]
 	\newpage
 	\section{Color Scheme}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.5]{colors}
 		\caption{Color Scheme}
@@ -240,7 +241,7 @@ Tabletop games bring people together in a world where physical interaction is of
 	
 	There will be a period of time between the two semesters in which no milestones are listed. However, this time will be used to make small foundational progress towards the implementation of the final system in order allow for the smoothest transition into the implementation phase as possible. 
 	
-	Each semester will be broken down into a smaller organized list of milestones. Each of these milestones will have a deadline which should be met. The list of these milestones is show in Table \ref{milestones}
+	Each semester will be broken down into a smaller organized list of milestones. Each of these milestones will have a deadline which should be met. The list of these milestones is show in Table \ref{table: milestones}
 	
 	\begin{table}[H]
 		\begin{center}
@@ -269,7 +270,7 @@ Tabletop games bring people together in a world where physical interaction is of
 				\hline
 			\end{tabular}
 		\end{center}
-		\caption{Milestones} \label{milestones}
+		\caption{Milestones} \label{table: milestones}
 	\end{table}
 	
 	\section{Communication}
@@ -391,7 +392,7 @@ Tabletop games bring people together in a world where physical interaction is of
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Research}
 	\section{MEAN Stack}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.2]{meanStack}
 		\caption{Mean Stack Logo}
@@ -461,9 +462,9 @@ Tabletop games bring people together in a world where physical interaction is of
 \listoffigures
 
 \newpage
-\chapter*{Tables}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Tables}
+\listoftables
 
 \newpage
 \chapter*{References}
