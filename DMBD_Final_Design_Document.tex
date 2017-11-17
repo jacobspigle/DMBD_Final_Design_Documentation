@@ -238,23 +238,19 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Technical Goals}
 	\section{Overall Goals (Requirements???)}
-	\begin{itemize}
-		\item Interactive virtual board that acts as the role-playing game's Encounter Arena 
-		\item Encounter Creator
-		\begin{itemize}
-			\item Variables for players, enemies, and environmental structures that are able to be placed on the board
-			\item Ability to alter enemy statistics and behavior	
-		\end{itemize}
-		\item Battle-mode 
-		\begin{itemize}
-			\item Players and DM's can play through a created encounter that follows the standard d20 rules.
-			\item Turn-based system that allows for as many real d20 moves as reasonable
-			\item Enemy AI
-		\end{itemize}
-		\item Encounter Browser
-		\item User Arenas (User Profiles)
-		\item Encounter Stress Tester
-	\end{itemize}
+	Critical Encounters is going to require many moving pieces working together to deliver the product we intended. The original goal of the project was to create a platform that allowed users to create, test, and share encounters with other users. In order to satisfy this goal, these pieces have been individually broken down below:
+		\subsection{Encounter Creation}
+		The creation of the encounter itself is one of the fundamental functions of Critical Encounter. The Encounter Creator is going to be an easy to use platform that users can create encounters by drag and dropping entities onto an interactive virtual board that acts as the role-playing game's encounter arena. This will also require the ability to have specific variables relating to player characters, enemy characters, and obstacle objects. The ability to alter enemy statistics and behavior are also necessary.
+		\subsection{Battle \& Stress-test}
+		Once an encounter is created, the user has the ability to play through the encounter as the player character while Critical Encounter controls the enemy AI. The encounter will follow the standard d20 rule set to provide as realistic of an encounter experience as possible, in order to give the GM a good idea of how the encounter plays out (not to mention that it's fun).
+		
+		Along with this, the Stress-tester is a function that allows the GM to run their encounter numerous times with changes in various qualities of the player's party. The stress tester will run several times for each different iteration and display statistics of the overall battles at the end of the test. These statistics will include win/loss ratio, average battle length, number of player deaths/kills, as well as bring note to any outlier situations that may have proved the encounter or the players are overpowered.  
+		\subsection{Enemy AI}
+		It is necessary for Critical Encounters to have a properly functioning AI in the battles and stress-tests. In order to simulate the actual encounter experience, the enemies need to make their decisions independently, so that the player character can actually battle against something. The AI doesn't require intense machine learning, but will need a basic Attack/Defense strategy. The AI will assess the situation through a series of checklists in order to make the best move possible against the player. Along with this, AI behavior will need to be able to be altered leaving the enemy more/less aggressive, focus more on support than attack, etc.
+		\subsection{Encounter Sharing}
+		Once an encounter is created, the GM will be able to upload their creation to their Arena. This will act as a user profile displaying all of their created encounters/players/enemies. Other users can look at other's profiles and play through their encounters. Encounters will require a rating system that will follow a 5 star format, along with an optional written review.
+		
+		Encounter sharing will require a working search bar that will allow you to find specific encounters. There will be a search criteria that will include encounter name, type of encounter, party size, level range, etc.
 	\section{Project Timelines}
 	Our project takes place over two full semesters as part of the courses Senior Design I and Senior Design II. There are two major milestones that correspond to the end of each semester. The primary deliverable for semester one will be the final design document. Although the final design document will be the primary focus of semester one, we will also be focused on making small but meaningful progress in our implementation in order to have a solid head start for the second semester. The final deliverable for semester two will be the completed system as described in the design document. 
 	
