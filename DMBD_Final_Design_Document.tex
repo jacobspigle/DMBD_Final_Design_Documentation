@@ -232,9 +232,25 @@ Tabletop games bring people together in a world where physical interaction is of
 	We wanted the logo design to accompany the overall UI of the website with a simplistic design, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate. We chose the green color so the logo will "pop" with most backgrounds.This logo can also be easily scaled to fit most container sizes.
 \newpage
 \chapter*{Technical Goals}
+This project is designed to streamline the process of creating a role-playing game's encounter, while also providing new advantages to further improve the encounter's quality. By handling the calculations computationally, as opposed to by hand, along with the ability to test the encounters, GMs will be able to perfect their encounter in preparation for when the encounter is played live.
+
+This project will be a hurdle for everyone on the team as we are diving into information that many of us only know a little about. While we are relatively new to web frameworks, databases, and AI, we are determined provide a fully functioning d20 Encounter creation and sharing platform.
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Technical Goals}
 	\section{Overall Goals (Requirements???)}
+	Critical Encounters is going to require many moving pieces working together to deliver the product we intended. The original goal of the project was to create a platform that allowed users to create, test, and share encounters with other users. In order to satisfy this goal, these pieces have been individually broken down below:
+		\subsection{Encounter Creation}
+		The creation of the encounter itself is one of the fundamental functions of Critical Encounter. The Encounter Creator is going to be an easy to use platform that users can create encounters by drag and dropping entities onto an interactive virtual board that acts as the role-playing game's encounter arena. This will also require the ability to have specific variables relating to player characters, enemy characters, and obstacle objects. The ability to alter enemy statistics and behavior are also necessary.
+		\subsection{Battle \& Stress-test}
+		Once an encounter is created, the user has the ability to play through the encounter as the player character while Critical Encounter controls the enemy AI. The encounter will follow the standard d20 rule set to provide as realistic of an encounter experience as possible, in order to give the GM a good idea of how the encounter plays out (not to mention that it's fun).
+		
+		Along with this, the Stress-tester is a function that allows the GM to run their encounter numerous times with changes in various qualities of the player's party. The stress tester will run several times for each different iteration and display statistics of the overall battles at the end of the test. These statistics will include win/loss ratio, average battle length, number of player deaths/kills, as well as bring note to any outlier situations that may have proved the encounter or the players are overpowered.  
+		\subsection{Enemy AI}
+		It is necessary for Critical Encounters to have a properly functioning AI in the battles and stress-tests. In order to simulate the actual encounter experience, the enemies need to make their decisions independently, so that the player character can actually battle against something. The AI doesn't require intense machine learning, but will need a basic Attack/Defense strategy. The AI will assess the situation through a series of checklists in order to make the best move possible against the player. Along with this, AI behavior will need to be able to be altered leaving the enemy more/less aggressive, focus more on support than attack, etc.
+		\subsection{Encounter Sharing}
+		Once an encounter is created, the GM will be able to upload their creation to their Arena. This will act as a user profile displaying all of their created encounters/players/enemies. Other users can look at other's profiles and play through their encounters. Encounters will require a rating system that will follow a 5 star format, along with an optional written review.
+		
+		Encounter sharing will require a working search bar that will allow you to find specific encounters. There will be a search criteria that will include encounter name, type of encounter, party size, level range, etc.
 	\section{Project Timelines}
 	Our project takes place over two full semesters as part of the courses Senior Design I and Senior Design II. There are two major milestones that correspond to the end of each semester. The primary deliverable for semester one will be the final design document. Although the final design document will be the primary focus of semester one, we will also be focused on making small but meaningful progress in our implementation in order to have a solid head start for the second semester. The final deliverable for semester two will be the completed system as described in the design document. 
 	
@@ -275,6 +291,8 @@ Tabletop games bring people together in a world where physical interaction is of
 	\section{Communication}
 	\section{Research}
 	\section{Budget}
+	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
+	
 
 \newpage
 \chapter*{Server Design}
@@ -424,7 +442,28 @@ Tabletop games bring people together in a world where physical interaction is of
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
 		
 	\section{Encounter Browser}
+		\subsection{Validation}
 	\section{Encounter Creator Tools}
+	The Encounter Creator is the base of all the encounters provided by Critical Encounters. Users can use this tool to build encounters from scratch that will allow them to properly design the situation to be the most fun for the players to experience. Encounters aren't necessarily more fun if they are harder to accomplish nor are the more fun if you can waltz right through them but rather, encounters provide the most fun when the players are challenged just enough to overcome the enemy. 
+	
+	Sending a real party through an encounter can take hours, so there is a lot of frustration involved when a GM spends hours on an encounter just to have the party killed in the first few turns. The Encounter Creator helps avoid the time wasting trial and error a GM may encounter when presenting an encounter to a live party. This is done by providing all the necessary tools for creating an encounter via computer as opposed to pen and paper.
+		\subsection{Encounter Map}
+		The encounter map starts as a large blank grid with each square representing a 5ft x 5ft space. The map is where the encounter actually occurs, holding all the players, enemies, and objects within the map. The map also help the user to visualize the play area better (which is not a required thing but helps to improve the game experience).  
+		\subsection{Side Bar}
+		The side bar is collapsed on the right side of the encounter map. By clicking the icon, the side bar folds out presenting the user with various tools to further customize the encounter.
+			\subsubsection{Item Menu}
+			The item menu is a side bar on the encounter creator that allows you to place entities onto the encounter map. The items in the menu include the player spawn area, various enemies, and space-blocking obstacles. These items can be placed into the encounter by simply clicking the entities you want and dragging it onto the desired spot on the encounter map.
+			\subsubsection{Enemy Stats}
+			After placing an enemy onto the encounter via the encounter map, clicking on the enemy will change the side bar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu. 
+		\subsection{Player Spawn Area}
+		As per the standard d20 rules, the player's character's positions are determined by their location prior to the encounter starting. Critical Encounters focuses solely on the encounter portion of the role playing experience so there is no way for the program to know where these players may have entered from. This is counteracted by allowing the GM to designate a particular area of the encounter map towards player spawning. Upon starting the encounter, the player will be able to choose which character starts in which location allocated by the spawn area. These encounters will be played through single-player, but the encounters can be tested using as many characters as allowed by the creator.
+		\subsection{Enemies}
+		These entities take on the role of opponents in the d20 system. Enemies work towards the end goal of defeating your party. The GM can place as many enemies onto the map as desired as well as altering the stats to their liking. The enemies will run on an AI that will attempt to simulate the basic actions enemies would take in an actual encounter.
+		\subsection{Obstacles}
+		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked. These can all be accessed by the side bar.
+		\subsection{Encounter Rules}
+		The GM can set specific rules within the enounter such as level caps and party size limits. These allow the GM to fine tune the enounter to very specific qualities that will allow them to perfect their vision. 
+		
 	\section{Storyboards}
 	\section{Version Control}
 	\section{Data Processing from API (WHAT DOES THIS MEAN???)}
