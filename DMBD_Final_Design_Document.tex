@@ -112,21 +112,22 @@ Tabletop games bring people together in a world where physical interaction is of
 		\label{fig: NavBar}
 	\end{figure}
 	\section{Registration Page}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{register}
 		\caption{Registration Page}
 		\label{fig: Registration Page}
 	\end{figure}
-	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password.
+	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password. Users are directed to the registration page from the Dashboard or from clicking the ``Register" link on the login page.
+	\newpage
 	\section{Login Page}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{login}
 		\caption{Login Page}
 		\label{fig: Login Page}
 	\end{figure}
-	The login page (Figure \ref{fig: Login Page}) for Critical Encounters requires the user to enter either their username or email address along with the password tied to that account.
+	The login page (Figure \ref{fig: Login Page}) for Critical Encounters prompts users for their credentials to log in. Beneath the username/email address \& password fields is a ``Register" link to the registration page and a ``Forgot Password?" to a password retrieval service. Users are directed to the login page by clicking the ``Login" link on the navbar, or after attempting to access content that requires an account. (i.e. accessing the Battlefield, Arena, subscribing, reviewing, etc.)
 	\newpage
 	\section{Dashboard}
 	\begin{figure}[H]
@@ -135,18 +136,20 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Dashboard}
 		\label{fig: Dashboard}
 	\end{figure}
-	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.
+	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.\par
+	The Dashboard doubles as a homepage for the Critical Encounters website. Upon arrival on the site unregistered users will be directed to the Dashboard, with the highlight wheel, recommended encounters, etc. presented to them the same as a logged in user would see it. Clicking the ``Register" link on the navbar will bring the unregistered user to the Registration page, and The Arena link on the sidebar will do the same. 
+	\newpage
 	\section{Encounter Browser}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.20]{search}
+		\includegraphics[scale=.19]{search}
 		\caption{Encounter Browser}
 		\label{fig: Encounter Browser}
 	\end{figure}
-	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or simply encounters that help spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
+	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the search bar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.27]{search_filtered}
+		\includegraphics[scale=.25]{search_filtered}
 		\caption{Encounter Browser with Filter Options}
 		\label{fig: Encounter Browser with Filter Options}	
 	\end{figure}
@@ -167,7 +170,7 @@ Tabletop games bring people together in a world where physical interaction is of
 			\item Average Encounter Rating
 		\end{itemize}
 	\end{multicols}
-	Below that, a Heat Map figure illustrates how well each class performs (Wins/Losses) in the encounters in the Arena.
+	\noindent Below that, a graph illustrates each class' Win/Loss stats in the Arena.
 	\newpage
 	\section{Encounter Page}
 	\begin{figure}[H]
@@ -204,24 +207,85 @@ Tabletop games bring people together in a world where physical interaction is of
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
+	\subsection{rpg-awesome}
 	\begin{itemize}
 		\item \includegraphics[scale=.06]{dashboard_icon}
 		The Dashboard icon is used in the navbar and on the Dashboard itself to indicate where the user is on the site.
 		\begin{figure}
-			\caption{Dashboard Icon}
+			\captionlistentry{Dashboard Icon}
 			\label{fig: Dashboard Icon}
 		\end{figure}
 		\item \includegraphics[scale=.03]{arena_icon}
-		The Arena icon represents the users' Arena and is used in the navbar and on the Arena page itself to indicate where the user is on the site.
+		The Arena icon (depicted as a house crest) represents the users' Arena and is used in the navbar and on the Arena page itself to indicate where the user is on the site.
 		\begin{figure}
-			\caption{Arena Icon}
+			\captionlistentry{Arena Icon}
 			\label{fig: Arena Icon}
 		\end{figure}
-		\item \includegraphics[scale=.03]{plays_icon}
-		The plays icon is placed next to the number of plays that an Encounter or Arena has had. It appears on the users' Arena as well as on the Encounter Page itself.
+		\item \includegraphics[scale=.03]{sword_lightning}
+		The total number of plays in an Arena has the sword crossed with lightning icon. It appears on the users' Arena as well as on the Encounter Page itself.
 		\begin{figure}
-			\caption{Plays Icon}
-			\label{fig: Plays Icon}
+			\captionlistentry{Total Plays Icon}
+			\label{fig: Total Plays Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{win_rate}
+		The trophy pedestal icon represents the percentage of users that have defeated/finished the respective encounter.
+		\begin{figure}
+			\captionlistentry{Win Rate Icon}
+			\label{fig: Win Rate Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{scroll}
+		The unfurled scroll indicates how many reviews/comments have been given to an encounter.
+		\begin{figure}
+			\captionlistentry{Comments Icon}
+			\label{fig: Comments Icon}
+		\end{figure}
+		\item \includegraphics[scale=.07]{rating_icon}
+		The star (intuitively) represents the rating that an encounter has received by users that have finished the given encounter. It is depicted on the Arena page, filtering of the search results page, as well as the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Rating Icon}
+			\label{fig: Rating Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{subscribers_icon}
+		The subscribers icon falsely represents the physical appearance of all those that utilize Critical Encounters. It also represents the number of users that are subscribed to that Arena, and is present on the Arena page.
+		\begin{figure}
+			\captionlistentry{Subscribers Icon}
+			\label{fig: Subscribers Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{plays_icon}
+		The number of plays an encounter has had is shown in the Encounter Stats column on the encounter page, and is represented by the figure of two axes crossed. Game on.
+		\begin{figure}
+			\captionlistentry{Encounter Plays Icon}
+			\label{fig: Encounter Plays Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{pc_deaths}
+		The iconic skull \& crossbones icon indicates how many PC Deaths the encounter has accrued over its' lifetime. It is present on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{PC Deaths Icon}
+			\label{fig: PC Deaths Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{npc_deaths}
+		A figure wearing an iron helm represents the number of NPC deaths that have occurred in an encounter. Whether this was due to the PCs' or their own infighting is left ambiguous. It is present on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{NPC Deaths Icon}
+			\label{fig: NPC Deaths Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{most_popular_class}
+		This icon shows the class that was chosen most by users when playing through this encounter. It appears on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Most Popular Class Icon}
+			\label{fig: Most Popular Class Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{most_popular_race}
+		Races in roleplaying games can drastically change the shape of a class, and tilt the advantage of an entire encounter with the right abilities in place. The race that was chosen the most in this encounter is represented by this icon.
+		\begin{figure}
+			\captionlistentry{Most Popular Race Icon}
+			\label{fig: Most Popular Race Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{avg_rounds}
+		The stopwatch indicates how long an encounter generally lasts, counted in the number of rounds that are played through in the combat. It is located on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Avg. Number of Rounds}
+			\label{fig: Avg. Number of Rounds}
 		\end{figure}
 	\end{itemize}
 	\subsection {Logo}
@@ -454,7 +518,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\subsubsection{Item Menu}
 			The item menu is a side bar on the encounter creator that allows you to place entities onto the encounter map. The items in the menu include the player spawn area, various enemies, and space-blocking obstacles. These items can be placed into the encounter by simply clicking the entities you want and dragging it onto the desired spot on the encounter map.
 			\subsubsection{Enemy Stats}
-			After placing an enemy onto the encounter via the encounter map, clicking on the enemy will change the side bar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu. 
+			After placing an enemy into the encounter via the encounter map, clicking on the enemy will change the side bar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu. 
 		\subsection{Player Spawn Area}
 		As per the standard d20 rules, the player's character's positions are determined by their location prior to the encounter starting. Critical Encounters focuses solely on the encounter portion of the role playing experience so there is no way for the program to know where these players may have entered from. This is counteracted by allowing the GM to designate a particular area of the encounter map towards player spawning. Upon starting the encounter, the player will be able to choose which character starts in which location allocated by the spawn area. These encounters will be played through single-player, but the encounters can be tested using as many characters as allowed by the creator.
 		\subsection{Enemies}
@@ -462,7 +526,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\subsection{Obstacles}
 		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked. These can all be accessed by the side bar.
 		\subsection{Encounter Rules}
-		The GM can set specific rules within the enounter such as level caps and party size limits. These allow the GM to fine tune the enounter to very specific qualities that will allow them to perfect their vision. 
+		The GM can set specific rules within the encounter such as level caps and party size limits. These allow the GM to fine tune the encounter to very specific qualities that will allow them to perfect their vision. 
 		
 	\section{Storyboards}
 	\section{Version Control}
@@ -472,16 +536,16 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \chapter*{Research}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Research}
-	\section{MEAN Stack}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=.2]{meanStack}
-		\caption{Mean Stack Logo}
-		\label{fig: Mean Stack Logo}
-	\end{figure}
-	The creation of developer tools like MongoDB, Express.js, Angular.js, and Node.js (otherwise known as the MEAN stack) forge a collection of technologies that allow for JavaScript utilization when developing a web application. The culmination of these technologies build off each other while staying modular. This can allow for a head start in the initial stages of development with scaffolding for all of the main tools in the MEAN Stack.
+	\section{MEAN vs. Meteor}
+	The creation of developer tools like MongoDB, Express.js, Angular.js, and Node.js (otherwise known as the MEAN stack) forge a collection of technologies that allow for JavaScript utilization when developing a web application. Meteor (or Meteor.js) builds off of what the MEAN Stack already has to offer, while adding the convenience of seamless client-server communication out-of-box, noticeably smaller learning curve than that of MEAN, and utilization of Isomorphic API that allows for development of front-end and back-end all in one.
 	
-		\subsection{Altered MEAN Stack}
+		\subsection{MEAN Stack}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.2]{meanStack}
+			\caption{Mean Stack Logo}
+			\label{fig: Mean Stack Logo}
+		\end{figure}
 		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extention of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
 			\newpage
 			\subsubsection{MongoDB}
@@ -491,42 +555,47 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\label{fig: MongoDB}
 			\end{wrapfigure}
 			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System.
-			\newpage
-			\subsubsection{Meteor.js}
+				
+			\subsubsection{Angular 4}
 			\begin{wrapfigure}{l}{0\textwidth}
-				\includegraphics[scale=.2]{meteorJS}
-				\caption{Meteor.js}
-				\label{fig: Meteor.js}
+				\includegraphics[scale=.3]{angular_4}
+				\caption{Angular 4}
+				\label{fig: Angular 4}
 			\end{wrapfigure}
-			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
-	
+			Angular 4 is a TypeScript framework used for developing front-end web and mobile based applications. Angular is an integral part of the MEAN Stack, and thus acts as a piece in that machine to allow for JavaScript coding in the entirety of a project. There are quite a few advantages to using Angular 4, things like template syntax to allow for quick creation of UI views, code splitting to load only the necessary modules for a user's session, and a dedicated CLI to make building, testing, and serving a web application that much easier. Another benefit to using Angular is its' versatility. A desktop application can be created just as well in Angular a web app. This would allow for the transition to a full-fledged application if we thought the project would benefit from it.
+			
+			\newpage
 			\subsubsection{Node.js}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.06]{nodeJS}
 				\caption{Node.js}
 				\label{fig: Node.js}
 			\end{wrapfigure}
-			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. There are a few reasons why it is the first choice when building a web application like this project. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
-	
-			\subsubsection{Angular 4}
+			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
+		
+		\subsection{Meteor}
+			\subsubsection{Meteor.js}
 			\begin{wrapfigure}{l}{0\textwidth}
-				\includegraphics[scale=.25]{angular_js}
-				\caption{Angular 4}
-				\label{fig: Angular 4}
+			\includegraphics[scale=.2]{meteorJS}
+			\caption{Meteor.js}
+			\label{fig: Meteor.js}
 			\end{wrapfigure}
-			\lipsum[1]
-			Angular 4 is a font-end TypeScript framework used for developing frontend web and mobile based applications. We will be using Angular 4 for the fontend of our web app.  
-	
+			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
+			\subsubsection{React.js}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.25]{react}
+				\caption{React.js}
+				\label{React.js}
+			\end{wrapfigure}
+			React.js is a JavaScript library often used to build UI for web applications. In the Model-view-controller framework, React.js acts as the ``view" component. Features that pushed us to choose React.js as our front-end development tool are mostly centered around the creation of the Battlefield and our decision to utilize Meteor.js. Using so many assets for visual representation of obstacles, characters, monsters, and the like, we decided finding a framework that focuses on developing applications around those properties. Enter React.js, which essentially allows actions to be passed back the path that a prop(Property) was passed down. As we manipulate the graphics in the Battlefield, the props will stay unchanged and the actions will be dictated back to the render. Another benefit to using React is the resources provided for testing. Shallow testing may be implemented to check the validity of a module without digging too deep into its' children. This way, the higher level design of the modules can be verified and trickling down its' children shallowly will reveal the source of any bugs. React uses something called a ``virtual Document Object Model". The Virtual DOM lets us (the developers) code with the assumption that rendering happens on each change, while in reality React renders sub components instead of the entire page.
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.1]{bootstrap4}
-				\caption{Bootstrap4}
+				\caption{Bootstrap 4}
 				\label{Bootstrap 4}
 			\end{wrapfigure}
-			Bootstrap is a HTML, CSS, and JS framework used for building responsive, mobile compatible web sites and applications. Bootstrap was an obvious choice for out front end development. It has extensive documentation and resources available. Also with its new v4 update Bootstrap is more useful then ever. Our front end team already has extensive experience with Bootstrap so it should be easy to get the front end up and running. One issue we had to address is Bootstraps dependency on jQuery. jQuery is JS API whose functions can sometimes interfere with Angular 4's TS functions. To avoid these issues we decided to avoid using jQuery entirely and use ng-bootstrap instead witch performs all of bootstraps jQuery functions entirely in Angular 4.
+			Bootstrap is a HTML, CSS, and JS framework used for building responsive, mobile compatible web sites and applications. Bootstrap was an obvious choice for out front end development. It has extensive documentation and resources available. Also with its new v4 update Bootstrap is more useful then ever. Our front end team already has extensive experience with Bootstrap so it should be easy to get the front end up and running. The tricky aspect of this will be the transition from experience with Angular to now using React.js. We decided to make this transition because of the popularity and momentum React is having in the web development community, to both widen our gaze and take advantage of many features that using Bootstrap with React has to offer.
 			
-			
-	\section{RESTful}
 	\section{Game A.I.}
 		\subsection{Pathfinding}
 		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
