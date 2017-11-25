@@ -358,27 +358,55 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\section{Budget}
 	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
 	
+\newpage
+\chapter*{Application Design}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Application Design}
+	\section {High Level Design}
+		\includegraphics[scale=.5]{designsd.png}
+		
+		\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. 
+		
+		\paragraph {} The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
+		
+
 
 \newpage
-\chapter*{Server Design}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{Server Design}
-	\section{User Roles}
-	\section{Node.js}
-	\section{Express.js}
-	\section{Multer}
-	\section{Mongoose}
-	\section{Server Sequence Diagrams}
+\section {Server Design}
+	\subsection{User Roles}
+	\subsection{Meteor}
+		\begin{wrapfigure}{l}{0\textwidth}
+			\includegraphics[scale=.2]{meteorJS}
+			\caption{Meteor.js}
+			\label{fig: Meteor.js}
+		\end{wrapfigure}
+		Meteor is a full-stack JavaScript platform for developing modern web and mobile applications. Meteor includes a key set of technologies for building connected-client reactive applications, a build tool, and a curated set of packages from the Node.js and general JavaScript community.
+		
+		\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+			\hline
+			\multicolumn{4}{|c|}{Meteor Database} \\
+			\hline
+			Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+			\hline
+			Afghanistan   & AF    &AFG&   004\\
+			Aland Islands&   AX  & ALA   &248\\
+			Albania &AL & ALB&  008\\
+			Algeria    &DZ & DZA&  012\\
+			American Samoa&   AS  & ASM&016\\
+			Andorra& AD  & AND   &020\\
+			Angola& AO  & AGO&024\\
+			\hline
+		\end{tabular}
+		
+	\subsection{Server Sequence Diagrams}
 
 \newpage
-\chapter*{Database Design}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{Database Design}
-	\section{Schemas}
+\section{Database Design}
+	\subsection{Schemas}
 		Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
-		\subsection{User Schema}
+		\subsubsection{User Schema}
 			\includegraphics[scale=.75]{schema-user}
-		\subsection{Arena Schema}
+		\subsubsection{Arena Schema}
 			\includegraphics[scale=.75]{schema-arena}
 		\subsection{Encounter Schema}
 			\includegraphics[scale=.75]{schema-encounter}
@@ -389,14 +417,12 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\includegraphics[scale=.75]{schema-spell}
 
 \newpage
-\chapter*{Application Design}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{Application Design}
-	\section{Design Patterns}
-	\section{Accessibility}
-	\section{Types of Views and Controllers}
-	\section{Battlefield Modes}
-		\subsection{Game Mode}
+\section{Client Side Design}
+	\subsection{Design Patterns}
+	\subsection{Accessibility}
+	\subsection{Types of Views and Controllers}
+	\subsection{Battlefield Modes}
+		\subsubsection{Game Mode}
 			This is the main mode available in DMBD. In this mode users will be able to play, simulate, and view and gather data about their and other user's encounters.
 			\subsubsection{Roles}
 				\paragraph{Player}
@@ -406,9 +432,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\subsection{Creation Mode}
 			\subsubsection{Roles}
 				\paragraph There is only one role available for the Creation Mode: Creator. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
-	\section{Map / Environments}
+	\subsection{Map / Environments}
 	
-	\section{Turn Structure / Order}
+	\subsection{Turn Structure / Order}
 	Combat using the d20 System is composed of rounds in which each combatant in the encounter has one turn.  A round lasts 6 seconds in game time, during which all combatants act on their respective turns. Where a combatant's turn resides chronologically in a round is determined by the combatant's initiative roll (a combination of a dice roll and applicative bonuses). A turn it self is composed of 6 parts: Action(s), Bonus Action, Movement, Free Action, and Bonus Action, Reaction.
 	\begin{itemize}
 		\item Action
