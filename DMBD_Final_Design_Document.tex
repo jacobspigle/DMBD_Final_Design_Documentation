@@ -492,11 +492,24 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\end{figure}
 		
 			\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
+			
 		\subsection{Encounter Schema}
+		\begin{figure}[H]
+			\centering
 			\includegraphics[scale=.75]{schema-encounter}
+			\caption{Encounter Schema}
+			\label{fig: Encounter Schema }
+		\end{figure}
+			Encounters created by a user will be saved in a encounter document using this schema. It will contain basic descriptive information: name, descriptions, creator. As well as physical details about the encounter itself: an array of obstacles, an array of combatants, board size. The encounter will also contain statistical information useful for both players and game masters: number of plays, success rate, most played class. This is  where statistical data is stored, these statistics will flow upward and be adjusted and displayed on other components such as arena statistics.
 		\subsection{Combatant Schema}
 		\subsection{Obstacle Schema}
-			\includegraphics[scale=.75]{schema-obstacle}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.75]{schema-obstacle}
+				\caption{Obstacle Schema}
+				\label{fig: Obstacle Schema }
+			\end{figure}
+		This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
 		\subsection {Spell Schema}
 			\includegraphics[scale=.75]{schema-spell}
 
