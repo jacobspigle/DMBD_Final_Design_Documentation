@@ -369,10 +369,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				Define Requirements/Initial Project Proposal & 10/9/2017 \\
 				Verify Requirements & 10/16/2017 \\
 				Decide Development Model & 10/23/2017 \\
-				Define Sections & 10/30/2017 \\
+				Define Design Document Sections & 10/30/2017 \\
 				First Project Presentation Draft & 11/13/2017 \\
-				Assign Design Document Sections & 11/20/2017 \\
-				Senior Design Final Document & 11/29/2017 \\
+				Senior Design Final Document & 12/04/2017 \\
 				Web App Board And Gameplay & 1/9/2018 \\
 				AI Prototype For DM and PC & 1/18/2018 \\ 
 				PC Save/Load & 1/25/2018 \\
@@ -632,13 +631,25 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		If a personality is selected that alters the decision making process for an A.I. controlled unit, we will apply a weighting scheme to each calculation during the decision making process in order to reflect the unit's preference for certain options. These weights will generally manifest as a multiplier to the final outcome of each of the damage, support, and crowd control calculations. If we want a personality to be, for example, barbaric, we may choose to apply a 1.5 multiplier to the potential damage calculation, and a .5 multiplier to potential support calculations. This will result in the algorithm selecting support actions far less frequently than damaging actions. 
 		
 		\subsection{(Future Work?) Intelligence Based Decision Making and Personalities}
-		As proposed, the unit personalities system will be capable of modifying the types of actions the A.I. chooses for each unit on the battlefield. This allows of to create personalities that have preferences for which \textit{types} of abilities to choose, however, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. 
+		As proposed, the unit personalities system will be capable of applying a twist to the types of actions the A.I. chooses for each unit on the battlefield. While this lets a user create personalities that have preferences for which \textit{types} of abilities to choose, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. In some cases, a user may not want certain units in their encounter to play optimally. 
 		
 		Experienced GMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
 		
-		%Challenges ... 
+		The main challenge associated with implementing some kind of intelligence based factor into the A.I. is the development time. It would require additional complexity in the algorithm to allow for a broader range of decisions for the A.I. 
 		
-		%Possible Solutions ...
+		Once possible solution that would result in a smaller amount of development time would be to instead of tracking the most optimal move per action, track several of the most optimal candidates and keep them in a sorted order from least to most effective. Given this list, you could use a creature's intelligence rating to influence which of the actions they pick from the list. A creature with a high intelligence would be more likely to pick one of the more effective actions in the list. A less intelligent creature would be more likely to end up taking on of the less effective actions.
+		
+		This solution would require minimal modification to the proposed system, which means it would reduce the development time required to write the code, and reduce the amount of additional testing that would have to be done on the new system. However, this solution is not necessarily the most elegant or robust solution. 
+		
+		%Insert modified flowchart which accounts for intelligence
+		
+		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
+		
+		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a decision tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of DnD, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
+		
+		This more complex solution is especially desirable for the purpose of immersion. Less intelligent creatures would have the illusion of short-sightedness, or the inability to evaluate the consequences of their immediate actions. Creatures with a high intelligence rating will appear to behave tactically, anticipated moves and avoiding long term pitfalls in exchange for short term gains. 
+		
+		This solution would require a lot of modification to the proposed system. Currently, the A.I. is not planned to use a type of minimax to account for future game states. Implementing this system would require a great deal of modification to the A.I in the future. To attempt to implement our A.I. this way from the start would be a risk, as we may not have the time and resources to fully deliver the more advanced A.I. with all other requirements by the deadline. For these reasons, the intelligence based decision making will be an optional requirement with a high priority. It would be very nice to have a better A.I., but it is not worth doing over other requirements. 
 		
 		\subsection{(Future Work?) Custom 'Role-Play' Actions}
 	
@@ -669,6 +680,10 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\item Location of each kill made on the map
 			\item Turn count
 		\end{itemize}
+	
+		\subsection{Processing}
+		
+		%Processing occurs primarily on local computer ideally?
 		
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
@@ -766,8 +781,13 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			
 	\section{Game A.I.}
 		\subsection{Pathfinding}
-		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
-		\subsection{Decision Trees}
+		\subsection{Tactical A.I.}
+		\subsubsection{Finite State Machines}
+			Not capable of looking ahead, only capable of making decisions based on current actions
+		\subsubsection{Behavior Tree}
+		\subsubsection{Utility Based Actions}
+			Ranks actions based on how useful they are.
+		\subsubsection{MiniMax}
 
 \newpage
 \chapter*{Appendix}
