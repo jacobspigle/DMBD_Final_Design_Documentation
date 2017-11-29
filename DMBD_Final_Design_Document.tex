@@ -457,6 +457,13 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 
 \newpage
 \section{Database Design}
+	\subsection {Database Diagram}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.4]{database_schema}
+			\caption{Databse Schema}
+			\label{fig: Databse Schema }
+		\end{figure}
 	\subsection{Schema}
 		Below are schema that will be used to structure the MongoDB collections. The schema themselves will be implemented in Meteor using their MongoDB schema syntax and design. Below is an example of the schema representation of a Critical Encounter user collection:
 		
@@ -501,16 +508,45 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\end{figure}
 			Encounters created by a user will be saved in a encounter document using this schema. It will contain basic descriptive information: name, descriptions, creator. As well as physical details about the encounter itself: an array of obstacles, an array of combatants, board size. The encounter will also contain statistical information useful for both players and game masters: number of plays, success rate, most played class. This is  where statistical data is stored, these statistics will flow upward and be adjusted and displayed on other components such as arena statistics.
 		\subsection{Combatant Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-combatant}
+				\caption{Combatant Schema}
+				\label{fig: Combatant Schema }
+			\end{figure}
+			This schema will be used to represent all combatants in an encounter, both player and non-player characters. All of the base stats for the combatant are stored in the document. All bonuses will be added after so it is easy to add and remove bonuses to combatant stats. Stat modifiers will also not be calculated using the respective modifier formula as well as adding additional bonuses from any effects the combatant has received from items, features and abilities. We designed the the schema this way to keep the database uncomplicated so it will be easier to edit and create new combatants. The combatant document will also contain a array of actions that the combatant can take on its turn. These actions will be displayed and selectable in the Battlefield sidebar on the combatants turn and combat.  All combatants will be assigned a reference to its creator. Most of the combatants at first implementation will be under Critical Encounters' user ID and they will be available to use for all users. This feature will also make it easy to implement creature and combatant sharing sometime in development or as a stretch goal.
 		\subsection{Obstacle Schema}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.75]{schema-obstacle}
+				\includegraphics[scale=.9]{schema-obstacle}
 				\caption{Obstacle Schema}
 				\label{fig: Obstacle Schema }
 			\end{figure}
 		This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
+		\subsection {Action Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-action}
+				\caption{Action Schema}
+				\label{fig: Action Schema }
+			\end{figure}
+			The action schema contains data about actions combatants will be able to take on their turn. The actions stored in the database will be restricted to actions given gained from items, features, classes, and races. Actions available to all combatants, movement, disengage and dash for example will be hard coded for all combatants to avoid bloating the database. The purpose of an action document is to describe the action and its requirements. Little computational work will be done directly to the action document, instead it will be done with the action's effects.
+		\subsection {Effect Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-effect}
+				\caption{Effect Schema}
+				\label{fig: Effect Schema }
+			\end{figure}
+			The effect schema will be were most of the computational data will be held. It will be held as reference by many other documents such as armor, weapons, and features. Effects adjust player stats like health, strength, and speed. They can apply a flat bonus or reduction, half, double or triple statistics, or apply a advantage or disadvantage to stat checks. The stat change will be described in the type
 		\subsection {Spell Schema}
-			\includegraphics[scale=.75]{schema-spell}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-spell}
+				\caption{Spell Schema}
+				\label{fig: Spell Schema }
+			\end{figure}
+		This schema describes a spell associated with a combatant action in game it contains description information as well as an array of the spells effects describes inside effect objects.We decided to construct a spell very modularly and easily customizable so that sometime in future development we can easily implement a to allow users to create and edit their own spells.Most of what the AI is going to interact with in a spell document is with the array of Effect objects.
 
 \newpage
 \section{Client Side Design}
