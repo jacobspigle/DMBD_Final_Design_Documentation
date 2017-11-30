@@ -231,7 +231,31 @@ Tabletop games bring people together in a world where physical interaction is of
 	\end{multicols}
 	\newpage
 	\section{Battlefield}
-	\lipsum[3]
+	The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreator}
+		\caption{Battlefield Prototype}
+		\label{fig: Battlefield Prototype}
+	\end{figure}
+	Above is a early prototype of our Battlefield. It contains three separate components: the main battle board, the sidebar, and the combat log. 
+	\subsection {The Battle Board }
+	The Battle Board is where all the environment, obstacles, and combatants are rendered. The board is a 2d top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over and selected as well as click and drag into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreatorsidebar}
+		\caption{Battlefield Prototype Sidebar}
+		\label{fig: Battlefield Prototype Sidebar}
+	\end{figure}
+	\subsection {The Sidebar }
+	In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
+	\subsection {The Battlelog }
+	The Battlelog below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Battlelog implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter. Will add another layer of fun for the user. 
+	\subsection {States and Controllers }
+	The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
+	\subsection {Future Implementation/Design Plans }
+	Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabricjs and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Battlelog themselves will be toggleable by clickable buttons on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
+	
 	\newpage
 	\section{Color Scheme}
 	\begin{figure}[H]
@@ -240,7 +264,7 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	\lipsum[4]
+	We wanted a really bright and  modern color scheme for Critical Encounters. We felt that these colors are the ones most associated with fantasy genre in that they signify some of the cornerstones of fantasy. Purple is often associated with magic both in spells, their effects and their tomes. Green is often associated with dragons a common motif in fantasy as a whole. Also in d20 systems green dragons are often seen as the most cunning, something we felt would fall in well with Critical Encounters. In addition to the symbolism of the colors purple and green complement each other very well and the multiple shades will alow us to color and accent the UI without making the UI feel monotone.
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
@@ -547,7 +571,23 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\label{fig: Spell Schema }
 			\end{figure}
 		This schema describes a spell associated with a combatant action in game it contains description information as well as an array of the spells effects describes inside effect objects.We decided to construct a spell very modularly and easily customizable so that sometime in future development we can easily implement a to allow users to create and edit their own spells.Most of what the AI is going to interact with in a spell document is with the array of Effect objects.
-
+		\subsection {Weapon Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-weapon}
+			\caption{Weapon Schema}
+			\label{fig: Weapon Schema }
+		\end{figure}
+		This schema describes a weapon that can be equipped by a combatant. Weapons are referenced in actions and the data the weapon contains, their flat stats such as damage and range and their referenced effects. These effects are implemented by the AI the actions during combat.
+		
+		\subsection {Armor Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-armor}
+			\caption{Armor Schema}
+			\label{fig: Armor Schema }
+		\end{figure}
+		This schema describes an armor that can be equipped by a combatant. Armor is referenced in actions and the data the armor contains, their flat stats such as armor class and weight and their referenced effects. These effects are implemented by the AI the actions during combat.
 \newpage
 \section{Client Side Design}
 	\subsection{URL and Routing}
