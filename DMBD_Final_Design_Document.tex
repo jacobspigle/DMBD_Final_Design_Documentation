@@ -20,7 +20,45 @@
 \parindent 15pt
 \parskip 2ex
 
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	backgroundcolor=\color{lightgray},
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
 \renewcommand{\listfigurename}{Figures}
+\renewcommand{\listtablename}{Tables}
 
 \titleformat{\chapter}[display]   
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
@@ -108,54 +146,57 @@ This project has the potential to broaden the audience of an already quickly exp
 	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a searchbar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
 	\bigskip
 	\bigskip
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\centerline{\includegraphics[scale=.30]{navbar}}
-		\caption{navbar}
+		\caption{NavBar}
 		\label{fig: NavBar}
 	\end{figure}
 	\section{Registration Page}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{register}
 		\caption{Registration Page}
 		\label{fig: Registration Page}
 	\end{figure}
-	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password.
+	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password. Users are directed to the registration page from the Dashboard or from clicking the ``Register" link on the login page.
+	\newpage
 	\section{Login Page}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{login}
 		\caption{Login Page}
 		\label{fig: Login Page}
 	\end{figure}
-	The login page (Figure \ref{fig: Login Page}) for Critical Encounters requires the user to enter either their username or email address along with the password tied to that account.
+	The login page (Figure \ref{fig: Login Page}) for Critical Encounters prompts users for their credentials to log in. Beneath the username/email address \& password fields is a ``Register" link to the registration page and a ``Forgot Password?" to a password retrieval service. Users are directed to the login page by clicking the ``Login" link on the navbar, or after attempting to access content that requires an account. (i.e. accessing the Battlefield, Arena, subscribing, reviewing, etc.)
 	\newpage
 	\section{Dashboard}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{home}
 		\caption{Dashboard}
 		\label{fig: Dashboard}
 	\end{figure}
-	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.
+	The Critical Encounters' Dashboard (Figure \ref{fig: Dashboard})features notable encounters, updates, and community events in the highlight wheel at the forefront of the page. Below the highlight wheel is a list of recommended encounters that either we the developers suggest to the community, or recommended list that is influenced by the user's recent search history.\par
+	The Dashboard doubles as a homepage for the Critical Encounters website. Upon arrival on the site unregistered users will be directed to the Dashboard, with the highlight wheel, recommended encounters, etc. presented to them the same as a logged in user would see it. Clicking the ``Register" link on the navbar will bring the unregistered user to the Registration page, and The Arena link on the sidebar will do the same. 
+	\newpage
 	\section{Encounter Browser}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.20]{search}
+		\includegraphics[scale=.19]{search}
 		\caption{Encounter Browser}
 		\label{fig: Encounter Browser}
 	\end{figure}
-	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the searchbar in the navbar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or simply encounters that help spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
-	\begin{figure}[!h]
+	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the search bar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.27]{search_filtered}
+		\includegraphics[scale=.25]{search_filtered}
 		\caption{Encounter Browser with Filter Options}
 		\label{fig: Encounter Browser with Filter Options}	
 	\end{figure}
 	\newpage
 	\section{Arena}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{arena}
 		\caption{Arena}
@@ -170,10 +211,10 @@ This project has the potential to broaden the audience of an already quickly exp
 			\item Average Encounter Rating
 		\end{itemize}
 	\end{multicols}
-	Below that, a Heat Map figure illustrates how well each class performs (Wins/Losses) in the encounters in the Arena.
+	\noindent Below that, a graph illustrates each class' Win/Loss stats in the Arena.
 	\newpage
 	\section{Encounter Page}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.20]{encounter}
 		\caption{Encounter Page}
@@ -194,37 +235,122 @@ This project has the potential to broaden the audience of an already quickly exp
 	\end{multicols}
 	\newpage
 	\section{Battlefield}
-	\lipsum[3]
+	The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreator}
+		\caption{Battlefield Prototype}
+		\label{fig: Battlefield Prototype}
+	\end{figure}
+	Above is a early prototype of our Battlefield. It contains three separate components: the main battle board, the sidebar, and the combat log. 
+	\subsection {The Battle Board }
+	The Battle Board is where all the environment, obstacles, and combatants are rendered. The board is a 2d top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over and selected as well as click and drag into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreatorsidebar}
+		\caption{Battlefield Prototype Sidebar}
+		\label{fig: Battlefield Prototype Sidebar}
+	\end{figure}
+	\subsection {The Sidebar }
+	In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
+	\subsection {The Battlelog }
+	The Battlelog below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Battlelog implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter. Will add another layer of fun for the user. 
+	\subsection {States and Controllers }
+	The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
+	\subsection {Future Implementation/Design Plans }
+	Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabricjs and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Battlelog themselves will be toggleable by clickable buttons on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
+	
 	\newpage
 	\section{Color Scheme}
-	\begin{figure}[!h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.5]{colors}
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	\lipsum[4]
+	We wanted a really bright and  modern color scheme for Critical Encounters. We felt that these colors are the ones most associated with fantasy genre in that they signify some of the cornerstones of fantasy. Purple is often associated with magic both in spells, their effects and their tomes. Green is often associated with dragons a common motif in fantasy as a whole. Also in d20 systems green dragons are often seen as the most cunning, something we felt would fall in well with Critical Encounters. In addition to the symbolism of the colors purple and green complement each other very well and the multiple shades will alow us to color and accent the UI without making the UI feel monotone.
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
+	\subsection{rpg-awesome}
 	\begin{itemize}
 		\item \includegraphics[scale=.06]{dashboard_icon}
 		The Dashboard icon is used in the navbar and on the Dashboard itself to indicate where the user is on the site.
 		\begin{figure}
-			\caption{Dashboard Icon}
+			\captionlistentry{Dashboard Icon}
 			\label{fig: Dashboard Icon}
 		\end{figure}
 		\item \includegraphics[scale=.03]{arena_icon}
-		The Arena icon represents the users' Arena and is used in the navbar and on the Arena page itself to indicate where the user is on the site.
+		The Arena icon (depicted as a house crest) represents the users' Arena and is used in the navbar and on the Arena page itself to indicate where the user is on the site.
 		\begin{figure}
-			\caption{Arena Icon}
+			\captionlistentry{Arena Icon}
 			\label{fig: Arena Icon}
 		\end{figure}
-		\item \includegraphics[scale=.03]{plays_icon}
-		The plays icon is placed next to the number of plays that an Encounter or Arena has had. It appears on the users' Arena as well as on the Encounter Page itself.
+		\item \includegraphics[scale=.03]{sword_lightning}
+		The total number of plays in an Arena has the sword crossed with lightning icon. It appears on the users' Arena as well as on the Encounter Page itself.
 		\begin{figure}
-			\caption{Plays Icon}
-			\label{fig: Plays Icon}
+			\captionlistentry{Total Plays Icon}
+			\label{fig: Total Plays Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{win_rate}
+		The trophy pedestal icon represents the percentage of users that have defeated/finished the respective encounter.
+		\begin{figure}
+			\captionlistentry{Win Rate Icon}
+			\label{fig: Win Rate Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{scroll}
+		The unfurled scroll indicates how many reviews/comments have been given to an encounter.
+		\begin{figure}
+			\captionlistentry{Comments Icon}
+			\label{fig: Comments Icon}
+		\end{figure}
+		\item \includegraphics[scale=.07]{rating_icon}
+		The star (intuitively) represents the rating that an encounter has received by users that have finished the given encounter. It is depicted on the Arena page, filtering of the search results page, as well as the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Rating Icon}
+			\label{fig: Rating Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{subscribers_icon}
+		The subscribers icon falsely represents the physical appearance of all those that utilize Critical Encounters. It also represents the number of users that are subscribed to that Arena, and is present on the Arena page.
+		\begin{figure}
+			\captionlistentry{Subscribers Icon}
+			\label{fig: Subscribers Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{plays_icon}
+		The number of plays an encounter has had is shown in the Encounter Stats column on the encounter page, and is represented by the figure of two axes crossed. Game on.
+		\begin{figure}
+			\captionlistentry{Encounter Plays Icon}
+			\label{fig: Encounter Plays Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{pc_deaths}
+		The iconic skull \& crossbones icon indicates how many PC Deaths the encounter has accrued over its' lifetime. It is present on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{PC Deaths Icon}
+			\label{fig: PC Deaths Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{npc_deaths}
+		A figure wearing an iron helm represents the number of NPC deaths that have occurred in an encounter. Whether this was due to the PCs' or their own infighting is left ambiguous. It is present on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{NPC Deaths Icon}
+			\label{fig: NPC Deaths Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{most_popular_class}
+		This icon shows the class that was chosen most by users when playing through this encounter. It appears on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Most Popular Class Icon}
+			\label{fig: Most Popular Class Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{most_popular_race}
+		Races in roleplaying games can drastically change the shape of a class, and tilt the advantage of an entire encounter with the right abilities in place. The race that was chosen the most in this encounter is represented by this icon.
+		\begin{figure}
+			\captionlistentry{Most Popular Race Icon}
+			\label{fig: Most Popular Race Icon}
+		\end{figure}
+		\item \includegraphics[scale=.03]{avg_rounds}
+		The stopwatch indicates how long an encounter generally lasts, counted in the number of rounds that are played through in the combat. It is located on the Encounter Page.
+		\begin{figure}
+			\captionlistentry{Avg. Number of Rounds}
+			\label{fig: Avg. Number of Rounds}
 		\end{figure}
 	\end{itemize}
 	\subsection {Logo}
@@ -260,7 +386,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	
 	There will be a period of time between the two semesters in which no milestones are listed. However, this time will be used to make small foundational progress towards the implementation of the final system in order allow for the smoothest transition into the implementation phase as possible. 
 	
-	Each semester will be broken down into a smaller organized list of milestones. Each of these milestones will have a deadline which should be met. The list of these milestones is show in Table \ref{milestones}
+	Each semester will be broken down into a smaller organized list of milestones. Each of these milestones will have a deadline which should be met. The list of these milestones is show in Table \ref{table: milestones}
 	
 	\begin{table}[H]
 		\begin{center}
@@ -271,10 +397,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				Define Requirements/Initial Project Proposal & 10/9/2017 \\
 				Verify Requirements & 10/16/2017 \\
 				Decide Development Model & 10/23/2017 \\
-				Define Sections & 10/30/2017 \\
+				Define Design Document Sections & 10/30/2017 \\
 				First Project Presentation Draft & 11/13/2017 \\
-				Assign Design Document Sections & 11/20/2017 \\
-				Senior Design Final Document & 11/29/2017 \\
+				Senior Design Final Document & 12/04/2017 \\
 				Web App Board And Gameplay & 1/9/2018 \\
 				AI Prototype For DM and PC & 1/18/2018 \\ 
 				PC Save/Load & 1/25/2018 \\
@@ -289,7 +414,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\hline
 			\end{tabular}
 		\end{center}
-		\caption{Milestones} \label{milestones}
+		\caption{Milestones} \label{table: milestones}
 	\end{table}
 	
 	\section{Communication}
@@ -302,38 +427,220 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		These tools are used in professional settings and will allow us to learn applicable skills to use in the industry, the fact that they are free is just a plus.
 		\subsubsection{Hosting}
 	
-
-\newpage
-\chapter*{Server Design}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{Server Design}
-	\section{User Roles}
-	\section{Node.js}
-	\section{Express.js}
-	\section{Multer}
-	\section{Mongoose}
-	\section{Server Sequence Diagrams}
-
-\newpage
-\chapter*{Database Design}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{Database Design}
-	\section{Schemas}
-		\subsection{User Schema}
-		\subsection{Arena Schema (HAHA THAT RHYMES)}
-		\subsection{Encounter Schema}
-		\subsection{Combatant Schema}
-		\subsection{Obstacle Schema}
-
 \newpage
 \chapter*{Application Design}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Application Design}
-	\section{Design Patterns}
-	\section{Accessibility}
-	\section{Types of Views and Controllers}
-	\section {Battlefield Modes}
-		\subsection{Game Mode}
+	\section {High Level Design}
+		\begin{figure}[h]
+			\includegraphics[scale=.5]{designsd.png}
+			\caption{High Level Design Diagram}
+			\label{fig: High Level Design}
+		\end{figure}
+		
+		\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. 
+		
+		\paragraph {} The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
+	
+	\section { Design Patterns }
+		
+		\begin{figure}[h]
+			\includegraphics[scale=.7]{orm.png}
+			\caption{Design Pattern Figure}
+			\label{fig: Dasign Pattern }
+		\end{figure}
+		
+		\paragraph{} Meteor uses implements a ORM/MERN, Object-relational mapping / MongoDB - Expess - React, stack design pattern. It focuses on model driven development, in which the models are shared between the server and the client. This is seen most clearly seen in the MiniMongo database cache that is accessible by the font-end front end and can asynchronously update the MongoDb REST API is implemented automatically which translates to automatic database updates.
+		
+
+
+\newpage
+\section {Server Design}
+	\subsection{Meteor}
+		\begin{wrapfigure}{l}{0\textwidth}
+			\includegraphics[scale=.2]{meteorJS}
+			\caption{Meteor.js}
+			\label{fig: Meteor.js}
+		\end{wrapfigure}
+		Meteor is a full-stack JavaScript platform for developing modern web and mobile applications. Meteor includes a key set of technologies for building connected-client reactive applications, a build tool, and a curated set of packages from the Node.js and general JavaScript community.
+		
+		
+		
+		On the client, there is no direct connection to the MongoDB database, and in fact a synchronous API to it is not possible (nor probably what you want). Instead, on the client, a collection is a client side cache of the database. This is achieved thanks to the Minimongo library—an in-memory, all JS, implementation of the MongoDB API. What this means is that on the client, when you write:
+		
+		
+		
+		\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+			\hline
+			\multicolumn{4}{|c|}{Meteor Database} \\
+			\hline
+			Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+			\hline
+			Afghanistan   & AF    &AFG&   004\\
+			Aland Islands&   AX  & ALA   &248\\
+			Albania &AL & ALB&  008\\
+			Algeria    &DZ & DZA&  012\\
+			American Samoa&   AS  & ASM&016\\
+			Andorra& AD  & AND   &020\\
+			Angola& AO  & AGO&024\\
+			\hline
+		\end{tabular}
+		
+	\subsection{Server Sequence Diagrams}
+
+\newpage
+\section{Database Design}
+	\subsection {Database Diagram}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.4]{database_schema}
+			\caption{Databse Schema}
+			\label{fig: Databse Schema }
+		\end{figure}
+	\subsection{Schema}
+		Below are schema that will be used to structure the MongoDB collections. The schema themselves will be implemented in Meteor using their MongoDB schema syntax and design. Below is an example of the schema representation of a Critical Encounter user collection:
+		
+		\begin{lstlisting}
+			Users.schema = new SimpleSchema({
+				username: {type: String, required: true},
+				password: {type: String, required: true},
+				arena: {type: String, regEx: SimpleSchema.RegEx.Id},
+				subscriptions: [{type: String, regEx: SimpleSchema.RegEx.Id}]
+			});
+		\end{lstlisting}
+		
+		The general structure is a field name and a matching feild type (String, Boolean, Object ) with optional requirements or parameters (regEx: SimpleSchema.RegEx.Id).
+		
+		Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
+		\subsubsection{User Schema}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=.75]{schema-user}
+				\caption{User Schema}
+				\label{fig: User Schema }
+			\end{figure}
+			
+		\paragraph{}This schema will hold basic user information: identification information (username, password), a reference to their Area (Arena), and a list of the Arenas they are subscribed to (subscriptions). This is the entrance point for all data accessible on the website. All other collections on the database are associated with at least one user object and has only one user owner/creator. All login and authentication information and routing will referenc the user collection to confirm identification. The password string will be saved as a string that has been encrypted to protect user information.
+		\subsubsection{Arena Schema}
+		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=.75]{schema-arena}
+				\caption{Arena Schema}
+				\label{fig: Arena Schema }
+			\end{figure}
+		
+			\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
+			
+		\subsection{Encounter Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.75]{schema-encounter}
+			\caption{Encounter Schema}
+			\label{fig: Encounter Schema }
+		\end{figure}
+			Encounters created by a user will be saved in a encounter document using this schema. It will contain basic descriptive information: name, descriptions, creator. As well as physical details about the encounter itself: an array of obstacles, an array of combatants, board size. The encounter will also contain statistical information useful for both players and game masters: number of plays, success rate, most played class. This is  where statistical data is stored, these statistics will flow upward and be adjusted and displayed on other components such as arena statistics.
+		\subsection{Combatant Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-combatant}
+				\caption{Combatant Schema}
+				\label{fig: Combatant Schema }
+			\end{figure}
+			This schema will be used to represent all combatants in an encounter, both player and non-player characters. All of the base stats for the combatant are stored in the document. All bonuses will be added after so it is easy to add and remove bonuses to combatant stats. Stat modifiers will also not be calculated using the respective modifier formula as well as adding additional bonuses from any effects the combatant has received from items, features and abilities. We designed the the schema this way to keep the database uncomplicated so it will be easier to edit and create new combatants. The combatant document will also contain a array of actions that the combatant can take on its turn. These actions will be displayed and selectable in the Battlefield sidebar on the combatants turn and combat.  All combatants will be assigned a reference to its creator. Most of the combatants at first implementation will be under Critical Encounters' user ID and they will be available to use for all users. This feature will also make it easy to implement creature and combatant sharing sometime in development or as a stretch goal.
+		\subsection{Obstacle Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-obstacle}
+				\caption{Obstacle Schema}
+				\label{fig: Obstacle Schema }
+			\end{figure}
+		This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
+		\subsection {Action Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-action}
+				\caption{Action Schema}
+				\label{fig: Action Schema }
+			\end{figure}
+			The action schema contains data about actions combatants will be able to take on their turn. The actions stored in the database will be restricted to actions given gained from items, features, classes, and races. Actions available to all combatants, movement, disengage and dash for example will be hard coded for all combatants to avoid bloating the database. The purpose of an action document is to describe the action and its requirements. Little computational work will be done directly to the action document, instead it will be done with the action's effects.
+		\subsection {Effect Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-effect}
+				\caption{Effect Schema}
+				\label{fig: Effect Schema }
+			\end{figure}
+			The effect schema will be were most of the computational data will be held. It will be held as reference by many other documents such as armor, weapons, and features. Effects adjust player stats like health, strength, and speed. They can apply a flat bonus or reduction, half, double or triple statistics, or apply a advantage or disadvantage to stat checks. The stat change will be described in the type
+		\subsection {Spell Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-spell}
+				\caption{Spell Schema}
+				\label{fig: Spell Schema }
+			\end{figure}
+		This schema describes a spell associated with a combatant action in game it contains description information as well as an array of the spells effects describes inside effect objects.We decided to construct a spell very modularly and easily customizable so that sometime in future development we can easily implement a to allow users to create and edit their own spells.Most of what the AI is going to interact with in a spell document is with the array of Effect objects.
+		\subsection {Weapon Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-weapon}
+			\caption{Weapon Schema}
+			\label{fig: Weapon Schema }
+		\end{figure}
+		This schema describes a weapon that can be equipped by a combatant. Weapons are referenced in actions and the data the weapon contains, their flat stats such as damage and range and their referenced effects. These effects are implemented by the AI the actions during combat.
+		
+		\subsection {Armor Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-armor}
+			\caption{Armor Schema}
+			\label{fig: Armor Schema }
+		\end{figure}
+		This schema describes an armor that can be equipped by a combatant. Armor is referenced in actions and the data the armor contains, their flat stats such as armor class and weight and their referenced effects. These effects are implemented by the AI the actions during combat.
+\newpage
+\section{Client Side Design}
+	\subsection{URL and Routing}
+		\paragraph {} There are two options to font-end routing for using our stack: React-Router and Meteor's FlowRouter. Both implementations have their pros and cons but after some research and deliberation we have decided to use Meteor's FlowRouter. The notation and syntax for FlowRouter is much more clear and easier to learn. There haws also been a history of React-Router not playing too well with Meteor applications. 
+		
+		FlowRouter is relatively straight fore-ward and is composed of two main components, the URL and the action. In short when the URL is accessed by the browser the action is triggered. In our case the action method will most likely be a ReactLayout render call to render react components associated with that route to the view. 
+		
+		Below is a routing example for the dashboard page of Critical Encounters:
+		
+		\begin{lstlisting}
+			FlowRouter.route( '/dashboard', {
+				name: 'dashboard',
+				action() {
+							ReactLayout.render( App, { yield: <DashBoard /> } );
+				}
+			});
+		\end{lstlisting}
+		
+		\subsubsection { URL Routes}
+		
+			\begin{table}[H]
+				\begin{center}
+					\begin{tabular}{ |p{5cm}|p{7cm}|| } 
+						\hline
+						URL Route: & Purpose: \\
+						\hline
+						/dashboard & Routes users to dashboard page \\
+						/account & Routes current user account information\\
+						/encounter-finder/:query & Route to search result page accessible at anytime through the fixed header search bar  \\
+						/arenas/:arenaName & Route to area with specified arena name  \\
+						/encounters/:id & Route to encounter with specified id \\
+						/battlefield/creator/:id & Enter Battlefield in creator mode with given encounter id \\
+						/battlefield/player/:id & Enter Battlefield in player mode with given encounter id \\
+						/battlefield/master/:id & Enter Battlefield in master mode with given encounter id \\	
+						\hline
+					\end{tabular}
+				\end{center}
+			\caption{URL Routes} \label{table: URL Routes}
+		\end{table}
+		
+		
+	\subsection{Types of Views and Controllers}
+	\subsection{Battlefield Modes}
+		\subsubsection{Game Mode}
 			This is the main mode available in DMBD. In this mode users will be able to play, simulate, and view and gather data about their and other user's encounters.
 			\subsubsection{Roles}
 				\paragraph{Player}
@@ -343,8 +650,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\subsection{Creation Mode}
 			\subsubsection{Roles}
 				\paragraph There is only one role available for the Creation Mode: Creator. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
-	\section{Map / Environments}
-	\section{Turn Structure / Order}
+	\subsection{Map / Environments}
+	
+	\subsection{Turn Structure / Order}
 	Combat using the d20 System is composed of rounds in which each combatant in the encounter has one turn.  A round lasts 6 seconds in game time, during which all combatants act on their respective turns. Where a combatant's turn resides chronologically in a round is determined by the combatant's initiative roll (a combination of a dice roll and applicative bonuses). A turn it self is composed of 6 parts: Action(s), Bonus Action, Movement, Free Action, and Bonus Action, Reaction.
 	\begin{itemize}
 		\item Action
@@ -460,13 +768,25 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		If a personality is selected that alters the decision making process for an A.I. controlled unit, we will apply a weighting scheme to each calculation during the decision making process in order to reflect the unit's preference for certain options. These weights will generally manifest as a multiplier to the final outcome of each of the damage, support, and crowd control calculations. If we want a personality to be, for example, barbaric, we may choose to apply a 1.5 multiplier to the potential damage calculation, and a .5 multiplier to potential support calculations. This will result in the algorithm selecting support actions far less frequently than damaging actions. 
 		
 		\subsection{(Future Work?) Intelligence Based Decision Making and Personalities}
-		As proposed, the unit personalities system will be capable of modifying the types of actions the A.I. chooses for each unit on the battlefield. This allows of to create personalities that have preferences for which \textit{types} of abilities to choose, however, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. 
+		As proposed, the unit personalities system will be capable of applying a twist to the types of actions the A.I. chooses for each unit on the battlefield. While this lets a user create personalities that have preferences for which \textit{types} of abilities to choose, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. In some cases, a user may not want certain units in their encounter to play optimally. 
 		
 		Experienced GMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
 		
-		%Challenges ... 
+		The main challenge associated with implementing some kind of intelligence based factor into the A.I. is the development time. It would require additional complexity in the algorithm to allow for a broader range of decisions for the A.I. 
 		
-		%Possible Solutions ...
+		Once possible solution that would result in a smaller amount of development time would be to instead of tracking the most optimal move per action, track several of the most optimal candidates and keep them in a sorted order from least to most effective. Given this list, you could use a creature's intelligence rating to influence which of the actions they pick from the list. A creature with a high intelligence would be more likely to pick one of the more effective actions in the list. A less intelligent creature would be more likely to end up taking on of the less effective actions.
+		
+		This solution would require minimal modification to the proposed system, which means it would reduce the development time required to write the code, and reduce the amount of additional testing that would have to be done on the new system. However, this solution is not necessarily the most elegant or robust solution. 
+		
+		%Insert modified flowchart which accounts for intelligence
+		
+		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
+		
+		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a decision tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of DnD, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
+		
+		This more complex solution is especially desirable for the purpose of immersion. Less intelligent creatures would have the illusion of short-sightedness, or the inability to evaluate the consequences of their immediate actions. Creatures with a high intelligence rating will appear to behave tactically, anticipated moves and avoiding long term pitfalls in exchange for short term gains. 
+		
+		This solution would require a lot of modification to the proposed system. Currently, the A.I. is not planned to use a type of minimax to account for future game states. Implementing this system would require a great deal of modification to the A.I in the future. To attempt to implement our A.I. this way from the start would be a risk, as we may not have the time and resources to fully deliver the more advanced A.I. with all other requirements by the deadline. For these reasons, the intelligence based decision making will be an optional requirement with a high priority. It would be very nice to have a better A.I., but it is not worth doing over other requirements. 
 		
 		\subsection{(Future Work?) Custom 'Role-Play' Actions}
 	
@@ -497,6 +817,10 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\item Location of each kill made on the map
 			\item Turn count
 		\end{itemize}
+	
+		\subsection{Processing}
+		
+		%Processing occurs primarily on local computer ideally?
 		
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
@@ -514,7 +838,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\subsubsection{Item Menu}
 			The item menu is a side bar on the encounter creator that allows you to place entities onto the encounter map. The items in the menu include the player spawn area, various enemies, and space-blocking obstacles. These items can be placed into the encounter by simply clicking the entities you want and dragging it onto the desired spot on the encounter map.
 			\subsubsection{Enemy Stats}
-			After placing an enemy onto the encounter via the encounter map, clicking on the enemy will change the side bar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu. 
+			After placing an enemy into the encounter via the encounter map, clicking on the enemy will change the side bar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu. 
 		\subsection{Player Spawn Area}
 		As per the standard d20 rules, the player's character's positions are determined by their location prior to the encounter starting. Critical Encounters focuses solely on the encounter portion of the role playing experience so there is no way for the program to know where these players may have entered from. This is counteracted by allowing the GM to designate a particular area of the encounter map towards player spawning. Upon starting the encounter, the player will be able to choose which character starts in which location allocated by the spawn area. These encounters will be played through single-player, but the encounters can be tested using as many characters as allowed by the creator.
 		\subsection{Enemies}
@@ -522,7 +846,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\subsection{Obstacles}
 		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked. These can all be accessed by the side bar.
 		\subsection{Encounter Rules}
-		The GM can set specific rules within the enounter such as level caps and party size limits. These allow the GM to fine tune the enounter to very specific qualities that will allow them to perfect their vision. 
+		The GM can set specific rules within the encounter such as level caps and party size limits. These allow the GM to fine tune the encounter to very specific qualities that will allow them to perfect their vision. 
 		
 	\section{Storyboards}
 	\section{Version Control}
@@ -532,16 +856,16 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \chapter*{Research}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Research}
-	\section{MEAN Stack}
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=.2]{meanStack}
-		\caption{Mean Stack Logo}
-		\label{fig: Mean Stack Logo}
-	\end{figure}
-	The creation of developer tools like MongoDB, Express.js, Angular.js, and Node.js (otherwise known as the MEAN stack) forge a collection of technologies that allow for JavaScript utilization when developing a web application. The culmination of these technologies build off each other while staying modular. This can allow for a head start in the initial stages of development with scaffolding for all of the main tools in the MEAN Stack.
+	\section{MEAN vs. Meteor}
+	The creation of developer tools like MongoDB, Express.js, Angular.js, and Node.js (otherwise known as the MEAN stack) forge a collection of technologies that allow for JavaScript utilization when developing a web application. Meteor (or Meteor.js) builds off of what the MEAN Stack already has to offer, while adding the convenience of seamless client-server communication out-of-box, noticeably smaller learning curve than that of MEAN, and utilization of Isomorphic API that allows for development of front-end and back-end all in one.
 	
-		\subsection{Altered MEAN Stack}
+		\subsection{MEAN Stack}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.2]{meanStack}
+			\caption{Mean Stack Logo}
+			\label{fig: Mean Stack Logo}
+		\end{figure}
 		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extention of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
 			\newpage
 			\subsubsection{MongoDB}
@@ -551,49 +875,64 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\label{fig: MongoDB}
 			\end{wrapfigure}
 			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System.
-			\newpage
-			\subsubsection{Meteor.js}
+				
+			\subsubsection{Angular 4}
 			\begin{wrapfigure}{l}{0\textwidth}
-				\includegraphics[scale=.2]{meteorJS}
-				\caption{Meteor.js}
-				\label{fig: Meteor.js}
+				\includegraphics[scale=.3]{angular_4}
+				\caption{Angular 4}
+				\label{fig: Angular 4}
 			\end{wrapfigure}
-			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
-	
+			Angular 4 is a TypeScript framework used for developing front-end web and mobile based applications. Angular is an integral part of the MEAN Stack, and thus acts as a piece in that machine to allow for JavaScript coding in the entirety of a project. There are quite a few advantages to using Angular 4, things like template syntax to allow for quick creation of UI views, code splitting to load only the necessary modules for a user's session, and a dedicated CLI to make building, testing, and serving a web application that much easier. Another benefit to using Angular is its' versatility. A desktop application can be created just as well in Angular a web app. This would allow for the transition to a full-fledged application if we thought the project would benefit from it.
+			
+			\newpage
 			\subsubsection{Node.js}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.06]{nodeJS}
 				\caption{Node.js}
 				\label{fig: Node.js}
 			\end{wrapfigure}
-			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. There are a few reasons why it is the first choice when building a web application like this project. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
-	
-			\subsubsection{Angular 4}
+			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
+		
+		\subsection{Meteor}
+			\subsubsection{Meteor.js}
 			\begin{wrapfigure}{l}{0\textwidth}
-				\includegraphics[scale=.25]{angular_js}
-				\caption{Angular 4}
-				\label{fig: Angular 4}
+			\includegraphics[scale=.2]{meteorJS}
+			\caption{Meteor.js}
+			\label{fig: Meteor.js}
 			\end{wrapfigure}
-			\lipsum[1]
-			Angular 4 is a font-end TypeScript framework used for developing frontend web and mobile based applications. We will be using Angular 4 for the fontend of our web app.  
-	
+			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
+			\subsubsection{React.js}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.25]{react}
+				\caption{React.js}
+				\label{React.js}
+			\end{wrapfigure}
+			React.js is a JavaScript library often used to build UI for web applications. In the Model-view-controller framework, React.js acts as the ``view" component. Features that pushed us to choose React.js as our front-end development tool are mostly centered around the creation of the Battlefield and our decision to utilize Meteor.js. Using so many assets for visual representation of obstacles, characters, monsters, and the like, we decided finding a framework that focuses on developing applications around those properties. Enter React.js, which essentially allows actions to be passed back the path that a prop(Property) was passed down. As we manipulate the graphics in the Battlefield, the props will stay unchanged and the actions will be dictated back to the render. Another benefit to using React is the resources provided for testing. Shallow testing may be implemented to check the validity of a module without digging too deep into its' children. This way, the higher level design of the modules can be verified and trickling down its' children shallowly will reveal the source of any bugs. React uses something called a ``virtual Document Object Model". The Virtual DOM lets us (the developers) code with the assumption that rendering happens on each change, while in reality React renders sub components instead of the entire page.
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.1]{bootstrap4}
-				\caption{Bootstrap4}
+				\caption{Bootstrap 4}
 				\label{Bootstrap 4}
 			\end{wrapfigure}
-			Bootstrap is a HTML, CSS, and JS framework used for building responsive, mobile compatible web sites and applications. Bootstrap was an obvious choice for out front end development. It has extensive documentation and resources available. Also with its new v4 update Bootstrap is more useful then ever. Our front end team already has extensive experience with Bootstrap so it should be easy to get the front end up and running. One issue we had to address is Bootstraps dependency on jQuery. jQuery is JS API whose functions can sometimes interfere with Angular 4's TS functions. To avoid these issues we decided to avoid using jQuery entirely and use ng-bootstrap instead witch performs all of bootstraps jQuery functions entirely in Angular 4.
+			Bootstrap is a HTML, CSS, and JS framework used for building responsive, mobile compatible web sites and applications. Bootstrap was an obvious choice for out front end development. It has extensive documentation and resources available. Also with its new v4 update Bootstrap is more useful then ever. Our front end team already has extensive experience with Bootstrap so it should be easy to get the front end up and running. The tricky aspect of this will be the transition from experience with Angular to now using React.js. We decided to make this transition because of the popularity and momentum React is having in the web development community, to both widen our gaze and take advantage of many features that using Bootstrap with React has to offer.
 			
-			
-	\section{RESTful}
 	\section{Game A.I.}
 		\subsection{Pathfinding}
+<<<<<<< HEAD
 		Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
 		
 		The A* searching algorithm is a pathfinding algorithm that uses nodes to traverse a graph. A* looks ahead to the point it needs to travel to and calculates all the different paths that it could take to get there. A* then chooses the shortest path available. This algorithm is not necessarily the most efficient, but will be more than satisfactory in accomplishing our goal.
 		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
 		\subsection{Decision Trees}
+=======
+		\subsection{Tactical A.I.}
+		\subsubsection{Finite State Machines}
+			Not capable of looking ahead, only capable of making decisions based on current actions
+		\subsubsection{Behavior Tree}
+		\subsubsection{Utility Based Actions}
+			Ranks actions based on how useful they are.
+		\subsubsection{MiniMax}
+>>>>>>> 8f8cb1a2c6966a59b56dae1044e3afa20cf07a88
 
 \newpage
 \chapter*{Appendix}
@@ -606,9 +945,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \listoffigures
 
 \newpage
-\chapter*{Tables}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Tables}
+\listoftables
 
 \newpage
 \chapter*{References}
