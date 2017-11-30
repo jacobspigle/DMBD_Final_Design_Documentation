@@ -773,7 +773,42 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 					\item \textbf{Exhaustion} - Combatant is physically tired. Exhaustion works in several layers of intensity which range from having slower movement speed and disadvantage on abilities to the highest level, which is death.
 				\end{itemize}
 		\subsection{Modifiers}
+			There are various qualities that could boost or deduct points for a character during an action. These qualities can be obtained from high stats, character class/race, or buffs from potions.
+			\subsubsection{Attribute Modifiers}
+			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subract for every 2 levels given. An ability score of 0 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
+			\subsubsection{Resistance}
+			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved.
+			\subsubsection{Vulnerability}
+			 Likewise with Resistance, characters may be vulnerable to specific damage types as well. If a character has vulnerability to the damage type they are receiving, the damage dealt after all of the modifiers is doubled.
+			 \subsubsection{Buffs \& Debuffs}
+			 Spells, powers, and potions can either boost or deduct points from various qualities of the characters. 
+			 
+			 Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
+			 \begin{itemize}
+			 	\item Speed
+			 	\item Health Points
+			 	\item Perception
+			 	\item Defense
+			 	\item Damage output
+			 \end{itemize}
 		\subsection{Misc. Terms}
+			Throughout the D20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
+			\subsubsection{Area of Effect}
+				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
+				\begin{itemize}
+					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
+					\item \textbf{Radial} - Spells that affect the area around the caster. The spells radius can range from 5ft to 20ft.
+					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
+				\end{itemize}
+			\subsubsection{Line of Sight}
+				Certain abilities are hindered by line of sight. This refers to the character's ability to see their target. Line of sight can be blocked by just about anything that isn't invisible inbetween the character and the enemy.
+			\subsubsection{Experience Points}
+				Upon completing an encounter, experience points are awarded to the party. XP are units of measurement to gauge the character's progression after a battle. They are used to level up the character and add points to their attributes, which result in higher modifiers for that character.
+			\subsubsection{Free Action}
+				Free actions are actions that use a negligible amount of time to do and can be used in unison with main actions during the character's turn.
+			\subsubsection{Advantage/Disadvantage}
+				Certain abilities, conditions, buffs and debuffs can give characters advantages or disadvantages. This allows the character to roll 2 times for the action with the advantage/disadvantage. For an advantage the character chooses the higher value of the two rolls, while disadvantage takes the lower of two.
+			
 	\section{Computer Opponent (A.I.)}
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
