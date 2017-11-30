@@ -53,14 +53,18 @@ There are countless possible character, monster, and scenario possibilities when
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Proposed Solution}
 
-This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves. This project seeks to develop a service that follows the rules of the d20 Game System, and by allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
+This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves, and perfect them to ensure the most enjoyable experience in a live game encounter.
+
+This project seeks to develop a service that allows a user to create an encounter that follows the rules of the d20 Game System. The creator streamlines the refining process by easily being able to simulate the encounter. By allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. The encounters will have the ability to be rapidly simulated over and over to display statistics about the encounter the help improve the encounter. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
 
 \newpage
 \chapter*{Broader Impact}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Broader Impact}
 
-Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
+Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. In-game encounters require large amounts of time to plan, setup, and implement, so by enhancing this process and giving the GM the ability to perfect an encounter beforehand the whole process becomes more enjoyable for anyone playing the game.
+
+This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
 	
 \newpage
 \chapter*{Personal Interests}
@@ -292,6 +296,11 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\section{Research}
 	\section{Budget}
 	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
+		\subsubsection{Development}
+		During development, we will be programming in free to use IDE's such as Visual Studio. The program will be utilizing the javascript framework Angular.js, which is also free to use. Data will be handled using Node.js and MongooseDB, again, which are free. 
+		
+		These tools are used in professional settings and will allow us to learn applicable skills to use in the industry, the fact that they are free is just a plus.
+		\subsubsection{Hosting}
 	
 
 \newpage
@@ -368,6 +377,58 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\item Ex. Cast reaction spell, attack of opportunity
 			\end{itemize}
 	\end{itemize}
+	\section{D20 Terminology}
+	The D20 game system has variations from game to game whether it be changes to name, function, or practicality. Despite this, generally many the main qualities that the game styles have don't tend to stray too far from one another. While on this project, it is crucial that Critical Encounters should provide a broad enough experience to appease the largest portion of D20 games as possible so that players can apply their encounters to whatever D20 system they'd like. 
+		\subsection{Character Terms}
+		Within a character in the D20 system, there are many statistics, qualities, and abilities that help to determine how the character acts within the D20 world. These can alter attacks, defenses, skills, and even behavior.
+			\subsubsection{Attributes}
+			Attributes refer to the natural born characteristics that all characters within the game possess. Upon character creation, you choose to distribute a designated amount of points among several different attributes to create a truly unique character from the start. 
+			Common attributes within the D20 systems are:
+			\begin{itemize}
+				\item Strength
+					\begin{itemize}
+						\item The character's innate physical capability. This can include the character's ability to carry items, melee damage, and preform physically demanding tasks (moving large items, barricading, holding enemies, etc.)
+					\end{itemize}
+				\item Constitution
+					\begin{itemize}
+						\item The character's health or stamina. Constitution determines the character's HP and endurance, as well as resistance to special damages. 
+					\end{itemize}
+				\item Defense
+					\begin{itemize}
+						\item The character's ability to resist damage. This is very similar to Constitution but ultimately different. This usually deals with direct hits from enemies and the character's resistance to HP deduction.
+					\end{itemize}
+				\item Dexterity
+					\begin{itemize}
+						\item The character's agility and hand-eye coordination. Dexterity allows the character to react quickly to attacks from enemies via dodging and counters. It can also effect the damage dealt to enemies, depending on the weapon. Certain weapons require more precision than strength alone, for example a Battle-Axe versus a Bow and Arrow.
+					\end{itemize}
+				\item Intelligence
+					\begin{itemize}
+						\item This may be hard to guess, but Intelligence refers to how smart the character is. This can affect the character's ability to solve problems or understand foreign entities. For example, a character with high Intelligence may be able to decipher a clue via an Intelligence check.
+					\end{itemize}
+				\item Charisma
+					\begin{itemize}
+						\item The character's social ability. This mainly effects interactions between players and NPCs outside of an encounter. This can be used to barter prices and convince NPCs. Charisma can be used within an encounter through various ways such as intimidation. 
+					\end{itemize}
+				\item Wisdom
+					\begin{itemize}
+						\item The character's spirituality and common sense. Wisdom applies heavily in spellcasting and dealing with mystical qualities of the world. 
+					\end{itemize}
+				\item Perception
+					\begin{itemize}
+						\item The character's observation of their surroundings. Perception effects the character's chance towards noticing specific entities within the environment (hidden enemies, traps, clues, etc.)
+					\end{itemize}
+			\end{itemize}
+			\subsubsection{Classes}
+				Characters within the D20 are given roles to play throughout the campaign. Classes are chosen when the character is created and is fundemental in deciding how the character is going to play. The class affects the character's specific attributes in certain ways by adding extra points to some attributes and deducting points from others based on the class itself. Classes range from system to system but are all generally the same. The base classes are typically Barbarian, Rogue, Wizard, and Cleric, with many deviations of these classes within the individual D20 systems.
+			\subsubsection{Alignment}
+				Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. The alignment chart has to axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy charcters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. 
+			\subsubsection{Races}
+				This refers to the character's actual species. Race (much like classes) give basic advantages and disadvantages to specific attributes, but also change provide minor changes to gameplay. Certain races will have certain abilities which can provide the party with advantages in battle. Races also vary from system to system but most follow a basic patter of human, elf, dwarf, half-orc, etc.
+		\subsection{Combat Terms}
+			There area variety of things that can occur during an encounter that effect the way the battle plays out. Certain terms appear every battle, while others only occur when specific occurrences line up.
+			\subsubsection{Initiative}
+			This is where initiative goes.
+		\subsection{Misc. Terms}
 	\section{Computer Opponent (A.I.)}
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
@@ -528,6 +589,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\section{RESTful}
 	\section{Game A.I.}
 		\subsection{Pathfinding}
+		Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
+		
+		The A* searching algorithm is a pathfinding algorithm that uses nodes to traverse a graph. A* looks ahead to the point it needs to travel to and calculates all the different paths that it could take to get there. A* then chooses the shortest path available. This algorithm is not necessarily the most efficient, but will be more than satisfactory in accomplishing our goal.
 		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
 		\subsection{Decision Trees}
 
