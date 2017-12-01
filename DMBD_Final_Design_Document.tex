@@ -801,7 +801,8 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
 		
 	\section{Encounter Browser}
-		\subsection{Validation}
+	After an encounter has been perfected by the user, they have the option to post it into their public arena. Once in a public arena, the encounter may be accessed via the encounter browser. The browser functions as a search bar that allows users to find encounters made by other members of Critical Encounters. Encounters can be located by matching the keywords the user searches with the keywords associated with the encounter. These keywords can include the name of the encounter, the type of encounter, location, level range, party size, difficulty level, etc.
+	
 	\section{Encounter Creator Tools}
 	The Encounter Creator is the base of all the encounters provided by Critical Encounters. Users can use this tool to build encounters from scratch that will allow them to properly design the situation to be the most fun for the players to experience. Encounters aren't necessarily more fun if they are harder to accomplish nor are the more fun if you can waltz right through them but rather, encounters provide the most fun when the players are challenged just enough to overcome the enemy. 
 	
@@ -822,6 +823,10 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliffside. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the side bar.
 		\subsection{Encounter Rules}
 		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
+		\subsection{Encounter Validation}
+		With the easy to use nature of the encounter creator, it may arise that an unbeatable encounter is created in the process whether there be too many enemies, too large a level difference between the party and the enemies, or even issues with the map design. As it certainly wouldn't help anyone playing an unbeatable encounter, it is best to ensure that the encounters created match reasonable standards before being posted. 
+		
+		Prior to being posted onto the encounter browser or made public in the player's arena, the encounter must pass the encounter validation. This is the requirement of the user creating the encounter to play through the encounter themselves and emerge victorious. This verifies that there is indeed a way for other users to make their way through and also beat the encounter. Once beaten by the creator, the encounter will become "validated" and will appear in the encounter browser provided that the encounter was made public by the user.
 		
 	\section{Storyboards}
 	\section{Version Control}
@@ -912,6 +917,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			
 	\section{Game A.I.}
 		\subsection{Pathfinding}
+			Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
+			
+			The A* searching algorithm is a pathfinding algorithm that uses nodes to traverse a graph. A* looks ahead to the point it needs to travel to and calculates all the different paths that it could take to get there. A* then chooses the shortest path available. This algorithm is not necessarily the most efficient, but will be more than satisfactory in accomplishing our goal.
 		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
 		\subsection{Decision Trees}
 
