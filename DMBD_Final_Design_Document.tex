@@ -233,7 +233,30 @@ This project has the potential to broaden the audience of an already quickly exp
 	\end{multicols}
 	\newpage
 	\section{Battlefield}
-	\lipsum[3]
+The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.5]{encountercreator}
+	\caption{Battlefield Prototype}
+	\label{fig: Battlefield Prototype}
+\end{figure}
+Above is a early prototype of our Battlefield. It contains three separate components: the main battle board, the sidebar, and the combat log. 
+\subsection {The Battle Board }
+The Battle Board is where all the environment, obstacles, and combatants are rendered. The board is a 2d top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over and selected as well as click and drag into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.5]{encountercreatorsidebar}
+	\caption{Battlefield Prototype Sidebar}
+	\label{fig: Battlefield Prototype Sidebar}
+\end{figure}
+\subsection {The Sidebar }
+In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
+\subsection {The Battlelog }
+The Battlelog below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Battlelog implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter. Will add another layer of fun for the user. 
+\subsection {States and Controllers }
+The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
+\subsection {Future Implementation/Design Plans }
+Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabricjs and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Battlelog themselves will be toggleable by clickable buttons on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
 	\newpage
 	\section{Color Scheme}
 	\begin{figure}[H]
@@ -489,50 +512,113 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 
 \newpage
 \section{Database Design}
-	
+\subsection {Database Diagram}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.4]{database_schema}
+	\caption{Databse Schema}
+	\label{fig: Databse Schema }
+\end{figure}
 \subsection{Schema}
-		Below are schema that will be used to structure the MongoDB collections. The schema themselves will be implemented in Meteor using their MongoDB schema syntax and design. Below is an example of the schema representation of a Critical Encounter user collection:
-		
-		\begin{lstlisting}
-			Users.schema = new SimpleSchema({
-				username: {type: String, required: true},
-				password: {type: String, required: true},
-				arena: {type: String, regEx: SimpleSchema.RegEx.Id},
-				subscriptions: [{type: String, regEx: SimpleSchema.RegEx.Id}]
-			});
-		\end{lstlisting}
-		
-		The general structure is a field name and a matching feild type (String, Boolean, Object ) with optional requirements or parameters (regEx: SimpleSchema.RegEx.Id).
-		
-		Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
-		\subsubsection{User Schema}
-			\begin{figure}[h]
-				\centering
-				\includegraphics[scale=.75]{schema-user}
-				\caption{User Schema}
-				\label{fig: User Schema }
-			\end{figure}
-			
-		\paragraph{}This schema will hold basic user information: identification information (username, password), a reference to their Area (Arena), and a list of the Arenas they are subscribed to (subscriptions). This is the entrance point for all data accessible on the website. All other collections on the database are associated with at least one user object and has only one user owner/creator. All login and authentication information and routing will referenc the user collection to confirm identification. The password string will be saved as a string that has been encrypted to protect user information.
-		\subsubsection{Arena Schema}
-		
-			\begin{figure}[h]
-				\centering
-				\includegraphics[scale=.75]{schema-arena}
-				\caption{Arena Schema}
-				\label{fig: Arena Schema }
-			\end{figure}
-		
-			\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
-		
+Below are schema that will be used to structure the MongoDB collections. The schema themselves will be implemented in Meteor using their MongoDB schema syntax and design. Below is an example of the schema representation of a Critical Encounter user collection:
+
+\begin{lstlisting}
+Users.schema = new SimpleSchema({
+username: {type: String, required: true},
+password: {type: String, required: true},
+arena: {type: String, regEx: SimpleSchema.RegEx.Id},
+subscriptions: [{type: String, regEx: SimpleSchema.RegEx.Id}]
+});
+\end{lstlisting}
+
+The general structure is a field name and a matching feild type (String, Boolean, Object ) with optional requirements or parameters (regEx: SimpleSchema.RegEx.Id).
+
+Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
+\subsubsection{User Schema}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.75]{schema-user}
+	\caption{User Schema}
+	\label{fig: User Schema }
+\end{figure}
+
+\paragraph{}This schema will hold basic user information: identification information (username, password), a reference to their Area (Arena), and a list of the Arenas they are subscribed to (subscriptions). This is the entrance point for all data accessible on the website. All other collections on the database are associated with at least one user object and has only one user owner/creator. All login and authentication information and routing will referenc the user collection to confirm identification. The password string will be saved as a string that has been encrypted to protect user information.
+\subsubsection{Arena Schema}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.75]{schema-arena}
+	\caption{Arena Schema}
+	\label{fig: Arena Schema }
+\end{figure}
+
+\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
+
 \subsection{Encounter Schema}
-		
+\begin{figure}[H]
+	\centering
 	\includegraphics[scale=.75]{schema-encounter}
-		\subsection{Combatant Schema}
-		\subsection{Obstacle Schema}
-			\includegraphics[scale=.75]{schema-obstacle}
-		\subsection {Spell Schema}
-			\includegraphics[scale=.75]{schema-spell}
+	\caption{Encounter Schema}
+	\label{fig: Encounter Schema }
+\end{figure}
+Encounters created by a user will be saved in a encounter document using this schema. It will contain basic descriptive information: name, descriptions, creator. As well as physical details about the encounter itself: an array of obstacles, an array of combatants, board size. The encounter will also contain statistical information useful for both players and game masters: number of plays, success rate, most played class. This is  where statistical data is stored, these statistics will flow upward and be adjusted and displayed on other components such as arena statistics.
+\subsection{Combatant Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-combatant}
+	\caption{Combatant Schema}
+	\label{fig: Combatant Schema }
+\end{figure}
+This schema will be used to represent all combatants in an encounter, both player and non-player characters. All of the base stats for the combatant are stored in the document. All bonuses will be added after so it is easy to add and remove bonuses to combatant stats. Stat modifiers will also not be calculated using the respective modifier formula as well as adding additional bonuses from any effects the combatant has received from items, features and abilities. We designed the the schema this way to keep the database uncomplicated so it will be easier to edit and create new combatants. The combatant document will also contain a array of actions that the combatant can take on its turn. These actions will be displayed and selectable in the Battlefield sidebar on the combatants turn and combat.  All combatants will be assigned a reference to its creator. Most of the combatants at first implementation will be under Critical Encounters' user ID and they will be available to use for all users. This feature will also make it easy to implement creature and combatant sharing sometime in development or as a stretch goal.
+\subsection{Obstacle Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-obstacle}
+	\caption{Obstacle Schema}
+	\label{fig: Obstacle Schema }
+\end{figure}
+This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
+\subsection {Action Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-action}
+	\caption{Action Schema}
+	\label{fig: Action Schema }
+\end{figure}
+The action schema contains data about actions combatants will be able to take on their turn. The actions stored in the database will be restricted to actions given gained from items, features, classes, and races. Actions available to all combatants, movement, disengage and dash for example will be hard coded for all combatants to avoid bloating the database. The purpose of an action document is to describe the action and its requirements. Little computational work will be done directly to the action document, instead it will be done with the action's effects.
+\subsection {Effect Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-effect}
+	\caption{Effect Schema}
+	\label{fig: Effect Schema }
+\end{figure}
+The effect schema will be were most of the computational data will be held. It will be held as reference by many other documents such as armor, weapons, and features. Effects adjust player stats like health, strength, and speed. They can apply a flat bonus or reduction, half, double or triple statistics, or apply a advantage or disadvantage to stat checks. The stat change will be described in the type
+\subsection {Spell Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-spell}
+	\caption{Spell Schema}
+	\label{fig: Spell Schema }
+\end{figure}
+This schema describes a spell associated with a combatant action in game it contains description information as well as an array of the spells effects describes inside effect objects.We decided to construct a spell very modularly and easily customizable so that sometime in future development we can easily implement a to allow users to create and edit their own spells.Most of what the AI is going to interact with in a spell document is with the array of Effect objects.
+\subsection {Weapon Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-weapon}
+	\caption{Weapon Schema}
+	\label{fig: Weapon Schema }
+\end{figure}
+This schema describes a weapon that can be equipped by a combatant. Weapons are referenced in actions and the data the weapon contains, their flat stats such as damage and range and their referenced effects. These effects are implemented by the AI the actions during combat.
+
+\subsection {Armor Schema}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.9]{schema-armor}
+	\caption{Armor Schema}
+	\label{fig: Armor Schema }
+\end{figure}
+This schema describes an armor that can be equipped by a combatant. Armor is referenced in actions and the data the armor contains, their flat stats such as armor class and weight and their referenced effects. These effects are implemented by the AI the actions during combat.
 \newpage
 \section{Client Side Design}
 	\subsection{URL and Routing}
@@ -898,7 +984,6 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\subsubsection{Meteor.js}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.5]{meteorjs}
 				\caption{Meteor}
 				\label{fig: Meteor}
 			\end{figure}
