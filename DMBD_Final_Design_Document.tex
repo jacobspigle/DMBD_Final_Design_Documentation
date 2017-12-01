@@ -92,14 +92,18 @@ There are countless possible character, monster, and scenario possibilities when
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Proposed Solution}
 
-This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves. This project seeks to develop a service that follows the rules of the d20 Game System, and by allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
+This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves, and perfect them to ensure the most enjoyable experience in a live game encounter.
+
+This project seeks to develop a service that allows a user to create an encounter that follows the rules of the d20 Game System. The creator streamlines the refining process by easily being able to simulate the encounter. By allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. The encounters will have the ability to be rapidly simulated over and over to display statistics about the encounter the help improve the encounter. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
 
 \newpage
 \chapter*{Broader Impact}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Broader Impact}
 
-Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
+Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. In-game encounters require large amounts of time to plan, setup, and implement, so by enhancing this process and giving the GM the ability to perfect an encounter beforehand the whole process becomes more enjoyable for anyone playing the game.
+
+This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
 	
 \newpage
 \chapter*{Personal Interests}
@@ -232,7 +236,31 @@ Tabletop games bring people together in a world where physical interaction is of
 	\end{multicols}
 	\newpage
 	\section{Battlefield}
-	\lipsum[3]
+	The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreator}
+		\caption{Battlefield Prototype}
+		\label{fig: Battlefield Prototype}
+	\end{figure}
+	Above is a early prototype of our Battlefield. It contains three separate components: the main battle board, the sidebar, and the combat log. 
+	\subsection {The Battle Board }
+	The Battle Board is where all the environment, obstacles, and combatants are rendered. The board is a 2d top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over and selected as well as click and drag into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.5]{encountercreatorsidebar}
+		\caption{Battlefield Prototype Sidebar}
+		\label{fig: Battlefield Prototype Sidebar}
+	\end{figure}
+	\subsection {The Sidebar }
+	In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
+	\subsection {The Battlelog }
+	The Battlelog below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Battlelog implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter. Will add another layer of fun for the user. 
+	\subsection {States and Controllers }
+	The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
+	\subsection {Future Implementation/Design Plans }
+	Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabricjs and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Battlelog themselves will be toggleable by clickable buttons on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
+	
 	\newpage
 	\section{Color Scheme}
 	\begin{figure}[H]
@@ -241,7 +269,7 @@ Tabletop games bring people together in a world where physical interaction is of
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	\lipsum[4]
+	We wanted a really bright and  modern color scheme for Critical Encounters. We felt that these colors are the ones most associated with fantasy genre in that they signify some of the cornerstones of fantasy. Purple is often associated with magic both in spells, their effects and their tomes. Green is often associated with dragons a common motif in fantasy as a whole. Also in d20 systems green dragons are often seen as the most cunning, something we felt would fall in well with Critical Encounters. In addition to the symbolism of the colors purple and green complement each other very well and the multiple shades will alow us to color and accent the UI without making the UI feel monotone.
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
@@ -379,10 +407,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				Define Requirements/Initial Project Proposal & 10/9/2017 \\
 				Verify Requirements & 10/16/2017 \\
 				Decide Development Model & 10/23/2017 \\
-				Define Sections & 10/30/2017 \\
+				Define Design Document Sections & 10/30/2017 \\
 				First Project Presentation Draft & 11/13/2017 \\
-				Assign Design Document Sections & 11/20/2017 \\
-				Senior Design Final Document & 11/29/2017 \\
+				Senior Design Final Document & 12/04/2017 \\
 				Web App Board And Gameplay & 1/9/2018 \\
 				AI Prototype For DM and PC & 1/18/2018 \\ 
 				PC Save/Load & 1/25/2018 \\
@@ -404,6 +431,11 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\section{Research}
 	\section{Budget}
 	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
+		\subsubsection{Development}
+		During development, we will be programming in free to use IDE's such as Visual Studio. The program will be utilizing the javascript framework Angular.js, which is also free to use. Data will be handled using Node.js and MongooseDB, again, which are free. 
+		
+		These tools are used in professional settings and will allow us to learn applicable skills to use in the industry, the fact that they are free is just a plus.
+		\subsubsection{Hosting}
 	
 \newpage
 \chapter*{Application Design}
@@ -468,6 +500,13 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 
 \newpage
 \section{Database Design}
+	\subsection {Database Diagram}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=.4]{database_schema}
+			\caption{Databse Schema}
+			\label{fig: Databse Schema }
+		\end{figure}
 	\subsection{Schema}
 		Below are schema that will be used to structure the MongoDB collections. The schema themselves will be implemented in Meteor using their MongoDB schema syntax and design. Below is an example of the schema representation of a Critical Encounter user collection:
 		
@@ -502,14 +541,72 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\end{figure}
 		
 			\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
+			
 		\subsection{Encounter Schema}
+		\begin{figure}[H]
+			\centering
 			\includegraphics[scale=.75]{schema-encounter}
+			\caption{Encounter Schema}
+			\label{fig: Encounter Schema }
+		\end{figure}
+			Encounters created by a user will be saved in a encounter document using this schema. It will contain basic descriptive information: name, descriptions, creator. As well as physical details about the encounter itself: an array of obstacles, an array of combatants, board size. The encounter will also contain statistical information useful for both players and game masters: number of plays, success rate, most played class. This is  where statistical data is stored, these statistics will flow upward and be adjusted and displayed on other components such as arena statistics.
 		\subsection{Combatant Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-combatant}
+				\caption{Combatant Schema}
+				\label{fig: Combatant Schema }
+			\end{figure}
+			This schema will be used to represent all combatants in an encounter, both player and non-player characters. All of the base stats for the combatant are stored in the document. All bonuses will be added after so it is easy to add and remove bonuses to combatant stats. Stat modifiers will also not be calculated using the respective modifier formula as well as adding additional bonuses from any effects the combatant has received from items, features and abilities. We designed the the schema this way to keep the database uncomplicated so it will be easier to edit and create new combatants. The combatant document will also contain a array of actions that the combatant can take on its turn. These actions will be displayed and selectable in the Battlefield sidebar on the combatants turn and combat.  All combatants will be assigned a reference to its creator. Most of the combatants at first implementation will be under Critical Encounters' user ID and they will be available to use for all users. This feature will also make it easy to implement creature and combatant sharing sometime in development or as a stretch goal.
 		\subsection{Obstacle Schema}
-			\includegraphics[scale=.75]{schema-obstacle}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-obstacle}
+				\caption{Obstacle Schema}
+				\label{fig: Obstacle Schema }
+			\end{figure}
+		This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
+		\subsection {Action Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-action}
+				\caption{Action Schema}
+				\label{fig: Action Schema }
+			\end{figure}
+			The action schema contains data about actions combatants will be able to take on their turn. The actions stored in the database will be restricted to actions given gained from items, features, classes, and races. Actions available to all combatants, movement, disengage and dash for example will be hard coded for all combatants to avoid bloating the database. The purpose of an action document is to describe the action and its requirements. Little computational work will be done directly to the action document, instead it will be done with the action's effects.
+		\subsection {Effect Schema}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-effect}
+				\caption{Effect Schema}
+				\label{fig: Effect Schema }
+			\end{figure}
+			The effect schema will be were most of the computational data will be held. It will be held as reference by many other documents such as armor, weapons, and features. Effects adjust player stats like health, strength, and speed. They can apply a flat bonus or reduction, half, double or triple statistics, or apply a advantage or disadvantage to stat checks. The stat change will be described in the type
 		\subsection {Spell Schema}
-			\includegraphics[scale=.75]{schema-spell}
-
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.9]{schema-spell}
+				\caption{Spell Schema}
+				\label{fig: Spell Schema }
+			\end{figure}
+		This schema describes a spell associated with a combatant action in game it contains description information as well as an array of the spells effects describes inside effect objects.We decided to construct a spell very modularly and easily customizable so that sometime in future development we can easily implement a to allow users to create and edit their own spells.Most of what the AI is going to interact with in a spell document is with the array of Effect objects.
+		\subsection {Weapon Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-weapon}
+			\caption{Weapon Schema}
+			\label{fig: Weapon Schema }
+		\end{figure}
+		This schema describes a weapon that can be equipped by a combatant. Weapons are referenced in actions and the data the weapon contains, their flat stats such as damage and range and their referenced effects. These effects are implemented by the AI the actions during combat.
+		
+		\subsection {Armor Schema}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.9]{schema-armor}
+			\caption{Armor Schema}
+			\label{fig: Armor Schema }
+		\end{figure}
+		This schema describes an armor that can be equipped by a combatant. Armor is referenced in actions and the data the armor contains, their flat stats such as armor class and weight and their referenced effects. These effects are implemented by the AI the actions during combat.
 \newpage
 \section{Client Side Design}
 	\subsection{URL and Routing}
@@ -601,6 +698,130 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\item Ex. Cast reaction spell, attack of opportunity
 			\end{itemize}
 	\end{itemize}
+	\section{D20 Terminology}
+	The D20 game system has variations from game to game whether it be changes to name, function, or practicality. Despite this, generally many the main qualities that the game styles have don't tend to stray too far from one another. While on this project, it is crucial that Critical Encounters should provide a broad enough experience to appease the largest portion of D20 games as possible so that players can apply their encounters to whatever D20 system they'd like. 
+		\subsection{Character Terms}
+		Within a character in the D20 system, there are many statistics, qualities, and abilities that help to determine how the character acts within the D20 world. These can alter attacks, defenses, skills, and even behavior.
+			\subsubsection{Attributes}
+			Attributes refer to the natural born characteristics that all characters within the game possess. Upon character creation, you choose to distribute a designated amount of points among several different attributes to create a truly unique character from the start. 
+			Common attributes within the D20 systems are:
+			\begin{itemize}
+				\item Strength
+					\begin{itemize}
+						\item The character's innate physical capability. This can include the character's ability to carry items, melee damage, and preform physically demanding tasks (moving large items, barricading, holding enemies, etc.)
+					\end{itemize}
+				\item Constitution
+					\begin{itemize}
+						\item The character's health or stamina. Constitution determines the character's HP and endurance, as well as resistance to special damages. 
+					\end{itemize}
+				\item Defense
+					\begin{itemize}
+						\item The character's ability to resist damage. This is very similar to Constitution but ultimately different. This usually deals with direct hits from enemies and the character's resistance to HP deduction.
+					\end{itemize}
+				\item Dexterity
+					\begin{itemize}
+						\item The character's agility and hand-eye coordination. Dexterity allows the character to react quickly to attacks from enemies via dodging and counters. It can also effect the damage dealt to enemies, depending on the weapon. Certain weapons require more precision than strength alone, for example a Battle-Axe versus a Bow and Arrow.
+					\end{itemize}
+				\item Intelligence
+					\begin{itemize}
+						\item This may be hard to guess, but Intelligence refers to how smart the character is. This can affect the character's ability to solve problems or understand foreign entities. For example, a character with high Intelligence may be able to decipher a clue via an Intelligence check.
+					\end{itemize}
+				\item Charisma
+					\begin{itemize}
+						\item The character's social ability. This mainly effects interactions between players and NPCs outside of an encounter. This can be used to barter prices and convince NPCs. Charisma can be used within an encounter through various ways such as intimidation. 
+					\end{itemize}
+				\item Wisdom
+					\begin{itemize}
+						\item The character's spirituality and common sense. Wisdom applies heavily in spellcasting and dealing with mystical qualities of the world. 
+					\end{itemize}
+				\item Perception
+					\begin{itemize}
+						\item The character's observation of their surroundings. Perception effects the character's chance towards noticing specific entities within the environment (hidden enemies, traps, clues, etc.)
+					\end{itemize}
+			\end{itemize}
+			\subsubsection{Classes}
+				Characters within the D20 are given roles to play throughout the campaign. Classes are chosen when the character is created and is fundemental in deciding how the character is going to play. The class affects the character's specific attributes in certain ways by adding extra points to some attributes and deducting points from others based on the class itself. Classes range from system to system but are all generally the same. The base classes are typically Barbarian, Rogue, Wizard, and Cleric, with many deviations of these classes within the individual D20 systems.
+			\subsubsection{Alignment}
+				Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. The alignment chart has to axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy charcters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. 
+			\subsubsection{Races}
+				This refers to the character's actual species. Race (much like classes) give basic advantages and disadvantages to specific attributes, but also change provide minor changes to gameplay. Certain races will have certain abilities which can provide the party with advantages in battle. Races also vary from system to system but most follow a basic patter of human, elf, dwarf, half-orc, etc.
+		\subsection{Combat Terms}
+			There area variety of things that can occur during an encounter that effect the way the battle plays out. Certain terms appear every battle, while others only occur when specific occurrences line up. As these combat terms vary between systems, and some only occur in rare instances, a general list has been created to be used by Critical Enounters. Below is a compilation of terms that will most likely be utilized within an enounter, thought the terms used in the encounter may not be limited to this list.
+			\subsubsection{Initiative}
+				At the beginning of an encounter the player characters, NPCs, and enemies all roll for an initiative check. A D20 die is rolled and combined with the combatant's Dexterity modifier to establish the order that the combatant's perform their actions. The highest initiative roll goes first and it counts down from there.
+			\subsubsection{Critical}
+				When rolling for attacks, if the D20 die is rolled and lands on a 20, the highest number on the die, the attack lands as perfectly as it could. Provided that the attack beats the enemy's armor class, the attack deals the maximum amount of damage. Critical rolls are not limited to just attacks though, if a character is performing an action and gets a 20 the action is performed without flaw.
+			\subsubsection{Botch}
+				When rolling, the opposite of a critical can occur which is when the die lands on 1. This is a critical failure, which usually results in the character hurting themselves while failing the desired action.
+			\subsubsection{Hit Points}
+				Hit points (or HP) refers to the character's remaining health. If HP reaches 0, the character is rendered unconsious and is required to roll to prevent death. HP is lowered by receiving damage and replenished by potions, spells, or resting outside of battle.
+			\subsubsection{Armor Class}
+				This refers to the character's protective equipment and how well those items deflect damage. The stronger armor the character is wearing, the higher their AC is. If an attack is placed on someone and the damage the attack deals is less than the AC, the damage that would be dealt by the attack never occurs. 
+			\subsubsection{Saving Throw}
+				When certain threats occur such as traps being triggered or being poisoned, the receiving character must roll for a saving throw which could allow them to avoid the damage entirely.
+			\subsubsection{Damage Types}
+				Different attacks deal damage in different ways. Each damage type has pros and cons of being used in situations so players typcially choose their attacks strategically in order to get the biggest advantage in an encounter. The damage types in  a standard d20 game are as follows. 
+				\begin{itemize}
+				\item \textbf{Bludgeoning} - Blunt force attacks. Can be dealt by enemies with hammers, clubs, or fists. Also includes falling and crushing damage.
+				\item \textbf{Piercing} - Puncturing and impaling attacks. These can include weapons like spears or bites from monsters.
+				\item \textbf{Slashing} - Standard damage done by swords, axes, claws, etc.
+				\item \textbf{Poison} - Small amounts of damage over time. Dealt by venomous enemies, traps, or gas.
+				\item \textbf{Magic} - There are a variety of spells within the D20 system which all deliver very specific types of damage. A few types are as follows:
+					\begin{itemize}
+						\item Fire
+						\item Cold
+						\item Force
+						\item Lighting
+						\item Psychic
+					\end{itemize}
+				\end{itemize} 
+			\subsubsection{Player Condition}
+				There are a variety of states that character's can be in that alter their ability to perform certain tasks. These conditions can be altered by spells, class abilities, receiving an attack, etc. Conditions last a designated time depending on the method of delivery. Here is a list of possible conditions:
+				\begin{itemize}
+					\item \textbf{Blinded} - Combatant cannot see surroundings and fails perceptions checks. Combatant is given a large disadvantage.
+					\item \textbf{Charmed} - Combatant cannot attack the charmer and is susceptible to social check by the charmer.
+					\item \textbf{Frightened} - Combatant cannot willingly move closer to the source of fear. Combatant has a disadvantage on Ability and Attack rolls.
+					\item \textbf{Grappled} - Combatant cannot move.
+					\item \textbf{Unconscious} - Combatant cannot move, speak, or react to surroundings. Automatically fails saving throws. Combatant has disadvantage on all rolls.
+					\item \textbf{Exhaustion} - Combatant is physically tired. Exhaustion works in several layers of intensity which range from having slower movement speed and disadvantage on abilities to the highest level, which is death.
+				\end{itemize}
+		\subsection{Modifiers}
+			There are various qualities that could boost or deduct points for a character during an action. These qualities can be obtained from high stats, character class/race, or buffs from potions.
+			\subsubsection{Attribute Modifiers}
+			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subract for every 2 levels given. An ability score of 0 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
+			\subsubsection{Resistance}
+			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved.
+			\subsubsection{Vulnerability}
+			 Likewise with Resistance, characters may be vulnerable to specific damage types as well. If a character has vulnerability to the damage type they are receiving, the damage dealt after all of the modifiers is doubled.
+			 \subsubsection{Buffs \& Debuffs}
+			 Spells, powers, and potions can either boost or deduct points from various qualities of the characters. 
+			 
+			 Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
+			 \begin{itemize}
+			 	\item Speed
+			 	\item Health Points
+			 	\item Perception
+			 	\item Defense
+			 	\item Damage output
+			 \end{itemize}
+		\subsection{Misc. Terms}
+			Throughout the D20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
+			\subsubsection{Area of Effect}
+				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
+				\begin{itemize}
+					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
+					\item \textbf{Radial} - Spells that affect the area around the caster. The spells radius can range from 5ft to 20ft.
+					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
+				\end{itemize}
+			\subsubsection{Line of Sight}
+				Certain abilities are hindered by line of sight. This refers to the character's ability to see their target. Line of sight can be blocked by just about anything that isn't invisible inbetween the character and the enemy.
+			\subsubsection{Experience Points}
+				Upon completing an encounter, experience points are awarded to the party. XP are units of measurement to gauge the character's progression after a battle. They are used to level up the character and add points to their attributes, which result in higher modifiers for that character.
+			\subsubsection{Free Action}
+				Free actions are actions that use a negligible amount of time to do and can be used in unison with main actions during the character's turn.
+			\subsubsection{Advantage/Disadvantage}
+				Certain abilities, conditions, buffs and debuffs can give characters advantages or disadvantages. This allows the character to roll 2 times for the action with the advantage/disadvantage. For an advantage the character chooses the higher value of the two rolls, while disadvantage takes the lower of two.
+			
 	\section{Computer Opponent (A.I.)}
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
@@ -632,13 +853,25 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		If a personality is selected that alters the decision making process for an A.I. controlled unit, we will apply a weighting scheme to each calculation during the decision making process in order to reflect the unit's preference for certain options. These weights will generally manifest as a multiplier to the final outcome of each of the damage, support, and crowd control calculations. If we want a personality to be, for example, barbaric, we may choose to apply a 1.5 multiplier to the potential damage calculation, and a .5 multiplier to potential support calculations. This will result in the algorithm selecting support actions far less frequently than damaging actions. 
 		
 		\subsection{(Future Work?) Intelligence Based Decision Making and Personalities}
-		As proposed, the unit personalities system will be capable of modifying the types of actions the A.I. chooses for each unit on the battlefield. This allows of to create personalities that have preferences for which \textit{types} of abilities to choose, however, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. 
+		As proposed, the unit personalities system will be capable of applying a twist to the types of actions the A.I. chooses for each unit on the battlefield. While this lets a user create personalities that have preferences for which \textit{types} of abilities to choose, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. In some cases, a user may not want certain units in their encounter to play optimally. 
 		
 		Experienced GMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
 		
-		%Challenges ... 
+		The main challenge associated with implementing some kind of intelligence based factor into the A.I. is the development time. It would require additional complexity in the algorithm to allow for a broader range of decisions for the A.I. 
 		
-		%Possible Solutions ...
+		Once possible solution that would result in a smaller amount of development time would be to instead of tracking the most optimal move per action, track several of the most optimal candidates and keep them in a sorted order from least to most effective. Given this list, you could use a creature's intelligence rating to influence which of the actions they pick from the list. A creature with a high intelligence would be more likely to pick one of the more effective actions in the list. A less intelligent creature would be more likely to end up taking on of the less effective actions.
+		
+		This solution would require minimal modification to the proposed system, which means it would reduce the development time required to write the code, and reduce the amount of additional testing that would have to be done on the new system. However, this solution is not necessarily the most elegant or robust solution. 
+		
+		%Insert modified flowchart which accounts for intelligence
+		
+		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
+		
+		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a decision tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of DnD, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
+		
+		This more complex solution is especially desirable for the purpose of immersion. Less intelligent creatures would have the illusion of short-sightedness, or the inability to evaluate the consequences of their immediate actions. Creatures with a high intelligence rating will appear to behave tactically, anticipated moves and avoiding long term pitfalls in exchange for short term gains. 
+		
+		This solution would require a lot of modification to the proposed system. Currently, the A.I. is not planned to use a type of minimax to account for future game states. Implementing this system would require a great deal of modification to the A.I in the future. To attempt to implement our A.I. this way from the start would be a risk, as we may not have the time and resources to fully deliver the more advanced A.I. with all other requirements by the deadline. For these reasons, the intelligence based decision making will be an optional requirement with a high priority. It would be very nice to have a better A.I., but it is not worth doing over other requirements. 
 		
 		\subsection{(Future Work?) Custom 'Role-Play' Actions}
 	
@@ -669,6 +902,10 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\item Location of each kill made on the map
 			\item Turn count
 		\end{itemize}
+	
+		\subsection{Processing}
+		
+		%Processing occurs primarily on local computer ideally?
 		
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
@@ -783,8 +1020,21 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			
 	\section{Game A.I.}
 		\subsection{Pathfinding}
+<<<<<<< HEAD
+		Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
+		
+		The A* searching algorithm is a pathfinding algorithm that uses nodes to traverse a graph. A* looks ahead to the point it needs to travel to and calculates all the different paths that it could take to get there. A* then chooses the shortest path available. This algorithm is not necessarily the most efficient, but will be more than satisfactory in accomplishing our goal.
 		\subsection{Basic Rule Following (Non-A.I. Computer Opponent)}
 		\subsection{Decision Trees}
+=======
+		\subsection{Tactical A.I.}
+		\subsubsection{Finite State Machines}
+			Not capable of looking ahead, only capable of making decisions based on current actions
+		\subsubsection{Behavior Tree}
+		\subsubsection{Utility Based Actions}
+			Ranks actions based on how useful they are.
+		\subsubsection{MiniMax}
+>>>>>>> 8f8cb1a2c6966a59b56dae1044e3afa20cf07a88
 
 \newpage
 \chapter*{Appendix}
