@@ -16,6 +16,7 @@
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{float}
+
 \geometry{headheight = 12pt}
 \parindent 15pt
 \parskip 2ex
@@ -325,13 +326,22 @@ Tabletop games bring people together in a world where physical interaction is of
 			\label{fig: Avg. Number of Rounds}
 		\end{figure}
 	\end{itemize}
+\newpage
 	\subsection {Logo}
-	\begin{wrapfigure}{l}{0\textwidth}
+	\begin{figure}[H]
+		\centering
 		\includegraphics[scale=.5]{logo-large}
 		\caption{Critical Encounters' Logo}
 		\label{fig: Critical Encounters' Logo}
-	\end{wrapfigure}
-	We wanted the logo design to accompany the overall UI of the website with a simplistic design, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate. We chose the green color so the logo will "pop" with most backgrounds.This logo can also be easily scaled to fit most container sizes.
+	\end{figure}
+	We wanted the logo design to accompany the overall UI design choices of the website with a more simplistic approach, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate and maybe even a bit cliché. Because of the light green color, and the contrast of our darker purple color choice with the navigation bar, this logo will "pop" on all of the views on the website(Figure \ref{fig: NavBar with Logo}). The logo can also be easily scaled to fit most container sizes, which fits in to our application's versatility between desktop and mobile browsers.
+	\bigskip
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=1]{navbar-logo}}
+		\caption{NavBar with Logo}
+		\label{fig: NavBar with Logo}
+	\end{figure}
 \newpage
 \chapter*{Technical Goals}
 This project is designed to streamline the process of creating a role-playing game's encounter, while also providing new advantages to further improve the encounter's quality. By handling the calculations computationally, as opposed to by hand, along with the ability to test the encounters, GMs will be able to perfect their encounter in preparation for when the encounter is played live.
@@ -503,9 +513,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \newpage
 \section{Client Side Design}
 	\subsection{URL and Routing}
-		\paragraph {} There are two options to font-end routing for using our stack: React-Router and Meteor's FlowRouter. Both implementations have their pros and cons but after some research and deliberation we have decided to use Meteor's FlowRouter. The notation and syntax for FlowRouter is much more clear and easier to learn. There haws also been a history of React-Router not playing too well with Meteor applications. 
+		There are two options to font-end routing for using our stack: React-Router and Meteor's FlowRouter. Both implementations have their pros and cons but after some research and deliberation we have decided to use Meteor's FlowRouter. The notation and syntax for FlowRouter is much more clear and easier to learn. There haws also been a history of React-Router not playing too well with Meteor applications. 
 		
-		FlowRouter is relatively straight fore-ward and is composed of two main components, the URL and the action. In short when the URL is accessed by the browser the action is triggered. In our case the action method will most likely be a ReactLayout render call to render react components associated with that route to the view. 
+		FlowRouter is relatively straight fore-ward and is composed of two main components, the URL and the action. In short when the URL is accessed by the browser the action is triggered. In our case the action method will most likely be a ReactLayout render call to render react components associated with that route to the view.
 		
 		Below is a routing example for the dashboard page of Critical Encounters:
 		
@@ -542,17 +552,20 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		
 		
 	\subsection{Types of Views and Controllers}
+		\subsubsection{AccountController}
+		\subsubsection{DashboardController}
+		
 	\subsection{Battlefield Modes}
 		\subsubsection{Game Mode}
-			This is the main mode available in DMBD. In this mode users will be able to play, simulate, and view and gather data about their and other user's encounters.
-			\subsubsection{Roles}
-				\paragraph{Player}
-					Player is in control of a single player character and can either control his character directly in combat or apply an AI to his player character. every round the player will perform his/her character's actions on its turn. Once complete the AI will simulate all other combatant's turns and refresh the battlefield. Once the encounter is complete the player will be able to view his character's stats and results from the encounter.
-				\paragraph {Game Master} Controls multiple combatants against a one or more player characters. The game master on each turn can choose to either simulate the combatant's turn or perform the actions on the combatant's turn manually using the AI. After the encounter has completed there the game master will be able to review the encounter stats and results.
+			This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, and view and gather data about their own encounters as well as other user's.
+			\subsubsection{Role: Player}
+				Player is in control of a single player character and can either control his character directly in combat or apply an AI to his player character. every round the player will perform his/her character's actions on its turn. Once complete the AI will simulate all other combatant's turns and refresh the battlefield. Once the encounter is complete the player will be able to view his character's stats and results from the encounter.
+			\subsubsection{Role: Game Master}
+				Controls multiple combatants against a one or more player characters. The game master on each turn can choose to either simulate the combatant's turn or perform the actions on the combatant's turn manually using the AI. After the encounter has completed there the game master will be able to review the encounter stats and results.
 				
-		\subsection{Creation Mode}
-			\subsubsection{Roles}
-				\paragraph There is only one role available for the Creation Mode: Creator. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
+		\subsubsection{Creation Mode}
+			\subsubsection{Role: Creator}
+				There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
 	\subsection{Map / Environments}
 	
 	\subsection{Turn Structure / Order}
@@ -667,7 +680,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	
 	Sending a real party through an encounter can take hours, so there is a lot of frustration involved when a GM spends hours on an encounter just to have the party killed in the first few turns. The Encounter Creator helps avoid the time wasting trial and error a GM may encounter when presenting an encounter to a live party. This is done by providing all the necessary tools for creating an encounter via computer as opposed to pen and paper.
 		\subsection{Encounter Map}
-		The encounter map starts as a large blank grid with each square representing a 5ft x 5ft space. The map is where the encounter actually occurs, holding all the players, enemies, and objects within the map. The map also help the user to visualize the play area better (which is not a required thing but helps to improve the game experience).  
+		The encounter map starts as a large blank grid, and per the d20 Game System, each square will represent a 5ft x 5ft space for movement/scaling purposes. The map is where the encounter actually occurs, holding all the players, enemies, and objects within the map. The map also help the user to visualize the play area better (which is not a required thing but helps to improve the game experience).  
 		\subsection{Side Bar}
 		The side bar is collapsed on the right side of the encounter map. By clicking the icon, the side bar folds out presenting the user with various tools to further customize the encounter.
 			\subsubsection{Item Menu}
@@ -677,11 +690,11 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\subsection{Player Spawn Area}
 		As per the standard d20 rules, the player's character's positions are determined by their location prior to the encounter starting. Critical Encounters focuses solely on the encounter portion of the role playing experience so there is no way for the program to know where these players may have entered from. This is counteracted by allowing the GM to designate a particular area of the encounter map towards player spawning. Upon starting the encounter, the player will be able to choose which character starts in which location allocated by the spawn area. These encounters will be played through single-player, but the encounters can be tested using as many characters as allowed by the creator.
 		\subsection{Enemies}
-		These entities take on the role of opponents in the d20 system. Enemies work towards the end goal of defeating your party. The GM can place as many enemies onto the map as desired as well as altering the stats to their liking. The enemies will run on an AI that will attempt to simulate the basic actions enemies would take in an actual encounter.
+		These entities take on the role of opponents in the d20 system. Enemies work towards the end goal of defeating your party. The GM can place as many enemies onto the map as desired as well as altering the stats to their liking. Creators must keep in mind that completing an encounter is required before it may be published, so overly powerful or overcrowded encounters do not fill the Critical Encounters' database. The enemies in an encounter will run on an AI that will attempt to simulate the basic actions enemies would take in an actual in-game encounter.
 		\subsection{Obstacles}
-		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked. These can all be accessed by the side bar.
+		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliffside. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the side bar.
 		\subsection{Encounter Rules}
-		The GM can set specific rules within the encounter such as level caps and party size limits. These allow the GM to fine tune the encounter to very specific qualities that will allow them to perfect their vision. 
+		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
 		
 	\section{Storyboards}
 	\section{Version Control}
@@ -727,29 +740,46 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 				\label{fig: Node.js}
 			\end{wrapfigure}
 			Node.js is a runtime application that starts small but grows more and more useful as additional modules are implemented. Node allows for JavaScript coding on the server side of a website or web application. This results in the idea that code can be written once, but ran on both the server and the client browser, optimizing which functions would give users faster response times while also lifting a bit of work for the server. Writing server-side code in JavaScript using Node also keeps the logic and code very similar across the server and client. Also, Node uses an asynchronous even driven mode, so that when a task is performed, other tasks are not prevented from being run.
-		
+			
+		\newpage
 		\subsection{Meteor}
 			\subsubsection{Meteor.js}
-			\begin{wrapfigure}{l}{0\textwidth}
-			\includegraphics[scale=.2]{meteorJS}
-			\caption{Meteor.js}
-			\label{fig: Meteor.js}
-			\end{wrapfigure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=.5]{meteorjs}
+				\caption{Meteor}
+				\label{fig: Meteor}
+			\end{figure}
 			Meteor.js is a full-stack JavaScript platform for developing modern web and mobile applications. Like much of the API's we are implementing in the development of this web application, Meteor allows for coding in JavaScript across the front-end and back-end side of development. The biggest advocate for including Meteor in our project is its' focus on development speed. All server-side applications are handled in the development of the client-side. That is to say, when developing client-side applications, any server-side necessities are taken care of by Meteor.js’ ability to redirect data in the background. The scaffolding that is included directly out of install with Meteor, such as a fully configured MongoDB database and integration with Angular while still having a fully integrated stack, is a leap forward in the development cycle of this project, so we will have more time for fine-tuning features and performance of the web application later. Meteor also uses web sockets instead of HTTP-style pull requests, so the server pushes updates to the client when new data is available, and the client renders that data. This allows Meteor to implement "hot-pushing", where developers can push updates the client even while it a user is in the middle of a session. Any fixes or improvements can be pushed without the user even knowing.
+			\newpage
 			\subsubsection{React.js}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.25]{react}
 				\caption{React.js}
-				\label{React.js}
+				\label{fig: React.js}
 			\end{wrapfigure}
 			React.js is a JavaScript library often used to build UI for web applications. In the Model-view-controller framework, React.js acts as the ``view" component. Features that pushed us to choose React.js as our front-end development tool are mostly centered around the creation of the Battlefield and our decision to utilize Meteor.js. Using so many assets for visual representation of obstacles, characters, monsters, and the like, we decided finding a framework that focuses on developing applications around those properties. Enter React.js, which essentially allows actions to be passed back the path that a prop(Property) was passed down. As we manipulate the graphics in the Battlefield, the props will stay unchanged and the actions will be dictated back to the render. Another benefit to using React is the resources provided for testing. Shallow testing may be implemented to check the validity of a module without digging too deep into its' children. This way, the higher level design of the modules can be verified and trickling down its' children shallowly will reveal the source of any bugs. React uses something called a ``virtual Document Object Model". The Virtual DOM lets us (the developers) code with the assumption that rendering happens on each change, while in reality React renders sub components instead of the entire page.
+			\subsubsection{Fabric.js}
+			\begin{wrapfigure}{l}{0\textwidth}
+				\includegraphics[scale=0.15]{fabric}
+				\caption{Fabric.js}
+				\label{fig: Fabric.js}
+			\end{wrapfigure}
+			Fabric.js is a Javascript library that is designed to work and enhance HTML5 canvas. Think of Fabric as an extra layer added on top of canvas. Here Fabric provides object models for the images we use for enemies, PCs, and obstacles; a parser for SVG files (like rpg-awesome uses for their images); and the ability to interact with these objects. Because of the many effects each of our drawn-in objects will have on the Battlefield that need to be connected to the object itself, and our need to manipulate each object or rather, each \textbf{image} with set events for the user, Fabric.js is a godsend. There also exists an opensource package, ``react-fabricjs" that allows developers to use Fabric objects as React components. This further consolidates our decision to add utilization of Fabric.js to our project.
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
-				\includegraphics[scale=0.1]{bootstrap4}
+				\includegraphics[scale=0.15]{bootstrap4}
 				\caption{Bootstrap 4}
-				\label{Bootstrap 4}
+				\label{fig: Bootstrap 4}
 			\end{wrapfigure}
 			Bootstrap is a HTML, CSS, and JS framework used for building responsive, mobile compatible web sites and applications. Bootstrap was an obvious choice for out front end development. It has extensive documentation and resources available. Also with its new v4 update Bootstrap is more useful then ever. Our front end team already has extensive experience with Bootstrap so it should be easy to get the front end up and running. The tricky aspect of this will be the transition from experience with Angular to now using React.js. We decided to make this transition because of the popularity and momentum React is having in the web development community, to both widen our gaze and take advantage of many features that using Bootstrap with React has to offer.
+			\subsubsection{RESTful API}
+			\begin{wrapfigure}{l}{0\textwidth}
+				\includegraphics[scale=0.3]{restful}
+				\caption{RESTful API}
+				\label{fig: RESTful API)}
+			\end{wrapfigure}
+			RESTful API uses HTTP requests for client manipulation of data, using functions such as GET, PUT, POST, and DELETE. This API could prove very useful when working with the individual objects in the Battlefield, as well as retrieving and displaying information on a user's Arena. Using REST in cloud applications is great for requests, because all the calls are stateless and therefore can be redeployed upon a failure, and scale in case of changes during load. The REST architectural style generally pushes to develop using HTTP like it was in the beginning. The functions (GET, PUT, POST, DELETE) refer to the applications' lookups, mutations, creations, and deletions, respectively. \cite{CoreJavaServerFaces}
 			
 	\section{Game A.I.}
 		\subsection{Pathfinding}
@@ -775,5 +805,5 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \chapter*{References}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{References}
-	
+
 \end{document}
