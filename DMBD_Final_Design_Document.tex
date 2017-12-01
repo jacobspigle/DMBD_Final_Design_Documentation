@@ -92,14 +92,17 @@ There are countless possible character, monster, and scenario possibilities when
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Proposed Solution}
 
-This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves. This project seeks to develop a service that follows the rules of the d20 Game System, and by allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
+This project presents a service that can be used by both GMs and players to test out their characters, encounters, team builds, or boss fights in a simulated environment. This will allow users to figure out just how well their creation holds up to the requirements that they have set for themselves, and perfect them to ensure the most enjoyable experience in a live game encounter.
+
+This project seeks to develop a service that allows a user to create an encounter that follows the rules of the d20 Game System. The creator streamlines the refining process by easily being able to simulate the encounter. By allowing the player or GM to import their character's/monsters' statistics and equipment, they then can play against an automated opponent or opponents using that creation. The encounters will have the ability to be rapidly simulated over and over to display statistics about the encounter the help improve the encounter. To further enhance a user's ability to test and refine encounters and PCs, users will be able to upload and share their encounters to their public space where others can try their own creations' skills in that creator's setting.
 
 \newpage
 \chapter*{Broader Impact}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Broader Impact}
 
-Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. 
+Tabletop games bring people together in a world where physical interaction is often lost in lieu of digital communication. This project aims to supplement these interactions by making them more accessible to newer players, as well as help experienced players spend less time on pre-game preparation. In-game encounters require large amounts of time to plan, setup, and implement, so by enhancing this process and giving the GM the ability to perfect an encounter beforehand the whole process becomes more enjoyable for anyone playing the game.
+
 This project has the potential to broaden the audience of an already quickly expanding pastime to younger players and DM's. Concepts in the realm of tabletop games are very easily understood by a younger audience, as their imagination and creativity can run free in such games. However, the threshold of understanding for the many rules and balances may prove a bit overzealous for this audience. Having a service that allows improves accessibility to newer players will also bleed into improving accessibility for younger players as well. Additionally, users who do not have a group to play with may find and form groups with other users with whom they have played and shared content with.
 	
 \newpage
@@ -754,7 +757,11 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsubsection{Classes}
 			Characters within the D20 are given roles to play throughout the campaign. Classes are chosen when the character is created and is fundemental in deciding how the character is going to play. The class affects the character's specific attributes in certain ways by adding extra points to some attributes and deducting points from others based on the class itself. Classes range from system to system but are all generally the same. The base classes are typically Barbarian, Rogue, Wizard, and Cleric, with many deviations of these classes within the individual D20 systems.
 		\subsubsection{Alignment}
-			Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. The alignment chart has to axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy charcters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. 
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.25]{alignment}
+			\end{wrapfigure}
+			Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. 
+			The alignment chart has to axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy charcters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. 
 		\subsubsection{Races}
 			This refers to the character's actual species. Race (much like classes) give basic advantages and disadvantages to specific attributes, but also change provide minor changes to gameplay. Certain races will have certain abilities which can provide the party with advantages in battle. Races also vary from system to system but most follow a basic patter of human, elf, dwarf, half-orc, etc.
 		\subsection{Combat Terms}
@@ -800,7 +807,10 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsection{Modifiers}
 			There are various qualities that could boost or deduct points for a character during an action. These qualities can be obtained from high stats, character class/race, or buffs from potions.
 		\subsubsection{Attribute Modifiers}
-			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subract for every 2 levels given. An ability score of 0 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=0.3]{modifier}
+			\end{wrapfigure}
+			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subract for every 2 levels given. An ability score of 1 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
 		\subsubsection{Resistance}
 			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved.
 		\subsubsection{Vulnerability}
@@ -820,11 +830,16 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			Throughout the D20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
 			\subsubsection{Area of Effect}
 				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
+				\begin{wrapfigure}{r}{0\textwidth}
+					\includegraphics[scale=0.25]{AOE}
+				\end{wrapfigure}
 				\begin{itemize}
-					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
+					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft
 					\item \textbf{Radial} - Spells that affect the area around the caster. The spells radius can range from 5ft to 20ft.
-					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
-				\end{itemize}
+					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
+					.
+				\end{itemize}	
+				
 			\subsubsection{Line of Sight}
 				Certain abilities are hindered by line of sight. This refers to the character's ability to see their target. Line of sight can be blocked by just about anything that isn't invisible inbetween the character and the enemy.
 			\subsubsection{Experience Points}
