@@ -373,7 +373,7 @@ Stated earlier this is a early prototype created in Angular 4 using Bootstrap fo
 \chapter*{Technical Goals}
 This project is designed to streamline the process of creating a role-playing game's encounter, while also providing new advantages to further improve the encounter's quality. By handling the calculations computationally, as opposed to by hand, along with the ability to test the encounters, GMs will be able to perfect their encounter in preparation for when the encounter is played live.
 
-This project will be a hurdle for everyone on the team as we are diving into information that many of us only know a little about. While we are relatively new to web frameworks, databases, and AI, we are determined provide a fully functioning d20 Encounter creation and sharing platform.
+This project will be a hurdle for everyone on the team as we are diving into information that many of us only know a little about. While we are relatively new to web frameworks, databases, and AI, we are determined provide a fully functioning d20 encounter creation and sharing platform.
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Technical Goals}
 	\section{Overall Goals}
@@ -678,8 +678,17 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsubsection{Creation Mode}
 			\subsubsection{Role: Creator}
 				There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
+	\newpage
 	\subsection{Map / Environments}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.6]{environment}
+		\caption{Board with Obstacles}
+		\label{fig: Board with Obstacles}
+	\end{figure}
+	In Critical Encounters, the map/grid that is usually utilized in tabletop gaming sessions for combat is transitioned into a virtual board with the same format. A grid where each square represents 5x5 spaces, images to represent characters and enemies, as well as obstacles. All of this is put in place to give the user familiarity with the encounter during their own testing, so that same familiarity is present when the encounter occurs with their own group. There will be a few maps that are developer-generated, to be used as a template for beginners to utilize, or for more advanced creators to build off of to build an even larger encounter. However, most of encounter creation will likely involve a creator generating their own map out of the provided components that Critical Encounters has to offer. For this reason, we will have a section of the database dedicated to storing as many viable choices for various characters, enemies, obstacles, and environment backgrounds that we deem useful.
 	
+	\newpage
 	\subsection{Turn Structure / Order}
 	Combat using the d20 System is composed of rounds in which each combatant in the encounter has one turn.  A round lasts 6 seconds in game time, during which all combatants act on their respective turns. Where a combatant's turn resides chronologically in a round is determined by the combatant's initiative roll (a combination of a dice roll and applicative bonuses). A turn it self is composed of 6 parts: Action(s), Bonus Action, Movement, Free Action, and Bonus Action, Reaction.
 	\begin{itemize}
@@ -825,7 +834,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsubsection{Buffs \& Debuffs}
 			Spells, powers, and potions can either boost or deduct points from various qualities of the characters. 
 		
-			These 'buffs' will have a very large impact on how the Critical Encounter's A.I. makes its' decisions on what actions to take each turn, weighing which action would be better for the character.
+			These 'buffs' will have a very large impact on how the Critical Encounters' A.I. makes its' decisions on what actions to take each turn, weighing which action would be better for the character.
 		
 			Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
 			\begin{itemize}
@@ -962,7 +971,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		
 	\section{Storyboards}
 	\section{Version Control}
-	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repo before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
+	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repository before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
 	As a side note, we are also looking into a newer feature that GitHub has released. It is geared towards project management within GitHub, so this could lead to more streamlined management to the code itself, and hopefully make bringing attention to specific problems/development in code much easier. GitHub's project management feature focuses on highlighting issues, setting up discussions for solutions, assigning tasks to members, tagging issues/pushes/pulls with labels to search for later, and keeping track of milestones that we have met and are coming up in our project timeline.
 	\section{Data Processing from API (WHAT DOES THIS MEAN???)}
 
@@ -1057,7 +1066,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	
 	\newpage					
 	\section{Game A.I.}
-		Computer AI is integral to Critical Encounters' final effectiveness. As we are trying to replicate the most reasonably realistic D20 encounter experience, it is necessary that the AI for the enemies in the encounter to act and react as they would in a true D20 Encounter. Many of the AI actions are fairly straightforward such as a basic pathfinding and rule-following system, but there will have to be plenty of fine tuning to get the desired result. The AI that will be eventually implemented will be a combination of pre-existing AI algorithms and newly created systems hand crafted for Critical Encounters' needs.
+		Computer AI is integral to Critical Encounters' final effectiveness. As we are trying to replicate the most reasonably realistic D20 encounter experience, it is necessary that the AI for the enemies in the encounter to act and react as they would in a true D20 encounter. Many of the AI actions are fairly straightforward such as a basic pathfinding and rule-following system, but there will have to be plenty of fine tuning to get the desired result. The AI that will be eventually implemented will be a combination of pre-existing AI algorithms and newly created systems hand crafted for Critical Encounters' needs.
 		\subsection{Pathfinding}
 			
 			Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
