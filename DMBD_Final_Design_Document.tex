@@ -160,7 +160,7 @@ This project has the potential to broaden the audience of an already quickly exp
 		\caption{Registration Page}
 		\label{fig: Registration Page}
 	\end{figure}
-	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email addresss, and their password. Users are directed to the registration page from the Dashboard or from clicking the ``Register" link on the login page.
+	The registration page (Figure \ref{fig: Registration Page})  for Critical Encounters requires the user's desired username, their email address, and their password. Users are directed to the registration page from the Dashboard or from clicking the ``Register" link on the login page.
 	\newpage
 	\section{Login Page}
 	\begin{figure}[H]
@@ -268,7 +268,7 @@ Stated earlier this is a early prototype created in Angular 4 using Bootstrap fo
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	\lipsum[4]
+	When choosing a color palette to build our website, we looked around at other websites that focused on role-playing game topics and at gaming sites as well. The majority of these sites opt for a black and red/black and X style when creating their look and feel. With Critical Encounters we wanted to break a little bit out of the norm and use colors that really pop out at the user, really make an impression on them, and set ourselves a bit apart from the other cites that they have been to.
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
@@ -473,7 +473,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		
 		
 		
-		On the client, there is no direct connection to the MongoDB database, and in fact a synchronous API to it is not possible (nor probably what you want). Instead, on the client, a collection is a client side cache of the database. This is achieved thanks to the Minimongo library—an in-memory, all JS, implementation of the MongoDB API. What this means is that on the client, when you write:
+		On the client, there is no direct connection to the MongoDB database, and in fact a synchronous API to it is not possible (nor probably what you want). Instead, on the client, a collection is a client side cache of the database. This is achieved thanks to the MiniMongo library—an in-memory, all JS, implementation of the MongoDB API. What this means is that on the client, when you write:
 		
 		\begin{lstlisting}
 			const Users = new Mongo.Collection('users');
@@ -735,7 +735,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\end{itemize}
 			\item Dexterity
 			\begin{itemize}
-				\item The character's agility and hand-eye coordination. Dexterity allows the character to react quickly to attacks from enemies via dodging and counters. It can also effect the damage dealt to enemies, depending on the weapon. Certain weapons require more precision than strength alone, for example a Battle-Axe versus a Bow and Arrow.
+				\item The character's agility and hand-eye coordination. Dexterity allows the character to react quickly to attacks from enemies via dodging and counters. It can also effect the damage dealt to enemies, depending on the weapon. Certain weapons require more precision than strength alone, for example a battle-axe versus bow and arrow.
 			\end{itemize}
 			\item Intelligence
 			\begin{itemize}
@@ -754,18 +754,22 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\item The character's observation of their surroundings. Perception effects the character's chance towards noticing specific entities within the environment (hidden enemies, traps, clues, etc.)
 			\end{itemize}
 		\end{itemize}
+		\newpage
 		\subsubsection{Classes}
-			Characters within the D20 are given roles to play throughout the campaign. Classes are chosen when the character is created and is fundemental in deciding how the character is going to play. The class affects the character's specific attributes in certain ways by adding extra points to some attributes and deducting points from others based on the class itself. Classes range from system to system but are all generally the same. The base classes are typically Barbarian, Rogue, Wizard, and Cleric, with many deviations of these classes within the individual D20 systems.
+			Characters within the D20 are given roles to play throughout the campaign. Classes are chosen when the character is created and is fundamental in deciding how the character is going to play. The class affects the character's specific attributes in certain ways by adding extra points to some attributes and deducting points from others based on the class itself. Classes range from system to system but are all generally the same. The base classes are typically Barbarian, Rogue, Wizard, and Cleric, with many deviations of these classes within the individual D20 systems.
 		\subsubsection{Alignment}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.25]{alignment}
+				\caption{Alignment Table}
+				\label{fig: Alignment Table}
 			\end{wrapfigure}
-			Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. 
-			The alignment chart has to axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy charcters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. 
+			Every entity within the D20 system is given an alignment, Players and NPCs alike. This refers to the character's morals which is used for decision making. The alignment chart has two axis' that range from Lawful to Chaotic on one and Good to Evil on the other, with neutral in the middle of both of the axes. Typically enemy characters lie on the Evil spectrum but can be either Lawful evil to Chaotic Evil. Player Characters have no inclination to sway to the 'Good' spectrum of the table, although most players enjoy being the hero in a story and thus choosing that archetype. A PC could just as well be a heroic paladin as they could be a deceiving and conniving assassin.
 		\subsubsection{Races}
 			This refers to the character's actual species. Race (much like classes) give basic advantages and disadvantages to specific attributes, but also change provide minor changes to gameplay. Certain races will have certain abilities which can provide the party with advantages in battle. Races also vary from system to system but most follow a basic patter of human, elf, dwarf, half-orc, etc.
+			
+		\newpage
 		\subsection{Combat Terms}
-			There area variety of things that can occur during an encounter that effect the way the battle plays out. Certain terms appear every battle, while others only occur when specific occurrences line up. As these combat terms vary between systems, and some only occur in rare instances, a general list has been created to be used by Critical Enounters. Below is a compilation of terms that will most likely be utilized within an enounter, thought the terms used in the encounter may not be limited to this list.
+			There area variety of things that can occur during an encounter that effect the way the battle plays out. Certain terms appear every battle, while others only occur when specific occurrences line up. As these combat terms vary between systems, and some only occur in rare instances, a general list has been created to be used by Critical Encounters. Below is a compilation of terms that will most likely be utilized within an encounter, thought the terms used in the encounter may not be limited to this list.
 		\subsubsection{Initiative}
 			At the beginning of an encounter the player characters, NPCs, and enemies all roll for an initiative check. A D20 die is rolled and combined with the combatant's Dexterity modifier to establish the order that the combatant's perform their actions. The highest initiative roll goes first and it counts down from there.
 		\subsubsection{Critical}
@@ -779,7 +783,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsubsection{Saving Throw}
 			When certain threats occur such as traps being triggered or being poisoned, the receiving character must roll for a saving throw which could allow them to avoid the damage entirely.
 		\subsubsection{Damage Types}
-			Different attacks deal damage in different ways. Each damage type has pros and cons of being used in situations so players typcially choose their attacks strategically in order to get the biggest advantage in an encounter. The damage types in  a standard d20 game are as follows. 
+			Different attacks deal damage in different ways. Each damage type has pros and cons of being used in situations so players typically choose their attacks strategically in order to get the biggest advantage in an encounter. The damage types in  a standard d20 game are as follows. 
 		\begin{itemize}
 			\item \textbf{Bludgeoning} - Blunt force attacks. Can be dealt by enemies with hammers, clubs, or fists. Also includes falling and crushing damage.
 			\item \textbf{Piercing} - Puncturing and impaling attacks. These can include weapons like spears or bites from monsters.
@@ -793,7 +797,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\item Lighting
 				\item Psychic
 			\end{itemize}
-		\end{itemize} 
+		\end{itemize}
 		\subsubsection{Player Condition}
 			There are a variety of states that character's can be in that alter their ability to perform certain tasks. These conditions can be altered by spells, class abilities, receiving an attack, etc. Conditions last a designated time depending on the method of delivery. Here is a list of possible conditions:
 		\begin{itemize}
@@ -804,13 +808,16 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\item \textbf{Unconscious} - Combatant cannot move, speak, or react to surroundings. Automatically fails saving throws. Combatant has disadvantage on all rolls.
 			\item \textbf{Exhaustion} - Combatant is physically tired. Exhaustion works in several layers of intensity which range from having slower movement speed and disadvantage on abilities to the highest level, which is death.
 		\end{itemize}
+		\newpage
 		\subsection{Modifiers}
 			There are various qualities that could boost or deduct points for a character during an action. These qualities can be obtained from high stats, character class/race, or buffs from potions.
 		\subsubsection{Attribute Modifiers}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.3]{modifier}
+				\caption{Attribute Modifiers}
+				\label{fig: Attribute Modifiers}
 			\end{wrapfigure}
-			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subract for every 2 levels given. An ability score of 1 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
+			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subtract for every 2 levels given. An ability score of 1 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
 		\subsubsection{Resistance}
 			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved.
 		\subsubsection{Vulnerability}
@@ -818,26 +825,31 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsubsection{Buffs \& Debuffs}
 			Spells, powers, and potions can either boost or deduct points from various qualities of the characters. 
 		
+			These 'buffs' will have a very large impact on how the Critical Encounter's A.I. makes its' decisions on what actions to take each turn, weighing which action would be better for the character.
+		
 			Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
 			\begin{itemize}
 				\item Speed
 				\item Health Points
 				\item Perception
 				\item Defense
-				\item Damage output
+				\item Damage Output
 			\end{itemize}
+		\newpage
 		\subsection{Misc. Terms}
 			Throughout the D20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
 			\subsubsection{Area of Effect}
-				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
 				\begin{wrapfigure}{r}{0\textwidth}
 					\includegraphics[scale=0.25]{AOE}
+					\caption{Areas of Effect}
+					\label{fig: Areas of Effect}
 				\end{wrapfigure}
+				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
 				\begin{itemize}
-					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft
+					\item \textbf{Origin} - Quite literally, the Spell Origin is the origination of the spell's effect that has been cast. Some spells specify the range of which you can choose a point to cast your spell, while in other spells the origin is the caster themselves.
+					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
 					\item \textbf{Radial} - Spells that affect the area around the caster. The spells radius can range from 5ft to 20ft.
 					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
-					.
 				\end{itemize}	
 				
 			\subsubsection{Line of Sight}
@@ -848,6 +860,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				Free actions are actions that use a negligible amount of time to do and can be used in unison with main actions during the character's turn.
 			\subsubsection{Advantage/Disadvantage}
 				Certain abilities, conditions, buffs and debuffs can give characters advantages or disadvantages. This allows the character to roll 2 times for the action with the advantage/disadvantage. For an advantage the character chooses the higher value of the two rolls, while disadvantage takes the lower of two.
+\newpage
 \section{Computer Opponent (A.I.)}
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
@@ -886,7 +899,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		%Possible Solutions ...
 		
 		\subsection{(Future Work?) Custom 'Role-Play' Actions}
-	
+	\newpage
 	\section{Encounter Diagnostics (Stress-Tester)}
 	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
 	
@@ -918,9 +931,9 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
-		
+	
 	\section{Encounter Browser}
-	After an encounter has been perfected by the user, they have the option to post it into their public arena. Once in a public arena, the encounter may be accessed via the encounter browser. The browser functions as a search bar that allows users to find encounters made by other members of Critical Encounters. Encounters can be located by matching the keywords the user searches with the keywords associated with the encounter. These keywords can include the name of the encounter, the type of encounter, location, level range, party size, difficulty level, etc.
+	After an encounter has been perfected by the user, they have the option to post it into their public arena. Once in a public arena, the encounter may be accessed via the Encounter Browser. The browser functions as a search bar that allows users to find encounters made by other members of Critical Encounters. Encounters can be located by matching the keywords the user searches with the keywords associated with the encounter. These keywords can include the name of the encounter, the type of encounter, location, level range, party size, difficulty level, etc.
 	
 	\section{Encounter Creator Tools}
 	The Encounter Creator is the base of all the encounters provided by Critical Encounters. Users can use this tool to build encounters from scratch that will allow them to properly design the situation to be the most fun for the players to experience. Encounters aren't necessarily more fun if they are harder to accomplish nor are the more fun if you can waltz right through them but rather, encounters provide the most fun when the players are challenged just enough to overcome the enemy. 
@@ -939,7 +952,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		\subsection{Enemies}
 		These entities take on the role of opponents in the d20 system. Enemies work towards the end goal of defeating your party. The GM can place as many enemies onto the map as desired as well as altering the stats to their liking. Creators must keep in mind that completing an encounter is required before it may be published, so overly powerful or overcrowded encounters do not fill the Critical Encounters' database. The enemies in an encounter will run on an AI that will attempt to simulate the basic actions enemies would take in an actual in-game encounter.
 		\subsection{Obstacles}
-		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliffside. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the side bar.
+		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliff side. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the side bar.
 		\subsection{Encounter Rules}
 		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
 		\subsection{Encounter Validation}
@@ -949,7 +962,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		
 	\section{Storyboards}
 	\section{Version Control}
-	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repo before pushing back to the branch. We will make it a required practice that when we pull from the repo in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
+	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repo before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
 	As a side note, we are also looking into a newer feature that GitHub has released. It is geared towards project management within GitHub, so this could lead to more streamlined management to the code itself, and hopefully make bringing attention to specific problems/development in code much easier. GitHub's project management feature focuses on highlighting issues, setting up discussions for solutions, assigning tasks to members, tagging issues/pushes/pulls with labels to search for later, and keeping track of milestones that we have met and are coming up in our project timeline.
 	\section{Data Processing from API (WHAT DOES THIS MEAN???)}
 
@@ -967,7 +980,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\caption{Mean Stack Logo}
 			\label{fig: Mean Stack Logo}
 		\end{figure}
-		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extention of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
+		After scouring the internet for alternatives, we found that Meteor.js is a welcome alteration to the MEAN Stack implementation. Meteor.js is another API that allows for focus on JavaScript coding in development across front-end and back-end applications. While it is a bit more heavyweight than the Express.js framework, on the Node.js platform, Meteor.js is designed to accelerate development of web applications. As an extension of the MEAN Stack, this is achieved just the same, by having a number of components pre-configured out-of-the-box, which allows for an enormous head-start in development.
 			\newpage
 			\subsubsection{MongoDB}
 			\begin{wrapfigure}{r}{0\textwidth}
@@ -983,7 +996,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\caption{Angular 4}
 				\label{fig: Angular 4}
 			\end{wrapfigure}
-			Angular 4 is a TypeScript framework used for developing front-end web and mobile based applications. Angular is an integral part of the MEAN Stack, and thus acts as a piece in that machine to allow for JavaScript coding in the entirety of a project. There are quite a few advantages to using Angular 4, things like template syntax to allow for quick creation of UI views, code splitting to load only the necessary modules for a user's session, and a dedicated CLI to make building, testing, and serving a web application that much easier. Another benefit to using Angular is its' versatility. A desktop application can be created just as well in Angular a web app. This would allow for the transition to a full-fledged application if we thought the project would benefit from it.
+			Angular 4 is a TypeScript framework used for developing front-end web and mobile based applications. Angular is an integral part of the MEAN Stack, and thus acts as a piece in that machine to allow for JavaScript coding in the entirety of a project. There are quite a few advantages to using Angular 4, things like template syntax to allow for quick creation of user-interface views, code splitting to load only the necessary modules for a user's session, and a dedicated command-line-interface to make building, testing, and serving a web application that much easier. Another benefit to using Angular is its' versatility. A desktop application can be created just as well in Angular a web app. This would allow for the transition to a full-fledged application if we thought the project would benefit from it.
 			
 			\newpage
 			\subsubsection{Node.js}
@@ -999,6 +1012,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\subsubsection{Meteor.js}
 			\begin{figure}[H]
 				\centering
+				\includegraphics[scale=.4]{meteorjs}
 				\caption{Meteor}
 				\label{fig: Meteor}
 			\end{figure}
@@ -1017,7 +1031,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\caption{Fabric.js}
 				\label{fig: Fabric.js}
 			\end{wrapfigure}
-			Fabric.js is a Javascript library that is designed to work and enhance HTML5 canvas. Think of Fabric as an extra layer added on top of canvas. Here Fabric provides object models for the images we use for enemies, PCs, and obstacles; a parser for SVG files (like rpg-awesome uses for their images); and the ability to interact with these objects. Because of the many effects each of our drawn-in objects will have on the Battlefield that need to be connected to the object itself, and our need to manipulate each object or rather, each \textbf{image} with set events for the user, Fabric.js is a godsend. There also exists an opensource package, ``react-fabricjs" that allows developers to use Fabric objects as React components. This further consolidates our decision to add utilization of Fabric.js to our project.
+			Fabric.js is a Javascript library that is designed to work and enhance HTML5 canvas. Think of Fabric as an extra layer added on top of canvas. Here Fabric provides object models for the images we use for enemies, PCs, and obstacles; a parser for .svg files (like rpg-awesome uses for their images); and the ability to interact with these objects. Because of the many effects each of our drawn-in objects will have on the Battlefield that need to be connected to the object itself, and our need to manipulate each object or rather, each \textbf{image} with set events for the user, Fabric.js is a godsend. There also exists an opensource package, ``react-fabricjs" that allows developers to use Fabric objects as React components. This further consolidates our decision to add utilization of Fabric.js to our project.
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.15]{bootstrap4}
@@ -1032,7 +1046,16 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\label{fig: RESTful API)}
 			\end{wrapfigure}
 			RESTful API uses HTTP requests for client manipulation of data, using functions such as GET, PUT, POST, and DELETE. This API could prove very useful when working with the individual objects in the Battlefield, as well as retrieving and displaying information on a user's Arena. Using REST in cloud applications is great for requests, because all the calls are stateless and therefore can be redeployed upon a failure, and scale in case of changes during load. The REST architectural style generally pushes to develop using HTTP like it was in the beginning. The functions (GET, PUT, POST, DELETE) refer to the applications' lookups, mutations, creations, and deletions, respectively.
-			
+			\newpage
+			\subsubsection{MobX}
+			\begin{wrapfigure}{r}{0\textwidth}
+				\includegraphics[scale=.17]{mobx}
+				\caption{MobX}
+				\label{fig: MobX}
+			\end{wrapfigure}
+			MobX is an API used in development of web applications that coincide with a React front-end, and require building a component-based system. Core concepts that MobX boasts about are observable state, computed values, reactions, and actions. What all these basically mean is that MobX provides developers the ability to work with components that inherently \textit{are} get functions in and of themselves. Other functions or variables that utilize or are made out of those ``observable state" variables and methods never need to request that variable's value, because it is updated in real time. A value that is computed using only those ``observable state" values is called a computed value. Reactions are like computed values but perform functions instead, ``side effects", while actions are the mutators of the observable state variables themselves, usually generated through user-interaction or web-socket connections.
+	
+	\newpage					
 	\section{Game A.I.}
 		Computer AI is integral to Critical Encounters' final effectiveness. As we are trying to replicate the most reasonably realistic D20 encounter experience, it is necessary that the AI for the enemies in the encounter to act and react as they would in a true D20 Encounter. Many of the AI actions are fairly straightforward such as a basic pathfinding and rule-following system, but there will have to be plenty of fine tuning to get the desired result. The AI that will be eventually implemented will be a combination of pre-existing AI algorithms and newly created systems hand crafted for Critical Encounters' needs.
 		\subsection{Pathfinding}
