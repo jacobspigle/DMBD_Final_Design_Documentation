@@ -14,11 +14,12 @@
 \usepackage{titlesec}
 \usepackage{wrapfig}
 \usepackage{caption}
-\usepackage{geometry}
+\usepackage[left=1.5in, right=1in, top = 1in, bottom = 1in]{geometry}
 \usepackage{float}
 \usepackage[ruled]{algorithm}
 \usepackage{algpseudocode}
 \usepackage{graphicx}
+\usepackage{apacite}
 
 \geometry{headheight = 12pt}
 \parindent 15pt
@@ -73,7 +74,7 @@
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
-\author{Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
+\author{Group 42 \\ -------------------- \\Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
 \title{Critical Encounters}
 \begin{document}
 	
@@ -276,7 +277,7 @@ Stated earlier this is a early prototype created in Angular 4 using Bootstrap fo
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	When choosing a color palette to build our website, we looked around at other websites that focused on role-playing game topics and at gaming sites as well. The majority of these sites opt for a black and red/black and X style when creating their look and feel. With Critical Encounters we wanted to break a little bit out of the norm and use colors that really pop out at the user, really make an impression on them, and set ourselves a bit apart from the other cites that they have been to.
+	When choosing a color palette to build our website, we looked around at other websites that focused on role-playing game topics and at gaming sites as well. The majority of these sites opt for a black and red or some combination black and X style when creating their look and feel. With Critical Encounters we wanted to break a little bit out of the norm and use colors that really pop out at the user, really make an impression on them, and set ourselves a bit apart from the other cites that they have been to.
 	\newpage
 	\section{Icons}
 	Most of the icons we utilize will be provided by the free icon APIs font-awesome and rpg-awesome. Additional icons will be acquired through Game-Icons.net.
@@ -284,82 +285,30 @@ Stated earlier this is a early prototype created in Angular 4 using Bootstrap fo
 	\begin{itemize}
 		\item \includegraphics[scale=.06]{dashboard_icon}
 		The Dashboard icon is used in the navbar and on the Dashboard itself to indicate where the user is on the site.
-		\begin{figure}
-			\captionlistentry{Dashboard Icon}
-			\label{fig: Dashboard Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{arena_icon}
 		The Arena icon (depicted as a house crest) represents the users' Arena and is used in the navbar and on the Arena page itself to indicate where the user is on the site.
-		\begin{figure}
-			\captionlistentry{Arena Icon}
-			\label{fig: Arena Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{sword_lightning}
 		The total number of plays in an Arena has the sword crossed with lightning icon. It appears on the users' Arena as well as on the Encounter Page itself.
-		\begin{figure}
-			\captionlistentry{Total Plays Icon}
-			\label{fig: Total Plays Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{win_rate}
 		The trophy pedestal icon represents the percentage of users that have defeated/finished the respective encounter.
-		\begin{figure}
-			\captionlistentry{Win Rate Icon}
-			\label{fig: Win Rate Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{scroll}
 		The unfurled scroll indicates how many reviews/comments have been given to an encounter.
-		\begin{figure}
-			\captionlistentry{Comments Icon}
-			\label{fig: Comments Icon}
-		\end{figure}
 		\item \includegraphics[scale=.07]{rating_icon}
 		The star (intuitively) represents the rating that an encounter has received by users that have finished the given encounter. It is depicted on the Arena page, filtering of the search results page, as well as the Encounter Page.
-		\begin{figure}
-			\captionlistentry{Rating Icon}
-			\label{fig: Rating Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{subscribers_icon}
 		The subscribers icon falsely represents the physical appearance of all those that utilize Critical Encounters. It also represents the number of users that are subscribed to that Arena, and is present on the Arena page.
-		\begin{figure}
-			\captionlistentry{Subscribers Icon}
-			\label{fig: Subscribers Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{plays_icon}
 		The number of plays an encounter has had is shown in the Encounter Stats column on the encounter page, and is represented by the figure of two axes crossed. Game on.
-		\begin{figure}
-			\captionlistentry{Encounter Plays Icon}
-			\label{fig: Encounter Plays Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{pc_deaths}
 		The iconic skull \& crossbones icon indicates how many PC Deaths the encounter has accrued over its' lifetime. It is present on the Encounter Page.
-		\begin{figure}
-			\captionlistentry{PC Deaths Icon}
-			\label{fig: PC Deaths Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{npc_deaths}
 		A figure wearing an iron helm represents the number of NPC deaths that have occurred in an encounter. Whether this was due to the PCs' or their own infighting is left ambiguous. It is present on the Encounter Page.
-		\begin{figure}
-			\captionlistentry{NPC Deaths Icon}
-			\label{fig: NPC Deaths Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{most_popular_class}
 		This icon shows the class that was chosen most by users when playing through this encounter. It appears on the Encounter Page.
-		\begin{figure}
-			\captionlistentry{Most Popular Class Icon}
-			\label{fig: Most Popular Class Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{most_popular_race}
 		Races in roleplaying games can drastically change the shape of a class, and tilt the advantage of an entire encounter with the right abilities in place. The race that was chosen the most in this encounter is represented by this icon.
-		\begin{figure}
-			\captionlistentry{Most Popular Race Icon}
-			\label{fig: Most Popular Race Icon}
-		\end{figure}
 		\item \includegraphics[scale=.03]{avg_rounds}
 		The stopwatch indicates how long an encounter generally lasts, counted in the number of rounds that are played through in the combat. It is located on the Encounter Page.
-		\begin{figure}
-			\captionlistentry{Avg. Number of Rounds}
-			\label{fig: Avg. Number of Rounds}
-		\end{figure}
 	\end{itemize}
 \newpage
 	\subsection {Logo}
@@ -369,13 +318,13 @@ Stated earlier this is a early prototype created in Angular 4 using Bootstrap fo
 		\caption{Critical Encounters' Logo}
 		\label{fig: Critical Encounters' Logo}
 	\end{figure}
-	We wanted the logo design to accompany the overall UI design choices of the website with a more simplistic approach, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate and maybe even a bit cliché. Because of the light green color, and the contrast of our darker purple color choice with the navigation bar, this logo will "pop" on all of the views on the website(Figure \ref{fig: NavBar with Logo}). The logo can also be easily scaled to fit most container sizes, which fits in to our application's versatility between desktop and mobile browsers.
+	We wanted the logo design to accompany the overall UI design choices of the website with a more simplistic approach, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate and maybe even a bit cliché. Because of the light green color, and the contrast of our darker purple color choice with the navigation bar, this logo will "pop" on all of the views on the website(Figure \ref{fig: Critical Encoutners' Logo with Background}). The logo can also be easily scaled to fit most container sizes, which fits in to our application's versatility between desktop and mobile browsers.
 	\bigskip
 	\begin{figure}[H]
 		\centering
-		\centerline{\includegraphics[scale=1]{navbar-logo}}
-		\caption{NavBar with Logo}
-		\label{fig: NavBar with Logo}
+		\includegraphics[scale=1]{navbar-logo}
+		\caption{Critical Encounters' Logo with Background}
+		\label{fig: Critical Encounters' Logo with Background}
 	\end{figure}
 \newpage
 \chapter*{Technical Goals}
@@ -436,38 +385,48 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\end{table}
 	
 	\section{Communication}
+	\begin{wrapfigure}{r}{0\textwidth}
+		\includegraphics[scale=.15]{slack}
+		\caption{Slack}
+		\label{fig: Slack}
+	\end{wrapfigure}
 	Before our actual first meeting as a team, and as soon as we knew our team composition, we immediately set up a Slack group specifically for quick and constant communication to be available. We are using and will continue to use Slack as a means to keep up with each others' progress on individual goals, as well as keeping ourselves available to questions pertaining to those individual goals that other members might have during development. Slack also allows for easy file transfer, group check-ins, task/milestone reminders, notifications (specifically on commits and pushes to our GitHub repository), and discussions for the project. \par
+	\begin{wrapfigure}{l}{0\textwidth}
+		\includegraphics[scale=.06]{trello}
+		\caption{Trello}
+		\label{fig: Trello}
+	\end{wrapfigure}
 	We are also utilizing another means of communication that specializes in the realm of project management: Trello. Using Trello has allowed us to break apart this semester's documentation task and therefore given each of us the ability to focus on our own sections without the need to wait for each others' work to continue our own. By assigning tasks on the Trello board, we have split ourselves into teams that focus on different areas of this document. So, when there are questions pertaining to that specific area, we have another member of the team also assigned to that task that we can turn to. Trello has allowed us to plot out the time that we need for each section very well, and therefore we will continue to use Trello next semester for production of our web application.
 	\section{Research}
+	Research for the tools we will utilize going forward with Critical Encounters was performed by the members of the team that will be the most involved with those tools. This approach is pretty intuitive, but also allows for those members who perhaps do not have much experience in the realm of website development or algorithm creation a chance to gain a base for which to stand on during the development stage. Once our members have researched the tools, at the very least we will be able to start from there and build up.
 	\section{Budget}
-	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
+	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents, by doing things like opting for using the D20 Game System as a base for our ruleset (which is free to use without conflict), instead of utilizing a similar but copyrighted and highly policed set of rules like D\&D's 5th Edition ruleset. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
 	
 \newpage
 \chapter*{Application Design}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Application Design}
 	\section {High Level Design}
-		\begin{figure}[h]
+		\begin{figure}[H]
+			\centering
 			\includegraphics[scale=.5]{designsd.png}
 			\caption{High Level Design Diagram}
 			\label{fig: High Level Design}
 		\end{figure}
 		
-		\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. 
-		
-		\paragraph {} The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
+		\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. \par
+		 The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
 	
 	\section { Design Patterns }
 		
-		\begin{figure}[h]
+		\begin{figure}[H]
+			\centering
 			\includegraphics[scale=.7]{orm.png}
 			\caption{Design Pattern Figure}
-			\label{fig: Dasign Pattern }
+			\label{fig: Design Pattern Figure}
 		\end{figure}
 		
-		\paragraph{} Meteor uses implements a ORM/MERN, Object-relational mapping / MongoDB - Expess - React, stack design pattern. It focuses on model driven development, in which the models are shared between the server and the client. This is seen most clearly seen in the MiniMongo database cache that is accessible by the font-end front end and can asynchronously update the MongoDb REST API is implemented automatically which translates to automatic database updates.
-		
-
+		\paragraph{} Meteor uses implements a ORM/MERN, Object-relational mapping / MongoDB - Express - React, stack design pattern. It focuses on model driven development, in which the models are shared between the server and the client. This is seen most clearly seen in the MiniMongo database cache that is accessible by the font-end front end and can asynchronously update the MongoDb REST API is implemented automatically which translates to automatic database updates.
 
 \newpage
 \section {Server Design}
@@ -673,6 +632,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 		
 		
 	\subsection{Types of Views and Controllers}
+	While React does not use a Model-View-Controller architecture for development, it does have things such as ``View Controllers" and ``Controller Views" that are top level components which hold all states, and passes those to child components as props.
 		\subsubsection{AccountController}
 		\subsubsection{DashboardController}
 	
@@ -933,8 +893,8 @@ Our plan for testing involving all components, both the search and profile layou
 				\begin{itemize}
 					\item \textbf{Origin} - Quite literally, the Spell Origin is the origination of the spell's effect that has been cast. Some spells specify the range of which you can choose a point to cast your spell, while in other spells the origin is the caster themselves.
 					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
-					\item \textbf{Radial} - Spells that affect the area around the caster. The spells radius can range from 5ft to 20ft.
-					\item \textbf{Line} - Spells that shoot in a straight line in the direction of the caster. Usually 30ft.
+					\item \textbf{Radial} - Spells that affect the area around the caster in a circle or sphere formation. For example, if a spell were to specify that it's radius ranges from 5ft to 20ft.
+					\item \textbf{Line} - Spells that shoot in a straight line, generally originating from the caster, but could also form a wall or other obstacle. Usually 30ft.
 				\end{itemize}	
 				
 			\subsubsection{Line of Sight}
@@ -942,7 +902,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\subsubsection{Experience Points}
 				Upon completing an encounter, experience points are awarded to the party. XP are units of measurement to gauge the character's progression after a battle. They are used to level up the character and add points to their attributes, which result in higher modifiers for that character.
 			\subsubsection{Free Action}
-				Free actions are actions that use a negligible amount of time to do and can be used in unison with main actions during the character's turn.
+				Free actions are actions that use a negligible amount of time to do and can be used in unison with main actions during the character's turn. Most of the time Free Actions are directed at simple conversation done in combat. Something that would take just a few moments to convey, or that can be done whilst performing your measured Actions in a turn.
 			\subsubsection{Advantage/Disadvantage}
 				Certain abilities, conditions, buffs and debuffs can give characters advantages or disadvantages. This allows the character to roll 2 times for the action with the advantage/disadvantage. For an advantage the character chooses the higher value of the two rolls, while disadvantage takes the lower of two.
 \newpage
@@ -950,20 +910,20 @@ Our plan for testing involving all components, both the search and profile layou
 	Since the combat simulator will support only one user, it will be necessary to implement an A.I. capable of controlling either the GM or PC actions. The A.I. must be versatile enough to play either role with an average measure of competency. It is not important that the A.I. makes the optimal tactical decision per action, as this would conflict with the role-playing nature of the D20 system. Instead, the A.I. will have various personality presets, which will be used to guide the A.I. decision making to better match the personality of the person or creature that it is controlling. In some cases, this may lead to a suboptimal action being taken intentionally. Such behavior would be left up to the creator of the encounter and the personality they select for each creature they place in it.
 	
 		\subsection{A.I. Responsibilities}
-		If the user is controlling the PCs, the A.I. will control all other allied, neutral and hostile units on the board that are not one of the PCs. If the user is controlling the GM, the A.I. will control the PCs only. This follows the traditional design of the DnD 5e combat rules. In the case that the A.I. must control two units, one that is hostile to the PCs and one that is in alliance with them, the A.I. will take the actions that are in the best interest of the unit it is controlling for that action, regardless of whether or not that action is in the interest of the side that the A.I. is playing for. 
+		If the user is controlling the PCs, the A.I. will control all other allied, neutral and hostile units on the board that are not one of the PCs. If the user is controlling the GM, the A.I. will control the PCs only. This follows the traditional design of the the D20 Game System's combat rules. In the case that the A.I. must control two units, one that is hostile to the PCs and one that is in alliance with them, the A.I. will take the actions that are in the best interest of the unit it is controlling for that action, regardless of whether or not that action is in the interest of the side that the A.I. is playing for. 
 		
 		\subsection{Challenges}
-		Combat in DnD 5e allows for an extreme degree of improvisation due to the nearly infinite range of possibilities offered by the games emphasis on 'role-playing.' Role-playing is when a human player makes in-game decisions as if they are living in the mind of their character instead of their own. As an extension of this fact, players can choose to take actions that are not explicitly defined in the rule book and are instead, made up on the spot. The range of possible actions a player can make is as robust as the physics of the universe in which the game is taking place allows. 
+		Combat in D20 allows for an extreme degree of improvisation due to the nearly infinite range of possibilities offered by the games emphasis on 'role-playing.' Role-playing is when a human player makes in-game decisions as if they are living in the mind of their character instead of their own. As an extension of this fact, players can choose to take actions that are not explicitly defined in the rule book and are instead, made up on the spot. The range of possible actions a player can make is as robust as the physics of the universe in which the game is taking place allows. 
 		
 		Most frequently, human players who are role-playing will disregard information that their in-game character would not know, such as information received from other human players whose corresponding characters are not within earshot and as such, are not able to talk to the player's in-game character. Another example of an event like this is if player character B is losing a battle in a remote location to player character A, the human controlling player character A would know that player character B is in trouble, but would not choose to rush to the aid of player character B since their player character has no way of knowing that player character B is in danger. Another way players role-play is by making decisions based on not what they personally want to do, but what their player character would do based on the personality and moral alignment of that player character.
 		
-		Players are also able to role-play when deciding specifically what their in-game actions \textit{are}. When in combat, DnD 5e provides are set of rules for what actions can take place and in what order as is typical of most tabletop board games. However, besides taking one of the basic actions defined in the game rules, players can also choose to make a 'custom' action that is specific to the in-game scenario. This usually takes the form of a player dictating to the GM what they \textit{want} to do, and the GM deciding whether that is acceptable based on their interpretation of the game rules. In this case the GM acts as a translator by attempting to compare the 'custom' action described by the player into something that fits into the general rule set of the game. 
+		Players are also able to role-play when deciding specifically what their in-game actions \textit{are}. When in combat, D20 provides are set of rules for what actions can take place and in what order as is typical of most tabletop board games. However, besides taking one of the basic actions defined in the game rules, players can also choose to make a 'custom' action that is specific to the in-game scenario. This usually takes the form of a player dictating to the GM what they \textit{want} to do, and the GM deciding whether that is acceptable based on their interpretation of the game rules. In this case the GM acts as a translator by attempting to compare the 'custom' action described by the player into something that fits into the general rule set of the game. 
 		
 		An example of such a scenario would be a player who instead of firing their bow at an enemy goblin, instead explains to the GM that they want to fire their bow at boulder hanging precariously over a cliff edge, in an attempt to create some sort of avalanche. The GM would then have to decide whether the character is physically capable of doing the described action, and what dice roles the player should make in order to succeed. The GM would then narrate the results of the player's custom action. Obviously, this specific scenario is not defined in the rule book, so the GM is in complete control of the results. If the player does not get a very successful role, the GM may decide to rule that the boulder falls as planned, but rolls off course and damages the player or their allies. Alternatively, the GM may say that the player's arrow simply misses, and no other effects occur. These highly customizable instances of role-playing have the capacity to have dramatic impact on gameplay, and is limited only to the player's creativity and improvisational skills. 
 		
 		It is the duty of the GM to make sure that none of these actions are too ambitious. For example, a GM would most likely decline a player's request to "instantly defeat all enemies on the field by picking up and throwing a mountain at them." Such an action would be nonsensical, and would far exceed the player characters capabilities. Inexperienced players will generally tend to use less of these improvisational actions, opting instead to stick to the basic actions defined in the rulebook, but highly experienced players will often come up with highly creative and interesting actions. It is important to remember that these custom actions are not inherently more powerful than any of the basic actions defined in the rulebook. They merely exist to add a level of 'flair' to the actions that unfold during play. It is more engaging for a player to stretch their imagination and come up with exciting or hilarious actions as they get into the role of their character. 
 		
-		This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
+		This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for D20. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
 		
 		Additionally, to address the challenge of character 'personalities,' we choose to allow encounter creators to assign a personality preset to any unit on the battlefield. This personality preset will adjust the weighting of the decision making process, causing the unit to \textit{appear} to prefer certain actions. For example, a 'brute' personality will frequently choose to attack with melee even if it is not the most optimal decision, as this is the nature of role-play. Whether or not to make use of these personalities is entirely up to the user, and how they believe their encounters should feel. 
 		
@@ -1143,7 +1103,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
 		
-		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of DnD, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
+		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of the D20 Game System, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
 		
 		%ToDo: Example tree diagram of A.I. accounting for future opponent actions
 		
@@ -1160,7 +1120,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 	\newpage
 	\section{Encounter Diagnostics (Stress-Tester)}
-	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
+	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in the D20 Game System is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
 	
 		\subsection{Restrictions}
 		The encounter diagnostic tool will require as input a valid encounter that has passed verification. A valid encounter is one that has at least the minimum amount of components necessary for an encounter between the player characters and game master to be simulated. For an encounter to be verified, the creator of the encounter must succeed against a computer controlled game master at least once while controlling a party of player characters that meet the designated restrictions set by the encounter creator.  
@@ -1367,5 +1327,8 @@ Our plan for testing involving all components, both the search and profile layou
 \chapter*{References}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{References}
+
+\bibliographystyle{apacite}
+\bibliography{references}
 
 \end{document}
