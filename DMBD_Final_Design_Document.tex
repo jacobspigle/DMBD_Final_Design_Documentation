@@ -417,7 +417,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. \par
 		 The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
 	
-	\section { Design Patterns }
+	\section {Design Patterns}
 		
 		\begin{figure}[H]
 			\centering
@@ -630,13 +630,14 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\caption{URL Routes} \label{table: URL Routes}
 		\end{table}
 		
-		
 	\subsection{Types of Views and Controllers}
-	While React does not use a Model-View-Controller architecture for development, it does have things such as ``View Controllers" and ``Controller Views" that are top level components which hold all states, and passes those to child components as props.
+	While React does not use a Model-View-Controller architecture for development, it does have things such as ``View Controllers" and ``Controller Views" that are top level components which hold all states, and passes those to child components as props. \cite{reactcvp}
 		\subsubsection{AccountController}
 		\subsubsection{DashboardController}
-	
-		
+		\subsubsection{ArenaController}
+		\subsubsection{EncounterPageController}
+		\subsubsection{EncounterBrowserController}
+		\subsubsection{BattlefieldController}
 	
 	\subsection{Battlefield Modes}
 		\subsubsection{Game Mode}
@@ -757,7 +758,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\item Ensure all encounter lists are correct in the dashboard page
 		\end{itemize}
 \end{itemize}
-
+\newpage
 \section{D20 Terminology}
 		The D20 game system has variations from game to game whether it be changes to name, function, or practicality. Despite this, generally many the main qualities that the game styles have don't tend to stray too far from one another. While on this project, it is crucial that Critical Encounters should provide a broad enough experience to appease the largest portion of D20 games as possible so that players can apply their encounters to whatever D20 system they'd like. 
 		\subsection{Character Terms}
@@ -1129,7 +1130,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		Additionally, the encounter must have passed verification in order to strengthen the notion that all final encounters must have at least one solution found explicitly by a human user. This is to prevent encounter creators from using the diagnostic tool to figure out if their encounter is possible without having to test or verify it themselves. 
 		\subsection{Interface}
-		The user will be able to access the interface for the encounter diagnostic tool from within the encounter creator. The encounter diagnostics option will only be available on encounters that the user has created. Once the user has selected an encounter to perform encounter diagnostics, they will be prompted to enter details necessary to configure the tests. 
+		The user will be able to access the interface for the encounter diagnostic tool from within the encounter creator, accessing the different parameters in the sidebar. The encounter diagnostics option will only be available on encounters that the user has created, which is why we placed it in the encounter creator itself. Once the user has entered the parameters to run encounter to perform encounter diagnostics, they will be prompted to enter details necessary to configure the tests.
 		
 		%ToDo: Image for this?
 		
@@ -1259,6 +1260,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\label{fig: Fabric.js}
 			\end{wrapfigure}
 			Fabric.js is a Javascript library that is designed to work and enhance HTML5 canvas. Think of Fabric as an extra layer added on top of canvas. Here Fabric provides object models for the images we use for enemies, PCs, and obstacles; a parser for .svg files (like rpg-awesome uses for their images); and the ability to interact with these objects. Because of the many effects each of our drawn-in objects will have on the Battlefield that need to be connected to the object itself, and our need to manipulate each object or rather, each \textbf{image} with set events for the user, Fabric.js is a godsend. There also exists an opensource package, ``react-fabricjs" that allows developers to use Fabric objects as React components. This further consolidates our decision to add utilization of Fabric.js to our project.
+			\newpage
 			\subsubsection{Bootstrap 4}
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.15]{bootstrap4}
@@ -1324,10 +1326,6 @@ Our plan for testing involving all components, both the search and profile layou
 \listoftables
 
 \newpage
-\chapter*{References}
-\stepcounter{chapter}
-\addcontentsline{toc}{chapter}{References}
-
 \bibliographystyle{apacite}
 \bibliography{references}
 
