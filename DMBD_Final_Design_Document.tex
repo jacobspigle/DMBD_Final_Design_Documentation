@@ -980,7 +980,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\item \textbf{Damage} - Damage based attack are attacks in which the primary goal is to inflict damage directly, and not as a side-effect to one of the previously mentioned categories of actions. If a spell or attack deals both damage and provides either support or crowd control, that spells non-damaging effects will be considered slightly when calculating the overall damage potential for the action. 
 		\end{itemize}
 		
-		During each action, a creature will calculate their expected performance in each category with their given stats, abilities, and board state. These values will be the main contributor the action that will ultimately be taken. 
+		During each action, a combatant will calculate their expected performance in each category with their given stats, abilities, and board state. This value will then be used to select a satisfactory combat action and target for the combatant. 
 		
 		The following is a behavior tree modeling the decision making process for a generic combat unit:
 		
@@ -991,7 +991,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\label{fig: Behavior Tree}
 		\end{figure}
 		
-		Figure \ref{fig: Behavior Tree} highlights the general flow of decisions the A.I. will make before arriving at an action. In this tree, each node represents a calculation that will affect the branch that is taken, and each leaf represent an action. 
+		Figure \ref{fig: Behavior Tree} highlights the flow of decisions the A.I. will make before arriving at an action. In this tree, each node represents a calculation that will affect the branch that is taken, and each leaf represent an action. 
 		
 		\begin{algorithm}
 			\caption{Stores target-action pairs and their corresponding values}
@@ -1071,14 +1071,20 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		Algorithm \ref{table:Weighted Actions} details the $weightedAction$ class. This class is used to store the target-action pairs for a given combatant. It takes as input a target, acting combatant, action and weight. $actingCombatant$ is the combatant that is currently taking the described action. $target$ is a Combatant object within range of the acting combatant. $action$ is the specific attack or spell being used on the target. $value$ is the overall measure of the effective of the action being performed on the target by the acting combatant. 
 		
+		%ToDo: Paragraph leading up to code
+		
 		The constructor for algorithm \ref{table:Weighted Actions} stores the passed in values, and calculated the expected value using $action.calcExpectedValue()$. This method calculated the average effect of the given action when used on a target by the acting combatant. For damaging actions, this can be straightforward. For some support and crowd control actions, various qualifications will have to be made ahead of time by the development team to transform any semi-complex actions into a reasonable quantifiable score.
 		
-		%ToDo:Utility Based Action Approach
+		%ToDo: More talk about algorithms? Better transition?
+		
 		Another approach to the decision making would be a utility based approach. In this approach, each combatant on the field is assignment a utility rating depending on a combination of all combat related stats that combatant has. The combatant then interacts with other combatants through the comparison of their utility ratings. 
 		
-		Figure \ref{fig: Utility Based} shows a transition diagram in which a combatant compares it's utility rating against a single target. It is clear that with this model, we are able to clearly relate the strength of one combatant to another. In the previous model, we treat a combatant as its single most effective ability at the given moment. In the utility based model, we treat a combatant as the sum of all of its parts, including temporary advantages such as cover or spell buffs. 
+		Figure \ref{fig: Utility Based} shows a transition diagram in which a combatant compares it's utility rating against a single target. It is clear that with this model, we are able to clearly relate the strength of one combatant to another. In the previous model, we treat a combatant as equivalent to its single most effective ability at the given moment. In the utility based model, we treat a combatant as the sum of all of its combat utilities, even including temporary advantages such as cover or spell buffs. 
 		
-		This model would make it easier to program a fairly competent A.I. Combatants would almost never pick a target that is much stronger than they are, instead choosing to seek any tactical advantage they may be able to gain. Strong combatants would leverage their capabilities by quickly dispatching targets they know they can defeat. These behaviors are almost straightforward given the design of the model.
+		This model would make it easier to program a fairly competent A.I. as combatants would almost never pick a target that is much stronger than they are. Instead, they would choose to seek any tactical advantage they may be able to gain. Strong combatants would leverage their capabilities by quickly dispatching targets they know they can defeat. These behaviors are almost straightforward given the design of the model.
+		
+		%ToDo: More talk about utility model
+		%ToDo: Discuss not using utility model, possible drawbacks, limitations
 		
 		\begin{figure}
 			\centering
@@ -1086,12 +1092,10 @@ Our plan for testing involving all components, both the search and profile layou
 			\caption{Utility Based Diagram}
 			\label{fig: Utility Based}
 		\end{figure}
-		
-		%ToDo: Drawbacks of each approach
 				
 		
 		\subsection{Unit Personalities}
-		In order to capture the spirit of the game being simulated, we allow for users to assign preset personalities to units during encounter creation in order to further customize the way those units will behave in combat. This is necessary to simulate the way in which a GM will often manipulate units in combat to act appropriately given their level of intelligence and tactical ability, as well as to increase the tension and excitement of the players taking part in the encounter. 
+		In order to capture the spirit of traditional tabletop role playing games, we allow for users to assign preset personalities to units during encounter creation in order to further customize the way those units will behave in combat. This is necessary to simulate the way in which a GM will often manipulate units in combat to act appropriately given their level of intelligence and tactical ability, as well as to increase the tension and excitement of the players taking part in the encounter. 
 		
 		Players creating an encounter will be able to select the personality of \textit{any} unit that they themselves have placed in the encounter. This includes all GM controlled units as well as any PC's the encounter creator places, if any. It is necessary to select a personality for any player characters in the encounter since users are able to play as the either the PCs or the GM side. In the case a user is currently controlling the GM, the A.I. will need a personality with which to base the PC's behavior. If the user is controlling the PCs and the encounter creator has defined a personality for one of the PCs the user is controlling, the personality will not take effect. It is up to the user to decide if they want to play along with the PC's given personality, or play their own way. 
 		
@@ -1149,6 +1153,11 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		
 		\subsection{Future Work - Custom 'Role-Play' Actions}
+		
+		%ToDo: INFINITE POSSIBILITES IN THE PALM OF MY HAND
+		%ToDo: Boil down infinite possibilities into 1 quantifiable effect
+		%ToDo: Discuss why this isn't really useful to us given the purpose of the tool
+		
 	\newpage
 	\section{Encounter Diagnostics (Stress-Tester)}
 	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
@@ -1182,7 +1191,10 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		%ToDo: DFA for process
 		%ToDo: Paragraph explaining DFA
-	
+		
+		\subsection{Processing}
+		%ToDo: Discuss computational power needed for this
+		%ToDo: Client Vs. Server 
 	
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
