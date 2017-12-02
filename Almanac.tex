@@ -1,0 +1,64 @@
+% Changing book to article will make the footers match on each page,
+% rather than alternate every other.
+%
+% Note that the article class does not have chapters.
+\documentclass[10pt,twoside,twocolumn,openany]{book}
+\usepackage[bg-letter]{dnd} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{lipsum}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{indentfirst}
+\usepackage{courier}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{float}
+
+\title{A Travelers Guide to Ardua}
+\date{ 22nd of Last Light, 540 PR}
+\author{Written by Professor Archibald Yainin\\ Translated by Hunter Figueroa}
+
+% Start document
+\begin{document}
+	
+	\fontfamily{ppl}\selectfont % Set text font
+	\maketitle
+	
+	\tableofcontents
+	
+	
+	% Your content goes here
+	
+	% Comment this out if you're using the article class.
+	\chapter{I: This Guide and Its Purpose}
+	\chapter{II: Message From the Author}
+	\chapter{Chapter 1: The Days of Ardua}
+		\section{Calendar}
+		\section{Holidays and Celebrations}
+		\section{Other Notable Dates}
+	\chapter{Chapter 2: The Biomes}
+		\section{The Powder Swamps}
+		\section{Thickwood}
+		\section{The Dunbrec Mountains}
+	\chapter{Chapter 3: The Pantheon}
+		\section{The High Three}
+		\section{The Circle}
+		\section{The Minor Gods}
+	\chapter{Chapter 4: A Brief History}
+	\chapter{Chapter 5: The Five Crowns}
+		\section{Stormforge}
+		\section{Wulog}
+		\section{Hogsclaw}
+	
+	\end{document}
