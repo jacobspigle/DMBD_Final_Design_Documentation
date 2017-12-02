@@ -16,6 +16,9 @@
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{float}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
 
 \geometry{headheight = 12pt}
 \parindent 15pt
@@ -57,6 +60,11 @@
 	showtabs=false,
 	captionpos=b
 }
+
+\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
+\algtext*{EndClass}
+
+\newcommand{\WRP}{\par\qquad\(\hookrightarrow\)\enspace}
 
 \renewcommand{\listfigurename}{Figures}
 \renewcommand{\listtablename}{Tables}
@@ -955,11 +963,132 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		It is the duty of the GM to make sure that none of these actions are too ambitious. For example, a GM would most likely decline a player's request to "instantly defeat all enemies on the field by picking up and throwing a mountain at them." Such an action would be nonsensical, and would far exceed the player characters capabilities. Inexperienced players will generally tend to use less of these improvisational actions, opting instead to stick to the basic actions defined in the rulebook, but highly experienced players will often come up with highly creative and interesting actions. It is important to remember that these custom actions are not inherently more powerful than any of the basic actions defined in the rulebook. They merely exist to add a level of 'flair' to the actions that unfold during play. It is more engaging for a player to stretch their imagination and come up with exciting or hilarious actions as they get into the role of their character. 
 		
-		 This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
-
+		This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
+		
 		Additionally, to address the challenge of character 'personalities,' we choose to allow encounter creators to assign a personality preset to any unit on the battlefield. This personality preset will adjust the weighting of the decision making process, causing the unit to \textit{appear} to prefer certain actions. For example, a 'brute' personality will frequently choose to attack with melee even if it is not the most optimal decision, as this is the nature of role-play. Whether or not to make use of these personalities is entirely up to the user, and how they believe their encounters should feel. 
 		
+		
 		\subsection{Decision Making}
+		
+		The decision making for the combat A.I. will be primarily modeled as a behavior tree. 
+		
+		In order to help separate the different types of actions a given unit can make on their turn, all possible actions are sorted into one of the following categories:
+		
+		\begin{itemize}
+			\item \textbf{Support} - A support action is any action that provides a stat buff to a friendly unit. Given two different possible support actions, the more effective action is considered the one to have the highest expected value. The expected value of a support action is calculated using the anticipated increase in combat effectiveness of the unit targeted by the support action. 
+			\item \textbf{Crowd Control} - A crowd control action is any action that provides a debuff to an enemy target. The expected value of a crowd control action is calculated using the anticipated decrease in combat effectiveness of the unit targeted by the crowd control action.
+			\item \textbf{Damage} - Damage based attack are attacks in which the primary goal is to inflict damage directly, and not as a side-effect to one of the previously mentioned categories of actions. If a spell or attack deals both damage and provides either support or crowd control, that spells non-damaging effects will be considered slightly when calculating the overall damage potential for the action. 
+		\end{itemize}
+		
+		During each action, a creature will calculate their expected performance in each category with their given stats, abilities, and board state. These values will be the main contributor the action that will ultimately be taken. 
+		
+		The following is a behavior tree modeling the decision making process for a generic combat unit:
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.6]{behaviorTree}
+			\caption{Behavior Tree}
+			\label{fig: Behavior Tree}
+		\end{figure}
+		
+		Figure \ref{fig: Behavior Tree} highlights the general flow of decisions the A.I. will make before arriving at an action. In this tree, each node represents a calculation that will affect the branch that is taken, and each leaf represent an action. 
+		
+		\begin{algorithm}
+			\caption{Stores target-action pairs and their corresponding values}
+			\label{table:Weighted Actions}
+			\begin{algorithmic}[1]
+				\Class \textmd{weightedAction}\textbf{T}
+					\State \textbf{Combatant} target
+					\State \textbf{Action} action
+					\State \textbf{double} value
+					\State
+					\Function{weightedAction}{\textbf{Combatant} target, \textbf{Combatant} actingCombatant,  \textbf{Action} action, \textbf{double} weight)}
+						\State this.target $\gets$ target
+						\State this.action $\gets$ action
+						\State this.value $\gets$ action.calcExpectedValue(actingCombatant, target) * weight
+					\EndFunction
+				\EndClass
+			\end{algorithmic}
+		\end{algorithm}
+		
+		\begin{algorithm}
+			\caption{Returns a list of all possible actions for a given combatant}
+			\label{table:Find Actions}
+			\begin{algorithmic}[1]
+				\Function{FindActions}{\textbf{Combatant} combatantArray[], \textbf{Combatant} combatant}
+					\State weightedAction actionList[]
+					\State
+					\For{combatant $\in$ combatantArray}
+						\For{ability $\in$ combatant.abilities}
+							\If{combatant.isEnemy()}
+								\If{ability.isDamage()}
+									\State weightedAction damageAction $\gets$ 
+									\State \textbf{new} weightedAction(enemy, ability, 1)
+									\State actionList.append(damageAction)
+								\Else
+									\State weightedAction ccAction $\gets$
+									\State  \textbf{new} weightedAction(enemy, ability, 1)
+									\State actionList.append(ccAction)
+								\EndIf
+							\Else
+								\If {ability.isSupport()}
+									\State weightedAction supportAction $\gets$
+									\State \textbf{new} weightedAction(ally, ability, 1)
+									\State actionList.append(supportAction)
+								\EndIf
+							\EndIf
+						\EndFor
+					\EndFor
+					
+					\Return actionList
+				\EndFunction
+			\end{algorithmic}
+		\end{algorithm}
+		
+		\begin{algorithm}
+			\caption{Selects a desirable action for a given combatant}
+			\label{table:Decide Action}
+			\begin{algorithmic}[1]
+				\Function{Combatant.DecideAction}{}
+					\State \textbf{weightedAction} bestAction $\gets$ \textbf{NULL}
+					\State \textbf{double} bestWeight$\gets$ -1
+					\State \textbf{Combatant} combatantArray[] $\gets$ Encounter.combatants
+					\State \textbf{weightedAction} actionList $\gets$ FindActions(combatantArray, \textbf{this});
+					\State
+					
+					\For{action $\in$ actionList}
+						\If{action.value $>$ bestWeight}
+							\State bestAction $\gets$ action
+							\State bestWeight $\gets$ action.value
+						\EndIf
+					\EndFor
+					
+					\State
+					\State this.doAction(bestAction.action, bestAction.target)
+				\EndFunction
+			\end{algorithmic}
+		\end{algorithm}
+		
+		Algorithm \ref{table:Weighted Actions} details the $weightedAction$ class. This class is used to store the target-action pairs for a given combatant. It takes as input a target, acting combatant, action and weight. $actingCombatant$ is the combatant that is currently taking the described action. $target$ is a Combatant object within range of the acting combatant. $action$ is the specific attack or spell being used on the target. $value$ is the overall measure of the effective of the action being performed on the target by the acting combatant. 
+		
+		The constructor for algorithm \ref{table:Weighted Actions} stores the passed in values, and calculated the expected value using $action.calcExpectedValue()$. This method calculated the average effect of the given action when used on a target by the acting combatant. For damaging actions, this can be straightforward. For some support and crowd control actions, various qualifications will have to be made ahead of time by the development team to transform any semi-complex actions into a reasonable quantifiable score.
+		
+		%ToDo:Utility Based Action Approach
+		Another approach to the decision making would be a utility based approach. In this approach, each combatant on the field is assignment a utility rating depending on a combination of all combat related stats that combatant has. The combatant then interacts with other combatants through the comparison of their utility ratings. 
+		
+		Figure \ref{fig: Utility Based} shows a transition diagram in which a combatant compares it's utility rating against a single target. It is clear that with this model, we are able to clearly relate the strength of one combatant to another. In the previous model, we treat a combatant as its single most effective ability at the given moment. In the utility based model, we treat a combatant as the sum of all of its parts, including temporary advantages such as cover or spell buffs. 
+		
+		This model would make it easier to program a fairly competent A.I. Combatants would almost never pick a target that is much stronger than they are, instead choosing to seek any tactical advantage they may be able to gain. Strong combatants would leverage their capabilities by quickly dispatching targets they know they can defeat. These behaviors are almost straightforward given the design of the model.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.8]{utilityBased}
+			\caption{Utility Based Diagram}
+			\label{fig: Utility Based}
+		\end{figure}
+		
+		%ToDo: Drawbacks of each approach
+				
 		
 		\subsection{Unit Personalities}
 		In order to capture the spirit of the game being simulated, we allow for users to assign preset personalities to units during encounter creation in order to further customize the way those units will behave in combat. This is necessary to simulate the way in which a GM will often manipulate units in combat to act appropriately given their level of intelligence and tactical ability, as well as to increase the tension and excitement of the players taking part in the encounter. 
@@ -968,14 +1097,58 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		If a personality is selected that alters the decision making process for an A.I. controlled unit, we will apply a weighting scheme to each calculation during the decision making process in order to reflect the unit's preference for certain options. These weights will generally manifest as a multiplier to the final outcome of each of the damage, support, and crowd control calculations. If we want a personality to be, for example, barbaric, we may choose to apply a 1.5 multiplier to the potential damage calculation, and a .5 multiplier to potential support calculations. This will result in the algorithm selecting support actions far less frequently than damaging actions. 
 		
-		\subsection{(Future Work?) Intelligence Based Decision Making and Personalities}
-		As proposed, the unit personalities system will be capable of modifying the types of actions the A.I. chooses for each unit on the battlefield. This allows of to create personalities that have preferences for which \textit{types} of abilities to choose, however, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. In some cases, a usMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
 		
-		%Challenges ... 
+		\subsection{Future Work - Intelligence Based Decision Making and Personalities}
+		As proposed, the unit personalities system will be capable of applying a twist to the types of actions the A.I. chooses for each unit on the battlefield. While this lets a user create personalities that have preferences for which \textit{types} of abilities to choose, the algorithm will still pick what it believes to be the most optimal actions while abiding to that unit's preference. In some cases, a user may not want certain units in their encounter to play optimally. 
 		
-		%Possible Solutions ...
+		Experienced GMs will take a multitude of factors into account when choosing an action for any unit under their control. One of these factors is the units level of intelligence. A creature with a high level of intelligence will intuitively have greater tactical capacity. Currently, there is no proper way to reflect this with our unit personalities system. 
 		
-		\subsection{(Future Work?) Custom 'Role-Play' Actions}
+		The main challenge associated with implementing some kind of intelligence based factor into the A.I. is the development time. It would require additional complexity in the algorithm to allow for a broader range of decisions for the A.I. 
+		
+		Once possible solution that would result in a smaller amount of development time would be to instead of selecting the most optimal move per action, track several of the most optimal candidates and keep them in a sorted order from least to most effective. Given this list, you could use a creature's intelligence rating to influence which of the actions is randomly picked from the list. A creature with a high intelligence would be more likely to pick one of the more effective actions in the list. A less intelligent creature would be more likely to end up taking on of the less effective actions.
+		
+		This solution would require minimal modification to the proposed system, which means it would reduce the development time required to write the code, and reduce the amount of additional testing that would have to be done on the new system. However, this solution is not necessarily the most elegant or robust solution. 
+		
+		\begin{algorithm}
+			\caption{Modified DecideAction() taking into account intelligence}
+			\label{table:Decide Action}
+			\begin{algorithmic}[1]
+				\Function{Combatant.DecideAction}{}
+					\State \textbf{weightedAction} bestActions[10]
+					\State \textbf{Combatant} combatantArray[] $\gets$ Encounter.combatants
+					\State \textbf{weightedAction} actionList $\gets$ FindActions(combatantArray, \textbf{this});
+					\State
+					
+					\For{action $\in$ actionList}
+						\If{action.value $>$ actionList[0].value}
+							\State actionList[0] $\gets$ action
+							\State actionList.sortByWeight()
+						\EndIf
+					\EndFor
+					
+					
+					\State
+					\State \textbf{Action} randomAction $\gets$ actionList.getRandomAction(combatant.Intelligence)
+					\State this.doAction(randomAction.action, randomAction.target)
+				\EndFunction
+			\end{algorithmic}
+		\end{algorithm}
+		
+		%ToDo: Downside is that top 10 actions may all be really good. Would need work to pick a range of actions that are reasonably spread out
+		%ToDo: Explain undefined mehotds sortByWeight() and getRandomAction()
+		
+		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
+		
+		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of DnD, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
+		
+		%ToDo: Example tree diagram of A.I. accounting for future opponent actions
+		
+		This more complex solution is especially desirable for the purpose of immersion. Less intelligent creatures would have the illusion of short-sightedness, or the inability to evaluate the consequences of their immediate actions. Creatures with a high intelligence rating will appear to behave tactically, anticipated moves and avoiding long term pitfalls in exchange for short term gains. 
+		
+		This solution would require a lot of modification to the proposed system. Currently, the A.I. is not planned to use a type of minimax to account for future game states. Implementing this system would require a great deal of modification to the A.I in the future. To attempt to implement our A.I. this way from the start would be a risk, as we may not have the time and resources to fully deliver the more advanced A.I. with all other requirements by the deadline. For these reasons, the intelligence based decision making will be an optional requirement with a high priority. It would be very nice to have a better A.I., but it is not worth the substantial time investment requirement in our limited window. 
+		
+		
+		\subsection{Future Work - Custom 'Role-Play' Actions}
 	\newpage
 	\section{Encounter Diagnostics (Stress-Tester)}
 	The encounter diagnostics tool, or stress-tester, will be a feature available to users of the website to evaluate their encounter designs and receive highly detailed evaluation based on a variety of metrics. Because combat in DnD5e is quite extensive and highly open ended, it is unlikely that a user seeking to create a well balanced and fluid encounter will be able to do so with some trial and error. Instead of manually playing the encounter repeatedly with multiple variations to check for weaknesses in the design, users will be able to run the built in encounter diagnostic tool to automatically generate useful information regarding their encounter. 
@@ -988,6 +1161,8 @@ Our plan for testing involving all components, both the search and profile layou
 		Additionally, the encounter must have passed verification in order to strengthen the notion that all final encounters must have at least one solution found explicitly by a human user. This is to prevent encounter creators from using the diagnostic tool to figure out if their encounter is possible without having to test or verify it themselves. 
 		\subsection{Interface}
 		The user will be able to access the interface for the encounter diagnostic tool from within the encounter creator. The encounter diagnostics option will only be available on encounters that the user has created. Once the user has selected an encounter to perform encounter diagnostics, they will be prompted to enter details necessary to configure the tests. 
+		
+		%ToDo: Image for this?
 		
 		\subsection{Diagnostic Measurement}
 		When activated, the encounter diagnostic tool will generate a set of valid party member compositions that meet both the restrictions of the encounter as well as the additional restrictions provided by the user during configuration. A party composition is a collection of player characters that will be placed on the field of play at the start of the encounter. The diagnostic tool will generate one party composition per iteration of the test. Once all party compositions are generated, the diagnostic tool will simulate the encounter one time for each party composition. 
@@ -1004,6 +1179,9 @@ Our plan for testing involving all components, both the search and profile layou
 			\item Location of each kill made on the map
 			\item Turn count
 		\end{itemize}
+		
+		%ToDo: DFA for process
+		%ToDo: Paragraph explaining DFA
 	
 	
 		\subsection{Results and Presentation}
@@ -1149,7 +1327,14 @@ Our plan for testing involving all components, both the search and profile layou
 			Within the realm of the D20 system, there are certain rules that players and enemies must abide by in order to ensure fairness across the encounter. Critical Encounters will need to check moves made by both players and enemies to assure that no rules have been broken. For example, characters cannot move a distance larger than their speed, characters cannot pass through spaces that are already occupied, a character cannot be attacked if there are unseen, etc. 
 			
 			Particular concepts that Critical Encounters needs to keep in mind is distance limitations on many of the actions characters can take. This would prevent someone from casting a spell with a 30ft distance to a character 100 ft away.
-		\subsection{Decision Trees}
+		
+		\subsection{Tactical A.I.}
+		\subsubsection{Finite State Machines}
+		Not capable of looking ahead, only capable of making decisions based on current actions
+		\subsubsection{Behavior Tree}
+		\subsubsection{Utility Based Actions}
+		Ranks actions based on how useful they are.
+		\subsubsection{MiniMax}
 
 \newpage
 \chapter*{Appendix}
