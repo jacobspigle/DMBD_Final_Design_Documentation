@@ -624,6 +624,7 @@ This schema describes a weapon that can be equipped by a combatant. Weapons are 
 This schema describes an armor that can be equipped by a combatant. Armor is referenced in actions and the data the armor contains, their flat stats such as armor class and weight and their referenced effects. These effects are implemented by the AI the actions during combat.
 \newpage
 \section{Client Side Design}
+
 	\subsection{URL and Routing}
 		There are two options to font-end routing for using our stack: React-Router and Meteor's FlowRouter. Both implementations have their pros and cons but after some research and deliberation we have decided to use Meteor's FlowRouter. The notation and syntax for FlowRouter is much more clear and easier to learn. There haws also been a history of React-Router not playing too well with Meteor applications. 
 		
@@ -666,7 +667,9 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	\subsection{Types of Views and Controllers}
 		\subsubsection{AccountController}
 		\subsubsection{DashboardController}
+	
 		
+	
 	\subsection{Battlefield Modes}
 		\subsubsection{Game Mode}
 			This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, and view and gather data about their own encounters as well as other user's.
@@ -722,7 +725,72 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\item Ex. Cast reaction spell, attack of opportunity
 			\end{itemize}
 	\end{itemize}
-	\section{D20 Terminology}
+
+\section {Testing}
+
+	For our testing we will be using a combination of both manual and automated testing. Automated testing will be performed using ReactTestUtils which will allow us to rapidly test front-end components. There is also a Meteor test tool that can be used to test both the client and servers sides of the application.
+
+	Most of our efforts when it comes to testing our application will center around testing the AI. Since the AI is the most complex and most important part of the application we are doing to test it extensively so that users are satisfied with the primary feature of our application. To this end, we are focusing our efforts on developing the Battlefield as it will serve as a very useful tool to view and test output from the AI. Below is the order in which  we plan to test the AI. 
+	
+	\begin{itemize}
+		\item Movement
+		\begin{itemize}
+			\item Combatant movement to target
+			\item Combatant movement to target around obstacles
+			\item Combatant movement when target is unreachable
+		\end{itemize}
+		\item Attacks
+		\begin{itemize}
+			\item Combatant melee attack when target is within melee range
+			\item Combatant ranged attack when has line of sight and is within range.
+			\item Combatant melee attack when target is not in range but is in movement range
+			\item Combatant ranged attack when target is not in range but is in movement range
+		\end{itemize}
+		\item Spells
+			\begin{itemize}
+				\item Melee spell
+				\item Ranged single target spell
+				\item Ranged AOE spell
+				\item Ranged line spell
+				\item Ranged cone spell
+				\item Spell Type Priority
+				\begin{itemize}
+					\item Damage
+					\item Healing
+					\item Crowd Control
+				\end{itemize}
+			\end{itemize}
+		\item Alternative actions
+		\begin{itemize}
+			\item Dash to better position or out of attack range
+			\item Disengage when threat is too great
+			\item Hide when high treat or better position
+		\end{itemize}
+	\end{itemize}
+
+Our plan for testing involving all components, both the search and profile layouts and the Battlefield, are summarized by the outline below:
+
+\begin{itemize}
+	\item{UI}
+		\begin{itemize}
+			\item Ensure that UI fits most desktop sizes 
+			\item Ensure that the search bar is fixed in the header on all pages
+			\item Ensure that the encounter feed output links to the correct encounters under the correct category
+			\item Ensure that the search bar always redirects to the search page
+			\item Display all correct stat data in arena correctly
+			\item Ensure all buttons are cursor responsive and perform their correct actions
+			\item Ensure that reviews are posted immediately under encounters
+		\end{itemize}
+	\item Data
+		\begin{itemize}
+			\item Ensure that correct encounter data is gathered, parsed and available for use in the Arena page.
+			\item Ensure that new data from encounters is processed correctly and updated in the arena and encounter statistics
+			\item Ensure that correct data is loaded to the Battlefield sidebar for use in both creation and play modes
+			\item Ensure all encounter lists are correct in the dashboard page
+		\end{itemize}
+\end{itemize}
+
+\section{D20 Terminology}
 		The D20 game system has variations from game to game whether it be changes to name, function, or practicality. Despite this, generally many the main qualities that the game styles have don't tend to stray too far from one another. While on this project, it is crucial that Critical Encounters should provide a broad enough experience to appease the largest portion of D20 games as possible so that players can apply their encounters to whatever D20 system they'd like. 
 		\subsection{Character Terms}
 			Within a character in the D20 system, there are many statistics, qualities, and abilities that help to determine how the character acts within the D20 world. These can alter attacks, defenses, skills, and even behavior.
