@@ -66,15 +66,28 @@
 
 \usepackage{filecontents}
 \begin{filecontents}{\jobname.bib}
+	@book{softwareagents,
+		title={Software agents},
+		author={Bradshaw, Jeffrey M},
+		year={1997},
+		publisher={MIT press}
+	}
+	@misc{minmax,
+		author = {Nuno Nogueira},
+		title = {{Minimax Algorithm}},
+		howpublished = "\url{https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)}",
+		year = {2006},
+		note = "[Accessed 01/12/2017]"
+	}
 	@misc{bttree,
-		author = {Wright, David R.},
+		author = {Aliekor},
 		title = {{Behavior Tree Search and Grasp}},
 		howpublished = "\url{https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)}",
 		year = {2014},
 		note = "[Accessed 01/12/2017]"
 	}
 	@misc{finitestatewiki,
-		author = {Wright, David R.},
+		author = {David R. Wright}
 		title = {{Finite State Machines}},
 		howpublished = "\url{https://en.wikipedia.org/wiki/Finite-state_machine}",
 		year = {2005},
@@ -1968,7 +1981,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=.65]{utility}
-			\caption{Standard Utility Based Action Tree}
+			\caption{Standard Utility Based Action Tree \cite{softwareagents}}
 			\label{fig: Utility Based Actions}
 		\end{figure}
 		The drawback to the approach is that it is quite difficult to adapt to the d20 system, as a unit's utility is very hard to gage accurately at a given moment. Within a d20 game, there are countless options a player can take during their turn, each actions providing their own advantages and disadvantages. Due to the broad-spread nature of the game, ranking utility for each action in respect to the current state of the battle is near impossible. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
@@ -1979,7 +1992,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=1]{minmax}
-			\caption{Standard MiniMax Tree}
+			\caption{Standard MiniMax Tree \cite{minmax}}
 			\label{fig: MiniMax}
 		\end{figure}
 		
