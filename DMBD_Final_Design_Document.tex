@@ -1918,11 +1918,63 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		\subsection{Tactical A.I.}
 		\subsubsection{Finite State Machines}
-		Not capable of looking ahead, only capable of making decisions based on current actions
+		Finite state machines are a fairly simple way to model A.I. by taking a finite number of states that a system can be in and connecting those states to one another with transitions. Each transition is a specific action that causes the system to change from one state to another. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.55]{FSMWikipedia}
+			\caption{Turnstile FSM}
+			\label{fig: FSM}
+		\end{figure}
+		
+		Finite state machines can be used in A.I. to model the way a controlled unit reacts to certain stimuli. Finite state machines can be a really good way to simplify and plan code in order to make improve its understandability. The following is a simple FSM for an A.I.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.7]{AIFSM}
+			\caption{A.I. FSM}
+			\label{fig: A.I. FSM}
+		\end{figure}
+		
+		In this FSM, each state that the A.I. can be in is clear. Additionally, it is obvious why the transitions between each state occurs. Given this diagram it would be very simple to actually implement an A.I. in code. 
+		
+		The drawbacks of finite state machines are that they are limited by their simplicity. The machine can only be in one state at once, which means you have to pick the states in you FSM to be states that can never occur simultaneously in your A.I. Additionally, with an FSM, you cannot look forward to future actions to make a decision. You cannot backtrack or plan ahead. 
+		
+		These drawbacks make an FSM undesirable for a complicated A.I. such as the kind found in turn based strategy games. It is frequently useful to plan ahead in strategy games, and the opportunity to explore many options is a necessity. A more flexible model is required given the complexity of the D20 system. 
+		
+		
+		%Reference: https://en.wikipedia.org/wiki/Finite-state_machine
+		
 		\subsubsection{Behavior Tree}
+		
+		A behavior tree is similar to an FSM in that is can be used to map a set of states to one another, however there are several key differences between the models. Primarily, a behavior tree eventually leads to a specific action instead of transitioning between states. Each branch leads to a new node, and all paths will eventually reach a leaf node. Similar to an FSM, some decision is made at each node which causes the algorithm to follow one of the branches to a new node. Unlike an FSM, the only actions the algorithm will make are contained in the leaf nodes. Any non-leaf node is simply some calculation that leads the algorithm closer to one of the actions in the leaf nodes. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=1.5]{BTWikipedia}
+			\caption{Behavior tree for a search and grasp robot}
+			\label{fig: BT Robot}
+		\end{figure}
+		
+		Figure \ref{fig: BT Robot} hows an example behavior tree. At each non-leaf node in the tree, some calculation is made to decide which branch to take. Once a leaf is reached, the action described by that leaf is performed. 
+		
+		This model is useful as it allows for a series of complex decision making. Instead of swapping between states, we can follow along a chain of decisions that eventually lead to some kind of action. This model is very easy for a human to understand, and works well for easing the implementation of game A.I. 		
+		
+		%Reference: https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)
 		\subsubsection{Utility Based Actions}
-		Ranks actions based on how useful they are.
+		A utility based A.I. assigns a utility score to each major actor and uses these utility scores to decide how each actor interacts. In general, an actor with a much higher utility may choose to attack one with a very low utility. This is a straightforward choice that will likely lead to favorable results so long as the utility calculation was done well. 
+		
+		The drawback to the approach is that it is quite difficult to adapt to the D20 system, as a unit's utility is very hard to gauge accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
+		
 		\subsubsection{MiniMax}
+		
+		MiniMax is a popular algorithm in game theory. It is often used in simple games like chess or checkers to calculate the strongest plays by minimizing losses and maximizing gains, although it has many uses beyond that. 
+		
+		The main drawback of MiniMax is that it is one of the more difficult decision strategies to understand. It is based on a sometimes complicated algorithm, and generally ends up being more technical that a behavior tree. 
+		
+		The primary reason why MiniMax is not the best choice for our A.I. is that it requires analysis of opponent moves and look-ahead. While each of these things are very useful in a robust tactical A.I., they are outside of the scope of this project. To invest in this kind of A.I. would require more time than is available for the project. Additionally, it is likely that due to the extremely complex nature of the D20 system, the sheer amount of computation that would be required for each unit of each turn would be too great, reducing the overall scalability and hurting the performance of the system. 
+		
+		
 		
 \newpage
 \stepcounter{chapter}
