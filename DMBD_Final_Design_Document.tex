@@ -1931,13 +1931,29 @@ Our plan for testing involving all components, both the search and profile layou
 		Figure \ref{fig: BT Robot} hows an example behavior tree. At each non-leaf node in the tree, some calculation is made to decide which branch to take. Once a leaf is reached, the action described by that leaf is performed. 
 		
 		This model is useful as it allows for a series of complex decision making. Instead of swapping between states, we can follow along a chain of decisions that eventually lead to some kind of action. This model is very easy for a human to understand, and works well for easing the implementation of game A.I. 
+		\newpage
 		\subsubsection{Utility Based Actions}
 		A utility based A.I. assigns a utility score to each major actor and uses these utility scores to decide how each actor interacts. In general, an actor with a much higher utility may choose to attack one with a very low utility. This is a straightforward choice that will likely lead to favorable results so long as the utility calculation was done well. 
 		
-		The drawback to the approach is that it is quite difficult to adapt to the d20 system, as a unit's utility is very hard to gage accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.65]{utility}
+			\caption{Standard Utility Based Action Tree}
+			\label{fig: Utility Based Actions}
+		\end{figure}
 		
+		The drawback to the approach is that it is quite difficult to adapt to the d20 system, as a unit's utility is very hard to gage accurately at a given moment. Within a d20 game, there are countless options a player can take during their turn, each actions providing their own advantages and disadvantages. Due to the broad-spread nature of the game, ranking utility for each action in respect to the current state of the battle is near impossible. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
+		
+		\newpage
 		\subsubsection{MiniMax}
 		MiniMax is a popular algorithm in game theory. It is often used in simple games like chess or checkers to calculate the strongest plays by minimizing losses and maximizing gains, although it has many uses beyond that. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=1]{minmax}
+			\caption{Standard MiniMax Tree}
+			\label{fig: MiniMax}
+		\end{figure}
 		
 		The main drawback of MiniMax is that it is one of the more difficult decision strategies to understand. It is based on a sometimes complicated algorithm, and generally ends up being more technical that a behavior tree. 
 		
