@@ -439,7 +439,7 @@ The board is where all the environment, obstacles, and combatants are rendered. 
 	\label{fig: Battlefield Prototype Sidebar}
 \end{figure}
 \subsection {Sidebar}
-In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
+In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar, under the Character Creation Tools menu. Here will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
 \subsection {Combat Log}
 The Combat Log field below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Combat Log implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter will add another layer of fun for the user. 
 \subsection {States and Controllers }
@@ -1724,7 +1724,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\caption{Sidebar with Item Menu}
 				\label{fig: Sidebar with Item Menu}
 			\end{figure}
-		\newpage
+			\newpage
 			\subsubsection{Enemy Stats}
 			After placing an enemy into the encounter via the encounter map, clicking on the enemy will change the sidebar into a menu showing the statistics that that enemy has. These stats can include variables like enemy type/race, enemy level, behavior, as well as items that the enemy has in it's inventory. Each of these stats can be altered to suit the user's needs by typing in the new numeric value (for statistics like level) or clicking on the value and selecting the new characteristic from a drop down menu.
 			\bigskip
@@ -1734,7 +1734,16 @@ Our plan for testing involving all components, both the search and profile layou
 				\caption{Sidebar with Enemy Stats}
 				\label{fig: Sidebar with Enemy Stats}
 			\end{figure}
-		\newpage
+			\newpage
+			\subsubsection{Character Creation Tool}
+			The Character Creation Tools menu in the sidebar will expand when clicked to reveal all the parameters that are necessary to make a base character. We have opted out of including sections for roleplay aspects at the moment (Personality Traits, Ideals, Bonds, Flaws, etc.), and instead will focus on the ability scores, class, level, background (for ability proficiency purposes), race, and alignment. Equipment can be added to a character's stat sheet using the tool as well. Spells will added to a character's spell list via a dropdown menu, clicking ``Add" after each addition. Feats can also be added to a character's stat sheet in the same manner.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[.7]{charactercreationtool}
+				\caption{Sidebar with Character Creation Tool}
+				\label {fig: Character Creation Tool}
+			\end{figure}
+			\newpage
 			\subsubsection{Encounter Diagnostic Tool}
 			Clicking on the Encounter Diagnostic Tools menu in the sidebar will reveal the parameters that a user may enter to test their encounter. This will entail things like minimum/maximum level for a test PC or monster, the number of PCs allowed to participate, and/or the party composition. After entering these parameters and clicking start, a progress bar will appear in the foreground on the battlefield page, then open a new window to present all of the data and statistics that the tool encountered through testing.
 			\bigskip
