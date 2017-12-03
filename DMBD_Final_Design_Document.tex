@@ -252,11 +252,11 @@
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Executive Summary}
 
-Critical Encounters is a web-based platform designed to streamline the process for players of the d20 Game System to create and test encounters to bring forth to live games. Users will be able to publicly post their created encounters for others to play through and review as well.
+Critical Encounters is a web-based platform designed to streamline the process for players of the d20 Game System to create, test, and play through their own creations, including encounters and monsters, in order to play more effectively in a live setting. Users will be able to publicly post their created encounters for others to play through and review, and utilize our stress-tester for more in-depth statistics about their creation.
 
 Critical Encounters will allow its users to create an encounter from scratch starting with a blank playing space and build up the encounter by dragging and dropping entities onto the map. The tools given to the user will allow them to create enemies, obstacles, and players spawn areas. Along with this, individual statistics about each entities is able to be altered by the user to fine tune the experience. Users will be able to test their encounters by playing through them first-hand to get a feel for how the encounter will play out. The user may also use the Critical Encounters' Diagnostic Tool to test their creation. The Encounter Diagnostic Tool will allow the encounter to be played through automatically via AI several hundred times, returning a statistics review of the encounter. The returned statistics will provide the user with information about how the encounter was handled by parties of various types and sizes, which will allow the user to further fine tune the encounter to perfection. Once completed, users may validate their creation by playing through on the standard settings for the encounter and completing the encounter by emerging victorious. Validation will allow the users to share their creations with other users through the Encounter Browser. The Browser allows users to search through created encounters using keywords and tags to find new encounters. After completing another user's encounter, you are prompted with the option to rate the encounter using a 5-star system as well as submitting an optional written review.
 
-We will be using React.js to provide a substantial web-based functionality. This framework will allow us to easily format the site so that we can focus more on the unique programming matters such as enemy AI, the stress tester, and the encounter browser. On the back-end, we will be using Meteor.js to handle server controls and MongoDB to handle the database, which combined will provide us with easier database management from the server to the client. 
+For developing this website we will be utilizing the Meteor architecture, using React for the front-end development and Meteor to help us handle the back-end. In addition to these tools, we are utilizing a few more APIs to streamline our client-server data layer, MongoDB to handle our database, Fabric.js for developing the Battlefield on top of HTML5 canvas, and MobX to add a data layer on top of the React framework. This framework will allow us to easily format the site so that we can focus more on the unique programming matters such as enemy AI, the stress tester, and the encounter browser.
 
 \newpage
 \chapter*{Introduction}
@@ -271,7 +271,7 @@ Role-playing games are games where players act as their characters. Usually in p
 	\item The GM narrates the results of the characters actions.
 \end{enumerate}
 
-There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character's path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
+There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game's continuity. Players get one chance to design their character at the very start of a session, and once they do, that character's path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
 \newpage
 \chapter*{Proposed Solution}
 \stepcounter{chapter}
@@ -445,7 +445,7 @@ The Combat Log field below is where all of the messages attached to combat an en
 \subsection {States and Controllers }
 The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
 \subsection {Future Implementation/Design Plans }
-Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabric.js and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Combat Log themselves will be toggleable by clicking buttons (or performing gestures on mobile) on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
+Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabric.js and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Combat Log themselves will be toggle-able by clicking buttons (or performing gestures on mobile) on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
 	\newpage
 	\section{Color Scheme}
 	\begin{figure}[H]
@@ -1227,7 +1227,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\item \textbf{Barbarian} - The barbarian is a warrior who uses brute strength and raw fury to excel in combat.
 				\item \textbf{Bard} - The bard is versatile, capable of combat and of magic alike and can use their artistic talents to induce magical effects.
 				\item \textbf{Cleric} - Clerics are powerful healers due to the large number of healing and curative magics available to them. 
-				\item \textbf{Druid} - A druid is a mage that wields nature-themed magic.
+				\item \textbf{Druid} - A druid is a spellcaster that wields nature-themed magic.
 				\item \textbf{Fighter} - A fighter is a versatile, weapons-oriented warrior who fights using skill, strategy and tactics.
 				\item \textbf{Monk} - A monk is a fantasy martial artist, specializing in unarmed combat.
 				\item \textbf{Paladin} - The paladin is a holy knight, crusading in the name of good and order, and is a divine spellcaster.
@@ -1622,7 +1622,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=.3]{roleplay}
+			\includegraphics[scale=.7]{roleplay}
 			\caption{Role-Play}
 			\label{fig: Role-Play}
 		\end{figure}
@@ -1735,7 +1735,7 @@ Our plan for testing involving all components, both the search and profile layou
 			The Character Creation Tools menu in the sidebar will expand when clicked to reveal all the parameters that are necessary to make a base character. We have opted out of including sections for roleplay aspects at the moment (Personality Traits, Ideals, Bonds, Flaws, etc.), and instead will focus on the ability scores, class, level, background (for ability proficiency purposes), race, and alignment. Equipment can be added to a character's stat sheet using the tool as well. Spells will added to a character's spell list via a dropdown menu, clicking ``Add" after each addition. Feats can also be added to a character's stat sheet in the same manner.
 			\begin{figure}[H]
 				\centering
-				\includegraphics[.7]{charactercreationtool}
+				\includegraphics[scale=.7]{charactercreationtool}
 				\caption{Sidebar with Character Creation Tool}
 				\label {fig: Character Creation Tool}
 			\end{figure}
