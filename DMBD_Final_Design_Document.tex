@@ -65,8 +65,21 @@
 }
 
 \usepackage{filecontents}
-
 \begin{filecontents}{\jobname.bib}
+	@misc{bttree,
+		author = {Wright, David R.},
+		title = {{Behavior Tree Search and Grasp}},
+		howpublished = "\url{https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)}",
+		year = {2014},
+		note = "[Accessed 01/12/2017]"
+	}
+	@misc{finitestatewiki,
+		author = {Wright, David R.},
+		title = {{Finite State Machines}},
+		howpublished = "\url{https://en.wikipedia.org/wiki/Finite-state_machine}",
+		year = {2005},
+		note = "[Accessed 01/12/2017]"
+	}
 	@misc{nodejs,
 		author = {Node.js Foundation},
 		title = {{Node.js Docs}},
@@ -657,7 +670,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\begin{figure}[H]
 		\centering
 		\centerline{\includegraphics[scale=.7, angle=90]{ssd_resourses}}
-		\caption{Encounter Resourses SSD}
+		\caption{Encounter Resources SSD}
 		\label{fig: Encounter Resourses SSD }
 	\end{figure}
 
@@ -1066,11 +1079,9 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	\end{itemize}
 
 \section {Testing}
-
 	For our testing we will be using a combination of both manual and automated testing. Automated testing will be performed using ReactTestUtils which will allow us to rapidly test front-end components. There is also a Meteor test tool that can be used to test both the client and servers sides of the application.
 
 	Most of our efforts when it comes to testing our application will center around testing the AI. Since the AI is the most complex and most important part of the application we are doing to test it extensively so that users are satisfied with the primary feature of our application. To this end, we are focusing our efforts on developing the Battlefield as it will serve as a very useful tool to view and test output from the AI. Below is the order in which  we plan to test the AI. 
-	
 	\begin{itemize}
 		\item Movement
 		\begin{itemize}
@@ -1177,7 +1188,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\item \textbf{Barbarian} - The barbarian is a warrior who uses brute strength and raw fury to excel in combat.
 				\item \textbf{Bard} - The bard is versatile, capable of combat and of magic alike and can use their artistic talents to induce magical effects.
 				\item \textbf{Cleric} - Clerics are powerful healers due to the large number of healing and curative magics available to them. 
-				\item \textbf{Druid} - Druids is a mage that wields nature-themed magic.
+				\item \textbf{Druid} - A druid is a mage that wields nature-themed magic.
 				\item \textbf{Fighter} - A fighter is a versatile, weapons-oriented warrior who fights using skill, strategy and tactics.
 				\item \textbf{Monk} - A monk is a fantasy martial artist, specializing in unarmed combat.
 				\item \textbf{Paladin} - The paladin is a holy knight, crusading in the name of good and order, and is a divine spellcaster.
@@ -1191,12 +1202,12 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsubsection{Races}
 			This refers to the character's actual species. Race (much like classes) give basic advantages and disadvantages to specific attributes, but also change provide minor changes to gameplay. Certain races will have certain abilities which can provide the party with advantages in battle. Races also vary from system to system but most occur as follows:
 			\begin{itemize}
-				\item \textbf{Dwarf} - Dwarves get additional points towards constitution for their hardyness.
+				\item \textbf{Dwarf} - Dwarves get additional points towards constitution for their hardiness.
 				\item \textbf{Elf} - Elves magical background and graceful nature give them extra points in dexterity and magic.
 				\item \textbf{Gnome} - What gnomes lack in physical capability they gain in intelligence and quicker movement.
 				\item \textbf{Half-Elf} - Half-elves combine qualities of human and elves gaining additional charisma points.
-				\item \textbf{Half-Orc} - Half-orcs’ half-orcyness gives them extra strength and constitution.
-				\item \textbf{Halfling} - Halflings lack in size but gain in steath and dexterity.
+				\item \textbf{Half-Orc} - Half-orcs’ build and bloodline gives them extra strength and constitution.
+				\item \textbf{Halfling} - Halflings lack in size but gain in stealth and dexterity.
 				\item \textbf{Human} - Humans are well rounded individuals that get one additional point to every attribute.
 			\end{itemize}
 			Along with these main races are sub-classes that exist within the given classes. These sub-classes combine qualities from the main classes in different manners to provide the players with even more unique playing styles. Some of the common subclasses are as follows:
@@ -1233,13 +1244,17 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsection{Combat Terms}
 			There area variety of things that can occur during an encounter that effect the way the battle plays out. Certain terms appear every battle, while others only occur when specific occurrences line up. As these combat terms vary between systems, and some only occur in rare instances, a general list has been created to be used by Critical Encounters. Below is a compilation of terms that will most likely be utilized within an encounter, thought the terms used in the encounter may not be limited to this list.
 		\subsubsection{Initiative}
-			At the beginning of an encounter the player characters, NPCs, and enemies all roll for an initiative check. A D20 die is rolled and combined with the combatant's Dexterity modifier to establish the order that the combatant's perform their actions. The highest initiative roll goes first and it counts down from there.
+			At the beginning of an encounter the player characters, NPCs, and enemies all roll for an initiative check. A d20 die is rolled and combined with the combatant's Dexterity modifier to establish the order that the combatant's perform their actions. The highest initiative roll goes first and it counts down from there.
 		\subsubsection{Critical}
+<<<<<<< HEAD
+			When rolling for attacks, if the d20 die is rolled and lands on a 20, the highest number on the die, the attack lands as perfectly as it could. Provided that the attack beats the enemy's armor class, the attack deals the maximum amount of damage. Critical rolls are not limited to just attacks though, if a character is performing an action and gets a 20 the action is performed without flaw.
+=======
 			When rolling for attacks, if the D20 die is rolled and lands on a 20, the highest number on the die, the attack lands as perfectly as it could. Provided that the attack beats the enemy's armor class, the attack deals the maximum amount of damage. Critical rolls are not limited to just attacks though, if a character is performing an action and gets a 20 the action is performed without flaw.
+>>>>>>> 240b1987aa216c78905ae2160134c6bed7dcbffc
 		\subsubsection{Critical Fail}
 			When rolling, the opposite of a critical can occur which is when the die lands on 1. This is a critical failure, which usually results in the character hurting themselves while failing the desired action.
 		\subsubsection{Hit Points}
-			Hit points (or HP) refers to the character's remaining health. If HP reaches 0, the character is rendered unconsious and is required to roll to prevent death. HP is lowered by receiving damage and replenished by potions, spells, or resting outside of battle.
+			Hit points (or HP) refers to the character's remaining health. If HP reaches 0, the character is rendered unconscious and is required to roll to prevent death. HP is lowered by receiving damage and replenished by potions, spells, or resting outside of battle.
 		\subsubsection{Armor Class}
 			This refers to the character's protective equipment and how well those items deflect damage. The stronger armor the character is wearing, the higher their AC is. If an attack is placed on someone and the damage the attack deals is less than the AC, the damage that would be dealt by the attack never occurs. 
 		\subsubsection{Saving Throw}
@@ -1340,13 +1355,13 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		Additionally, players frequently role-play by making decisions based not on what they would personally do, but what they think their player character would do based on the personality and moral alignment of that character.
 		
-		Players are also able to role-play when describing many of their in-game actions \textit{are}. When in combat, DnD 5e provides a set of rules for what actions can take place and in what order, as is typical of most tabletop board games. However, besides taking one of the basic actions defined in the game rules, players can also choose to make a 'custom' action that is specific to the in-game scenario. This usually takes the form of a player dictating to the GM what they \textit{want} to do, and the GM deciding whether that is acceptable based on their interpretation of the game rules. In this case the GM acts as a translator by attempting to compare the 'custom' action described by the player into something that fits into the general rule set of the game. 
+		Players are also able to role-play when describing many of their in-game actions \textit{are}. When in combat, d20 Game System provides a set of rules for what actions can take place and in what order, as is typical of most tabletop board games. However, besides taking one of the basic actions defined in the game rules, players can also choose to make a 'custom' action that is specific to the in-game scenario. This usually takes the form of a player dictating to the GM what they \textit{want} to do, and the GM deciding whether that is acceptable based on their interpretation of the game rules. In this case the GM acts as a translator by attempting to compare the 'custom' action described by the player into something that fits into the general rule set of the game. 
 		
 		An example of such a scenario would be a player who instead of firing their bow at an enemy goblin, instead explains to the GM that they want to fire their bow at boulder hanging precariously over a cliff edge, in an attempt to create some sort of avalanche. The GM would then have to decide whether the character is physically capable of doing the described action, and what dice roles the player should make in order to succeed. The GM would then narrate the results of the player's custom action. Obviously, this specific scenario is not defined in the rule book, so the GM is in complete control of the results. If the player does not get a very successful role, the GM may decide to rule that the boulder falls as planned, but rolls off course and damages the player or their allies. Alternatively, the GM may say that the player's arrow simply misses, and no other effects occur. These highly customizable instances of role-playing have the capacity to have dramatic impact on gameplay, and is limited only to the player's creativity and improvisational skills. 
 		
 		It is the duty of the GM to make sure that none of these actions are too ambitious. For example, a GM would most likely decline a player's request to "instantly defeat all enemies on the field by picking up and throwing a mountain at them." Such an action would be nonsensical, and would far exceed the player characters capabilities. Inexperienced players will generally tend to use less of these improvisational actions, opting instead to stick to the basic actions defined in the rulebook, but highly experienced players will often come up with highly creative and interesting actions. It is important to remember that these custom actions are not inherently more powerful than any of the basic actions defined in the rulebook. They merely exist to add a level of 'flair' to the actions that unfold during play. It is more engaging for a player to stretch their imagination and come up with exciting or hilarious actions as they get into the role of their character. 
 		
-		This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for DnD 5e. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
+		This level of role-play is effectively impossible to implement in any current A.I., since a human player is necessary to imagine unique contextual actions, and a human GM is necessary to judge them and decide on the results. We address this challenge by limiting all actions within the combat simulator to those that are well defined by the rule set for d20 Game System. This is not a major limitation, as the provided actions are more than enough for any encounter to be played. Additionally, since it is the goal of the GM to moderate the effectiveness of custom actions by the players, a player's tactical efficiency is not reduced by limiting them to only well-defined actions. 
 		
 		Additionally, to address the challenge of character 'personalities,' we choose to allow encounter creators to assign a personality preset to any unit on the battlefield. This personality preset will adjust the weighting of the decision making process, causing the unit to \textit{appear} to prefer certain actions. For example, a 'brute' personality will frequently choose to attack with melee even if it is not the most optimal decision, as this is the nature of role-play. Whether or not to make use of these personalities is entirely up to the user, and how they believe their encounters should feel. 
 		
@@ -1477,10 +1492,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\label{fig: Utility Based}
 		\end{figure}
 		
-		%ToDo: Talk more about utility based model
-		
 		Despite these benefits, we currently do not plan to implement our A.I. using a utility based model. Due to the extremely high complexity of typical tabletop role playing games, we believe that by using a behavior tree model we can maintain a large amount of flexibility over each decision the A.I. makes. It is possible that later in development we may mix these models in order to more effectively leverage each model's strengths and improve the overall user experience. 
-				
 		
 		\subsection{Unit Personalities}
 		In order to capture the spirit of traditional tabletop role playing games, we allow for users to assign preset personalities to units during encounter creation in order to further customize the way those units will behave in combat. This is necessary to simulate the way in which a GM will often manipulate units in combat to act appropriately given their level of intelligence and tactical ability, as well as to increase the tension and excitement of the players taking part in the encounter. 
@@ -1531,8 +1543,6 @@ Our plan for testing involving all components, both the search and profile layou
 		At line \algref{table:Decide Action}{l:Get} we call \textsc{getRandomAction()} and pass in the combatants intelligence rating. The \textsc{getRandomAction()} method uses the combatant's intelligence to randomly pick one of the 10 highest valued potential actions. A creature with a low intelligence is more likely to pick a lower valued action, whereas a creature with a higher intelligence is more likely to pick a higher valued action. 
 		
 		This modification to the proposed system would easily take into account a combatant's intelligence rating when selecting an action for them. This would enhance the feeling of role play for the system and allow users more customization over how their encounters play. 
-		
-		%ToDo: Downside is that top 10 actions may all be really good. Would need work to pick a range of actions that are reasonably spread out
 		
 		A potentially better but more costly solution would be to use a creature's intelligence rating in determining how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
 		
@@ -1588,8 +1598,6 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsection{Interface}
 		The user will be able to access the interface for the encounter diagnostic tool from within the encounter creator, accessing the different parameters in the sidebar. The encounter diagnostics option will only be available on encounters that the user has created, which is why we placed it in the encounter creator itself. Once the user has entered the parameters to perform encounter diagnostics, they will be prompted to enter details necessary to configure the tests.
 		
-		%ToDo: Image for this?
-		
 		\subsection{Diagnostic Measurement}
 		When activated, the encounter diagnostic tool will generate a set of valid party member compositions that meet both the restrictions of the encounter as well as the additional restrictions provided by the user during configuration. A party composition is a collection of player characters that will be placed on the field of play at the start of the encounter. The diagnostic tool will generate one party composition per iteration of the test. Once all party compositions are generated, the diagnostic tool will simulate the encounter one time for each party composition. 
 		
@@ -1622,10 +1630,6 @@ Our plan for testing involving all components, both the search and profile layou
 			\item Location of each kill made on the map
 			\item Turn count
 		\end{itemize}
-		
-		%\subsection{Processing}
-		%ToDo: Discuss computational power needed for this 
-		%ToDo: Client Vs. Server 
 	
 		\subsection{Results and Presentation}
 		One all simulations are complete and the data has been collected, it must be processed into a form that is quick and easy to understand. Each statistics that was tracked on a per-encounter basis will be aggregated into an average value and presented to the user in a separate window. These average values will highlight at a glance measurements such as the average length of each encounter, which enemies are the most dangerous, how difficult the overall encounter is, and which abilities are the most effective in the encounter. Additionally, a heat map will be generated using the location of kills made on the map across all simulations. This heat map will indicated to the user the general flow of combat, which can be used to help fine tune the encounter and improve overall quality. 
@@ -1907,7 +1911,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=.55]{FSMWikipedia}
-			\caption{Turnstile FSM}
+			\caption{Turnstile FSM \cite{finitestatewiki}}
 			\label{fig: FSM}
 		\end{figure}
 		
@@ -1922,12 +1926,9 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		In this FSM, each state that the A.I. can be in is clear. Additionally, it is obvious why the transitions between each state occurs. Given this diagram it would be very simple to actually implement an A.I. in code. 
 		
-		The drawbacks of finite state machines are that they are limited by their simplicity. The machine can only be in one state at once, which means you have to pick the states in you FSM to be states that can never occur simultaneously in your A.I. Additionally, with an FSM, you cannot look forward to future actions to make a decision. You cannot backtrack or plan ahead. 
+		The drawbacks of finite state machines are that they are limited by their simplicity. The machine can only be in one state at once, which means you have to pick the states in the FSM to be states that can never occur simultaneously in your A.I. Additionally, with an FSM, you cannot look forward to future actions to make a decision. You cannot backtrack or plan ahead. 
 		
-		These drawbacks make an FSM undesirable for a complicated A.I. such as the kind found in turn based strategy games. It is frequently useful to plan ahead in strategy games, and the opportunity to explore many options is a necessity. A more flexible model is required given the complexity of the D20 system. 
-		
-		
-		%ToDo: Reference image: https://en.wikipedia.org/wiki/Finite-state_machine
+		These drawbacks make an FSM undesirable for a complicated A.I. such as the kind found in turn based strategy games. It is frequently useful to plan ahead in strategy games, and the opportunity to explore many options is a necessity. A more flexible model is required given the complexity of the d20 system. 
 		
 		\subsubsection{Behavior Tree}
 		
@@ -1936,26 +1937,24 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=1.5]{BTWikipedia}
-			\caption{Behavior tree for a search and grasp robot}
+			\caption{Behavior tree for a search and grasp robot \cite{bttree}}
 			\label{fig: BT Robot}
 		\end{figure}
 		
 		Figure \ref{fig: BT Robot} hows an example behavior tree. At each non-leaf node in the tree, some calculation is made to decide which branch to take. Once a leaf is reached, the action described by that leaf is performed. 
 		
-		This model is useful as it allows for a series of complex decision making. Instead of swapping between states, we can follow along a chain of decisions that eventually lead to some kind of action. This model is very easy for a human to understand, and works well for easing the implementation of game A.I. 		
-		
-		%ToDo: Reference image: https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)
+		This model is useful as it allows for a series of complex decision making. Instead of swapping between states, we can follow along a chain of decisions that eventually lead to some kind of action. This model is very easy for a human to understand, and works well for easing the implementation of game A.I. 
 		\subsubsection{Utility Based Actions}
 		A utility based A.I. assigns a utility score to each major actor and uses these utility scores to decide how each actor interacts. In general, an actor with a much higher utility may choose to attack one with a very low utility. This is a straightforward choice that will likely lead to favorable results so long as the utility calculation was done well. 
 		
-		The drawback to the approach is that it is quite difficult to adapt to the D20 system, as a unit's utility is very hard to gauge accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
+		The drawback to the approach is that it is quite difficult to adapt to the d20 system, as a unit's utility is very hard to gage accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
 		
 		\subsubsection{MiniMax}
 		MiniMax is a popular algorithm in game theory. It is often used in simple games like chess or checkers to calculate the strongest plays by minimizing losses and maximizing gains, although it has many uses beyond that. 
 		
 		The main drawback of MiniMax is that it is one of the more difficult decision strategies to understand. It is based on a sometimes complicated algorithm, and generally ends up being more technical that a behavior tree. 
 		
-		The primary reason why MiniMax is not the best choice for our A.I. is that it requires analysis of opponent moves and look-ahead. While each of these things are very useful in a robust tactical A.I., they are outside of the scope of this project. To invest in this kind of A.I. would require more time than is available for the project. Additionally, it is likely that due to the extremely complex nature of the D20 system, the sheer amount of computation that would be required for each unit of each turn would be too great, reducing the overall scalability and hurting the performance of the system. 
+		The primary reason why MiniMax is not the best choice for our A.I. is that it requires analysis of opponent moves and look-ahead. While each of these things are very useful in a robust tactical A.I., they are outside of the scope of this project. To invest in this kind of A.I. would require more time than is available for the project. Additionally, it is likely that due to the extremely complex nature of the d20 system, the sheer amount of computation that would be required for each unit of each turn would be too great, reducing the overall scalability and hurting the performance of the system. 
 		
 \newpage
 
@@ -1963,7 +1962,7 @@ Our plan for testing involving all components, both the search and profile layou
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Project Summary and Conclusion}
 
-This project will will deliver a web application for facilitating the creation, sharing, and testing of DnD 5e combat encounters. 
+This project will will deliver a web application for facilitating the creation, sharing, and testing of d20 Game System combat encounters. 
 
 To meet the requirement of creating encounter, we propose an encounter creation module in which users will be able to visually design an encounter by placing units, obstacles, and other features. The encounter creation will be easy to use, and allow users to save all of their creations for later use. 
 
