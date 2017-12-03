@@ -470,11 +470,12 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \newpage
 \section {Server Design}
 	\subsection{Meteor}
-		\begin{wrapfigure}{l}{0\textwidth}
+		\begin{figure}{H}
+			\centering
 			\includegraphics[scale=.2]{meteorJS}
 			\caption{Meteor.js}
 			\label{fig: Meteor.js}
-		\end{wrapfigure}
+		\end{figure}
 		Meteor is a full-stack JavaScript platform for developing modern web and mobile applications. Meteor includes a key set of technologies for building connected-client reactive applications, a build tool, and a curated set of packages from the Node.js and general JavaScript community.
 		
 		
@@ -1088,7 +1089,7 @@ Our plan for testing involving all components, both the search and profile layou
 			At the beginning of an encounter the player characters, NPCs, and enemies all roll for an initiative check. A D20 die is rolled and combined with the combatant's Dexterity modifier to establish the order that the combatant's perform their actions. The highest initiative roll goes first and it counts down from there.
 		\subsubsection{Critical}
 			When rolling for attacks, if the D20 die is rolled and lands on a 20, the highest number on the die, the attack lands as perfectly as it could. Provided that the attack beats the enemy's armor class, the attack deals the maximum amount of damage. Critical rolls are not limited to just attacks though, if a character is performing an action and gets a 20 the action is performed without flaw.
-		\subsubsection{Botch}
+		\subsubsection{Critical Fail}
 			When rolling, the opposite of a critical can occur which is when the die lands on 1. This is a critical failure, which usually results in the character hurting themselves while failing the desired action.
 		\subsubsection{Hit Points}
 			Hit points (or HP) refers to the character's remaining health. If HP reaches 0, the character is rendered unconsious and is required to roll to prevent death. HP is lowered by receiving damage and replenished by potions, spells, or resting outside of battle.
