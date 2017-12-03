@@ -1496,8 +1496,93 @@ Our plan for testing involving all components, both the search and profile layou
 		With the easy to use nature of the encounter creator, it may arise that an unbeatable encounter is created in the process whether there be too many enemies, too large a level difference between the party and the enemies, or even issues with the map design. As it certainly wouldn't help anyone playing an unbeatable encounter, it is best to ensure that the encounters created match reasonable standards before being posted. 
 		
 		Prior to being posted onto the encounter browser or made public in the player's arena, the encounter must pass the encounter validation. This is the requirement of the user creating the encounter to play through the encounter themselves and emerge victorious. This verifies that there is indeed a way for other users to make their way through and also beat the encounter. Once beaten by the creator, the encounter will become "validated" and will appear in the encounter browser provided that the encounter was made public by the user.
+	\newpage	
+	\section{Navigation}
+	Streamlined navigation will be vital in our efforts to make Critical Encounters as user friendly as possible. We have limited Critical Encounters to a very few amount of pages to not bog down the user experience and to emphasize the main functions of the project.
+		\subsection{Dashboard}
+		Critical Encounters will begin on the Dashboard. This will allow users to directly navigate through the site. From the Dashboard, users immediately see featured encounters, recommended encounters (provided the user is logged in), and recently added encounters. Along with the main encounters, users will also see the search bar, arena tab, and a login icon (provided the user is not logged in).
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.2]{home}}
+			\caption{Dashboard}
+			\label{fig: Dashboard}
+		\end{figure}
+		\newpage
+		\subsection{Registration}
+		From the dashboard, the user can access the registration page via the Registration button in the top right corner of the page. The registration page allows the user to submit the information that will act as their login info henceforth. After clicking the register button on the Registration page, the user will be brought back to the dashboard logged in.
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.08]{registerNav}}
+			\caption{Register Process}
+			\label{fig: Register Page}
+		\end{figure}
+		\subsection{Login}
+		From the dashboard, the user can access the login page by clicking the Login button in the top right corner of the page or by clicking on the arena tab under the dashboard tab on the left side of the page. After submitting their login info and pressing the login button, the user will be brought back to the dashboard logged in. 
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.11]{loginNav}}
+			\caption{Login Process}
+			\label{fig: Login Page}
+		\end{figure}
+		\newpage
+		\subsection{Encounter Browser}
+		From the dashboard, the user can access the Encounter Browser via the search bar on top of the screen. After typing in a few keywords into the bar, pressing the search button will bring the user to the browser page. The Encounter Browser presents the user with a list of encounters based upon their search criteria. 
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.16]{browserNav}}
+			\caption{Encounter Browser}
+			\label{fig: Dashboard to Browser}
+		\end{figure}
+		\subsection{Arena}
+		From the dashboard, the user can access the arena page by clicking the arena tab underneath the dashboard tab on the left side of the page. Within the arena page, the user will see a list of their created encounters, buttons for editing/creating encounters, a notification section, and a heat map detailing their encounter's stats.
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.16]{arenaNav}}
+			\caption{Arena Page}
+			\label{fig: Dashboard to Arena}
+		\end{figure}
+		\newpage
+		\subsection{Encounter Page}
+		Several different pages show encounters and to access these encounters the user must click on the icon for the encounter or the name of the encounter itself. From the dashboard, the user can access encounters by selecting the encounter from the featured encounter list banner that scrolls through on the top of the page. Along with this, recommended encounters and recently added encounters will appear underneath that the user can also select.
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.16]{encounterDashNav}}
+			\caption{Dashboard to Encounter Process}
+			\label{fig: Dashboard to Encounter}
+		\end{figure}
+		After searching in the Encounter Browser, a list of matching encounters appears underneath the search bar. The user can select any of these encounters to bring them to the encounter page.
+		\begin{figure}[H]
+			\centering
+			\centerline{\includegraphics[scale=.16]{encounterBrowserNav}}
+			\caption{Encounter Browser to Encounter Process}
+			\label{fig: Encounter Browser to Encounter}
+		\end{figure}
+		From the arena, encounters are displayed in the middle of the screen underneath the title "User's Arena". (with user being replaced with the user's username).
+		\begin{figure}[H]	
+			\centering
+			\centerline{\includegraphics[scale=.16]{encounterArenaNav}}
+			\caption{Arena to Encounter Process}
+			\label{fig: Arena to Encounter}
+		\end{figure}
 		
-	\section{Storyboards}
+		\subsection{Battlefield}
+		The battlefield can be accessed from both the encounter page and from the user's personal arena. 
+		
+		From the encounter page, there are two buttons that lead the the battlefield. Underneath the encounter's description and statistics are buttons labled "Play Encounter" and "View Encounter". These buttons both lead to the battlefield but with altered abilities within the battlefield page. 
+		\begin{figure}[H]	
+			\centering
+			\centerline{\includegraphics[scale=.16]{battlefieldEncounterNav}}
+			\caption{Encounter to Battlefield Process}
+			\label{fig: Encounter to Battlefield}
+		\end{figure}
+		From the Arena, the user can select the "Create Encounter" button located to the right of the "User's Arena" Title. By clicking this button, this brings the user to the battlefield in the Encounter Creator mode. 
+		\begin{figure}[H]	
+			\centering
+			\centerline{\includegraphics[scale=.16]{battlefieldArenaNav}}
+			\caption{Arena to Battlefield Process}
+			\label{fig: Arena to Battlefield}
+		\end{figure}
+	\newpage
 	\section{Version Control}
 	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repository before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
 	As a side note, we are also looking into a newer feature that GitHub has released. It is geared towards project management within GitHub, so this could lead to more streamlined management to the code itself, and hopefully make bringing attention to specific problems/development in code much easier. GitHub's project management feature focuses on highlighting issues, setting up discussions for solutions, assigning tasks to members, tagging issues/pushes/pulls with labels to search for later, and keeping track of milestones that we have met and are coming up in our project timeline.
