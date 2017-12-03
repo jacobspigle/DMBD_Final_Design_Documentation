@@ -19,8 +19,8 @@
 \usepackage[ruled]{algorithm}
 \usepackage{algpseudocode}
 \usepackage{graphicx}
-\usepackage{apacite}
 \usepackage{url}
+\usepackage{cite}
 \usepackage{rotating}
 
 \geometry{headheight = 12pt}
@@ -200,6 +200,7 @@ This project has the potential to broaden the audience of an already quickly exp
 		\label{fig: Encounter Browser}
 	\end{figure}
 	The Critical Encounters' Encounter Browser (Figure \ref{fig: Encounter Browser})acts as a search results page for queries entered in the search bar. From this page a list of filtered encounters is presented to the user. The user may also filter those results further by selecting settings from the dropdown menu revealed by the 'Filter' button. Through this process we can be sure to provide users with encounters that help with creation or spark their own imagination. (Figure \ref{fig: Encounter Browser with Filter Options}).
+	\bigskip
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.25]{search_filtered}
@@ -484,7 +485,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\subsubsection {Encounter Search SSD}
 		\begin{figure}[H]
 			\centering
-			\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_search}}
+			\centerline{\includegraphics[scale=.75, angle=90]{ssd_encounter_search}}
 			\caption{Encounter Search SSD}
 			\label{fig: Encounter Search SSD }
 		\end{figure}
@@ -492,7 +493,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\subsubsection {Encounter Feed SSD}
 		\begin{figure}[H]
 			\centering
-			\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_feed}}
+			\centerline{\includegraphics[scale=.75, angle=90]{ssd_encounter_feed}}
 			\caption{Encounter Feed SSD}
 			\label{fig: Encountner Feed SSD }
 		\end{figure}
@@ -500,7 +501,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\subsubsection {Arena Subscription SSD}
 	\begin{figure}[H]
 		\centering
-		\centerline{\includegraphics[scale=.7, angle=90]{ssd_subscribe}}
+		\centerline{\includegraphics[scale=.75, angle=90]{ssd_subscribe}}
 		\caption{Arena Subscription SSD}
 		\label{fig: Arena Subscription SSD }
 	\end{figure}
@@ -633,7 +634,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			});
 		\end{lstlisting}
 		
-		\subsubsection { URL Routes}
+		\subsubsection {URL Routes}
 		
 			\begin{table}[H]
 				\begin{center}
@@ -654,30 +655,22 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\end{center}
 			\caption{URL Routes} \label{table: URL Routes}
 		\end{table}
-		
-	\subsection{Types of Views and Controllers}
-	While React does not use a Model-View-Controller architecture for development, it does have things such as ``View Controllers" and ``Controller Views" that are top level components which hold all states, and passes those to child components as props. \cite{reactcvp}
-		\subsubsection{AccountController}
-		\subsubsection{DashboardController}
-		\subsubsection{ArenaController}
-		\subsubsection{EncounterPageController}
-		\subsubsection{EncounterBrowserController}
-		\subsubsection{BattlefieldController}
 	
 	\subsection{Battlefield Modes}
 		\subsubsection{Game Mode}
-			This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, and view and gather data about their own encounters as well as other user's.
-			\subsubsection{Role: Player}
-				Player is in control of a single player character and can either control his character directly in combat or apply an AI to his player character. every round the player will perform his/her character's actions on its turn. Once complete the AI will simulate all other combatant's turns and refresh the battlefield. Once the encounter is complete the player will be able to view his character's stats and results from the encounter.
-			\subsubsection{Role: Game Master}
-				Controls multiple combatants against a one or more player characters. The game master on each turn can choose to either simulate the combatant's turn or perform the actions on the combatant's turn manually using the AI. After the encounter has completed there the game master will be able to review the encounter stats and results.
-				
+		This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, and view and gather data about their own encounters as well as other user's.
+		\subsubsection{Role: Player}
+		Player is in control of a single player character and can either control his character directly in combat or apply an AI to his player character. every round the player will perform his/her character's actions on its turn. Once complete the AI will simulate all other combatant's turns and refresh the battlefield. Once the encounter is complete the player will be able to view his character's stats and results from the encounter.
+		\subsubsection{Role: Game Master}
+		Controls multiple combatants against a one or more player characters. The game master on each turn can choose to either simulate the combatant's turn or perform the actions on the combatant's turn manually using the AI. After the encounter has completed there the game master will be able to review the encounter stats and results.
+	
 		\subsubsection{Creation Mode}
-			\subsubsection{Role: Creator}
-				There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
+		In this mode of the Battlefield, users manipulate an empty board, adding and constructing resources to later publish to their own Arena for others to play.
+		\subsubsection{Role: Creator}
+		There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
 	\newpage
 	\subsection{Map / Environments}
-	\begin{figure}[H]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.6]{environment}
 		\caption{Board with Obstacles}
@@ -685,6 +678,161 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	\end{figure}
 	In Critical Encounters, the map/grid that is usually utilized in tabletop gaming sessions for combat is transitioned into a virtual board with the same format. A grid where each square represents 5x5 spaces, images to represent characters and enemies, as well as obstacles. All of this is put in place to give the user familiarity with the encounter during their own testing, so that same familiarity is present when the encounter occurs with their own group. There will be a few maps that are developer-generated, to be used as a template for beginners to utilize, or for more advanced creators to build off of to build an even larger encounter. However, most of encounter creation will likely involve a creator generating their own map out of the provided components that Critical Encounters has to offer. For this reason, we will have a section of the database dedicated to storing as many viable choices for various characters, enemies, obstacles, and environment backgrounds that we deem useful.
 	
+	\newpage
+	\subsection{Types of Components}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.7]{welcometoreact}
+		\caption{React SplashScreen}
+		\label{fig: React SplashScreen}
+	\end{figure}
+	The React JavaScript library is a tool used by developers used for building user interfaces. When developing in React, most of the resources you create and utilize are ``components". A component is basically a function that takes read-only values called ``props" and returns the actual visuals that should be rendered. One of the greatest advantages about using components is that they allow us to split the UI modularly, so any components that are commonly used in Critical Encounters can be reused. This also allows us to think about and develop each component individually, so everybody has the ability to work in parallel. Components are also able to refer to and integrate other components in their own infrastructure. Working with nested components like this is better done in a class so it is more reusable. When this is done, the class extends the React component, and we create a render function to return when the class is used.
+	\bigskip
+	\begin{lstlisting}
+	class App extends Component {
+		render() {
+			return (
+				<div className = "App">
+					<header className = "App-header">
+						<h1 className = "App-title">Welcome to Critical Encoutners!</h1>
+					</header>
+				</div>
+			);
+		}
+	}
+	\end{lstlisting}
+	The render function of the component's class (above) is populated with JavaScript mixed with HTMLstyle code, or more easily recognized as JSX syntax. Our React components will also utilize ``Lifecycle" functions, so when resources taken by components are destroyed, they are deallocated afterwards. The functions are commonly referred to in React applications as ``componentDidMount()" (to signify rendering has occurred) and ``componentWillUnmount()" to signify the component is unused or has been removed.
+	\newpage
+	\begin{lstlisting}
+	class App extends Component {
+		constructor(props) {
+			super(props);
+			this.state = {encounters: new Encounters(), highlights: new Highlights()};
+		}
+	
+		render() {
+			return (
+				<div className = "App">
+					<header className = "App-header">
+						<h1 className = "App-title">Welcome to Critical Encoutners!</h1>
+					</header>
+				</div>
+			);
+		}
+	
+		componentDidMount() {
+			fetchEncounters().then(encounters =>
+				this.setState({
+					encounters: response.encounters
+			});
+		});
+	
+		fetchHighlights().then(highlights => {
+			this.setState({
+				highlights: response.highlights
+				});
+			});
+		}
+	
+		componentWillUnmount() {
+			clearEncounters(encounters);
+			clearHighlights(highlights);
+		}
+	}
+	\end{lstlisting}
+	A ``state" is used in React to represent values in a component that is subject to change. Specifically, in our application an object that is a ``state" object will directly influence what view is rendered on the screen. This is because a state object is updated in a component as soon as it is changed, and that component is rendered again on-screen. Note that the way we develop in react is modularly fashioned, so as individual components are rendered, those components that are unchanged by any state updates are left alone, they will not be re-rendered until something in their scope of states has changed.
+	
+	Here are the high concept components that we are utilizing in Critical Encounters, and a few of their low level components as well:
+		\subsubsection{Dashboard Component}
+		The Dashboard is essentially the homepage of Critical Encounters, the first thing both our new and returning users see when they navigate to our website. We try to fill this page with a lot of features and encounters that are popular right now so the Dashboard component renders these components and their lower level components, respectively:
+		\begin{itemize}
+			\item NavbarComponent
+			\begin{itemize}
+				\item The Navbar component handles the hyperlinks that the user navigates Critical Encounters with. It renders the state values for the search bar that redirects the user to the result of their queries on the Encounter Browser page, a dropdown menu for the user's access to their account, and their notifications. 
+			\end{itemize}
+			\item SidebarComponent
+			\begin{itemize}
+				\item The Sidebar component handles hyperlinks to the user's Arena as well as the Dashboard, and renders a toggleable and responsive view to the left side of the users' screen. On mobile, this sidebar can be toggled by performing a swiping motion from the left edge of the device.
+			\end{itemize}
+			\item HighlightsComponent
+			\begin{itemize}
+				\item The Highlights component renders images that serve as hyperlinks to important information as chosen by administrators. Generally these links will point to things like popular encounters, updates to the application, and community events.
+			\end{itemize}
+			\item EncounterFeedComponent
+			\begin{itemize}
+				\item The Encounter Feed component renders a list of encounters, filtering through the database of encounters to provide only those that pertain to that feed. For instance, ``Recently Added" will be an EncounterFeedComponent rendering which lists the encounter database listed from newest to oldest.
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Arena Component}
+		The Arena is a users' public profile, where they can publish their encounters for others to see and play through. It provides insights to a user's statistics across all of their encounters, as well as the encounters themselves, using these components:
+		\begin{itemize}
+			\item NavbarComponent
+			\begin{itemize}
+				\item The navbar is a view that is consistent in almost all aspects of Critical Encounters, so developing it as a component class will help us to relieve excessive duplicate code. The navbar also renders the logged in users' username on the top right of the screen. This is where the user may click to access account information and modify accordingly.
+			\end{itemize}
+			\item SidebarComponent
+			\begin{itemize}
+				\item The sidebar is another reoccurring view, as it is a useful tool for navigation around the website. Because the component keeps track of the state, when the sidebar has been disengaged, it will not be rendered to the view. 
+			\end{itemize}
+			\item EncounterFeedComponent
+			\begin{itemize}
+				\item In the Arena page, the Encounter Feed component will specifically render the users' created encounters that the page is applicable to. It also provides each encounter's number of plays, win rate, number of reviews, and overall rating.
+			\end{itemize}
+			\item ArenaStatsComponent
+			\begin{itemize}
+				\item The Arena Stats component will render collective statistics across all a user's created encounters onto the page. It will also provide a heat map that makes class performance visually legible.	
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Encounter Browser Component}
+		The Encounter Browser is where the user is directed after presenting their search in the navbar. Here, the list of encounters may be filtered even further than the original search specified, and provide insights to an encounter before navigating to its Encounter Page.
+		\begin{itemize}
+			\item NavbarComponent
+			\item SidebarComponent
+			\item FilterComponent
+			\begin{itemize}
+				\item The Filter component renders a slew of buttons that narrow down a search query by genre (i.e. Urban, Forest, etc.). The Filter component also renders a dropdown view that provides even more specific search options. Using this dropdown view, a user may click the links to search by an encounter's time uploaded, rating received, or win rate.
+			\end{itemize}
+			\item EncounterFeedComponent
+			\begin{itemize}
+				\item On the Encounter Browser page, the Encounter Feed component will render the results of a query to the encounter database using a user's input to the search bar. For this approach, the query must check the inputted search across all of the encounter database's fields (Author, Name, Genre, etc.).
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Encounter Page Component}
+		The Encounter Page is where the most pertinent information is presented for an encounter. If the information is not on the Encounter Page, then it cannot be found anywhere else. Therefore, the Encounter Page component renders these components and their lower level components:
+		\begin{itemize}
+			\item NavbarComponent
+			\item SidebarComponent
+			\item ReviewsComponent
+			\begin{itemize}
+				\item The Reviews component renders the array of all reviews given by users who have played through this encounter. Each review is also a component that renders the reviewer's username and profile picture, the review itself, and the rating that they gave the encounter.
+			\end{itemize}
+			\item EncounterInfoComponent
+			\begin{itemize}
+				\item The Encounter Info component renders an encounters' given description, statistics that the encounter has accrued over its' lifetime, and the buttons to either ``View" or ``Play" the encounter.
+			\end{itemize}
+		\end{itemize}
+		\subsubsection{Battlefield Component}
+		The Battlefield is where much of Critical Encounters takes place. In it resides the ability to play through an encounter, the Encounter Creator, as well as the Encounter Diagnostic Tool, all in one. These are the components that the Battlefield component utilizes:
+		\begin{itemize}
+			\item BoardComponent
+			\begin{itemize}
+				\item The Board component will render the HTML5 canvas that utilizes Fabric.js. The view that this component renders is the focus of the Battlefield window, and updates responsively to the ever-changing scene of the action in the encounter.
+			\end{itemize}
+			\item BattlefieldSidebarComponent
+			\begin{itemize}
+				\item In Game Mode, the Battlefield's Sidebar component is the menu where user's dictate their actions throughout a turn. In this mode the sidebar renders compressed menus to assist with simplification and organization of the choices the user can make (Actions, Bonus Actions, Reactions). The sidebar component will render these menus with the Actions decompressed so they may view what is available to them.
+				\item In Creation Mode, the Battlefield's Sidebar component hosts the different resources that Critical Encounters' has to offer for encounter creation. Similarly, the sidebar will render compressed menus that hold images to represent enemies, obstacles, and background environments.
+			\end{itemize}
+			\item CombatLogComponent
+			\begin{itemize}
+				\item The Combat Log keeps a constant journal, updating and scrolling down after each action has been taken (whether by the user or the opposing A.I.). The Combat Log component renders this log, and the view may be scrolled up or down indefinitely, so the user may see actions from the beginning of the encounter to the end.
+			\end{itemize}
+			\item EncounterDiagnosticToolComponent
+			\begin{itemize}
+				\item In the Battlefield's Sidebar during creation, down at the bottom is the Encounter Diagnostic Tool's interface. Here is where creator's can stress-test their encounter before publishing, looking to find any flaws in their design whether for the betterment of story or to ensure a total player kill. The Encounter Diagnostic Tool component renders upon being clicked on in the sidebar, thus minimizing the rest of the menus in that view. Here the user specifies what series of tests they would like to run (i.e. min/max level, party composition, etc.) before clicking start. Once the diagnostic tool is run, a separate window will open that presents all the statistics that the tool has generated.
+			\end{itemize}
+		\end{itemize}
+
 	\newpage
 	\subsection{Turn Structure / Order}
 	Combat using the d20 System is composed of rounds in which each combatant in the encounter has one turn.  A round lasts 6 seconds in game time, during which all combatants act on their respective turns. Where a combatant's turn resides chronologically in a round is determined by the combatant's initiative roll (a combination of a dice roll and applicative bonuses). A turn it self is composed of 6 parts: Action(s), Bonus Action, Movement, Free Action, and Bonus Action, Reaction.
@@ -1351,7 +1499,7 @@ Our plan for testing involving all components, both the search and profile layou
 \listoftables
 
 \newpage
-\bibliographystyle{apacite}
+\bibliographystyle{}
 \bibliography{references}
 
 \end{document}
