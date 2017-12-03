@@ -707,7 +707,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \subsection {Database Diagram}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=.4]{database_schema}
+	\includegraphics[scale=.6, angle= 90]{database_schema}
 	\caption{Databse Schema}
 	\label{fig: Databse Schema }
 \end{figure}
@@ -745,7 +745,7 @@ Note: The { "Collection Name" } notation represents an Object.id that correlates
 	\label{fig: Arena Schema }
 \end{figure}
 
-\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
+\paragraph{}This schema will hold basic Arena information: an Arena name (name), a reference to Arena's creator: (owner), a list of encounters that are contained in the arena (encounters), a list of the users creations that they have made including monsters and playable characters (combatants), and a list of references to users that are subscribed to the (subscribers). The Arena acts as a hub, organizer and access or for every user and their encounters. Arena statistics are not directly maintained in the Area object itself but are compiled from the list of encounters that is contained in the encounters field. This allows the statistics as up to date as possible without constantly updating both area statistic and the encounter statistics when an encounter goes through a stat change.
 
 \subsection{Encounter Schema}
 \begin{figure}[H]
