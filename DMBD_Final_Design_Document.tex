@@ -72,7 +72,7 @@
 		year={1997},
 		publisher={MIT press}
 	}
-	@misc{minmax,
+	@misc{minimax,
 		author = {Nuno Nogueira},
 		title = {{Minimax Algorithm}},
 		howpublished = "\url{https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)}",
@@ -1605,6 +1605,13 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		\subsection{Future Work - Custom 'Role-Play' Actions}
 		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.3]{roleplay}
+			\caption{Role-Play}
+			\label{fig: Role-Play}
+		\end{figure}
+		
 		We have previously defined a custom role play action as any action that is defined specifically by a player and must be interpreted by the GM. These actions are a staple of tabletop role playing games, and are known to enhance the immersion of players. The challenge in implementing them into Critical Encounters is that the possibilities are extremely broad for any given custom action. Additionally, a player cannot easily "describe" a made up action to the A.I. controlling the GM. 
 		
 		One possible solution to this problem is to allow users a certain degree of 'sandbox' control over encounters they are playing. When a user is in sandbox mode, they are able to make changes to the battlefield during combat that otherwise would not be possible. For example, a user who wanted to have their player character attempt to throw a piece of furniture over a door in order to create a barricade could be enabled to create a new obstacle on the map at the location of the door. This action would represent the creation of a barricade, and would cost the user their action. 
@@ -1992,7 +1999,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=1]{minmax}
-			\caption{Standard MiniMax Tree \cite{minmax}}
+			\caption{Standard MiniMax Tree \cite{minimax}}
 			\label{fig: MiniMax}
 		\end{figure}
 		
@@ -2027,6 +2034,8 @@ Finally, this project will aid in testing of encounters by providing users with 
 \listoftables
 
 \newpage
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{unsrt}
 \bibliography{\jobname}
 
