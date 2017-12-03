@@ -121,6 +121,17 @@
 \tableofcontents
 	
 \newpage
+\chapter*{Executive Summary}
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Executive Summary}
+
+Critical Encounters is a web-based platform designed to streamline the process for players of the D20 RPG game system to create and test encounters to bring forth to live games. 
+
+Critical Encounters will allow its users to create an encounter from scratch starting with a blank playing space and build up the encounter by dragging and dropping entities onto the map. Users will be able to test their encounters by playing through them first hand to get a feel for how the encounter will play out or the user may use the Critical Encounters Stress Tester. The Stress Tester will allow the encounter to be played through automatically several hundred times, returning a statistics review of the encounter. The returned statistics will provide the user with information about how the encounter was handled by parties of various types, which will allow the user to further fine tune the encounter to perfection. Once completed, users may share their creations with other users through the Encounter Browser which allows users to search through created encounters using keywords and tags to find new encounters. 
+
+We will be using React.js to provide a substantial web-based functionality. This framework will allow us to easily format the site so that we can focus more on the unique programming matters such as enemy AI, the stress tester, and the encounter browser. On the back-end, we will be using Meteor.js to handle server controls and MongoDB to handle the database, which combined will provide us with easier database management from the server to the client. 
+
+\newpage
 \chapter*{Introduction}
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Introduction}
@@ -130,7 +141,7 @@ Role-playing games are games where players act as their characters. Usually in p
 \begin{enumerate}
 	\item The GM describes the environment.
 	\item The players describe what they want to do.
-	\item The GM narrates the results of the characters? actions.
+	\item The GM narrates the results of the characters actions.
 \end{enumerate}
 
 There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character?s path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
@@ -1105,14 +1116,20 @@ Our plan for testing involving all components, both the search and profile layou
 			\item \textbf{Slashing} - Standard damage done by swords, axes, claws, etc.
 			\item \textbf{Poison} - Small amounts of damage over time. Dealt by venomous enemies, traps, or gas.
 			\item \textbf{Magic} - There are a variety of spells within the D20 system which all deliver very specific types of damage. A few types are as follows:
-			\begin{itemize}
+			\begin{multicols}{2}
+				\begin{itemize}
 				\item Fire
 				\item Cold
 				\item Force
-				\item Lighting
-				\item Psychic
-			\end{itemize}
+				\item Lightning
+				\item Thunder
+				\item Necrotic
+				\item Radiant
+				\item Poison
+				\end{itemize}
+			\end{multicols}
 		\end{itemize}
+		\newpage
 		\subsubsection{Player Condition}
 			There are a variety of states that character's can be in that alter their ability to perform certain tasks. These conditions can be altered by spells, class abilities, receiving an attack, etc. Conditions last a designated time depending on the method of delivery. Here is a list of possible conditions:
 		\begin{itemize}
