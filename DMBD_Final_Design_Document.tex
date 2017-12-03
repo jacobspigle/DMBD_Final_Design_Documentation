@@ -223,7 +223,7 @@
 
 Critical Encounters is a web-based platform designed to streamline the process for players of the D20 RPG game system to create and test encounters to bring forth to live games. 
 
-Critical Encounters will allow its users to create an encounter from scratch starting with a blank playing space and build up the encounter by dragging and dropping entities onto the map. Users will be able to test their encounters by playing through them first hand to get a feel for how the encounter will play out or the user may use the Critical Encounters Stress Tester. The Stress Tester will allow the encounter to be played through automatically several hundred times, returning a statistics review of the encounter. The returned statistics will provide the user with information about how the encounter was handled by parties of various types, which will allow the user to further fine tune the encounter to perfection. Once completed, users may share their creations with other users through the Encounter Browser which allows users to search through created encounters using keywords and tags to find new encounters. 
+Critical Encounters will allow its users to create an encounter from scratch starting with a blank playing space and build up the encounter by dragging and dropping entities onto the map. Users will be able to test their encounters by playing through them first hand to get a feel for how the encounter will play out or the user may use the Critical Encounters Stress Tester. The Encounter Diagnostic Tool will allow the encounter to be played through automatically several hundred times, returning a statistics review of the encounter. The returned statistics will provide the user with information about how the encounter was handled by parties of various types, which will allow the user to further fine tune the encounter to perfection. Once completed, users may share their creations with other users through the Encounter Browser which allows users to search through created encounters using keywords and tags to find new encounters. 
 
 We will be using React.js to provide a substantial web-based functionality. This framework will allow us to easily format the site so that we can focus more on the unique programming matters such as enemy AI, the stress tester, and the encounter browser. On the back-end, we will be using Meteor.js to handle server controls and MongoDB to handle the database, which combined will provide us with easier database management from the server to the client. 
 
@@ -297,8 +297,8 @@ This project has the potential to broaden the audience of an already quickly exp
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{User Interface}
 	\section{Overall Design and Navigation Bar}
-	The approach we took to user interface (UI) design was focused on a simplistic and familiar look and feel to allow for easy accessibility to new users while the website itself still retaining focus on the encounter tester. The template that website utilizes is reminiscent of the design that many social media sites take, for instance, sites like Twitter, Facebook, and YouTube.\par
-	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a searchbar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
+	The approach we took to user interface (UI) design was focused on a simplistic and familiar look and feel to allow for easy accessibility to new users while the website itself still retaining focus on the encounter tester. The template the website utilizes is reminiscent of the design that many social media sites take. Take for instance sites like Twitter, Facebook, and YouTube.\par
+	The site also uses the the single-page application structure that allows for easy traversal. The persistent navigation bar (Figure \ref{fig: NavBar}) has Critical Encounters' name and logo in the top left of each page which redirects users back to the homepage, a search bar in the top of each page which redirects users to the Encounter Browser page, and the user's username in the top right of each page that links to the user's Arena.
 	\bigskip
 	\bigskip
 	\begin{figure}[H]
@@ -391,7 +391,7 @@ This project has the potential to broaden the audience of an already quickly exp
 	\end{multicols}
 	\newpage
 	\section{Battlefield}
-The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
+The Battlefield is arguably the most important and most challenging front-end development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the front-end and back-end are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=.5]{encountercreator}
@@ -399,22 +399,22 @@ The Battlefield is arguably the most important and most challenging frontend dev
 	\label{fig: Battlefield Prototype}
 \end{figure}
 Above is a early prototype of our Battlefield. It contains three separate components: the main battle board, the sidebar, and the combat log. 
-\subsection {The Battle Board }
-The Battle Board is where all the environment, obstacles, and combatants are rendered. The board is a 2d top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over and selected as well as click and drag into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
+\subsection {Board}
+The board is where all the environment, obstacles, and combatants are rendered. The board is a 2D top down arena, inspired by popular strategy games such as Civilization. The board is composed of checkerboard likes faces Each of which represent 5 feet of space in the game world. Obstacles and combatants will be rendered inside of these spaces. Obstacles and combatants can be hovered over, selected, as well as be clicked and dragged into other spaces within the combatants movement range. If one of the combatants or obstacles are clicked their details and descriptions will appear in the sidebar. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=.5]{encountercreatorsidebar}
 	\caption{Battlefield Prototype Sidebar}
 	\label{fig: Battlefield Prototype Sidebar}
 \end{figure}
-\subsection {The Sidebar }
+\subsection {Sidebar}
 In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar. The sidebar will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
-\subsection {The Battlelog }
-The Battlelog below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Battlelog implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter. Will add another layer of fun for the user. 
+\subsection {Combat Log}
+The Combat Log field below is where all of the messages attached to combat an encounter actions will be displayed. They will supply the user with an up-to-date text rendition of the encounter. It will include messages like, "The Goblin struck the cleric with a sword dealing 5 points of slashing damage", "The wizard casted Firebolt at the ogre but it missed", and "The Rogue hides behind the barrel the dragon does not seem to notice him". Early on in the Combat Log implementation we plan for very simple straightforward statistical messages that will aid us during testing and AI development. However we are planning to expand this feature to aid in role-play. We feel that having more colorful destruction of the actions occurring in the encounter will add another layer of fun for the user. 
 \subsection {States and Controllers }
 The same battle components will be used for both creation of the encounters and playing of the encounters. The controller will either hide or allow the user to view certain tools depending on what state the user has entered the battlefield in. For example if the user was in creation mode, they would also have access to our database of built-in combatants and obstacles said they will be able to add to their encounter. 
 \subsection {Future Implementation/Design Plans }
-Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabricjs and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Battlelog themselves will be toggleable by clickable buttons on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
+Stated earlier this is a early prototype created in Angular 4 using Bootstrap for the UI. We plan on porting the system over to React and using fabric.js and HTML5 canvas to construct the Battle Board. This will give us a lot more freedom with red during the environment including varied combating in obstacle sizes and easier drag-and-drop capabilities. We also plan for the battlefield to take out the entirety of the players Street. The sidebar and the Combat Log themselves will be toggleable by clicking buttons (or performing gestures on mobile) on the sides and bottom of the screen. The battlefield will exist on its own component separate from the rest of the site so the overlaying UI such as the header and sidebar of the main site will not interfere with the battlefield experience.
 	\newpage
 	\section{Color Scheme}
 	\begin{figure}[H]
@@ -482,10 +482,10 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	Critical Encounters is going to require many moving pieces working together to deliver the product we intended. The original goal of the project was to create a platform that allowed users to create, test, and share encounters with other users. In order to satisfy this goal, these pieces have been individually broken down below:
 		\subsection{Encounter Creation}
 		The creation of the encounter itself is one of the fundamental functions of Critical Encounter. The Encounter Creator is going to be an easy to use platform that users can create encounters by drag and dropping entities onto an interactive virtual board that acts as the role-playing game's encounter arena. This will also require the ability to have specific variables relating to player characters, enemy characters, and obstacle objects. The ability to alter enemy statistics and behavior are also necessary.
-		\subsection{Battle \& Stress-test}
+		\subsection{Battle \& Diagnostic Tool}
 		Once an encounter is created, the user has the ability to play through the encounter as the player character while Critical Encounter controls the enemy AI. The encounter will follow the standard d20 rule set to provide as realistic of an encounter experience as possible, in order to give the GM a good idea of how the encounter plays out (not to mention that it's fun).
 		
-		Along with this, the Stress-tester is a function that allows the GM to run their encounter numerous times with changes in various qualities of the player's party. The stress tester will run several times for each different iteration and display statistics of the overall battles at the end of the test. These statistics will include win/loss ratio, average battle length, number of player deaths/kills, as well as bring note to any outlier situations that may have proved the encounter or the players are overpowered.  
+		Along with this, the Encounter Diagnostic Tool is a function that allows the GM to run their encounter numerous times with changes in various qualities of the player's party. The stress tester will run several times for each different iteration and display statistics of the overall battles at the end of the test. These statistics will include win/loss ratio, average battle length, number of player deaths/kills, as well as bring note to any outlying situations that may have proved the encounter or the players are overpowered.  
 		\subsection{Enemy AI}
 		It is necessary for Critical Encounters to have a properly functioning AI in the battles and stress-tests. In order to simulate the actual encounter experience, the enemies need to make their decisions independently, so that the player character can actually battle against something. The AI doesn't require intense machine learning, but will need a basic Attack/Defense strategy. The AI will assess the situation through a series of checklists in order to make the best move possible against the player. Along with this, AI behavior will need to be able to be altered leaving the enemy more/less aggressive, focus more on support than attack, etc.
 		\subsection{Encounter Sharing}
@@ -545,7 +545,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	\section{Research}
 	Research for the tools we will utilize going forward with Critical Encounters was performed by the members of the team that will be the most involved with those tools. This approach is pretty intuitive, but also allows for those members who perhaps do not have much experience in the realm of website development or algorithm creation a chance to gain a base for which to stand on during the development stage. Once our members have researched the tools, at the very least we will be able to start from there and build up.
 	\section{Budget}
-	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents, by doing things like opting for using the D20 Game System as a base for our ruleset (which is free to use without conflict), instead of utilizing a similar but copyrighted and highly policed set of rules like D\&D's 5th Edition ruleset. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
+	With this project, we are going to be utilizing the fact that this program will be for personal use to avoid nearly all costs to us. For the time being, we are using completely free to use platforms as well as not infringing on any copyrights or patents, by doing things like opting for using the D20 Game System as a base for our rule set (which is free to use without conflict), instead of utilizing a similar but copyrighted and highly policed set of rules like D\&D's 5th Edition rule set. For us to build the program and run them on local machines should cost us no more than valuable time and electricity bills. When the program nears completion we will be assessing the option of pushing the program to a server which is where money would start to be involved.
 	
 \newpage
 \chapter*{Application Design}
@@ -725,7 +725,7 @@ subscriptions: [{type: String, regEx: SimpleSchema.RegEx.Id}]
 });
 \end{lstlisting}
 
-The general structure is a field name and a matching feild type (String, Boolean, Object ) with optional requirements or parameters (regEx: SimpleSchema.RegEx.Id).
+The general structure is a field name and a matching field type (String, Boolean, Object ) with optional requirements or parameters (regEx: SimpleSchema.RegEx.Id).
 
 Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
 \subsubsection{User Schema}
@@ -772,7 +772,7 @@ This schema will be used to represent all combatants in an encounter, both playe
 	\caption{Obstacle Schema}
 	\label{fig: Obstacle Schema }
 \end{figure}
-This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information information name, description and size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to bettersuit the implementation of the AI combat and encounter flow.
+This schema contains data for non-combatant entities in an encounter, i.e. entities that do not have a turn in combat and do not roll initiative. Examples of obstacles are walls, traps, doors, inanimate objects, water, holes, and items. The schema outlines basic descriptive information such as name, description, size, as well as a range of boolean values that describe the obstacle's role and interaction with players in combat. For example, a bottomless pit would have the deadly boolean set to true so any combatant that were to fall in it would die instantly. Walls on the other hand would have the passable boolean set to false, which will stop the AI pathfinder from choosing a path through walls. The obstacle will also have an array of Effects. These  effects would include any Crowd Control, Damage, Healing or Magical effects the obstacle might have. This includes damage for traps, half speed for traveling through brush, and magical healing aura from enchanted statures. The implementation of the effects may change to better suit the implementation of the AI combat and encounter flow.
 \subsection {Action Schema}
 \begin{figure}[H]
 	\centering
@@ -1218,7 +1218,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\item \textbf{Piercing} - Puncturing and impaling attacks. These can include weapons like spears or bites from monsters.
 			\item \textbf{Slashing} - Standard damage done by swords, axes, claws, etc.
 			\item \textbf{Poison} - Small amounts of damage over time. Dealt by venomous enemies, traps, or gas.
-			\item \textbf{Magic} - There are a variety of spells within the D20 system which all deliver very specific types of damage. A few types are as follows:
+			\item \textbf{Magic} - There are a variety of spells within the d20 system which all deliver very specific types of damage. A few types are as follows:
 			\begin{multicols}{2}
 				\begin{itemize}
 				\item Fire
@@ -1253,23 +1253,19 @@ Our plan for testing involving all components, both the search and profile layou
 				\label{fig: Attribute Modifiers}
 			\end{wrapfigure}
 			Along with base values for all of the stats associated with a character are attribute modifiers. For each attribute, their score can range from 0-30. It is understood that an attribute score of 10 is a base score, any score lower than that results in a negative score modifier and any score higher results in a positive score modifier. Modifiers add or subtract for every 2 levels given. An ability score of 1 renders a -5 modifier, and an ability score of 30 renders a +10 modifier.
-		\subsubsection{Resistance}
-			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved.
-		\subsubsection{Vulnerability}
-			Likewise with Resistance, characters may be vulnerable to specific damage types as well. If a character has vulnerability to the damage type they are receiving, the damage dealt after all of the modifiers is doubled.
+		\subsubsection{Resistance \& Vulnerability}
+			Certain characters will posses the ability to resist damage dealt of a certain type. If a character has resistance to the damage type they are receiving, the damage dealt after all of the modifiers is halved. Likewise with Resistance, characters may be vulnerable to specific damage types as well. If a character has vulnerability to the damage type they are receiving, the damage dealt after all of the modifiers is doubled.
 		\subsubsection{Buffs \& Debuffs}
-			Spells, powers, and potions can either boost or deduct points from various qualities of the characters. 
-		
-			These 'buffs' will have a very large impact on how the Critical Encounters' A.I. makes its' decisions on what actions to take each turn, weighing which action would be better for the character.
-		
-			Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
-			\begin{itemize}
-				\item Speed
-				\item Health Points
-				\item Perception
-				\item Defense
-				\item Damage Output
-			\end{itemize}
+			Spells, powers, and potions can either boost or deduct points from various qualities of the characters. These 'buffs' will have a very large impact on how the Critical Encounters' A.I. makes its' decisions on what actions to take each turn, weighing which action would be better for the character. Buffs are used to describe positive status changes while debuffs are used for negative changes. Buff and debuffs can affect various qualities of a character, such as:
+			\begin{multicols}{2}
+				\begin{itemize}
+					\item Speed
+					\item Health Points
+					\item Perception
+					\item Defense
+					\item Damage Output
+				\end{itemize}
+		\end{multicols}
 		\newpage
 		\subsection{Misc. Terms}
 			Throughout the D20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
@@ -1288,7 +1284,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\end{itemize}	
 				
 			\subsubsection{Line of Sight}
-				Certain abilities are hindered by line of sight. This refers to the character's ability to see their target. Line of sight can be blocked by just about anything that isn't invisible inbetween the character and the enemy.
+				Certain abilities are hindered by line of sight. This refers to the character's ability to see their target. Line of sight can be blocked by just about anything that isn't invisible in between the character and the enemy.
 			\subsubsection{Experience Points}
 				Upon completing an encounter, experience points are awarded to the party. XP are units of measurement to gauge the character's progression after a battle. They are used to level up the character and add points to their attributes, which result in higher modifiers for that character.
 			\subsubsection{Free Action}
@@ -1623,7 +1619,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\label{fig: Register Page}
 		\end{figure}
 		\subsection{Login}
-		From the dashboard, the user can access the login page by clicking the Login button in the top right corner of the page or by clicking on the arena tab under the dashboard tab on the left side of the page. After submitting their login info and pressing the login button, the user will be brought back to the dashboard logged in. 
+		From the dashboard, users can access the login page by clicking the Login button in the top right corner of the page or by clicking on the arena tab under the dashboard tab on the left side of the page. After submitting their login info and pressing the login button, the user will be brought back to the dashboard logged in. 
 		\begin{figure}[H]
 			\centering
 			\centerline{\includegraphics[scale=.11]{loginNav}}
@@ -1674,14 +1670,14 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsection{Battlefield}
 		The battlefield can be accessed from both the encounter page and from the user's personal arena. 
 		
-		From the encounter page, there are two buttons that lead the the battlefield. Underneath the encounter's description and statistics are buttons labled "Play Encounter" and "View Encounter". These buttons both lead to the battlefield but with altered abilities within the battlefield page. 
+		From the encounter page, there are two buttons that lead the the battlefield. Underneath the encounter's description and statistics are buttons labeled "Play Encounter" and "View Encounter". These buttons both lead to the battlefield but with altered abilities within the battlefield page. 
 		\begin{figure}[H]	
 			\centering
 			\centerline{\includegraphics[scale=.16]{battlefieldEncounterNav}}
 			\caption{Encounter to Battlefield Process}
 			\label{fig: Encounter to Battlefield}
 		\end{figure}
-		From the Arena, the user can select the "Create Encounter" button located to the right of the "User's Arena" Title. By clicking this button, this brings the user to the battlefield in the Encounter Creator mode. 
+		From the Arena, the user can select the "Create Encounter" button located to the right of the "User's Arena" Title. By clicking this button, this brings the user to the battlefield in Encounter Creator mode. 
 		\begin{figure}[H]	
 			\centering
 			\centerline{\includegraphics[scale=.16]{battlefieldArenaNav}}
@@ -1690,7 +1686,13 @@ Our plan for testing involving all components, both the search and profile layou
 		\end{figure}
 	\newpage
 	\section{Version Control}
-	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the Version Database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repo and our local repo has not been updated, first we have to merge our own changes with the repository before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.3]{github}
+		\caption{GitHub}
+		\label{fig: GitHub}
+	\end{figure}
+	Version control for this project will be handled using GitHub. We will be setting up a development branch off of the master branch, with Hunter being the final check for content management before pushing development branch updates to the master. This way, we can always be confident that we know exactly what has been consolidated to our master. Each of us will be mirroring the development repository to our local machine. Not only does this allow for direct access to the current features being added/tested in this branch, but also can protect us in case the version database hosted on GitHub becomes tainted. Luckily, GitHub does a pretty good job of ensuring that what content is pushed to its' database does not fall behind. If any changes are made to the repository, and our local repository has not been updated, first we have to merge our own changes with the repository before pushing back to the branch. We will make it a required practice that when we pull from the repository in this fashion, we will check that functionality of the web application has not been jeopardized before we push our own changes up. \par
 	As a side note, we are also looking into a newer feature that GitHub has released. It is geared towards project management within GitHub, so this could lead to more streamlined management to the code itself, and hopefully make bringing attention to specific problems/development in code much easier. GitHub's project management feature focuses on highlighting issues, setting up discussions for solutions, assigning tasks to members, tagging issues/pushes/pulls with labels to search for later, and keeping track of milestones that we have met and are coming up in our project timeline.
 
 \newpage
@@ -1715,7 +1717,7 @@ Our plan for testing involving all components, both the search and profile layou
 				\caption{MongoDB}
 				\label{fig: MongoDB}
 			\end{wrapfigure}
-			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type in schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System. \cite{mongodb}
+			We decided to utilize MongoDB, a NoSQL database that is an essential part of the MEAN Stack. There are quite a few reasons to opt for a more modern approach to constructing databases, for instance, the structure and data type for schemas in a SQL database are fixed. To store information about a new data item, the entire database must be altered, during which time the database must be taken offline. With this project taking on an agile approach in its’ development cycle, and a database being so essential to early development with the implementation of the many items, rules, and class/monster types that are available, starting that database and being fixed in the schemas we create could cause a slow in development later in the cycle when changes are made. However, when using a NoSQL database like MongoDB, insertion of data is allowed without any predefined schema. This means development and integration of code is faster and more reliable. A document database model for data storage that we can adopt when using a NoSQL database is another benefit to using MongoDB, because it best fits the way that information is organized while using the d20 Game System. \cite{mongodb}
 				
 			\subsubsection{Angular 4}
 			\begin{wrapfigure}{l}{0\textwidth}
@@ -1794,7 +1796,7 @@ Our plan for testing involving all components, both the search and profile layou
 	\section{Game A.I.}
 		Computer AI is integral to Critical Encounters' final effectiveness. As we are trying to replicate the most reasonably realistic D20 encounter experience, it is necessary that the AI for the enemies in the encounter to act and react as they would in a true D20 encounter. Many of the AI actions are fairly straightforward such as a basic pathfinding and rule-following system, but there will have to be plenty of fine tuning to get the desired result. The AI that will be eventually implemented will be a combination of pre-existing AI algorithms and newly created systems hand crafted for Critical Encounters' needs.
 		\subsection{Pathfinding}
-			Upon starting a battle, the entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move to.
+			Upon starting a battle, entities on the playing field (player and enemy) are free to move around that map at their will, given its their turn. Pathfinding will need to be implemented to give the enemy AI productive methods for positioning itself on the map to accomplish the next move its going to make. The AI should theoretically find the shortest route from where its positioned and where it wants to move.
 			\begin{wrapfigure}{r}{0\textwidth}
 				\includegraphics[scale=0.5]{aStar}
 			\end{wrapfigure}
