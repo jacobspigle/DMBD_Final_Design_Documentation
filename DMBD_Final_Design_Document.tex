@@ -72,7 +72,7 @@
 		year={1997},
 		publisher={MIT press}
 	}
-	@misc{minmax,
+	@misc{minimax,
 		author = {Nuno Nogueira},
 		title = {{Minimax Algorithm}},
 		howpublished = "\url{https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)}",
@@ -1348,16 +1348,35 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsection{Misc. Terms}
 			Throughout the d20 system are terms that deal with specifics on certain subjects. These terms cannot be directly applied to one single section. Following is a list of many terms that will appear in Critical Encounters:
 			\subsubsection{Area of Effect}
-				\begin{wrapfigure}{r}{0\textwidth}
-					\includegraphics[scale=0.25]{AOE}
-					\caption{Areas of Effect}
-					\label{fig: Areas of Effect}
-				\end{wrapfigure}
-				Many spells work on multiple enemies within a certain range. The area of effect of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
+				Many spells work on multiple enemies within a certain range. The area of effect (AOE) of the spell refers to the specified area that the spell is casted on. These areas vary from spell to spell.
 				\begin{itemize}
-					\item \textbf{Origin} - Quite literally, the Spell Origin is the origination of the spell's effect that has been cast. Some spells specify the range of which you can choose a point to cast your spell, while in other spells the origin is the caster themselves.
+					\begin{figure}[H]
+						\centering
+						\includegraphics[scale=.5]{spellorigin}
+						\caption{Spell Origin}
+						\label{fig: Spell Origin}
+					\end{figure}
+					\item \textbf{Origin} - Quite literally, the Spell Origin is where the spell's effect that has been cast originated from. Some spells specify the range of which you can choose a point to cast your spell, while in other spells the origin is the caster themselves.
+					\begin{figure}[H]
+						\centering
+						\includegraphics[scale=.5]{cone}
+						\caption{Cone AOE}
+						\label{fig: Cone AOE}
+					\end{figure}
 					\item \textbf{Cone} - Spells that fan out in front of the caster. Much like lines, but spread out 45 degrees to either side of the direction the caster is looking. Can range from 15ft to 30 ft.
+					\begin{figure}[H]
+						\centering
+						\includegraphics[scale=.5]{radial}
+						\caption{Radial AOE}
+						\label{fig: Radial AOE}
+					\end{figure}
 					\item \textbf{Radial} - Spells that affect the area around the caster in a circle or sphere formation. For example, if a spell were to specify that it's radius ranges from 5ft to 20ft.
+					\begin{figure}[H]
+						\centering
+						\includegraphics[scale=.5]{line}
+						\caption{Line AOE}
+						\label{fig: Line AOE}
+					\end{figure}
 					\item \textbf{Line} - Spells that shoot in a straight line, generally originating from the caster, but could also form a wall or other obstacle. Usually 30ft.
 				\end{itemize}	
 				
@@ -1605,6 +1624,13 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		\subsection{Future Work - Custom 'Role-Play' Actions}
 		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.3]{roleplay}
+			\caption{Role-Play}
+			\label{fig: Role-Play}
+		\end{figure}
+		
 		We have previously defined a custom role play action as any action that is defined specifically by a player and must be interpreted by the GM. These actions are a staple of tabletop role playing games, and are known to enhance the immersion of players. The challenge in implementing them into Critical Encounters is that the possibilities are extremely broad for any given custom action. Additionally, a player cannot easily "describe" a made up action to the A.I. controlling the GM. 
 		
 		One possible solution to this problem is to allow users a certain degree of 'sandbox' control over encounters they are playing. When a user is in sandbox mode, they are able to make changes to the battlefield during combat that otherwise would not be possible. For example, a user who wanted to have their player character attempt to throw a piece of furniture over a door in order to create a barricade could be enabled to create a new obstacle on the map at the location of the door. This action would represent the creation of a barricade, and would cost the user their action. 
@@ -1671,7 +1697,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\caption{Battlefield to Browser Process}
 		\label{fig: battlefield to Browser}
 	\end{figure}
-	After an encounter has been perfected by the user, they have the option to post it into their public arena. Once in a public arena, the encounter may be accessed via the Encounter Browser. The browser functions as a search bar that allows users to find encounters made by other members of Critical Encounters. Encounters can be located by matching the keywords the user searches with the keywords associated with the encounter. These keywords can include the name of the encounter, the type of encounter, location, level range, party size, difficulty level, etc.
+	After an encounter has been perfected by the user using the Battlefield in Creation Mode users have the option to post it into their public Arena page for other users' to experience. Once it has been published to an Arena, the encounter may be accessed via the Encounter Browser. The browser functions as a search bar that allows users to find encounters made by other members of Critical Encounters. Encounters can be located by matching the keywords the user searches with the keywords associated with the encounter. These keywords can include the name of the encounter, the type of encounter, location, level range, party size, difficulty level, etc.
 	
 	\newpage
 	\section{Encounter Creator Tools}
@@ -1999,7 +2025,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=1]{minmax}
-			\caption{Standard MiniMax Tree \cite{minmax}}
+			\caption{Standard MiniMax Tree \cite{minimax}}
 			\label{fig: MiniMax}
 		\end{figure}
 		
@@ -2034,6 +2060,8 @@ Finally, this project will aid in testing of encounters by providing users with 
 \listoftables
 
 \newpage
+\stepcounter{chapter}
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{unsrt}
 \bibliography{\jobname}
 
