@@ -1545,7 +1545,25 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		This type of solution is currently not supported in our algorithm. The primary reason is that minimax forms a tree based on all possible moves that the opponent could make, then plans it's future moves for each one of those branches. In the context of the d20 Game System, this is extremely computationally heavy. There are hundreds of move that a single unit could make on a given turn, and there are generally going to be several enemy units on the board at once. The combination of these actions would may make it almost impossible to plan more than several turns into the future. Fortunately, we could restrict the highest degree of look-ahead to only this most intelligent creatures, limited less intelligent creatures to only a single turn or two. 
 		
-		%ToDo: Example tree diagram of A.I. accounting for future opponent actions
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.8]{TurnLookAhead}
+			\caption{Turn Look Ahead Example}
+			\label{fig: Turn Look Ahead}
+		\end{figure}
+		
+		Figure \ref{fig: Turn Look Ahead} shows the basic logic of the look ahead for our modified algorithm. It begins by finding the highest value target of the current combatant. This step is identical to the current algorithm. After the highest value target has been obtained, the algorithm subtracts the expected value of the enemies retaliation. This step would effectively determine if moving into range of the target and possibly exposing the active combatant to more damage or enemies is worth the benefit they gain from carrying out their action. This step would be highly computationally intense as it would have to execute the original \textsc{DecideAction} method for each enemy that would be in range of the active combatant after the active combatant has taken their action. After the enemy retaliation value has been calculated the algorithm loops through again, this time predicting actions that would occur on the active combatant's next turn assuming each enemy combatant made optimal actions. The algorithm will loop until the active combatant no longer has enough intelligence to continue looking ahead, at which point the active combatant executes the string of actions which led to the most desirable outcome. 
+		
+		If it turns out that enemy combatants don't make the same moves that were predicted during calculation, it would be best to re-run the algorithm to find an updated sequence of actions. In simpler MiniMax examples, one could store all possible branches and simple traverse the tree as the opponent makes their moves. However, doing so in this algorithm would result in enormous trees with hundreds of branches at each level. Ultimately, it would require a lot of development time to research, test, and implement a more advanced algorithm such as this within the scope of our project. As a result, this implementation is very unlikely to be included in the final deliverable. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.55]{MiniMax}
+			\caption{Example minimax representation}
+			\label{fig: Minimax}
+		\end{figure}
+		
+		Figure \ref{fig: Minimax} illustrates a restricted MiniMax style tree representing how various branching decisions could be tracked and stored to find a path that leads to a win condition. As was mentioned, this is not viable when there are hundreds of possible branches per action. For that reason, if this advanced A.I. were to be implemented, we would be very likely to ensure that only the single most promising branch at each level is explored, despite the fact that this may not always lead to the most optimal final outcome. 
 		
 		This more complex solution is especially desirable for the purpose of immersion. Less intelligent creatures would have the illusion of short-sightedness, or the inability to evaluate the consequences of their immediate actions. Creatures with a high intelligence rating will appear to behave tactically, anticipated moves and avoiding long term pitfalls in exchange for short term gains. 
 		
@@ -1554,9 +1572,15 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		\subsection{Future Work - Custom 'Role-Play' Actions}
 		
-		%ToDo: INFINITE POSSIBILITES IN THE PALM OF MY HAND
-		%ToDo: Boil down infinite possibilities into 1 quantifiable effect
-		%ToDo: Discuss why this isn't really useful to us given the purpose of the tool
+		We have previously defined a custom role play action as any action that is made up by a player and must be interpreted by the GM. These actions are a staple of tabletop role playing games, and are known to enhance the immersion of players. The challenge in implementing them into Critical Encounters is that the possibilities are extremely broad for any given custom action. Additionally, a player cannot easily  "describe" a made up action to the A.I. controlling the GM. 
+		
+		One possible solution to this problem is to allow users a certain degree of 'sandbox' control over encounters they are playing. When a user is in sandbox mode, they are able to make changes to the battlefield during combat that otherwise would not be possible. For example, a user who wanted to have their player character attempt to throw a piece of furniture over a door in order to create a barricade could be enabled to create a new obstacle on the map at the location of the door. This action would represent the creation of a barricade, and would cost the user their action. 
+		
+		The sandbox mode implemented in this system would have to exclude any user playing it from committing their overall statistics to the global user statistics for each encounter. This is because any user playing in sandbox mode will be capable of giving themselves an unfair advantage over those playing in the normal mode. While it is entirely possible, and in fact the goal of role play actions, to come up with a balanced way to spend an action, this will obviously not always be the case. Though some users may use the sandbox mode in a fair way, it would obviously diminish the accomplishments of players relying on the core mechanics allows stats from sandbox mode to be included in the global stats for each encounter.  
+		
+		It is clear that with this system, users could replicate some of their custom actions by using their own intuition to decide the logical effect of their actions. This, of course, requires that the user is trustworthy. Specifically it requires that the user does not perform any custom action that would be obviously rejected by a GM. This would most likely not be an issue since this application is not meant to be competitive or multilayer game. A player who chooses to make encounters too easy for themselves wouldn't affect players in a negative way. However, we retain that this tool should be primarily used for creation, testing, and sharing. It is not logical to focus on catering to players who want to get a true tabletop feel from our tool as the tool is not designed for that purpose nor is it ever likely to be designed for that purpose. 
+		
+		Given enough development time it would be interesting to implement this functionality into our tool, but for the reasons previously mentioned it is currently and extremely low priority optional requirement. 
 		
 	\newpage
 	\section{Encounter Diagnostics (Stress-Tester)}
