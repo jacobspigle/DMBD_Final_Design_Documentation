@@ -64,6 +64,41 @@
 	captionpos=b
 }
 
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+	@ARTICLE{Dudarev1998,
+		author = {Dudarev, S. L. and Botton, G. A. and Savrasov, S. Y. and Humphreys,
+			C. J. and Sutton, A. P.},
+		title = {Electron-energy-loss spectra and the structural stability of nickel
+			oxide: An LSDA+U study},
+		journal = {Phys. Rev. B},
+		year = {1998},
+		volume = {57},
+		pages = {1505--1509},
+		month = {Jan},
+		doi = {10.1103/PhysRevB.57.1505},
+		number = {3},
+		publisher = {American Physical Society},
+		url = {http://link.aps.org/doi/10.1103/PhysRevB.57.1505}
+	}
+	@ARTICLE{Dudarev1997,
+		author = {Dudarev, S. L. and Botton, G. A. and Savrasov, S. Y. and Humphreys,
+			C. J. and Sutton, A. P.},
+		title = {Electron-energy-loss spectra and the structural stability of nickel
+			oxide: An LSDA+U study},
+		journal = {Phys. Rev. B},
+		year = {1998},
+		volume = {57},
+		pages = {1505--1509},
+		month = {Jan},
+		doi = {10.1103/PhysRevB.57.1505},
+		number = {3},
+		publisher = {American Physical Society},
+		url = {http://link.aps.org/doi/10.1103/PhysRevB.57.1505}
+	}
+\end{filecontents}
+
 \algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
 \algtext*{EndClass}
 
@@ -78,6 +113,7 @@
 
 \author{Group 42 \\ -------------------- \\Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
 \title{Critical Encounters}
+
 \begin{document}
 	
 \maketitle
@@ -89,7 +125,7 @@
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Role-playing games are games where players act as their characters. Usually in person, around a table, and controlled by the players speaking their actions in turn. This might not always be done by speaking in-character, but rather by following this basic structure:
+Role-playing games are games where players act as their characters. Usually in person, around a table, and controlled by the players speaking their actions in turn. This might not always be done by speaking in-character, but rather by following this basic structure: \cite{Dudarev1998, Dudarev1997}
 
 \begin{enumerate}
 	\item The GM describes the environment.
@@ -482,6 +518,16 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\end{tabular}
 		
 	\subsection{Server Sequence Diagrams}
+	
+	\subsubsection {Register SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_register}}
+		\caption{User Register SSD}
+		\label{fig: User Register SSD }
+	\end{figure}
+	
+	\newpage
 	\subsubsection {Encounter Search SSD}
 		\begin{figure}[H]
 			\centering
@@ -489,6 +535,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\caption{Encounter Search SSD}
 			\label{fig: Encounter Search SSD }
 		\end{figure}
+	
 	\newpage
 	\subsubsection {Encounter Feed SSD}
 		\begin{figure}[H]
@@ -497,6 +544,7 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 			\caption{Encounter Feed SSD}
 			\label{fig: Encountner Feed SSD }
 		\end{figure}
+	
 	\newpage
 	\subsubsection {Arena Subscription SSD}
 	\begin{figure}[H]
@@ -505,6 +553,53 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 		\caption{Arena Subscription SSD}
 		\label{fig: Arena Subscription SSD }
 	\end{figure}
+
+	\newpage
+	\subsection {Encounter Review SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_review}}
+		\caption{Encounter Review SSD}
+		\label{fig: Encounter Review SSD }
+	\end{figure}
+
+	\newpage
+	\subsection {Encounter Resources SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_resourses}}
+		\caption{Encounter Resourses SSD}
+		\label{fig: Encounter Resourses SSD }
+	\end{figure}
+
+	\newpage
+	\subsection {Load Arena Page/Data SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_arena}}
+		\caption{Load Arena Page/Data SSD}
+		\label{fig: Load Arena Page/Data SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Load Encounter Page/Data SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_page}}
+		\caption{Load Encounter Page/Data SSD}
+		\label{fig: Load Encounter Page/Data SSD }
+	\end{figure}
+
+	\newpage
+	\subsection {Create Encounter SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_create_enc}}
+		\caption{Create Encounter SSD}
+		\label{fig: Create Encounter SSD }
+	\end{figure}
+	
+
 \newpage
 \section{Database Design}
 \subsection {Database Diagram}
@@ -1185,15 +1280,15 @@ Our plan for testing involving all components, both the search and profile layou
 			\begin{algorithmic}[1]
 				\Function{Combatant.DecideAction}{}
 					\State \textbf{weightedAction} bestAction $\gets$ \textbf{NULL}
-					\State \textbf{double} bestWeight$\gets$ -1
+					\State \textbf{double} bestValue$\gets$ -1
 					\State \textbf{Combatant} combatantArray[] $\gets$ Encounter.combatants
 					\State \textbf{weightedAction} actionList $\gets$ FindActions(combatantArray, \textbf{this});
 					\State
 					
 					\For{action $\in$ actionList}
-						\If{action.value $>$ bestWeight}
+						\If{action.value $>$ bestValue}
 							\State bestAction $\gets$ action
-							\State bestWeight $\gets$ action.value
+							\State bestValue $\gets$ action.value
 						\EndIf
 					\EndFor
 					
@@ -1205,11 +1300,15 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		Algorithm \ref{table:Weighted Actions} details the $weightedAction$ class. This class is used to store the target-action pairs for a given combatant. It takes as input a target, acting combatant, action and weight. $actingCombatant$ is the combatant that is currently taking the described action. $target$ is a Combatant object within range of the acting combatant. $action$ is the specific attack or spell being used on the target. $value$ is the overall measure of the effective of the action being performed on the target by the acting combatant. 
 		
-		%ToDo: Paragraph leading up to code
+		The constructor for algorithm \ref{table:Weighted Actions} stores the passed in values, and calculates the expected value using $action.calcExpectedValue()$. This method calculated the average effect of the given action when used on a target by the acting combatant. For damaging actions, this can be straightforward. For some support and crowd control actions, various qualifications will have to be made ahead of time by the development team to transform any semi-complex actions into a reasonable quantifiable score.
 		
-		The constructor for algorithm \ref{table:Weighted Actions} stores the passed in values, and calculated the expected value using $action.calcExpectedValue()$. This method calculated the average effect of the given action when used on a target by the acting combatant. For damaging actions, this can be straightforward. For some support and crowd control actions, various qualifications will have to be made ahead of time by the development team to transform any semi-complex actions into a reasonable quantifiable score.
+		Algorithm \ref{table:Find Actions} begins by iterating over the list of all combatants in the encounter. For each enemy combatant in the encounter, we iterate over all abilities available to our active combatant. We then check which category the selected ability is a part of. For each category of ability, we create a new weightedAction class, passing in the ability and the target of that ability. Additionally, we pass in a weight value. For this pseudocode, we assign the weight of each type of action to be equal. In practice, the weight of each action would be adjusted to tweak the behavior of each individual unit. 
 		
-		%ToDo: More talk about algorithms? Better transition?
+		Algorithm \ref{table:Decide Action} is the primary method used by a combatant to select an action. The method iterates over the action list received from \textsc{FindActions()}, and extracts the one with the highest value. Once the action with the highest value has been determined, we execute that action with \textsc{this.doAction()}. 
+		
+		Though this approach, allows for us to ensure each combatant will frequently select a reasonably effective action each turn, the drawbacks of this approach may be in its performance. There driving loop of the \textsc{FindAction()} method is of $\mathcal{O}$(n*k), where n is the number of combatants on the encounter, and k is the number of abilities available to the acting combatant. As encounters grow longer and individual combatants acquire more abilities, the number of instructions grows quickly. This may prove to be problematic for the scalability of the system. 
+		
+		One possible solution to this approach would to be to limit the number of enemy combatant the active combatant iterates over, as well as limiting the number of abilities the active combatant iterates through. This could possibly create a limit to the number of instructions per call to \textsc{FindAction()}. 
 		
 		Another approach to the decision making would be a utility based approach. In this approach, each combatant on the field is assignment a utility rating depending on a combination of all combat related stats that combatant has. The combatant then interacts with other combatants through the comparison of their utility ratings. 
 		
@@ -1217,15 +1316,16 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		This model would make it easier to program a fairly competent A.I. as combatants would almost never pick a target that is much stronger than they are. Instead, they would choose to seek any tactical advantage they may be able to gain. Strong combatants would leverage their capabilities by quickly dispatching targets they know they can defeat. These behaviors are almost straightforward given the design of the model.
 		
-		%ToDo: More talk about utility model
-		%ToDo: Discuss not using utility model, possible drawbacks, limitations
-		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=.8]{utilityBased}
 			\caption{Utility Based Diagram}
 			\label{fig: Utility Based}
 		\end{figure}
+		
+		%ToDo: Talk more about utility based model
+		
+		Despite these benefits, we currently do not plan to implement our A.I. using a utility based model. Due to the extremely high complexity of typical tabletop role playing games, we believe that by using a behavior tree model we can maintain a large amount of flexibility over each decision the A.I. makes. It is possible that later in development we may mix these models in order to more effectively leverage each model's strengths and improve the overall user experience. 
 				
 		
 		\subsection{Unit Personalities}
@@ -1259,21 +1359,26 @@ Our plan for testing involving all components, both the search and profile layou
 					
 					\For{action $\in$ actionList}
 						\If{action.value $>$ actionList[0].value}
-							\State actionList[0] $\gets$ action
-							\State actionList.sortByWeight()
+							\State actionList[0] $\gets$ action \label{l:Push}
+							\State actionList.sortByValue() \label{l:Sort}
 						\EndIf
 					\EndFor
 					
 					
 					\State
-					\State \textbf{Action} randomAction $\gets$ actionList.getRandomAction(combatant.Intelligence)
+					\State \textbf{Action} randomAction $\gets$ actionList.getRandomAction(combatant.Intelligence) \label{l:Get}
 					\State this.doAction(randomAction.action, randomAction.target)
 				\EndFunction
 			\end{algorithmic}
 		\end{algorithm}
 		
+		Algorithm \ref{table:Decide Action} shows a modified \textsc{DecideAction()} method that selects a random action from the top 10 most viable candidates based on the combatant's intelligence rating. The first change occurs at lines \algref{table:Decide Action}{l:Push} and \algref{table:Decide Action}{l:Sort}. At lines \algref{table:Decide Action}{l:Push}, we place a new action into the head of the list only if it has a higher value than the action that is currently at the head. Next, we sort the list into ascending order by the $value$ attribute of each action. This ensures that the smallest valued actions is always at index 0, and will be replaced by any better action that is found while iterating through the list. 
+		
+		At line \algref{table:Decide Action}{l:Get} we call \textsc{getRandomAction()} and pass in the combatants intelligence rating. The \textsc{getRandomAction()} method uses the combatant's intelligence to randomly pick one of the 10 highest valued potential actions. A creature with a low intelligence is more likely to pick a lower valued action, whereas a creature with a higher intelligence is more likely to pick a higher valued action. 
+		
+		This modification to the proposed system would allow easily take into account a combatant's intelligence rating when selecting an action for them. This would enhance the feeling of role play for the system and allow users more customization over how their encounters play. 
+		
 		%ToDo: Downside is that top 10 actions may all be really good. Would need work to pick a range of actions that are reasonably spread out
-		%ToDo: Explain undefined mehotds sortByWeight() and getRandomAction()
 		
 		A potentially better but more costly solution would be to use a creature's intelligence rating in determine how many future actions they will account for when making a decision. This type of algorithm would most likely resemble a form of minimax, in which the A.I. is able to anticipate enemy moves and play accordingly. 
 		
@@ -1312,7 +1417,24 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		The simulation will consist of each member of the party being placed in the user designated spawn positions for the encounter. Once all player characters are placed, both PC and GM turns will be taken by the A.I. until either side meets their win condition, at which point the board is reset and the next party composition is tested. Once all party compositions have been tested, the diagnostic tool serves the results of the tests to the user.
 		
-		 During each test , statistics relating to the performance of each entity in the encounter will be tracked in order to provide metrics by which the user can evaluate their encounter. Statistics that will be tracked include the following:
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.8]{StressTesterTransitionDiag}
+			\caption{Stress Tester Transition Diagram}
+			\label{fig: Stress Tester Transition Diagram}
+		\end{figure}
+		
+		Figure \ref{fig: Stress Tester Transition Diagram} illustrates how the stress tester will collect data about an encounter. It begins by selecting a random composition of party members for the encounter. The number party members that will be randomized is based on how many party members the encounter creator has designated for the encounter. If the encounter creator has designated certain party members as specifically part of the encounter, then those player characters will not be randomized. 
+		
+		The stress tester then randomizes the placement of all non-static entities in the encounter. This include player characters, as well as any other random elements for which the encounter creator has not defined a static location or behavior. Enemy types, Enemy start locations, and obstacles are all elements that may be randomized during this phase. 
+		
+		After fully generating the board, the stress tester will simulate the encounter to completion. This process will have the A.I. take control of both sides, without any input from the user, until either side achieves a victory condition. This phase of the stress test will ideally happen as quickly as possible, without any visual updates for the user. 
+		
+		Finally, once the encounter has been simulated, the state of the board and all entities on it is reset and the process is begun again. If the stress tester has completed a sufficient number of cycles, this state will conclude the testing and display the results to the user. 
+		
+		It is not possible for the user to provide input of any kind until the stress testing is complete, other than to cancel an ongoing stress test. The user will not be presented with the board GUI while tests are running as it would be too fast to reasonably understand what is occurring on the screen. 
+		
+		During each test, statistics relating to the performance of each entity in the encounter will be tracked in order to provide metrics by which the user can evaluate their encounter. Statistics that will be tracked include the following:
 		 
 		\begin{itemize}
 			\item Number of kills/deaths for each non-PC entity in the encounter
@@ -1323,11 +1445,8 @@ Our plan for testing involving all components, both the search and profile layou
 			\item Turn count
 		\end{itemize}
 		
-		%ToDo: DFA for process
-		%ToDo: Paragraph explaining DFA
-		
 		\subsection{Processing}
-		%ToDo: Discuss computational power needed for this
+		%ToDo: Discuss computational power needed for this 
 		%ToDo: Client Vs. Server 
 	
 		\subsection{Results and Presentation}
@@ -1499,7 +1618,7 @@ Our plan for testing involving all components, both the search and profile layou
 \listoftables
 
 \newpage
-\bibliographystyle{}
-\bibliography{references}
+\bibliographystyle{unsrt}
+\bibliography{\jobname}
 
 \end{document}
