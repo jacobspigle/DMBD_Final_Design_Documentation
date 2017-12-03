@@ -240,7 +240,7 @@ Role-playing games are games where players act as their characters. Usually in p
 	\item The GM narrates the results of the characters actions.
 \end{enumerate}
 
-There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character?s path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
+There are countless possible character, monster, and scenario possibilities when constructing a tabletop role-playing campaign, however, it is hard and sometimes impossible to sift through them all and find the perfect encounter. Not only that,  but once you commit to a game or role-playing decision you are forced to see it through to completion in order to retain the game?s continuity. Players get one chance to design their character at the very start of a session, and once they do, that character's path cannot be meaningfully changed. Spending so much time working on a character, and then coming to the first session to find out that they are severely unprepared for the tasks they are presented can be harrowing. On the other side, the GM spends so much time outside of the game to prepare a story and encounters that challenge the Players, so when that GM accidentally wipes out the entire team of Player Characters (PCs) in one unbalanced encounter, or if the PCs simply walk through a fight that was meant to challenge them for the remainder of the session, the GM feels they have failed the PCs in presenting a good game.
 \newpage
 \chapter*{Proposed Solution}
 \stepcounter{chapter}
@@ -973,6 +973,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\item The Encounter Feed component renders a list of encounters, filtering through the database of encounters to provide only those that pertain to that feed. For instance, ``Recently Added" will be an EncounterFeedComponent rendering which lists the encounter database listed from newest to oldest.
 			\end{itemize}
 		\end{itemize}
+		\newpage
 		\subsubsection{Arena Component}
 		The Arena is a users' public profile, where they can publish their encounters for others to see and play through. It provides insights to a user's statistics across all of their encounters, as well as the encounters themselves, using these components:
 		\begin{itemize}
@@ -993,6 +994,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 				\item The Arena Stats component will render collective statistics across all a user's created encounters onto the page. It will also provide a heat map that makes class performance visually legible.	
 			\end{itemize}
 		\end{itemize}
+		\newpage
 		\subsubsection{Encounter Browser Component}
 		The Encounter Browser is where the user is directed after presenting their search in the navbar. Here, the list of encounters may be filtered even further than the original search specified, and provide insights to an encounter before navigating to its Encounter Page.
 		\begin{itemize}
@@ -1226,11 +1228,8 @@ Our plan for testing involving all components, both the search and profile layou
 		\begin{multicols}{3}
 			\begin{itemize}
 				\item Lawful Good
-				\par 
-				\item Lawful Neutral
-				\par 
+				\item Lawful Neutral 
 				\item Lawful Evil
-				\par
 				\item Neutral Good
 				\item True Neutral
 				\item Neutral Evil
