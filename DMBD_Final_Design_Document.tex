@@ -1941,7 +1941,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		In this FSM, each state that the A.I. can be in is clear. Additionally, it is obvious why the transitions between each state occurs. Given this diagram it would be very simple to actually implement an A.I. in code. 
 		
-		The drawbacks of finite state machines are that they are limited by their simplicity. The machine can only be in one state at once, which means you have to pick the states in you FSM to be states that can never occur simultaneously in your A.I. Additionally, with an FSM, you cannot look forward to future actions to make a decision. You cannot backtrack or plan ahead. 
+		The drawbacks of finite state machines are that they are limited by their simplicity. The machine can only be in one state at once, which means you have to pick the states in the FSM to be states that can never occur simultaneously in your A.I. Additionally, with an FSM, you cannot look forward to future actions to make a decision. You cannot backtrack or plan ahead. 
 		
 		These drawbacks make an FSM undesirable for a complicated A.I. such as the kind found in turn based strategy games. It is frequently useful to plan ahead in strategy games, and the opportunity to explore many options is a necessity. A more flexible model is required given the complexity of the D20 system. 
 		
@@ -1967,7 +1967,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsubsection{Utility Based Actions}
 		A utility based A.I. assigns a utility score to each major actor and uses these utility scores to decide how each actor interacts. In general, an actor with a much higher utility may choose to attack one with a very low utility. This is a straightforward choice that will likely lead to favorable results so long as the utility calculation was done well. 
 		
-		The drawback to the approach is that it is quite difficult to adapt to the D20 system, as a unit's utility is very hard to gauge accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
+		The drawback to the approach is that it is quite difficult to adapt to the D20 system, as a unit's utility is very hard to gage accurately at a given moment. For this reason, a utility driven A.I. was not truly considered for use in Critical Encounters. 
 		
 		\subsubsection{MiniMax}
 		MiniMax is a popular algorithm in game theory. It is often used in simple games like chess or checkers to calculate the strongest plays by minimizing losses and maximizing gains, although it has many uses beyond that. 
@@ -1982,7 +1982,7 @@ Our plan for testing involving all components, both the search and profile layou
 \stepcounter{chapter}
 \addcontentsline{toc}{chapter}{Project Summary and Conclusion}
 
-This project will will deliver a web application for facilitating the creation, sharing, and testing of DnD 5e combat encounters. 
+This project will will deliver a web application for facilitating the creation, sharing, and testing of d20 Game System combat encounters. 
 
 To meet the requirement of creating encounter, we propose an encounter creation module in which users will be able to visually design an encounter by placing units, obstacles, and other features. The encounter creation will be easy to use, and allow users to save all of their creations for later use. 
 
