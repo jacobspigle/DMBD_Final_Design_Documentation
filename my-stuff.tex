@@ -14,11 +14,13 @@
 \usepackage{titlesec}
 \usepackage{wrapfig}
 \usepackage{caption}
-\usepackage{geometry}
+\usepackage[left=1.5in, right=1in, top = 1in, bottom = 1in]{geometry}
 \usepackage{float}
 \usepackage[ruled]{algorithm}
 \usepackage{algpseudocode}
 \usepackage{graphicx}
+\usepackage{url}
+\usepackage{rotating}
 
 \geometry{headheight = 12pt}
 \parindent 15pt
@@ -61,6 +63,41 @@
 	captionpos=b
 }
 
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+	@ARTICLE{Dudarev1998,
+		author = {Dudarev, S. L. and Botton, G. A. and Savrasov, S. Y. and Humphreys,
+			C. J. and Sutton, A. P.},
+		title = {Electron-energy-loss spectra and the structural stability of nickel
+			oxide: An LSDA+U study},
+		journal = {Phys. Rev. B},
+		year = {1998},
+		volume = {57},
+		pages = {1505--1509},
+		month = {Jan},
+		doi = {10.1103/PhysRevB.57.1505},
+		number = {3},
+		publisher = {American Physical Society},
+		url = {http://link.aps.org/doi/10.1103/PhysRevB.57.1505}
+	}
+	@ARTICLE{Dudarev1997,
+		author = {Dudarev, S. L. and Botton, G. A. and Savrasov, S. Y. and Humphreys,
+			C. J. and Sutton, A. P.},
+		title = {Electron-energy-loss spectra and the structural stability of nickel
+			oxide: An LSDA+U study},
+		journal = {Phys. Rev. B},
+		year = {1998},
+		volume = {57},
+		pages = {1505--1509},
+		month = {Jan},
+		doi = {10.1103/PhysRevB.57.1505},
+		number = {3},
+		publisher = {American Physical Society},
+		url = {http://link.aps.org/doi/10.1103/PhysRevB.57.1505}
+	}
+\end{filecontents}
+
 \algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
 \algtext*{EndClass}
 
@@ -73,8 +110,9 @@
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
 \titlespacing*{\chapter}{0pt}{-50pt}{20pt}
 
-\author{Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
+\author{Group 42 \\ -------------------- \\Jacob Spigle, Zachary Painter, David Akridge, Hunter Figueroa}
 \title{Critical Encounters}
+
 \begin{document}
 	
 	\newpage
@@ -84,9 +122,10 @@
 	\end{wrapfigure}
 	I have been playing tabletop role-playing games for over 6 years now. They served as a creative outlet where I could experiment with new creative ideas. I prefer acting as a DM, I’ve only played a single session as a player, I loved the idea of being all powerful creator of a world that I could share with my friends. The tabletop community, namely the Dungeon \& Dragons community is like no other that I have seen before. It is composed of highly talented, highly cooperative  and interactive people who do their very best to better and expand the role playing community. For close to two years now I have put a considerable about of my free time into constructing a digital service to help this same cause. So when I heard Jacob pitch this idea, I knew it was the one for me. We’ve got something really special here, and with the team that we have I feel we can create something game changing.
 	
-	\newpage
 	\chapter*{User Interface}
-
+	\stepcounter{chapter}
+	\addcontentsline{toc}{chapter}{User Interface}
+	\section{Overall Design and Navigation Bar}
 	\begin{figure}[H]
 		\centering
 		\centerline{\includegraphics[scale=.30]{navbar}}
@@ -100,7 +139,6 @@
 		\caption{Registration Page}
 		\label{fig: Registration Page}
 	\end{figure}
-
 	\section{Login Page}
 	\begin{figure}[H]
 		\centering
@@ -108,7 +146,6 @@
 		\caption{Login Page}
 		\label{fig: Login Page}
 	\end{figure}
-
 	\section{Dashboard}
 	\begin{figure}[H]
 		\centering
@@ -116,7 +153,6 @@
 		\caption{Dashboard}
 		\label{fig: Dashboard}
 	\end{figure}
-
 	\section{Encounter Browser}
 	\begin{figure}[H]
 		\centering
@@ -124,14 +160,6 @@
 		\caption{Encounter Browser}
 		\label{fig: Encounter Browser}
 	\end{figure}
-
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=.25]{search_filtered}
-		\caption{Encounter Browser with Filter Options}
-		\label{fig: Encounter Browser with Filter Options}	
-	\end{figure}
-	\newpage
 	\section{Arena}
 	\begin{figure}[H]
 		\centering
@@ -139,7 +167,6 @@
 		\caption{Arena}
 		\label{fig: Arena}
 	\end{figure}
-
 	\section{Encounter Page}
 	\begin{figure}[H]
 		\centering
@@ -147,7 +174,7 @@
 		\caption{Encounter Page}
 		\label{fig: Encounter Page}
 	\end{figure}
-
+	
 	\newpage
 	\section{Battlefield}
 	The Battlefield is arguably the most important and most challenging frontend development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the frontend and backend are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
@@ -182,7 +209,7 @@
 		\caption{Color Scheme}
 		\label{fig: Color Scheme}
 	\end{figure}
-	When choosing a color palette to build our website, we looked around at other websites that focused on role-playing game topics and at gaming sites as well. The majority of these sites opt for a black and red/black and X style when creating their look and feel. With Critical Encounters we wanted to break a little bit out of the norm and use colors that really pop out at the user, really make an impression on them, and set ourselves a bit apart from the other cites that they have been to.
+	When choosing a color palette to build our website, we looked around at other websites that focused on role-playing game topics and at gaming sites as well. The majority of these sites opt for a black and red or some combination black and X style when creating their look and feel. With Critical Encounters we wanted to break a little bit out of the norm and use colors that really pop out at the user, really make an impression on them, and set ourselves a bit apart from the other cites that they have been to.
 
 	\newpage
 	\subsection {Logo}
@@ -192,14 +219,8 @@
 		\caption{Critical Encounters' Logo}
 		\label{fig: Critical Encounters' Logo}
 	\end{figure}
-	We wanted the logo design to accompany the overall UI design choices of the website with a more simplistic approach, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate and maybe even a bit cliché. Because of the light green color, and the contrast of our darker purple color choice with the navigation bar, this logo will "pop" on all of the views on the website(Figure \ref{fig: NavBar with Logo}). The logo can also be easily scaled to fit most container sizes, which fits in to our application's versatility between desktop and mobile browsers.
-	\bigskip
-	\begin{figure}[H]
-		\centering
-		\centerline{\includegraphics[scale=1]{navbar-logo}}
-		\caption{NavBar with Logo}
-		\label{fig: NavBar with Logo}
-	\end{figure}
+	We wanted the logo design to accompany the overall UI design choices of the website with a more simplistic approach, while also representing the RPG aspect of Critical Encounters. We decided on a helmet because it gave a little more of a human feel, we thought swords or other weapons would be too inanimate and maybe even a bit cliché. Because of the light green color, and the contrast of our darker purple color choice with the navigation bar, this logo will "pop" on all of the views on the website(Figure \ref{fig: Critical Encoutners' Logo with Background}). The logo can also be easily scaled to fit most container sizes, which fits in to our application's versatility between desktop and mobile browsers.
+
 
 	
 	\newpage
@@ -207,27 +228,26 @@
 	\stepcounter{chapter}
 	\addcontentsline{toc}{chapter}{Application Design}
 	\section {High Level Design}
-	\begin{figure}[h]
+	\begin{figure}[H]
+		\centering
 		\includegraphics[scale=.5]{designsd.png}
 		\caption{High Level Design Diagram}
 		\label{fig: High Level Design}
 	\end{figure}
 	
-	\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. 
+	\paragraph{}We will be implementing a Client-Server Design structure that is commonly used with web apps such as Critical Encounters. There are three areas of production in this high-level design: Server, Database/Rest API and Client-Side. The UI components will be developed in REACT and will control the the MVC system. Data management on the client-side will be managed by MobX and Meteor, the latter of which will server as the point of contact with the server-side of the app. The server will also be developed in Meteor, and will be responsible for contacting the database, developed in MongoDB and performing REST API commands when necessary. \par
+	The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
 	
-	\paragraph {} The relationship between client and server will be a sudo model-view-controller architecture. Where REACT will act as the as application's view and Meteor/MobX will act as both the controller and the model. Meteor with MobX will automatically manage the data flow, client state, and client rendering.
+	\section {Design Patterns}
 	
-	\section { Design Patterns }
-	
-	\begin{figure}[h]
+	\begin{figure}[H]
+		\centering
 		\includegraphics[scale=.7]{orm.png}
 		\caption{Design Pattern Figure}
-		\label{fig: Dasign Pattern }
+		\label{fig: Design Pattern Figure}
 	\end{figure}
 	
 	\paragraph{} Meteor uses implements a ORM/MERN, Object-relational mapping / MongoDB - Express - React, stack design pattern. It focuses on model driven development, in which the models are shared between the server and the client. This is seen most clearly seen in the MiniMongo database cache that is accessible by the font-end front end and can asynchronously update the MongoDb REST API is implemented automatically which translates to automatic database updates.
-	
-	
 	
 	\newpage
 	\section {Server Design}
@@ -261,16 +281,109 @@
 	\end{lstlisting}
 	
 	
-	
-	
-
+	\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+		\hline
+		\multicolumn{4}{|c|}{Meteor Database} \\
+		\hline
+		Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+		\hline
+		Afghanistan   & AF    &AFG&   004\\
+		Aland Islands&   AX  & ALA   &248\\
+		Albania &AL & ALB&  008\\
+		Algeria    &DZ & DZA&  012\\
+		American Samoa&   AS  & ASM&016\\
+		Andorra& AD  & AND   &020\\
+		Angola& AO  & AGO&024\\
+		\hline
+	\end{tabular}
 	
 	\subsection{Server Sequence Diagrams}
+	
+	\subsubsection {Register SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_register}}
+		\caption{User Register SSD}
+		\label{fig: User Register SSD }
+	\end{figure}
+	
+	\newpage
+	\subsubsection {Encounter Search SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_search}}
+		\caption{Encounter Search SSD}
+		\label{fig: Encounter Search SSD }
+	\end{figure}
+	
+	\newpage
+	\subsubsection {Encounter Feed SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_feed}}
+		\caption{Encounter Feed SSD}
+		\label{fig: Encountner Feed SSD }
+	\end{figure}
+	
+	\newpage
+	\subsubsection {Arena Subscription SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_subscribe}}
+		\caption{Arena Subscription SSD}
+		\label{fig: Arena Subscription SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Encounter Review SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_review}}
+		\caption{Encounter Review SSD}
+		\label{fig: Encounter Review SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Encounter Resources SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_resourses}}
+		\caption{Encounter Resourses SSD}
+		\label{fig: Encounter Resourses SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Load Arena Page/Data SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_arena}}
+		\caption{Load Arena Page/Data SSD}
+		\label{fig: Load Arena Page/Data SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Load Encounter Page/Data SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_encounter_page}}
+		\caption{Load Encounter Page/Data SSD}
+		\label{fig: Load Encounter Page/Data SSD }
+	\end{figure}
+	
+	\newpage
+	\subsection {Create Encounter SSD}
+	\begin{figure}[H]
+		\centering
+		\centerline{\includegraphics[scale=.7, angle=90]{ssd_create_enc}}
+		\caption{Create Encounter SSD}
+		\label{fig: Create Encounter SSD }
+	\end{figure}
+	
 	
 	\newpage
 	\section{Database Design}
 	\subsection {Database Diagram}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.4]{database_schema}
 		\caption{Databse Schema}
@@ -292,7 +405,7 @@
 	
 	Note: The { "Collection Name" } notation represents an Object.id that correlates to a MongoDB object of that collection type
 	\subsubsection{User Schema}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.75]{schema-user}
 		\caption{User Schema}
@@ -300,9 +413,10 @@
 	\end{figure}
 	
 	\paragraph{}This schema will hold basic user information: identification information (username, password), a reference to their Area (Arena), and a list of the Arenas they are subscribed to (subscriptions). This is the entrance point for all data accessible on the website. All other collections on the database are associated with at least one user object and has only one user owner/creator. All login and authentication information and routing will referenc the user collection to confirm identification. The password string will be saved as a string that has been encrypted to protect user information.
+	
 	\subsubsection{Arena Schema}
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=.75]{schema-arena}
 		\caption{Arena Schema}
@@ -416,9 +530,6 @@
 		\end{center}
 		\caption{URL Routes} \label{table: URL Routes}
 	\end{table}
-
-	
-	
 	
 	\subsection{Battlefield Modes}
 	\subsubsection{Game Mode}
@@ -431,7 +542,6 @@
 	\subsubsection{Creation Mode}
 	\subsubsection{Role: Creator}
 	There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
-	\newpage 
 	
 	\newpage
 	\subsection{Turn Structure / Order}
@@ -531,8 +641,6 @@
 			\item Ensure all encounter lists are correct in the dashboard page
 		\end{itemize}
 	\end{itemize}
-	
 
 	
-
 \end{document}
