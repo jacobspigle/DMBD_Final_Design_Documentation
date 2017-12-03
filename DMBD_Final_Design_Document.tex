@@ -589,9 +589,9 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 \newpage
 \section {Server Design}
 	\subsection{Meteor}
-		\begin{figure}{H}
+		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=.2]{meteorJS}
+			\includegraphics[scale=.4]{meteorJS}
 			\caption{Meteor.js}
 			\label{fig: Meteor.js}
 
@@ -855,7 +855,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 	
 	\subsection{Battlefield Modes}
 		\subsubsection{Game Mode}
-		This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, and view and gather data about their own encounters as well as other user's.
+		This is the main mode available in the Critical Encounters Battlefield. In this mode users will be able to play, simulate, view, and gather data about their own encounters as well as other users'. Using the Battlefield in this mode also allows creators to get aspects of muscle-memory/familiarization with the encounter, so bringing it to the table on game day is that much smoother.
 		\begin{itemize}
 			\item Role: Player
 			\begin{itemize}
@@ -865,15 +865,31 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			\begin{itemize}
 				\item Controls multiple combatants against a one or more player characters. The game master on each turn can choose to either simulate the combatant's turn or perform the actions on the combatant's turn manually using the AI. After the encounter has completed there the game master will be able to review the encounter stats and results.
 			\end{itemize}
+		\item Movement
+			\begin{itemize}
+				\item In Game Mode, clicking on a character or enemy presents the user with a highlighted area of the places a character can move during its' turn with its' base movement speed.
+			\end{itemize}
+		\item Sidebar and Combat Log
+			\begin{itemize}
+				\item In Game Mode the Battlefield's sidebar shows actions a character can make for a turn. The Combat Log presents every action, bonus action, reaction, and movement actions that have been performed by each combatant.
+			\end{itemize}
 		\end{itemize}
-	
+		\newpage
 		\subsubsection{Creation Mode}
-		In this mode of the Battlefield, users manipulate an empty board, adding and constructing resources to later publish to their own Arena for others to play.
+		In this mode of the Battlefield, users manipulate an empty board, adding and constructing resources to later publish to their own Arena for others to play. They can also save the state of their encounters to view later, and create their own characters to add to an encounter as well.
 		\begin{itemize}
 			\item Role: Creator
 			\begin{itemize}
 				\item There is only one role available for the Creation Mode: the Creator role. In this mode the user will be able to design their own encounters using the Encounter Creator Tools. Users will be able to add obstacles and combatants, as well as customize the combatants stats and AI presets. Once the user has completed creating the encounter the user may either publish the encounter, and perform Encounter Validation process or keep the encounter private for personal or invite use.
 			\end{itemize}
+			\item Saving an Encounter
+				\begin{itemize}
+					\item While using the Battlefield in Creation Mode, if for any reason the creator is not able to finish constructing an encounter in one session, they have the ability to save the current state of the unfinished encounter for later use. The user may access these encounters via their Arena, where they are listed under Unpublished Encounters. This feature could also be used to keep encounters that a user wants to keep private out of the view of the public eye.
+				\end{itemize}
+			\item Saving a Character
+				\begin{itemize}
+					\item In Creation Mode users can also create characters and enemies for use in their encounter. Characters created using the Character Creation Tool become available for use in all other encounters in the Battlefield, in Game Mode, while in Creation Mode the user has access to both their created characters and enemies.
+				\end{itemize}
 		\end{itemize}
 		
 	\newpage
@@ -1676,7 +1692,7 @@ Our plan for testing involving all components, both the search and profile layou
 		\subsection{Obstacles}
 		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliff side. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the sidebar.
 		\subsection{Encounter Rules}
-		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
+		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits, as well as limiting the users' party configuration to better test the abilities of their encounter. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
 		\subsection{Encounter Validation}
 		With the easy to use nature of the encounter creator, it may arise that an unbeatable encounter is created in the process whether there be too many enemies, too large a level difference between the party and the enemies, or even issues with the map design. As it certainly wouldn't help anyone playing an unbeatable encounter, it is best to ensure that the encounters created match reasonable standards before being posted. 
 		
