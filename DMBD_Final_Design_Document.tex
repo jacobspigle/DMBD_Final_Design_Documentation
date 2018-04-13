@@ -22,6 +22,8 @@
 \usepackage{url}
 \usepackage{cite}
 \usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \geometry{headheight = 12pt}
 \parindent 15pt
@@ -341,7 +343,7 @@ This project has the potential to broaden the audience of an already quickly exp
 	\section{Registration Page}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.20]{register}
+		\includegraphics[scale=.25]{register}
 		\caption{Registration Page}
 		\label{fig: Registration Page}
 	\end{figure}
@@ -350,7 +352,7 @@ This project has the potential to broaden the audience of an already quickly exp
 	\section{Login Page}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.20]{login}
+		\includegraphics[scale=.25]{login}
 		\caption{Login Page}
 		\label{fig: Login Page}
 	\end{figure}
@@ -389,7 +391,7 @@ This project has the potential to broaden the audience of an already quickly exp
 		\caption{Arena}
 		\label{fig: Arena}
 	\end{figure}
-	Each Critical Encounters user is provided a page to host their published encounters for the rest of the community to access, their Arena. From the Arena page (Figure \ref{fig: Arena}) is where users are redirected to encounter creation within the Battlefield by clicking the ``Create Encounter'' button on their own Arena. Users also have the ability to edit their Arena, listing their created encounters in whatever order they wish, whether done manually or by analytics (Plays, Win Rate, Rating). At the top of the Arena page is the username and profile picture of the user tied to the Arena. The Arena presents the user's creations in a list format, with pertinent information listed alongside each encounter. Number of plays, PC win rate, overall rating, and the number of comments are shown under the encounter's title and description, and to the right of a screenshot or preset image of the encounter board itself. To the right of the encounter list, additional data on the user's arena is supplied: 
+	Each Critical Encounters user is provided a page to host their published encounters for the rest of the community to access, their Arena. From the Arena page (Figure \ref{fig: Arena}) is where users are redirected to encounter creation within the Battlefield by clicking the ``Encounter'' tab on the Arena page, then clicking the `+' sign above their previously created encounters. Likewise, users can click on the ``Combatants'' tab to display their created combatants as well as create new combatants by clicking the `+' sign on the page. Users also have the ability to edit their Arena, listing their created encounters in whatever order they wish, whether done manually or by analytics (Plays, Win Rate, Rating). At the top of the Arena page is the username and profile picture of the user tied to the Arena. The Arena presents the user's creations in a list format, with pertinent information listed alongside each encounter. Number of plays, PC win rate, overall rating, and the number of comments are shown under the encounter's title and description, and to the right of a screenshot or preset image of the encounter board itself. To the right of the encounter list, additional data on the user's arena is supplied: 
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item Number of Encounters
@@ -403,7 +405,7 @@ This project has the potential to broaden the audience of an already quickly exp
 	\section{Encounter Page}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.20]{encounter}
+		\includegraphics[scale=.4]{encounter}
 		\caption{Encounter Page}
 		\label{fig: Encounter Page}
 	\end{figure}
@@ -425,7 +427,7 @@ This project has the potential to broaden the audience of an already quickly exp
 The Battlefield is arguably the most important and most challenging front-end development we must complete. The Battlefield is where users will create, edit, and play their encounters. Because of its importance we have put a lot of thought into the requirements, design, and implementation plans. Both the front-end and back-end are working closely on this component because the battlefield is the stage that our AI will be able to show its capabilities.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{encountercreator}
+	\includegraphics[scale=.4]{encountercreator}
 	\caption{Battlefield Prototype}
 	\label{fig: Battlefield Prototype}
 \end{figure}
@@ -435,8 +437,8 @@ The board is where all the environment, obstacles, and combatants are rendered. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=.5]{encountercreatorsidebar}
-	\caption{Battlefield Prototype Sidebar}
-	\label{fig: Battlefield Prototype Sidebar}
+	\caption{Battlefield Sidebar}
+	\label{fig: Battlefield Sidebar}
 \end{figure}
 \subsection {Sidebar}
 In the sidebar the user can view a combated or obstacles description and statistics. If the user selected a combatant the user will also be able to browse the combatants actions and on the combatants turned use those actions in combat. The sidebar is also where the user will control his combatant honest turn in combat whether it involves rolling initiative, performing actions, adjusting equipment and stats, or ending the turn itself. The sidebar will also be used in the creation mode of the battlefield. In the sidebar the user will be able to search, select, in drag combatants and obstacles onto the battlefield. They can also view and edit any of the stats using a form contained in the sidebar, under the Character Creation Tools menu. Here will also be where the user can make adjustments to combatant AI whether it's setting its aggressiveness level or selecting one of our built in my presets. In other words the sidebar is where the user will manage all the details of the encounter in both creation and playing modes. 
@@ -513,6 +515,8 @@ This project will be a hurdle for everyone on the team as we are diving into inf
 	Critical Encounters is going to require many moving pieces working together to deliver the product we intended. The original goal of the project was to create a platform that allowed users to create, test, and share encounters with other users. In order to satisfy this goal, these pieces have been individually broken down below:
 		\subsection{Encounter Creation}
 		The creation of the encounter itself is one of the fundamental functions of Critical Encounter. The Encounter Creator is going to be an easy to use platform that users can create encounters by drag and dropping entities onto an interactive virtual board that acts as the role-playing game's encounter arena. This will also require the ability to have specific variables relating to player characters, enemy characters, and obstacle objects. The ability to alter enemy statistics and behavior are also necessary.
+		\subsection{Combatant Creation}
+		Users can create their own combatants for use of testing an encounter against a given party member, or for pitting their creation against another users' created encounter. Combatants are created using the d20 Game System rules, along with a list of starting actions available to every created combatant to allow for full customization.
 		\subsection{Battle \& Diagnostic Tool}
 		Once an encounter is created, the user has the ability to play through the encounter as the player character while Critical Encounter controls the enemy AI. The encounter will follow the standard d20 rule set to provide as realistic of an encounter experience as possible, in order to give the GM a good idea of how the encounter plays out (not to mention that it's fun).
 		
@@ -1704,7 +1708,7 @@ Our plan for testing involving all components, both the search and profile layou
 		The encounter map starts as a large blank grid, and per the d20 Game System, each square will represent a 5ft x 5ft space for movement/scaling purposes. The map is where the encounter actually occurs, holding all the players, enemies, and objects within the map. The map also help the user to visualize the play area better (which is not a required thing but helps to improve the game experience).
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=.5]{encountermap}
+			\includegraphics[scale=.5]{environment}
 			\caption{Encounter Map}
 			\label{fig: Encounter Map}
 		\end{figure}
@@ -1716,9 +1720,24 @@ Our plan for testing involving all components, both the search and profile layou
 			\bigskip
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.7]{sidebaritemmenu}
-				\caption{Sidebar with Item Menu}
+				\begin{subfigure}{.3\textwidth}
+				\centering
+				\includegraphics[scale=.7]{sidebarcombatantsmenu}
+				\caption{Combatants Menu}
 				\label{fig: Sidebar with Item Menu}
+				\end{subfigure}%
+				\begin{subfigure}{.3\textwidth}
+				\centering
+				\includegraphics[scale=.7]{sidebarobstaclesmenu}
+				\caption{Obstacles Menu}
+				\label{fig: Obstacles Menu}
+				\end{subfigure}%
+				\begin{subfigure}{.3\textwidth}
+				\centering
+				\includegraphics[scale=.7]{sidebarspawnsmenu}
+				\caption{Spawn Menu}
+				\label{fig: Spawn Menu}
+				\end{subfigure}
 			\end{figure}
 			\newpage
 			\subsubsection{Enemy Stats}
@@ -1726,18 +1745,9 @@ Our plan for testing involving all components, both the search and profile layou
 			\bigskip
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.7]{sidebarenemystats}
+				\includegraphics[scale=.4]{sidebarenemystats}
 				\caption{Sidebar with Enemy Stats}
 				\label{fig: Sidebar with Enemy Stats}
-			\end{figure}
-			\newpage
-			\subsubsection{Character Creation Tool}
-			The Character Creation Tools menu in the sidebar will expand when clicked to reveal all the parameters that are necessary to make a base character. We have opted out of including sections for roleplay aspects at the moment (Personality Traits, Ideals, Bonds, Flaws, etc.), and instead will focus on the ability scores, class, level, background (for ability proficiency purposes), race, and alignment. Equipment can be added to a character's stat sheet using the tool as well. Spells will added to a character's spell list via a dropdown menu, clicking ``Add" after each addition. Feats can also be added to a character's stat sheet in the same manner.
-			\begin{figure}[H]
-				\centering
-				\includegraphics[scale=.7]{charactercreationtool}
-				\caption{Sidebar with Character Creation Tool}
-				\label {fig: Character Creation Tool}
 			\end{figure}
 			\newpage
 			\subsubsection{Encounter Diagnostic Tool}
@@ -1758,10 +1768,15 @@ Our plan for testing involving all components, both the search and profile layou
 		Obstacles can include many different objects within the creator, but it essentially breaks down to blocking spaces from the players/enemies from entering. These obstacles can be fallen trees, boulders, caravans, walls, doors, pillars, etc. In addition to providing cover to PCs behind these objects, objects could also be set to do damage to a PC, i.e. a boulder falling from a cliff side. Certain objects will have attributes that are able to be altered such as doors being open/closed, locked/unlocked and these can all be accessed by the sidebar.
 		\subsection{Encounter Rules}
 		The GM can set specific rules within the encounter for players to abide by. These include configurations such as level caps and party size limits, as well as limiting the users' party configuration to better test the abilities of their encounter. This allows the GM to fine tune the encounter to very specific qualities that will allow them to further tweak and perfect their vision.
-		\subsection{Encounter Validation}
-		With the easy to use nature of the encounter creator, it may arise that an unbeatable encounter is created in the process whether there be too many enemies, too large a level difference between the party and the enemies, or even issues with the map design. As it certainly wouldn't help anyone playing an unbeatable encounter, it is best to ensure that the encounters created match reasonable standards before being posted. 
-		
-		Prior to being posted onto the encounter browser or made public in the player's arena, the encounter must pass the encounter validation. This is the requirement of the user creating the encounter to play through the encounter themselves and emerge victorious. This verifies that there is indeed a way for other users to make their way through and also beat the encounter. Once beaten by the creator, the encounter will become "validated" and will appear in the encounter browser provided that the encounter was made public by the user.
+	\newpage
+	\section{Character Creation Tool}
+	The Character Creation Tools page will expand when the `+' is clicked on a user's Arena page to reveal all the parameters that are necessary to make a base character. We have opted out of including sections for roleplay aspects at the moment (Personality Traits, Ideals, Bonds, Flaws, etc.), and instead will focus on the ability scores, class, level, background (for ability proficiency purposes), race, and alignment. Actions, which include Weapons, Spells, and general combat actions can be added to a character's stat sheet using the tool by clicking `+' next to each. Feats can also be added to a character's stat sheet in the same manner.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.55]{charactercreationtool}
+		\caption{Sidebar with Character Creation Tool}
+		\label {fig: Character Creation Tool}
+	\end{figure}
 	\newpage	
 	\section{Navigation}
 	Streamlined navigation will be vital in our efforts to make Critical Encounters as user friendly as possible. We have limited Critical Encounters to a very few amount of pages to not bog down the user experience and to emphasize the main functions of the project.
@@ -1800,7 +1815,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\label{fig: Dashboard to Browser}
 		\end{figure}
 		\subsection{Arena}
-		From the dashboard, the user can access the arena page by clicking the arena tab underneath the dashboard tab on the left side of the page. Within the arena page, the user will see a list of their created encounters, buttons for editing/creating encounters, a notification section, and a heat map detailing their encounter's stats.
+		From the dashboard, the user can access the arena page by clicking the arena tab underneath the dashboard tab on the left side of the page. Within the arena page, the user will see a list of their created encounters, buttons for editing/creating encounters and combatants, and a history of played encounters for browsing post-game.
 		\begin{figure}[H]
 			\centering
 			\centerline{\includegraphics[scale=.16]{arenaNav}}
@@ -1841,7 +1856,7 @@ Our plan for testing involving all components, both the search and profile layou
 			\caption{Encounter to Battlefield Process}
 			\label{fig: Encounter to Battlefield}
 		\end{figure}
-		From the Arena, the user can select the "Create Encounter" button located to the right of the "User's Arena" Title. By clicking this button, this brings the user to the battlefield in Encounter Creator mode. 
+		From the Arena, the user can select the `+' button located to the right of the "User's Arena" Title. By clicking this button, this brings the user to the battlefield in Encounter Creator mode. 
 		\begin{figure}[H]	
 			\centering
 			\centerline{\includegraphics[scale=.16]{battlefieldArenaNav}}
