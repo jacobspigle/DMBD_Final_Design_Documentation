@@ -137,9 +137,159 @@ Meteor uses an ORM/MERN, Object-relational mapping / MongoDB
 - Express - React, stack design pattern. It focuses on model driven development,
 in which the models are shared between the server and the client. This
 is seen most clearly seen in the MiniMongo database cache that is accessible by
-the font-end front end and can asynchronously update the MongoDb REST API
+the font-end front end and can asynchronously update the MongoDB REST API
 is implemented automatically which translates to automatic database updates.
 
+\section{D20 Game System}
+Critical Encounters' logic and customization is built around the d20 Game System, an open-license set of rules and statistics that can be used for creating tabletop games or in our case, applications that assist users using this system. There are many popular games that use this system, the most famous being Dungeons \& Dragons, Pathfinder, and more recently: Starfinder. \par
+The d20 game system has variations from game to game whether it be changes
+to name, function, or practicality. Despite this, generally many the main qualities
+that the game styles have don’t tend to stray too far from one another. While on
+this project, it is crucial that Critical Encounters should provide a broad enough
+experience to appease the largest portion of d20 games as possible so that players
+can apply their encounters to whatever d20 system they’d like. \par
+More information about the d20 game system is available in \cite{c4}.
+
+\section{Major Components}
+A website is a multifaceted system created through many different aspects of web development. These aspects include web design, web publishing, web programming, and database management. Development of a web application utilizes these same aspects. Here we will cover the UI, Application Design, A.I..
+\subsection{UI}
+The approach we took to user interface (UI) design was focused on a simplistic
+and familiar look and feel to allow for easy accessibility to new users while the
+website itself still retaining focus on the encounter tester. The template the website
+utilizes is reminiscent of the design that many social media sites take. Take for
+instance sites like Twitter, Facebook, and YouTube.
+\subsubsection{NavBar}
+The site also uses the the single-page application structure that allows for easy
+traversal. The persistent navigation bar has Critical Encounters’
+name and logo in the top left of each page which redirects users back to the homepage,
+a search bar in the top of each page which redirects users to the Encounter
+Browser page, and the user’s username in the top right of each page that links to
+the user’s Arena.
+\subsubsection{Login/Registration}
+The registration page for Critical Encounters requires the user’s
+desired username, their email address, and their password. Users are directed to
+the registration page from the Dashboard or from clicking the “Register” link on
+the login page. The login page for Critical Encounters prompts users for their
+credentials to log in. Beneath the username/email address \& password fields is a
+“Register” link to the registration page and a “Forgot Password?” to a password
+retrieval service. Users are directed to the login page by clicking the “Login” link
+on the navbar, or after attempting to access content that requires an account. (i.e.
+accessing the Battlefield, Arena, subscribing, reviewing, etc.)
+\subsubsection{Dashboard}
+The Critical Encounters’ Dashboard features notable encounters,
+updates, and community events in the highlight wheel at the forefront of the page.
+Below the highlight wheel is a list of recommended encounters that either we the
+developers suggest to the community, or recommended list that is influenced by
+the user’s recent search history.
+The Dashboard doubles as a homepage for the Critical Encounters website.
+\subsubsection{Encounter Browser}
+The Critical Encounters’ Encounter Browser acts as a search results
+page for queries entered in the search bar. From this page a list of filtered
+encounters is presented to the user. The user may also filter those results further
+by selecting settings from the dropdown menu revealed by the ’Filter’ button.
+Through this process we can be sure to provide users with encounters that help
+with creation or spark their own imagination.
+\subsubsection{Arena}
+Each Critical Encounters user is provided a page to host their published encounters
+for the rest of the community to access, their Arena. From the Arena
+page is where users are redirected to encounter creation within the
+Battlefield by clicking the “Encounter” tab on the Arena page, then clicking the
+‘+’ sign above their previously created encounters. Likewise, users can click on
+the “Combatants” tab to display their created combatants as well as create new
+combatants by clicking the ‘+’ sign on the page. Users also have the ability to edit
+their Arena, listing their created encounters in whatever order they wish, whether
+done manually or by analytics (Plays, Win Rate, Rating).
+\subsubsection{Encounter Page}
+Each encounter created in Critical Encounter is given an encounter page, from
+which user’s navigate to in order to start playing the encounter. At the top of the
+encounter page is the encounter’s name, followed by the username of its’ creator. The encounter page also includes a description of the encounter as well as statistics aggregated from playthroughs.
+\subsubsection{Battlefield}
+The Battlefield is where users will create, edit,
+and play their encounters. Because of its importance we have put a lot of thought
+into the requirements, design, and implementation plans. Both the front-end and
+back-end work closely on this component because the battlefield is the stage
+that our AI will be able to show its capabilities.
+\begin{itemize}
+	\item \textit{Board:} The board is where all the environment, obstacles, and combatants are rendered.
+	The board is a 2D top down arena, inspired by popular strategy games
+	such as Civilization. The board is composed of checkerboard likes faces Each of
+	which represent 5 feet of space in the game world. Obstacles and combatants will
+	be rendered inside of these spaces. Obstacles and combatants can be hovered over,
+	selected, as well as be clicked and dragged into other spaces within the combatants
+	movement range. If one of the combatants or obstacles are clicked their details
+	and descriptions will appear in the sidebar. \\
+	\item \textit{Sidebar:} In the sidebar the user can view a combated or obstacles description and statistics.
+	If the user selected a combatant the user will also be able to browse the combatants
+	actions and on the combatants turned use those actions in combat. The
+	sidebar is also where the user will control his combatant honest turn in combat
+	whether it involves rolling initiative, performing actions, adjusting equipment and
+	stats, or ending the turn itself. The sidebar will also be used in the creation mode
+	of the battlefield. In the sidebar the user will be able to search, select, in drag
+	combatants and obstacles onto the battlefield. They can also view and edit any
+	of the stats using a form contained in the sidebar, under the Character Creation
+	Tools menu. Here will also be where the user can make adjustments to combatant
+	AI whether it’s setting its aggressiveness level or selecting one of our built in my
+	presets. In other words the sidebar is where the user will manage all the details
+	of the encounter in both creation and playing modes. \\
+	\item \textit{Battle Log:} The Battle Log is where all of the messages attached to combat an
+	encounter actions will be displayed. They will supply the user with an up-to-date
+	text rendition of the encounter. It includes messages like, ”The Goblin struck
+	the cleric with a sword dealing 5 points of slashing damage”, ”The wizard cast
+	Firebolt at the ogre but it missed”, and ”The Rogue hides behind the barrel the
+	dragon does not seem to notice him”. Early on in the Battle Log implementation
+	we plan for very simple straightforward statistical messages that will aid us during
+	testing and AI development. However we are planning to expand this feature to
+	aid in role-play. We feel that having more colorful destruction of the actions
+	occurring in the encounter will add another layer of fun for the user.
+\end{itemize}
+\subsection{Application Design}
+This section describes the Critical Encounters web applications' server, database, \& client side design.
+\subsubsection{Server Design}
+Critical Encounters uses Meteor, a full-stack JavaScript platform for developing modern web and mobile
+applications. Meteor includes a key set of technologies for building connected client
+reactive applications, a build tool, and a curated set of packages from the
+Node.js and general JavaScript community. With Meteor, we are able to offer users a friendly view of the Mongo database, as well as the means to modify that persistent set of data \cite{c1}. On the client, there is no direct connection to the MongoDB database.
+Instead, on the client, a collection is a client side cache of the database. This is
+achieved thanks to the MiniMongo library—an in-memory, all JS, implementation
+of the MongoDB API. When a collection is created on the database using MongoDB's API in the client code and tied to a variable, we are able to send queries and updates to the database \cite{c1}.
+\subsubsection{Database Design}
+Data inside MongoDB is kept flexible, so schema are not set in stone \cite{c2}. The ``Collections'' are implemented using our Meteor syntax and design, with instantiation including a field name and matching field type (String, Boolean, Object) with optional requirements or parameters (regex: SimpleSchema.RegEx.Id). In our collections, the `Name' field represents an Object.id that correlates to a MongoDB object of that collection type. We have developed schema for the following:
+\begin{itemize}
+	\item \textit{User Schema:} Holds basic user information such as identification (username, password), reference to their personal Arena, and their subscriptions.
+	\item \textit{Arena Schema:} Holds Arena name, reference to creator (user), list of encounters created in the arena, list of user-created combatants, list of references to users that subscribe to this arena.
+	\item \textit{Encounter Schema:} Holds name, description, creator (user), an array of obstacles, an array of combatants, and the board size. It also holds statistical information on the encounter such as the number of plays, number of PC deaths and NPC deaths as well as the most damage done and taken by a single combatant.
+	\item \textit{Combatant Schema: } Holds base stats, bonuses, actions, name, description (class, race, sub-race, alignment, etc.)
+	\item \textit{Obstacle Schema:} Holds a variable to distinguish the space it is held in to give it a `passable' or `impassable' flag.
+	\item \textit{Action Schema:} Holds name, description, type, effect(s), as well as phrases to use in the Battle Log when performing the action. Each action also contains the requirement for a combatant to equip it, to keep in line with the d20 game system outline.
+	\item \textit{Effect Schema: } Holds type of action, stat effected (health, strength, etc.), and damage type. These effects are tied to Actions, so potentially an action can have multiple effects during use.
+\end{itemize}
+\subsubsection{Client Side Design}
+\begin{itemize}
+	\item \textit{URL and Routing:} Meteor's FlowRouter is relatively straight forward and is composed of two main components,
+	the URL and the action. In short when the URL is accessed by the
+	browser the action is triggered. In our case the action method will most likely be
+	a ReactLayout render call to render react components associated with that route
+	to the view.
+		\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ |p{2.5cm}|p{4cm}| } 
+				\hline
+				URL Route: & Purpose: \\
+				\hline
+				/dashboard & Dashboard page \\
+				/account & User account information\\
+				/encounter-finder/:query & Search result page search bar  \\
+				/arenas/:arenaName & Area with specified Arena name  \\
+				/encounters/:id & Encounter with specified id \\
+				/battlefield/creator/:id & Battlefield in creator mode with given encounter id \\
+				/battlefield/player/:id & Battlefield in player mode with given encounter id \\
+				/battlefield/master/:id & Battlefield in master mode with given encounter id \\	
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{URL Routes} \label{fig: URL Routes}
+	\end{table}
+\end{itemize}
 \section{Conclusions}
 
 Tabletop games bring people together in a world where physical interaction is
@@ -165,7 +315,10 @@ whom they have played and shared content with.
 
 \begin{thebibliography}{99}
 
-\bibitem{c1} 
+\bibitem{c1} T. Coleman 2016. 'Meteor API Docs'. http://docs.meteor.com/.
+\bibitem{c2} 'MongoDB Documentation'. https://docs.mongodb.com/. 2017.
+\bibitem{c3} Michel Weststrate 2017. 'MobX'. https://mobx.js.org/.
+\bibitem{c4} Wizards of the Coast 2016. 'Systems Reference Document (SRD). http://dnd.wizards.com/articles/features/systems-reference-document-srd.
 
 \end{thebibliography}
 
