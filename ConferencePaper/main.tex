@@ -199,6 +199,15 @@ the “Combatants” tab to display their created combatants as well as create n
 combatants by clicking the ‘+’ sign on the page. Users also have the ability to edit
 their Arena, listing their created encounters in whatever order they wish, whether
 done manually or by analytics (Plays, Win Rate, Rating).
+\subsubsection{Combatant Creation}
+The Combatant Creation tab will expand when the ‘+’ is clicked on a
+user’s Arena page to reveal all the parameters that are necessary to make a base
+character. We have opted out of including sections for roleplay aspects at the
+moment (Personality Traits, Ideals, Bonds, Flaws, etc.), and have instead focused
+on the ability scores, class, level, background (for ability proficiency purposes),
+race, and alignment. Actions, which include Weapons, Spells, and general combat
+actions can be added to a character’s stat sheet using the tool by clicking ‘+’ next
+to each. Feats can also be added to a character’s stat sheet in the same manner.
 \subsubsection{Encounter Page}
 Each encounter created in Critical Encounter is given an encounter page, from
 which user’s navigate to in order to start playing the encounter. At the top of the
@@ -278,7 +287,7 @@ Data inside MongoDB is kept flexible, so schema are not set in stone \cite{c2}. 
 				\hline
 				/dashboard & Dashboard page \\
 				/account & User account information\\
-				/encounter-finder/:query & Search result page search bar  \\
+				/encounter-finder/:query & Search result page  \\
 				/arenas/:arenaName & Area with specified Arena name  \\
 				/encounters/:id & Encounter with specified id \\
 				/battlefield/creator/:id & Battlefield in creator mode with given encounter id \\
@@ -290,6 +299,185 @@ Data inside MongoDB is kept flexible, so schema are not set in stone \cite{c2}. 
 		\caption{URL Routes} \label{fig: URL Routes}
 	\end{table}
 \end{itemize}
+
+\subsubsection{React Components}
+The React JavaScript library is a tool used by developers used for building user
+interfaces. When developing in React, most of the resources you create and utilize
+are ``components''. A component is basically a function that takes read-only values
+called ``props'' and returns the actual visuals that should be rendered. One of the
+greatest advantages about using components is that they allow us to split the
+UI modularly, so any components that are commonly used in Critical Encounters
+can be reused. Components are
+also able to refer to and integrate other components in their own infrastructure.
+Working with nested components like this is better done in a class so it is more
+reusable. When this is done, the class extends the React component, and we create
+a render function to return when the class is used. \par
+The render function of the component’s class is populated with JavaScript
+mixed with HTMLstyle code, or more easily recognized as JSX syntax. Our React
+components will also utilize ``Lifecycle'' functions, so when resources taken
+by components are destroyed, they are deallocated afterwards. The functions
+are commonly referred to in React applications as componentDidMount() (to
+signify rendering has occurred) and componentWillUnmount() to signify the
+component is unused or has been removed. \par
+A ``state'' is used in React to represent values in a component that is subject
+to change. Specifically, in our application an object that is a “state” object will
+directly influence what view is rendered on the screen. This is because a state
+object is updated in a component as soon as it is changed, and that component
+is rendered again on-screen. Note that the way we develop in react is modularly
+fashioned, so as individual components are rendered, those components that are
+unchanged by any state updates are left alone, they will not be re-rendered until
+something in their scope of states has changed. \cite{c5}
+
+\subsection{A.I.}
+Because Critical Encounters supports one user controlled side at any one time, we have implemented an A.I. capable of controlling either the GM or PC actions. The
+A.I. must be versatile enough to play either role with an average measure of
+competency. It is not important that the A.I. makes the optimal tactical decision
+looking ahead to the future, as this would conflict with the role-playing nature of the d20 system, instead it will find the actions available to it, and choose the best immediate action from that list.
+If the user is controlling the PCs, the A.I. controls all other allied, neutral
+and hostile units on the board that are not one of the PCs. If the user is controlling
+the GM, the A.I. controls the PCs only. This follows the traditional design of
+the the d20 Game System’s combat rules. In the case that the A.I. must control
+two units, one that is hostile to the PCs and one that is in alliance with them, the
+A.I. takes the actions that are in the best interest of the unit it is controlling
+for that action, regardless of whether or not that action is in the interest of the
+side that the A.I. is primarily controlling.
+\subsubsection{Decision Making}
+The decision making for the combat A.I. is modeled as a behavior tree. In order to help separate the different types of actions a given unit can make
+on their turn, all possible actions are sorted into one of the following categories:
+\begin{itemize}
+	\item \textit{Support:}  A support action is any action that provides a stat buff to a
+	friendly unit. Given two different possible support actions, the more effective
+	action is considered the one to have the highest expected value. The
+	expected value of a support action is calculated using the anticipated increase
+	in combat effectiveness of the unit targeted by the support action.
+	\item \textit{Crowd Control:} A crowd control action is any action that provides a
+	debuff to an enemy target. The expected value of a crowd control action is
+	calculated using the anticipated decrease in combat effectiveness of the unit
+	targeted by the crowd control action.
+	\item \textit{Damage:} Damage based attack are attacks in which the primary goal is
+	to inflict damage directly, and not as a side-effect to one of the previously
+	mentioned categories of actions. If a spell or attack deals both damage and
+	provides either support or crowd control, that spells non-damaging effects
+	will be considered when calculating the overall damage potential for the
+	action.
+\end{itemize}
+\par
+During each action, a combatant will calculate their expected performance in
+each category with their given stats, abilities, and board state. This value will
+then be used to select a satisfactory combat action and target to receive the action.
+The following is a behavior tree modeling the decision making process for a
+generic combat unit:
+\begin{figure}[H]
+	\centering
+	\centerline{\includegraphics[scale=.35]{behavior_tree}}
+	\caption{Behavior Tree}
+	\label{fig: Behavior Tree}
+\end{figure}
+Figure \ref{fig: Behavior Tree} highlights the flow of decisions the A.I. will make before arriving
+at an action. In this tree, each node represents a calculation that will affect the
+branch that is taken, and each leaf represent an action.
+\begin{figure}[H]
+	\centering
+	\centerline{\includegraphics[scale=.37]{algorithm_1}}
+	\caption{Algorithm 1}
+	\label{fig: Algorithm 1}
+\end{figure}
+Algorithm 1 details the \textit{weightedAction} class. This class is used to store the
+target-action pairs for a given combatant. It takes as input a target, acting combatant,
+action and weight. \textit{actingCombatant} is the combatant that is currently
+making the described action. \textit{target} is a \textit{Combatant} object within range of the acting combatant. \textit{action} is the specific attack or spell being used on the target.
+\textit{value} is the overall measure of the effective of the action being performed on the
+target by the acting combatant.
+
+\begin{figure}[H]
+	\centering
+	\centerline{\includegraphics[scale=.37]{algorithm_2}}
+	\caption{Algorithm 2}
+	\label{fig: Algorithm 2}
+\end{figure}
+Algorithm 2 begins by iterating over the list of all combatants in the encounter.
+For each enemy combatant in the encounter, we iterate over all abilities available
+to our active combatant. We then check which category the selected ability is
+a part of. For each category of ability, we create a new \textit{weightedAction} class,
+passing in the ability and the target of that ability. Additionally, we pass in a
+weight value. For this pseudocode, we assign the weight of each type of action to
+be equal. In practice, the weight of each action would be adjusted to tweak the
+behavior of each individual unit.
+
+\begin{figure}[H]
+	\centering
+	\centerline{\includegraphics[scale=.37]{algorithm_3}}
+	\caption{Algorithm 3}
+	\label{fig: Algorithm 3}
+\end{figure}
+Algorithm 3 is the primary method used by a combatant to select an action.
+The method iterates over the action list received from \textit{FindActions()}, and extracts
+the one with the highest value. Once the action with the highest value has
+been determined, we execute that action with \textit{this.doAction()}.
+
+\begin{figure}[H]
+	\centering
+	\centerline{\includegraphics[scale=.37]{algorithm_4}}
+	\caption{Algorithm 4}
+	\label{fig: Algorithm 4}
+\end{figure}
+
+We developed an algorithm for better choosing an action for an A.I. combatant to take, detailed in Algorithm \ref{fig: Algorithm 4}. It shows a modified\textit{ DecideAction()} method that selects a random
+action from the top 10 most viable candidates based on the combatant’s intelligence
+rating. This is currently not supported in our A.I. algorithm but we felt it was important to note that it is possible in the future of Critical Encounters.
+
+\subsubsection{Encounter Diagnostic Tool}
+The Encounter Diagnostic Tool, or EDT, will be a feature available to
+users of the website to evaluate their encounter designs and receive highly detailed
+evaluation based on a variety of metrics. Because combat in the d20 Game System
+is quite extensive and highly open ended, it is unlikely that a user seeking to
+create a well balanced and fluid encounter will be able to do so with some trial
+and error. Instead of manually playing the encounter repeatedly with multiple
+variations to check for weaknesses in the design, users will be able to run the
+built in EDT to automatically generate useful information
+regarding their encounter.
+\begin{itemize}
+	\item \textit{Interface:} The user will be able to access the interface for the EDT
+	from within the encounter page, accessing the different parameters in the sidebar.
+	The EDT option will only be available on encounters that
+	the user has created, which is why we placed it in the encounter creator itself.
+	Once the user has entered the parameters to run the EDT, they
+	will be prompted to enter details necessary to configure the tests.
+	\item \textit{Diagnostics Measurement:} When activated, the EDT will generate a set of valid party
+	member compositions that meet both the restrictions of the encounter as well as
+	the additional restrictions provided by the user during configuration. A party
+	composition is a collection of player characters that will be placed on the field of
+	play at the start of the encounter. The EDT will generate one party
+	composition per iteration of the test. Once all party compositions are generated,
+	the diagnostic tool will simulate the encounter one time for each party composition.
+	The simulation will consist of each member of the party being placed in the
+	user designated spawn positions for the encounter. Once all player characters
+	are placed, both PC and GM turns will be taken by the A.I. until either side
+	meets their win condition, at which point the board is reset and the next party
+	composition is tested. Once all party compositions have been tested, the diagnostic
+	tool serves the results of the tests to the user. It is not possible for the user to provide any input once the EDT has started, and an animation will play as the testing occurs to provide the user proof that the EDT is progressing. During each test, statistics relating to the performance of each entity in the
+	encounter will be tracked in order to provide metrics by which the user can evaluate
+	their encounter. Statistics that will be tracked include the following: Number of kills/deaths for each non-PC entity, number of kills/deaths by each PC entity, overall win rate of PC vs. GM, most damage given/taken, turn count, and a heat map to visualize where the most action has taken place.
+	\item \textit{Results and Presentation:} One all simulations are complete and the data has been collected, it must be
+	processed into a form that is quick and easy to understand. Each statistics that
+	was tracked on a per-encounter basis will be aggregated into an average value and
+	presented to the user in a separate window. These average values will highlight
+	at a glance measurements such as the average length of each encounter, which
+	enemies are the most dangerous, how difficult the overall encounter is, and which
+	abilities are the most effective in the encounter. Additionally, a heat map will be
+	generated using the location of kills made on the map across all simulations. This
+	heat map will indicated to the user the general flow of combat, which can be used
+	to help fine tune the encounter and improve overall quality.
+\end{itemize}
+After an encounter has been perfected by the user using the Battlefield in
+Creation Mode users have the option to post it into their public Arena page for
+other users’ to experience. Once it has been published to an Arena, the encounter
+may be accessed via the Encounter Browser. The browser functions as a search bar
+that allows users to find encounters made by other members of Critical Encounters.
+Encounters can be located by matching the keywords the user searches with the
+keywords associated with the encounter. These keywords can include the name
+of the encounter, the type of encounter, location, level range, party size, difficulty
+level, etc.
 \section{Conclusions}
 
 Tabletop games bring people together in a world where physical interaction is
@@ -319,6 +507,7 @@ whom they have played and shared content with.
 \bibitem{c2} 'MongoDB Documentation'. https://docs.mongodb.com/. 2017.
 \bibitem{c3} Michel Weststrate 2017. 'MobX'. https://mobx.js.org/.
 \bibitem{c4} Wizards of the Coast 2016. 'Systems Reference Document (SRD). http://dnd.wizards.com/articles/features/systems-reference-document-srd.
+\bibitem{c5} B. Vaughn 2017. 'Hello World'. https://reactjs.org/docs/hello-world.html.
 
 \end{thebibliography}
 

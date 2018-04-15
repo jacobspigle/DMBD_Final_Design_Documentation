@@ -948,7 +948,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			return (
 				<div className = "App">
 					<header className = "App-header">
-						<h1 className = "App-title">Welcome to Critical Encoutners!</h1>
+						<h1 className = "App-title">Welcome to Critical Encounters!</h1>
 					</header>
 				</div>
 			);
@@ -968,7 +968,7 @@ This schema describes an armor that can be equipped by a combatant. Armor is ref
 			return (
 				<div className = "App">
 					<header className = "App-header">
-						<h1 className = "App-title">Welcome to Critical Encoutners!</h1>
+						<h1 className = "App-title">Welcome to Critical Encounters!</h1>
 					</header>
 				</div>
 			);
@@ -1521,7 +1521,7 @@ Our plan for testing involving all components, both the search and profile layou
 		
 		Algorithm \ref{table:Find Actions} begins by iterating over the list of all combatants in the encounter. For each enemy combatant in the encounter, we iterate over all abilities available to our active combatant. We then check which category the selected ability is a part of. For each category of ability, we create a new weightedAction class, passing in the ability and the target of that ability. Additionally, we pass in a weight value. For this pseudocode, we assign the weight of each type of action to be equal. In practice, the weight of each action would be adjusted to tweak the behavior of each individual unit. 
 		
-		Algorithm \ref{table:Decide Action} is the primary method used by a combatant to select an action. The method iterates over the action list received from \textsc{FindActions()}, and extracts the one with the highest value. Once the action with the highest value has been determined, we execute that action with \textsc{this.doAction()}. 
+		Algorithm 3 is the primary method used by a combatant to select an action. The method iterates over the action list received from \textsc{FindActions()}, and extracts the one with the highest value. Once the action with the highest value has been determined, we execute that action with \textsc{this.doAction()}. 
 		
 		Though this approach allows for us to ensure each combatant will frequently select a reasonably effective action each turn, the drawbacks of this approach may be in its performance. The driving loop of the \textsc{FindAction()} method is $\mathcal{O}$(n*k), where n is the number of combatants on the encounter, and k is the number of abilities available to the acting combatant. As encounters grow longer and individual combatants acquire more abilities, the number of instructions grows quickly. This may prove to be problematic for the scalability of the system. 
 		
