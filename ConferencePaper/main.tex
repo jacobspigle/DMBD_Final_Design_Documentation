@@ -140,6 +140,9 @@ is seen most clearly seen in the MiniMongo database cache that is accessible by
 the font-end front end and can asynchronously update the MongoDB REST API
 is implemented automatically which translates to automatic database updates.
 
+\section{Hosting}
+Using Google Domains, we procured www.critical-encounters.com, and by using this URL, users will be able to connect with our database to create their own encounters.
+We are utilizing Amazon Web Services (AWS) for hosting Critical Encounters on the Internet.  Specifically, we are using the Amazon Elastic Compute Cloud (Amazon EC2), which is a web service that provides resizable computing capacity. The Amazon EC2 instance also allows us to connect to the server via the AWS Command Line Interface (CLI). We have connected to this service by going through Secure Shell (SSH) in order to set up our configuration on the server. Currently the instance we have chosen is a General Purpose t2.micro instance, and it is a Linux Server running Ubuntu OS 16.04. Amazon essentially leases these servers out to its' clients, and because it is scalable, we are able to increase the amount of servers available to us at any one time, or decrease the instances if necessary. This is perfect for running optimally at high-traffic times of day, and we will be taking advantage of this feature in the ongoing development and continual support of Critical Encounters. To bring our Meteor project from our local development computers and onto the AWS instance, we utilized a tool called ``mup'', which makes hosting with Meteor to AWS incredibly simple. We can configure our MongoDB and Meteor project using local configuration files and settings, and through a few simple commands mup will build a local version of the project, grab a snapshot of the database (actually using the fixtures.js file to create it the first time), and host the website on the Linux Server's IP. It is important to note that during initial testing and after development changes to Critical Encounters (specifically on the MongoDB side), it is necessary to SSH into the AWS instance and bring in the new schema available to keep the website functional with the new code changes.
 \section{D20 Game System}
 Critical Encounters' logic and customization is built around the d20 Game System, an open-license set of rules and statistics that can be used for creating tabletop games or in our case, applications that assist users using this system. There are many popular games that use this system, the most famous being Dungeons \& Dragons, Pathfinder, and more recently: Starfinder. \par
 The d20 game system has variations from game to game whether it be changes
@@ -228,28 +231,23 @@ that our AI will be able to show its capabilities.
 	movement range. If one of the combatants or obstacles are clicked their details
 	and descriptions will appear in the sidebar. \\
 	\item \textit{Sidebar:} In the sidebar the user can view a combated or obstacles description and statistics.
-	If the user selected a combatant the user will also be able to browse the combatants
-	actions and on the combatants turned use those actions in combat. The
-	sidebar is also where the user will control his combatant honest turn in combat
-	whether it involves rolling initiative, performing actions, adjusting equipment and
-	stats, or ending the turn itself. The sidebar will also be used in the creation mode
-	of the battlefield. In the sidebar the user will be able to search, select, in drag
-	combatants and obstacles onto the battlefield. They can also view and edit any
-	of the stats using a form contained in the sidebar, under the Character Creation
-	Tools menu. Here will also be where the user can make adjustments to combatant
-	AI whether it’s setting its aggressiveness level or selecting one of our built in my
-	presets. In other words the sidebar is where the user will manage all the details
-	of the encounter in both creation and playing modes. \\
+	\begin{itemize}
+		 \item \textit{Game Mode:} After an encounter starts there will be a number above each combatant to represent the number that they rolled for their initiative (this decides the order in which actions take place during a combat encounter). There is also a green bar in place to represent each combatants' current health. During a combatants' turn, upon clicking their tile in the sidebar (or by clicking on their image in the battlefield map) the tile will expand to show all the the combatants available actions, and the `price' associated with that action. From there the user may select the action they would like to perform, and click the target in the battlefield map to perform the selected action. \\
+		 \item \textit{Creation Mode:} The sidebar will also be used in the creation mode
+		of the battlefield. In the sidebar the user will be able to search, select, in drag
+		combatants and obstacles onto the battlefield. They can also view and edit any
+		of the stats using a form contained in the sidebar, under the Character Creation
+		Tools menu. Here will also be where the user can make adjustments to combatant
+		AI whether it’s setting its aggressiveness level or selecting one of our built in my
+		presets. In other words the sidebar is where the user will manage all the details
+		of the encounter in both creation and game mode. \\
+	\end{itemize}
 	\item \textit{Battle Log:} The Battle Log is where all of the messages attached to combat an
 	encounter actions will be displayed. They will supply the user with an up-to-date
 	text rendition of the encounter. It includes messages like, ”The Goblin struck
 	the cleric with a sword dealing 5 points of slashing damage”, ”The wizard cast
 	Firebolt at the ogre but it missed”, and ”The Rogue hides behind the barrel the
-	dragon does not seem to notice him”. Early on in the Battle Log implementation
-	we plan for very simple straightforward statistical messages that will aid us during
-	testing and AI development. However we are planning to expand this feature to
-	aid in role-play. We feel that having more colorful destruction of the actions
-	occurring in the encounter will add another layer of fun for the user.
+	dragon does not seem to notice him”. Notice how the battle log will include whimsical and sometimes graphic descriptions of the events that occur ``in-game'' due to the actions the user chooses to take when playing through an encounter. We believe this will keep Critical Encounters' battle log from becoming a large block of text that is a nuisance to read through. The log should be something interesting to read through, and help simulate conversation that occurs during a combat in a live tabletop gaming session.
 \end{itemize}
 \subsection{Application Design}
 This section describes the Critical Encounters web applications' server, database, \& client side design.
@@ -349,11 +347,11 @@ on their turn, all possible actions are sorted into one of the following categor
 	friendly unit. Given two different possible support actions, the more effective
 	action is considered the one to have the highest expected value. The
 	expected value of a support action is calculated using the anticipated increase
-	in combat effectiveness of the unit targeted by the support action.
+	in combat effectiveness of the unit targeted by the support action. \\
 	\item \textit{Crowd Control:} A crowd control action is any action that provides a
 	debuff to an enemy target. The expected value of a crowd control action is
 	calculated using the anticipated decrease in combat effectiveness of the unit
-	targeted by the crowd control action.
+	targeted by the crowd control action. \\
 	\item \textit{Damage:} Damage based attack are attacks in which the primary goal is
 	to inflict damage directly, and not as a side-effect to one of the previously
 	mentioned categories of actions. If a spell or attack deals both damage and
@@ -422,7 +420,7 @@ been determined, we execute that action with \textit{this.doAction()}.
 	\label{fig: Algorithm 4}
 \end{figure}
 
-We developed an algorithm for better choosing an action for an A.I. combatant to take, detailed in Algorithm \ref{fig: Algorithm 4}. It shows a modified\textit{ DecideAction()} method that selects a random
+We developed an algorithm for better choosing an action for an A.I. combatant to take, detailed in Algorithm 4 (Figure \ref{fig: Algorithm 4}). It shows a modified\textit{ DecideAction()} method that selects a random
 action from the top 10 most viable candidates based on the combatant’s intelligence
 rating. This is currently not supported in our A.I. algorithm but we felt it was important to note that it is possible in the future of Critical Encounters.
 
@@ -442,7 +440,7 @@ regarding their encounter.
 	The EDT option will only be available on encounters that
 	the user has created, which is why we placed it in the encounter creator itself.
 	Once the user has entered the parameters to run the EDT, they
-	will be prompted to enter details necessary to configure the tests.
+	will be prompted to enter details necessary to configure the tests. \\
 	\item \textit{Diagnostics Measurement:} When activated, the EDT will generate a set of valid party
 	member compositions that meet both the restrictions of the encounter as well as
 	the additional restrictions provided by the user during configuration. A party
@@ -457,7 +455,7 @@ regarding their encounter.
 	composition is tested. Once all party compositions have been tested, the diagnostic
 	tool serves the results of the tests to the user. It is not possible for the user to provide any input once the EDT has started, and an animation will play as the testing occurs to provide the user proof that the EDT is progressing. During each test, statistics relating to the performance of each entity in the
 	encounter will be tracked in order to provide metrics by which the user can evaluate
-	their encounter. Statistics that will be tracked include the following: Number of kills/deaths for each non-PC entity, number of kills/deaths by each PC entity, overall win rate of PC vs. GM, most damage given/taken, turn count, and a heat map to visualize where the most action has taken place.
+	their encounter. Statistics that will be tracked include the following: Number of kills/deaths for each non-PC entity, number of kills/deaths by each PC entity, overall win rate of PC vs. GM, most damage given/taken, turn count, and a heat map to visualize where the most action has taken place. \\
 	\item \textit{Results and Presentation:} One all simulations are complete and the data has been collected, it must be
 	processed into a form that is quick and easy to understand. Each statistics that
 	was tracked on a per-encounter basis will be aggregated into an average value and
@@ -478,6 +476,7 @@ Encounters can be located by matching the keywords the user searches with the
 keywords associated with the encounter. These keywords can include the name
 of the encounter, the type of encounter, location, level range, party size, difficulty
 level, etc.
+
 \section{Conclusions}
 
 Tabletop games bring people together in a world where physical interaction is
